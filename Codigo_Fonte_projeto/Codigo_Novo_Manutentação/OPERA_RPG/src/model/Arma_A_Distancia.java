@@ -11,24 +11,24 @@ public class Arma_A_Distancia extends Arma{
     private int tiro_Mirado;
     private int cadencia;
     
-    public Arma_A_Distancia(String nome, String descricao, String tipo,
+    public Arma_A_Distancia(String nome, String descricao,
                             Dado dano, int danoAdicional,
                             int tiro_Rapido,int tiro_Mirado,int cadencia,
                             boolean usando, int preco) {
         
-        super(nome, descricao, tipo, dano, danoAdicional, usando, preco);
+        super(nome, descricao, dano, danoAdicional, usando, preco);
         this.tiro_Mirado = tiro_Mirado;
         this.tiro_Rapido = tiro_Rapido;
         this.cadencia = cadencia;       
     }
 
-    public Arma_A_Distancia(String nome, String descricao, String tipo,
+    public Arma_A_Distancia(String nome, String descricao,
                             Dado dano, int danoAdicional,
                             int tiro_Rapido,int tiro_Mirado,int cadencia,
                             boolean usando, int[] bonus_atributo,
                             int preco, String habilidade_Necessaria) {
         
-        super(nome, descricao, tipo, dano, danoAdicional, usando,
+        super(nome, descricao,dano, danoAdicional, usando,
               bonus_atributo, preco, habilidade_Necessaria);
         this.tiro_Mirado = tiro_Mirado;
         this.tiro_Rapido = tiro_Rapido;
@@ -62,8 +62,8 @@ public class Arma_A_Distancia extends Arma{
     @Override
     public String toString() {
         return super.toString()+
-               "Tiro Mirado = "+this.getTiro_Mirado()+
-               "Tiro Rapido = "+this.getTiro_Rapido()+
-               "Cadencia = "+this.getCadencia();
+               " Tiro Mirado = "+this.getTiro_Mirado()+
+               " Tiro Rapido = "+this.getTiro_Rapido()+
+               " Cadencia = "+this.getCadencia();
     }
 }

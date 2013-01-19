@@ -7,34 +7,25 @@ package model;
 
 public class Arma extends Item{
     
-    private String tipo;
     private Dado dano;
     private int danoAdicional;
     
-    public Arma(String nome, String descricao,String tipo,Dado dano,
+    public Arma(String nome, String descricao,Dado dano,
                 int danoAdicional, boolean usando, int preco) {
         super(nome, descricao, usando, preco);
-        this.tipo = tipo;
         this.dano = dano;
         this.danoAdicional = danoAdicional;
     }
 
-    public Arma(String nome, String descricao,String tipo,Dado dano,
+    public Arma(String nome, String descricao,Dado dano,
                 int danoAdicional, boolean usando, int[] bonus_atributo,
                 int preco, String habilidade_Necessaria) {
         super(nome, descricao, usando, bonus_atributo, preco, habilidade_Necessaria);
-        this.tipo = tipo;
         this.dano = dano;
         this.danoAdicional = danoAdicional;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
+   
 
     public void setDano(Dado dano) {
         this.dano = dano;
@@ -55,8 +46,7 @@ public class Arma extends Item{
     @Override
     public String toString() {
         return super.toString()+
-               "Tipo = "+this.getTipo()+
-               "Dano = "+this.toString()+
+               " Dano = "+this.getDano()+
                " + "+this.getDanoAdicional();
     }
 }

@@ -111,8 +111,8 @@ public class Controle_Diretorios {
         objeto_Saida.close();
         
     }
-    public Object carregarArquivo(String endereco,String nome_arquivo) throws FileNotFoundException,
-                                                    IOException, IOException,
+    public Object carregarArquivo(String endereco,String nome_arquivo)
+                                    throws FileNotFoundException,IOException,
                                                     ClassNotFoundException{
         Object o;
         diretorio = new File(endereco);

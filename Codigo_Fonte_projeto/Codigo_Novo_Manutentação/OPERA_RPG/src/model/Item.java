@@ -86,11 +86,11 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "Nome  = "+this.getNome()+
-               "Descricao = "+this.getDescricao()+
-               "Preco = "+this.getPreco()+
-               "Usando ="+this.getUsando()+
-               "Bonus de Atributo = "+this.getBonus_atributo()+
-               "Habilidade Necessaria ="+this.getHabilidade_Necessaria();
+        return " Nome  = "+this.getNome()+
+               " Descricao = "+this.getDescricao()+
+               " Preco = "+this.getPreco()+
+               " Usando ="+this.getUsando()+
+               " Bonus de Atributo = "+this.getBonus_atributo()+
+               " Habilidade Necessaria ="+this.getHabilidade_Necessaria();
     }    
 }

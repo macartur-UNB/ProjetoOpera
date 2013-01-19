@@ -24,7 +24,7 @@ public class Controle_Dado {
     }
     
     public void cadDado(int rolagem, int lados) throws FileNotFoundException, 
-    IOException, IOException,ClassNotFoundException{
+    IOException,ClassNotFoundException{
         
         endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Dados";
         Dado dado = new Dado(rolagem, lados);
@@ -33,7 +33,7 @@ public class Controle_Dado {
     }
     
     public Dado encontrarDado(String nome_dado) throws FileNotFoundException,
-    FileNotFoundException, IOException, IOException, ClassNotFoundException{
+            IOException,ClassNotFoundException{
     
         Dado dado = null;
         endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Dados";

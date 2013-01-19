@@ -29,7 +29,6 @@ public class Controle_Jogo {
     }
     
     public void criarJogo(String nome) throws DiretorioInvalidaException,
-                                       FileNotFoundException,
                                        FileNotFoundException, IOException {
        ValidarException.validarNome(nome);
        verificarDiretorioRaiz();
@@ -67,17 +66,19 @@ public class Controle_Jogo {
             diretorio.criarDiretorio(endereco_jogo+"\\Caracteristicas\\Psiquicas");
             diretorio.criarDiretorio(endereco_jogo+"\\Caracteristicas\\Belicas");            
             diretorio.criarDiretorio(endereco_jogo+"\\Itens");
-            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Geral");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Generico");
             diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas");
-            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\Branca");
-            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\De_Fogo");
-            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armadura");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\Branca");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\De_Fogo");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_A_Distancia");
+            diretorio.criarDiretorio(endereco_jogo+"\\Itens\\Armaduras");
             diretorio.criarDiretorio(endereco_jogo+"\\Dados");
         }        
     }
    
     public void abrirJogo(String nome) throws FileNotFoundException,
-    FileNotFoundException, IOException, IOException, ClassNotFoundException{
+    IOException, ClassNotFoundException{
         
         if(diretorio.diretorioExiste(ENDERECO+nome)){
             jogo_rodando = (Jogo) diretorio.carregarArquivo(ENDERECO+nome,nome);
@@ -89,6 +90,7 @@ public class Controle_Jogo {
         boolean status = false; 
         if(diretorio.diretorioExiste(endereco_jogo)  && jogo_rodando.getNome() != nome){
             //remover arquivos dos diretorios
+            
             diretorio.deletarArquivos(endereco_jogo+"\\Fichas\\Jogador");
             diretorio.deletarArquivos(endereco_jogo+"\\Fichas\\NPC");
             diretorio.deletarArquivos(endereco_jogo+"\\Fichas\\Monstro");
@@ -102,10 +104,11 @@ public class Controle_Jogo {
             diretorio.deletarArquivos(endereco_jogo+"\\Caracteristicas\\Belicas");
             diretorio.deletarArquivos(endereco_jogo+"\\Caracteristicas");
             diretorio.deletarArquivos(endereco_jogo+"\\Itens");
-            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Geral");
-            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armas\\Branca");
-            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armas\\De_Fogo");
-            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armadura");
+            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Generico");
+            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\Branca");
+            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\De_Fogo");
+            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armas\\Arma_A_Distancia");
+            diretorio.deletarArquivos(endereco_jogo+"\\Itens\\Armaduras");
             diretorio.deletarArquivos(endereco_jogo+"\\Dados");    
             diretorio.deletarArquivos(endereco_jogo);
             //remover diretorios
@@ -121,11 +124,13 @@ public class Controle_Jogo {
             diretorio.removeDiretorio(endereco_jogo+"\\Caracteristicas\\Psiquicas");
             diretorio.removeDiretorio(endereco_jogo+"\\Caracteristicas\\Belicas");  
             diretorio.removeDiretorio(endereco_jogo+"\\Caracteristicas");
-            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Geral");
-            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\Branca");
-            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\De_Fogo");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Generico");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\Branca");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo\\De_Fogo");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_Corpo_A_Corpo");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas\\Arma_A_Distancia");
             diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armas");
-            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armadura");
+            diretorio.removeDiretorio(endereco_jogo+"\\Itens\\Armaduras");
             diretorio.removeDiretorio(endereco_jogo+"\\Itens");
             diretorio.removeDiretorio(endereco_jogo+"\\Dados");
             status = diretorio.removeDiretorio(endereco_jogo);   
@@ -137,6 +142,7 @@ public class Controle_Jogo {
         return status;
     }
   
+    
     public String enderecoJogoRodando(){
         return ENDERECO+jogo_rodando.getNome();
     }
