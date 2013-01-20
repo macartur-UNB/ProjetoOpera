@@ -1,7 +1,6 @@
 
 import control.Controle_Caracteristica;
 import control.Controle_Dado;
-import control.Controle_Diretorios;
 import control.Controle_Item;
 import control.Controle_Jogo;
 import exception.DiretorioInvalidaException;
@@ -29,17 +28,7 @@ public class Teste {
     
     public static void main(String args[])
     {
-        try {
-            Controle_Jogo.getInstancia().abrirJogo("macartur");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
-        }
        
-        
     }
     
 }
