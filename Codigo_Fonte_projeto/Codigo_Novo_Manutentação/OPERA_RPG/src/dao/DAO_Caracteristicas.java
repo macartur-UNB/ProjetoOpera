@@ -59,7 +59,7 @@ public class DAO_Caracteristicas {
         diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
         funcoes.removerArquivo(diretorio, nome);  
     }
-    public void removerTodasCaracteristicas(String tipo){
+    public void removerTodasHabilidades(String tipo){
          diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
          if(funcoes.diretorioExiste(diretorio)){
             funcoes.deletarArquivos(diretorio);   

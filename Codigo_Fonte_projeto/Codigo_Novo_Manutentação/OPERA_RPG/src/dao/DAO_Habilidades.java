@@ -38,7 +38,7 @@ public class DAO_Habilidades {
         }
     }
     
-    public Habilidade carregarHabilidades(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
+    public Habilidade carregarHabilidade(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
         diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
         Habilidade h = null;
         if(funcoes.arquivoExiste(diretorio, nome)){
@@ -62,7 +62,7 @@ public class DAO_Habilidades {
             funcoes.deletarArquivos(diretorio);   
          }
     }
-    public String[] listarCaracteristicas(String tipo){
+    public String[] listarHabilidades(String tipo){
         diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\"; 
         String s[] = null;
         if(funcoes.diretorioExiste(diretorio)){
