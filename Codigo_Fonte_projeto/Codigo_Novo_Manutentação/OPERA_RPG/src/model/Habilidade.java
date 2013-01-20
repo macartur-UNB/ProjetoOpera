@@ -35,19 +35,10 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Custo da Habilidade.
-     * Entradas Validas: Numeros Naturais.
      * @param custo Custo da Habildiade.
-     * @exception HabilidadeInvalidaException se o Custo da Habilidade for 
-     * invalido.
      */
     public void setCusto(int custo) throws HabilidadeInvalidaException {
-        if(custo >= 0){
-            this.custo = custo;
-        }
-        else{
-            throw new HabilidadeInvalidaException("Custo Invalido, deve ser um"
-                    + " Numero Natural");
-        }
+        this.custo = custo;
     }
 
     /**
@@ -60,18 +51,10 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Nivel da Habilidade.
-     * Entradas Validas: Numeros Naturais.
      * @param nivel Nivel da Habilidade.
-     * @exception HabilidadeInvalidaException se a Habilidade for invalida.
      */
-    public void setNivel(int nivel) throws HabilidadeInvalidaException {
-        if(nivel >= 0){
-            this.nivel = nivel;
-        }
-        else{
-            throw new HabilidadeInvalidaException("Nivel Invalido, deve ser um"
-                    + " Numero Natural");
-        }
+    public void setNivel(int nivel){
+        this.nivel = nivel;
     }
 
     /**
@@ -84,20 +67,10 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Nome da Habilidade.
-     * Caracteres Validos: Numeros e Letras sem caracteres especiais.
      * @param nome Nome da Habilidade.
-     * @exception HabilidadeInvalidaException se o Nome da Habilidade for
-     * invalido.
      */
     public void setNome(String nome) throws HabilidadeInvalidaException {
-        if(Validacoes.getInstance().validarCaracteresNome(nome, true)){
-            this.nome = nome;
-        }
-        else{
-            throw new HabilidadeInvalidaException("Nome Invalido, deve ser um"
-                    + " deve conter apenas Numeros e"
-                    + " Letras sem caracteres especiais");
-        }
+        this.nome = nome;
     }
 
     /**
