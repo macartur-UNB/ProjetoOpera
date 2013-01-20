@@ -4,6 +4,7 @@
  */
 package control;
 
+import dao.DAO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Arma_A_Distancia;
@@ -16,7 +17,6 @@ import model.Item;
 public class Controle_Item {
     
     private static Controle_Item instancia;
-    private String endereco;
 
     public Controle_Item() {
     }
@@ -29,21 +29,16 @@ public class Controle_Item {
     }
     
     
-    
-   
-    /**
-     * colocar codigo de controle item aqui
-     */
    
     public void cadItemGenerico(String nome,String descricao,int preco) 
                                       throws FileNotFoundException, IOException{
         Item item = new Item(nome, descricao, preco);
-        gravarItem(item);       
+        DAO.getInstancia().c_Item.gravarItem(item);
     }
     public void cadItemGenerico(String nome,String descricao,Boolean usando,
                            int preco) throws IOException, FileNotFoundException{
         Item item = new Item(nome, descricao, usando,preco);
-        gravarItem(item);       
+        DAO.getInstancia().c_Item.gravarItem(item);      
     }
     public void cadItemGenerico(String nome,String descricao,Boolean usando,
                                 int bonus_atributo[],int preco,
@@ -51,7 +46,7 @@ public class Controle_Item {
                                       throws FileNotFoundException, IOException{
         Item item = new Item(nome, descricao, usando, bonus_atributo,
                              preco, habilidade_Necessaria);
-        gravarItem(item);       
+        DAO.getInstancia().c_Item.gravarItem(item);        
     }
     
     
@@ -62,7 +57,7 @@ public class Controle_Item {
         
         Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
                 dano, danoAdicional, golpe, aparo, esquiva, usando, preco);
-        gravarArma_Corpo_A_Corpo(arma);
+        DAO.getInstancia().c_Item.gravarArma_Corpo_A_Corpo(arma);
     }
     
     
@@ -76,7 +71,7 @@ public class Controle_Item {
                                    dano, danoAdicional, golpe, aparo, esquiva,
                                    usando, bonus_atributo, preco,
                                    habilidade_Necessaria);
-         gravarArma_Corpo_A_Corpo(arma);
+         DAO.getInstancia().c_Item.gravarArma_Corpo_A_Corpo(arma);
      }
     
     
@@ -88,7 +83,7 @@ public class Controle_Item {
                                                       danoAdicional, tiro_Rapido,
                                                       tiro_Mirado, cadencia, 
                                                       usando, preco);
-         gravarArma_A_Distancia(arma);
+         DAO.getInstancia().c_Item.gravarArma_A_Distancia(arma);
      } 
      
      public void cadArma_A_Distancia(String nome,String descricao,
@@ -101,7 +96,7 @@ public class Controle_Item {
                                                       tiro_Mirado, cadencia,
                                                       usando, bonus_atributo,
                                                       preco, habilidade_Necessaria);
-         gravarArma_A_Distancia(arma);
+         DAO.getInstancia().c_Item.gravarArma_A_Distancia(arma);
      }
      
      public void cadArmadura(String nome,String descricao,int absorcao_Arma_Branca,
@@ -111,7 +106,7 @@ public class Controle_Item {
          Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, preco);
-         gravarArmadura(armadura);
+         DAO.getInstancia().c_Item.gravarArmadura(armadura);
      }
      
    
@@ -125,81 +120,29 @@ public class Controle_Item {
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, bonus_atributo,
                                           preco, habilidade_Necessaria);
-         gravarArmadura(armadura);
+         DAO.getInstancia().c_Item.gravarArmadura(armadura);
      }
      
      
-     private void gravarItem(Item item) throws FileNotFoundException,
-                                              FileNotFoundException,IOException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Itens\\Generico";
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, item.getNome(), item);
-    }
     
-    private void gravarArma_Corpo_A_Corpo(Arma_Corpo_A_Corpo arma)
-                                      throws FileNotFoundException, IOException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armas\\Arma_Corpo_A_Corpo\\"+arma.getTipo()+"\\";
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, arma.getNome(), arma);
-    }
-    private void gravarArma_A_Distancia(Arma_A_Distancia arma)
-                                      throws FileNotFoundException, IOException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armas\\Arma_A_Distancia\\";
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, arma.getNome(), arma);
-    }
-    private void gravarArmadura(Armadura armadura) 
-                                      throws FileNotFoundException, IOException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armaduras";
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, armadura.getNome(), armadura);
-    }
     
-    public void removeItemGenerico(String nome){
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Itens\\Generico";
-            Controle_Diretorios.getInstancia().removeArquivo(endereco, nome);
-    }
-    public void removeArma_A_Distancia(String nome){
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armas\\Arma_A_Distancia\\";
-            Controle_Diretorios.getInstancia().removeArquivo(endereco, nome);
-    }
-    
-    public void removeArma_Corpo_A_Corpo(String nome,String tipo){
-         endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                    "\\Itens\\Armas\\Arma_Corpo_A_Corpo\\"+tipo+"\\";
-           Controle_Diretorios.getInstancia().removeArquivo(endereco, nome);
-    }
-    
-    public void removeArmadura(String nome){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armaduras";
-        Controle_Diretorios.getInstancia().removeArquivo(endereco, nome);
-    }
-    
-    public Item encontrarItemGenerico(String nome) 
-              throws FileNotFoundException, ClassNotFoundException, IOException{
-           endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Itens\\Generico";
-           return (Item) Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome);
+    public Item encontrarItemGenerico(String nome)
+            throws FileNotFoundException, ClassNotFoundException, IOException{
+          return DAO.getInstancia().c_Item.encontrarItemGenerico(nome);
     }
     
     public Arma_Corpo_A_Corpo encontrarArma_Corpo_A_Corpo(String nome,String tipo)
                throws FileNotFoundException,IOException, ClassNotFoundException{
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                    "\\Itens\\Armas\\Arma_Corpo_A_Corpo\\"+tipo+"\\";
-            return (Arma_Corpo_A_Corpo)Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome);
+            return DAO.getInstancia().c_Item.encontrarArma_Corpo_A_Corpo(nome, tipo);
     }
     
     public Arma_A_Distancia encontrarArma_A_Distancia(String nome) 
               throws FileNotFoundException, IOException, ClassNotFoundException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armas\\Arma_A_Distancia\\";
-        return (Arma_A_Distancia)Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome);
+        return DAO.getInstancia().c_Item.encontrarArma_A_Distancia(nome);
     }
     public Armadura  encontrarArmadura(String nome) throws FileNotFoundException,
                                             ClassNotFoundException, IOException{
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+
-                   "\\Itens\\Armaduras";
-        return (Armadura)Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome);
+        return DAO.getInstancia().c_Item.encontrarArmadura(nome);
     }
     
     

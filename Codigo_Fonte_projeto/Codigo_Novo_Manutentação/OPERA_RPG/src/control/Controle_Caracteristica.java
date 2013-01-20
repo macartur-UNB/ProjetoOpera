@@ -4,6 +4,7 @@
  */
 package control;
 
+import dao.DAO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Caracteristica;
@@ -13,7 +14,7 @@ import model.Caracteristica_Especifica;
 public class Controle_Caracteristica {
     
     private static Controle_Caracteristica instancia;
-    private String endereco;
+    
     public Controle_Caracteristica() {
     }
 
@@ -21,38 +22,34 @@ public class Controle_Caracteristica {
         if(instancia == null){
             instancia = new Controle_Caracteristica();
         }
-        
         return instancia;
     }
     
     
     public void cadCaracteristica(
     String nome,String descricao,String tipo,int custo)
-    throws FileNotFoundException,FileNotFoundException, IOException, IOException{
+    throws FileNotFoundException, IOException{
        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
-        gravarCaracteristica(c);        
-    
+        DAO.getInstancia().c_Caracteristicas.gravarCaracteristica(c);        
     }
     
     public void cadCaracteristica(
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException,FileNotFoundException, IOException, IOException{
+    throws FileNotFoundException, IOException{
     
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
-        gravarCaracteristica(c);
-    
+        DAO.getInstancia().c_Caracteristicas.gravarCaracteristica(c);  
     }
     
     public void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo) 
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
+    throws FileNotFoundException, IOException{
     
-        Caracteristica c = new Caracteristica_Especifica(
+        Caracteristica ce = new Caracteristica_Especifica(
         nome_Especifico,descricao_Especifica,nome, descricao, tipo,custo);
-        gravarCaracteristica(c);        
-    
+        DAO.getInstancia().c_Caracteristicas.gravarCaracteristica(ce);  
     }
     
     public void cadCaracteristicaEspecifica(
@@ -63,38 +60,24 @@ public class Controle_Caracteristica {
         Caracteristica_Especifica ce;
         ce = new Caracteristica_Especifica(nome_Especifico, descricao_Especifica,
                                            nome, descricao, tipo, modificador,custo);
-        gravarCaracteristica(ce);
+        DAO.getInstancia().c_Caracteristicas.gravarCaracteristica(ce);  
     }
     
     
-    private void gravarCaracteristica(Caracteristica caracteristica)
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
-        
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\"+caracteristica.getTipo()+"s\\";
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, caracteristica.getNome(), caracteristica);
-    
-    }
-    
-    public Caracteristica encontrarCaracteristica(String nome,String tipo)
-    throws FileNotFoundException, IOException, IOException, ClassNotFoundException{
-    
-        Caracteristica c;
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\"+tipo+"s\\";
-        c = (Caracteristica) Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome);
-        return c;
-    
+    public Caracteristica encontrarCaracteristica(String nome,String tipo) 
+            throws FileNotFoundException, ClassNotFoundException, IOException{
+            return DAO.getInstancia().c_Caracteristicas.carregarCaracteristica(nome, tipo);
     }   
     
     public Caracteristica_Especifica encontrarCaracteristica_Especifica(
     String nome,String tipo)
     throws FileNotFoundException, FileNotFoundException, IOException,
     IOException, ClassNotFoundException{
-        return (Caracteristica_Especifica) encontrarCaracteristica(nome, tipo);
+        return DAO.getInstancia().c_Caracteristicas.carregarCaracteristica_Especifica(nome, tipo);
     }
     
     public boolean CaracteristicaExiste(String nome,String tipo){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\"+tipo+"s\\";
-        return Controle_Diretorios.getInstancia().arquivoExiste(endereco, nome);       
+        return DAO.getInstancia().c_Caracteristicas.CaracteristicaExiste(nome, tipo);
     }
     
     public boolean CaracteristicaExiste(String nome){
@@ -106,51 +89,48 @@ public class Controle_Caracteristica {
         }
         return status;      
     }
-    
+       
     public void removeCaracteristicaFisica(String nome){
-        removeCaracteristica(nome, "Fisica");
+        DAO.getInstancia().c_Caracteristicas.removerCaracteristica(nome, "Fisica");
     }
+    
     public void removeCaracteristicaBelica(String nome){
-        removeCaracteristica(nome, "Belica");
+        DAO.getInstancia().c_Caracteristicas.removerCaracteristica(nome, "Belica");
     }
+    
     public void removeCaracteristicaPsiquica(String nome){
-        removeCaracteristica(nome, "Psiquica");
+        DAO.getInstancia().c_Caracteristicas.removerCaracteristica(nome, "Psiquica");
     }
+    
     public void removeTodasCaracteristicasFisicas(){
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Fisicas\\";
-            Controle_Diretorios.getInstancia().deletarArquivos(endereco);
+        DAO.getInstancia().c_Caracteristicas.removerTodasCaracteristicas("Fisica");
     }
+    
     public void removeTodasCaracteristicasPsiquicas(){
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Psiquicas\\";
-            Controle_Diretorios.getInstancia().deletarArquivos(endereco);
+        DAO.getInstancia().c_Caracteristicas.removerTodasCaracteristicas("Psiquica");
     }
+    
     public void removeTodasCaracteristicasBelicas(){
-            endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Belicas\\";
-            Controle_Diretorios.getInstancia().deletarArquivos(endereco);
+        DAO.getInstancia().c_Caracteristicas.removerTodasCaracteristicas("Belica");
     }   
+    
     public void removeTodasCaracteristicas(){
         removeTodasCaracteristicasFisicas();
         removeTodasCaracteristicasBelicas();
         removeTodasCaracteristicasPsiquicas();
     }
-    public void removeCaracteristica(String nome,String tipo){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\"+tipo+"s\\";
-        Controle_Diretorios.getInstancia().removeArquivo(endereco, nome);  
-    }
     
     public String[] listarCaracteristicasFisicas(){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Fisicas\\"; 
-        return Controle_Diretorios.getInstancia().listarArquivos(endereco);
+       return DAO.getInstancia().c_Caracteristicas.listarCaracteristicas("Fisica"); 
     }
     
     public String[] listarCaracteristicasPsiquicas(){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Psiquicas\\"; 
-        return Controle_Diretorios.getInstancia().listarArquivos(endereco);
+        return DAO.getInstancia().c_Caracteristicas.listarCaracteristicas("Psiquica");
     }
     
     public String[] listarCaracteristicasBelicas(){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Caracteristicas\\Belicas\\"; 
-        return Controle_Diretorios.getInstancia().listarArquivos(endereco);
+        return DAO.getInstancia().c_Caracteristicas.listarCaracteristicas("Belica");
     }    
+    
     
 }

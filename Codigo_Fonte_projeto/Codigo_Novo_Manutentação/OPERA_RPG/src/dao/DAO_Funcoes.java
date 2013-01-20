@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package dao;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,9 +13,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 
-public class Controle_Diretorios {
+public class DAO_Funcoes {
     
-    private static Controle_Diretorios instancia;
     private FileInputStream arquivo_Entrada;
     private FileOutputStream arquivo_Saida;
     private ObjectInputStream objeto_Entrada;
@@ -23,17 +22,19 @@ public class Controle_Diretorios {
     private File diretorio;
     private File arquivo;
     private boolean status;
+    private static DAO_Funcoes instancia;
 
-    public Controle_Diretorios() {
+    public DAO_Funcoes() {
     }
-    
-    
-    public static Controle_Diretorios getInstancia() {
+
+    public static DAO_Funcoes getInstancia() {
         if(instancia == null){
-            instancia = new Controle_Diretorios();
+            instancia = new DAO_Funcoes();
         }
         return instancia;
     }
+    
+    
     
     
     public boolean criarDiretorio(String endereco){
@@ -43,7 +44,7 @@ public class Controle_Diretorios {
         return status;
     }
     
-    public boolean removeDiretorio(String endereco){
+    public boolean removerDiretorio(String endereco){
         status = false;
         diretorio= new File(endereco);
         status = diretorio.delete();
@@ -77,7 +78,7 @@ public class Controle_Diretorios {
         String s[] = new String[f.length];
         for(int i = 0;i < f.length;i++){
               String s_completo = f[i].getName();
-              s[i] = s_completo.substring(0,s_completo.length()-6);
+              s[i] = s_completo.replace(".opera", "");
         }
         return s;
     }
@@ -88,7 +89,7 @@ public class Controle_Diretorios {
     }
     
     
-    public boolean removeArquivo(String endereco,String nome_arquivo){
+    public boolean removerArquivo(String endereco,String nome_arquivo){
         status = false;
         diretorio = new File(endereco);
         arquivo = new File(diretorio,nome_arquivo+".opera");
@@ -98,7 +99,7 @@ public class Controle_Diretorios {
         return status;
     }
     
-    public void gravarArquivo(String endereco,String nome_arquivo,Object objeto) throws FileNotFoundException
+    public void criarArquivo(String endereco,String nome_arquivo,Object objeto) throws FileNotFoundException
                                                                     , IOException{
         diretorio = new File(endereco);
         arquivo = new File(diretorio,nome_arquivo+".opera");
@@ -135,7 +136,7 @@ public class Controle_Diretorios {
             return false;
         }            
         for(int i=0; i < arquivos.length;i++){
-                removeArquivo(endereco,arquivos[i]);
+                removerArquivo(endereco,arquivos[i]);
         }
         return true;
     }

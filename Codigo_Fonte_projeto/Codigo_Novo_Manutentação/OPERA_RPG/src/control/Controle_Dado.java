@@ -4,6 +4,7 @@
  */
 package control;
 
+import dao.DAO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Dado;
@@ -12,7 +13,6 @@ import model.Dado;
 public class Controle_Dado {
     
     private static Controle_Dado instancia;
-    private String endereco;
     public Controle_Dado() {
     }
 
@@ -26,31 +26,30 @@ public class Controle_Dado {
     public void cadDado(int rolagem, int lados) throws FileNotFoundException, 
     IOException,ClassNotFoundException{
         
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Dados";
         Dado dado = new Dado(rolagem, lados);
-        Controle_Diretorios.getInstancia().gravarArquivo(endereco, rolagem+"d"+lados, dado);
-    
+        if(dado != null){
+            DAO.getInstancia().c_Dado.gravarDADO(dado);
+        }
     }
+    
     
     public Dado encontrarDado(String nome_dado) throws FileNotFoundException,
             IOException,ClassNotFoundException{
     
-        Dado dado = null;
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Dados";
-        if(Controle_Diretorios.getInstancia().arquivoExiste(endereco, nome_dado)){
-            dado = (Dado)Controle_Diretorios.getInstancia().carregarArquivo(endereco, nome_dado);
-        }
+        Dado dado = DAO.getInstancia().c_Dado.carregarDado(nome_dado);
+        
         return dado;
     
     }
-    
-    public void removerDado(String nome_dado){
-        endereco = Controle_Jogo.getInstancia().enderecoJogoRodando()+"\\Dados";
-        if(Controle_Diretorios.getInstancia().arquivoExiste(endereco, nome_dado)){
-            Controle_Diretorios.getInstancia().removeArquivo(endereco,nome_dado);
-        }
+    public String[] listarTodosDados(){
+       return DAO.getInstancia().c_Dado.listarTodosDados();
     }
-    
+    public void removerDado(String nome_dado){
+         DAO.getInstancia().c_Dado.removerDado(nome_dado);
+    }
+    public void removerTodosDados(){
+        DAO.getInstancia().c_Dado.removerTodosDados();
+    }
     
     
 }
