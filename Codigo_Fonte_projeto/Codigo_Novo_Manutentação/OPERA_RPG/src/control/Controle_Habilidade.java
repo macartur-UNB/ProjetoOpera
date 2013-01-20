@@ -28,11 +28,11 @@ public class Controle_Habilidade {
     
     
     public void cadHabilidade(
-    String nome,String descricao,String tipo,int custo)
+    int teste, int nivel, int custo, String nome,String tipo)
     throws FileNotFoundException, IOException{
        
-        Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
-        DAO.getInstancia().c_Caracteristicas.gravarCaracteristica(c);        
+        Habilidade h = new Habilidade(teste, nivel, custo, nome, tipo);
+        DAO.getInstancia().c_Habilidades.gravarHabilidade(h);        
     }    
         
     public Caracteristica encontrarHabilidade(String nome,String tipo) 
