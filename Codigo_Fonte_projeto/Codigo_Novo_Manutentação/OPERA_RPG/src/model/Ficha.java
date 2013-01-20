@@ -11,15 +11,49 @@ import java.io.Serializable;
 public class Ficha implements Serializable{
     
     //Constantes
+    /**
+     * Possui o Indice que representa o Fisico nos Atributos
+     */
     public final int FISICO = 0;
+    
+    /**
+     * Possui o Indice que representa a Destreza nos Atributos
+     */
     public final int DESTREZA = 1;
+    
+    /**
+     * Possui o Indice que representa a Inteligencia nos Atributos
+     */
     public final int INTELIGENCIA = 2;
+    
+    /**
+     * Possui o Indice que representa a Vontade nos Atributos
+     */
     public final int VONTADE = 3;
+    
+    /**
+     * Possui o Indice que representa a Percepcao nos Atributos
+     */
     public final int PERCEPCAO = 4;
+    
+    /**
+     * Possui o Indice que representa a Mana nos Atributos
+     */
     public final int MANA = 5;
+    
+    /**
+     * Possui o Indice que representa a Mente nos Atributos
+     */
     public final int MENTE = 6;
+    
+    /**
+     * Possui o Indice que representa a Sorte nos Atributos
+     */
     public final int SORTE = 7;
     
+    /**
+     * Cada Indice da String corresponde ao Indice nos Atributos
+     */
     public final String[] nomeAtributo = {"Fisico", "Destreza", "Inteligencia", 
         "Vontade", "Percepcao", "Mana", "Mente", "Sorte"};
     
