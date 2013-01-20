@@ -115,7 +115,7 @@ public class Ficha implements Serializable{
      * @exception FichaInvalidaException se o Nome do Personagem for Invalido.
      */
     public void setPersonagem(String personagem) throws FichaInvalidaException {
-        if(validarCaracteresNome(personagem, true)){
+        if(Validacoes.getInstance().validarCaracteresNome(personagem, true)){
             this.personagem = personagem;
         }
         else{
@@ -167,7 +167,7 @@ public class Ficha implements Serializable{
      * @exception FichaInvalidaException se o Nome do jogador for Invalido.
      */
     public void setJogador(String jogador) throws FichaInvalidaException {
-        if(validarCaracteresNome(jogador, false)){
+        if(Validacoes.getInstance().validarCaracteresNome(jogador, false)){
             this.jogador = jogador;
         }else{
             throw new FichaInvalidaException("Nome de Jogador Invalido,"
@@ -300,42 +300,6 @@ public class Ficha implements Serializable{
                "Tipo  = "+this.getTipo()+
                "Experiencia = "+this.getExperiencia()+
                "Dinheiro = "+this.getDinheiro();
-    }
-    
-    
-    /**
-     * Metodo responsavel por Validar os Caracteres de um Nome
-     * @param nome Nome a ser utilizado
-     * @param numeros Define se Numeros sao Validos ou nao; se TRUE, 
-     * Numeros sao validos; se FALSE - Numeros sao invalidos
-     * @return TRUE se o Nome for Valido, ou FALSE se o Nome for Invalido
-     */
-    private boolean validarCaracteresNome(String nome, boolean numeros){      
-        if(personagem.isEmpty()){
-            return false;
-        }
-        
-        boolean validado = false;
-        String charValidos = "qwertyuiopasdfghjklzxcvbnm";
-        int numCharValidos = 0;
-        
-        if(numeros){
-            charValidos += "1234567890";
-        }
-        
-        for(int i = 0; i < nome.length(); i++){
-            for(int j = 0; j < charValidos.length(); j++){
-                if(nome.toLowerCase().charAt(i) == charValidos.charAt(i)){
-                    numCharValidos++;
-                    continue;
-                }
-            }
-        }
-        
-        if(numCharValidos == nome.length()){
-            validado = true;
-        }
-        return validado;
     }
     
 }
