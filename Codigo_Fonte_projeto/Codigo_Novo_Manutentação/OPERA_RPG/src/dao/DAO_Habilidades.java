@@ -7,12 +7,11 @@ package dao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Caracteristica;
-import model.Caracteristica_Especifica;
+import model.Habilidade;
 
 /**
  *
- * @author Macartur
+ * @author Administrador
  */
 public class DAO_Habilidades {
     
@@ -31,42 +30,40 @@ public class DAO_Habilidades {
         return instancia;
     }
     
-    public void gravarCaracteristica(Caracteristica caracteristica)
+    public void gravarHabilidade(Habilidade habilidade)
     throws FileNotFoundException,FileNotFoundException, IOException,IOException{
-        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+caracteristica.getTipo()+"\\";
-        if( funcoes.diretorioExiste(diretorio) && !funcoes.arquivoExiste(diretorio, caracteristica.getNome())){
-            funcoes.criarArquivo(diretorio, caracteristica.getNome(), caracteristica);
+        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+habilidade.getTipo()+"\\";
+        if( funcoes.diretorioExiste(diretorio) && !funcoes.arquivoExiste(diretorio, habilidade.getNome())){
+            funcoes.criarArquivo(diretorio, habilidade.getNome(), habilidade);
         }
     }
     
-    public Caracteristica carregarCaracteristica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
-        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
-        Caracteristica c = null;
+    public Habilidade carregarHabilidades(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
+        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
+        Habilidade h = null;
         if(funcoes.arquivoExiste(diretorio, nome)){
-            c = (Caracteristica) funcoes.carregarArquivo(diretorio, nome);
+            h = (Habilidade) funcoes.carregarArquivo(diretorio, nome);
         }
-        return c;
-    }
-    public Caracteristica_Especifica carregarCaracteristica_Especifica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
-        return (Caracteristica_Especifica) carregarCaracteristica(nome, tipo);
-    }   
-    public boolean CaracteristicaExiste(String nome,String tipo){
-        diretorio= jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
+        return h;
+    }    
+    
+    public boolean HabilidadeExiste(String nome,String tipo){
+        diretorio= jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
         return funcoes.arquivoExiste(diretorio, nome);
     }
     
-     public void removerCaracteristica(String nome,String tipo){
-        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
+     public void removerHabilidade(String nome,String tipo){
+        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
         funcoes.removerArquivo(diretorio, nome);  
     }
-    public void removerTodasCaracteristicas(String tipo){
-         diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
+    public void removerTodasHabilidades(String tipo){
+         diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
          if(funcoes.diretorioExiste(diretorio)){
             funcoes.deletarArquivos(diretorio);   
          }
     }
     public String[] listarCaracteristicas(String tipo){
-        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\"; 
+        diretorio = jogo_rodando.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\"; 
         String s[] = null;
         if(funcoes.diretorioExiste(diretorio)){
             s = funcoes.listarArquivos(diretorio);
