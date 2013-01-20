@@ -17,7 +17,7 @@ import model.Caracteristica;
 import model.Dado;
 import model.Item;
 import model.Jogo;
-import opera.exception.JogoInvalidoException;
+import exception.JogoInvalidoException;
 
 /*
  * To change this template, choose Tools | Templates

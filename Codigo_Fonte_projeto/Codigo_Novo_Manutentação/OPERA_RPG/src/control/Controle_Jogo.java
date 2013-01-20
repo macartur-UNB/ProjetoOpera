@@ -5,11 +5,11 @@
 package control;
 
 import exception.DiretorioInvalidaException;
+import exception.JogoInvalidoException;
 import exception.ValidarException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Jogo;
-import opera.exception.JogoInvalidoException;
 
  
 public class Controle_Jogo {
