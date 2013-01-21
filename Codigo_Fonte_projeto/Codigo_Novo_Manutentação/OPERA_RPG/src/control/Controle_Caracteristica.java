@@ -96,8 +96,8 @@ public class Controle_Caracteristica {
         DAO.getInstancia().c_Habilidadess.removerCaracteristica(nome, "Fisica");
     }
     
-    public void removeCaracteristicaBelica(String nome){
-        DAO.getInstancia().c_Habilidadess.removerCaracteristica(nome, "Belica");
+    public void removeCaracteristicaRacial(String nome){
+        DAO.getInstancia().c_Habilidadess.removerCaracteristica(nome, "Racial");
     }
     
     public void removeCaracteristicaPsiquica(String nome){
@@ -112,13 +112,13 @@ public class Controle_Caracteristica {
         DAO.getInstancia().c_Habilidadess.removerTodasHabilidades("Psiquica");
     }
     
-    public void removeTodasCaracteristicasBelicas(){
-        DAO.getInstancia().c_Habilidadess.removerTodasHabilidades("Belica");
+    public void removeTodasCaracteristicasRaciais(){
+        DAO.getInstancia().c_Habilidadess.removerTodasHabilidades("Racial");
     }   
     
     public void removeTodasCaracteristicas(){
         removeTodasCaracteristicasFisicas();
-        removeTodasCaracteristicasBelicas();
+        removeTodasCaracteristicasRaciais();
         removeTodasCaracteristicasPsiquicas();
     }
     
@@ -131,7 +131,7 @@ public class Controle_Caracteristica {
     }
     
     public String[] listarCaracteristicasBelicas(){
-        return DAO.getInstancia().c_Habilidadess.listarCaracteristicas("Belica");
+        return DAO.getInstancia().c_Habilidadess.listarCaracteristicas("Racial");
     }    
     
     
