@@ -84,7 +84,9 @@ public class Controle_Caracteristica {
         boolean status = false;
         if(CaracteristicaExiste(nome, "Fisica")  ||
            CaracteristicaExiste(nome,"Psiquica") ||
-           CaracteristicaExiste(nome,"Belica")){
+           CaracteristicaExiste(nome,"Racial")){ /*Verificar ficha RPG caracteristica
+            *                                      Racial e não Bélica  
+            */
             status = true;
         }
         return status;      
