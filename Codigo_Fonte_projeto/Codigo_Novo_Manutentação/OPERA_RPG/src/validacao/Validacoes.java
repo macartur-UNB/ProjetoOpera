@@ -129,7 +129,4 @@ public class Validacoes {
     public static boolean validarDado(int rolagem,int lados){
         return true;
     }
-    
-    
-    
 }

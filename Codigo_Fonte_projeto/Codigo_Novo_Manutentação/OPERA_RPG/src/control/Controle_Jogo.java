@@ -8,7 +8,7 @@ import dao.DAO;
 import exception.DiretorioInvalidaException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import validacao.Validacoes;
+import validacao.*;
 import model.Jogo;
  
 public class Controle_Jogo {
