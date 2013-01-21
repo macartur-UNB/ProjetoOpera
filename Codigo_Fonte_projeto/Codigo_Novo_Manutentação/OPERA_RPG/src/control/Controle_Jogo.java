@@ -6,9 +6,9 @@ package control;
 
 import dao.DAO;
 import exception.DiretorioInvalidaException;
-import exception.ValidarException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import validacao.Validacoes;
 import model.Jogo;
  
 public class Controle_Jogo {
@@ -27,7 +27,7 @@ public class Controle_Jogo {
     
     public void criarJogo(String nome) throws DiretorioInvalidaException,
                                        FileNotFoundException, IOException {
-       ValidarException.validarNome(nome);
+       Validacoes.getInstance().validarCaracteresNome(nome, true);
        DAO.getInstancia().c_Jogo.verificarDiretorioRaiz();
        Jogo jogo = new Jogo(nome);
        DAO.getInstancia().c_Jogo.criarDiretoriosJogo(jogo);
