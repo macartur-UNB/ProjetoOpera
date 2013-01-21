@@ -90,20 +90,20 @@ public class DAO_JOGO {
         funcoes.criarDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas");
         funcoes.criarDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Fisica");
         funcoes.criarDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Psiquica");
-        funcoes.criarDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Belica");
+        funcoes.criarDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Racial");
     }
     
     public void removerArquivosCaracteristicas(Jogo jogo){
         funcoes.deletarArquivos(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Fisica");
         funcoes.deletarArquivos(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Psiquica");
-        funcoes.deletarArquivos(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Belica");
+        funcoes.deletarArquivos(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Racial");
         funcoes.deletarArquivos(ENDERECO+jogo.getNome()+"\\Caracteristicas");
     }
     
     public void removerDiretorioCaracteristicas(Jogo jogo){
         funcoes.removerDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Fisica");
         funcoes.removerDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Psiquica");
-        funcoes.removerDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Belica");  
+        funcoes.removerDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas\\Racial");  
         funcoes.removerDiretorio(ENDERECO+jogo.getNome()+"\\Caracteristicas");
     }
     
