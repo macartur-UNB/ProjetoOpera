@@ -76,7 +76,9 @@ public class Ficha implements Serializable{
      * @param atributos Vetor com os atributos do personagem.
      * @param dinheiro Quantidade de Dinheiro do personagem.
      */
-    public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro) throws FichaInvalidaException {
+    public Ficha(String personagem, String jogador, String tipo, String campanha,
+                 int experiencia, int[] atributos, int dinheiro) 
+                                                 throws FichaInvalidaException {
         this.setJogador(jogador);
         this.setPersonagem(personagem);
         this.setTipo(tipo);
@@ -95,7 +97,9 @@ public class Ficha implements Serializable{
      * @param atributos Vetor com os atributos do personagem.
      * @param dinheiro Quantidade de Dinheiro do personagem.
      */
-    public Ficha(String personagem, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro) throws FichaInvalidaException {
+    public Ficha(String personagem, String tipo, String campanha,
+                 int experiencia, int[] atributos, int dinheiro)
+                                                 throws FichaInvalidaException {
         this.setJogador("Movido Pelo Mestre");
         this.setPersonagem(personagem);
         this.setTipo(tipo);
