@@ -4,12 +4,14 @@
  */
 package control;
 
-import dao.DAO;
+
+import dao.DAO_Jogos;
 import exception.DiretorioInvalidaException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import validacao.*;
 import model.Jogo;
+import validacao.Validacoes;
+
  
 public class Controle_Jogo {
     private Jogo jogo_rodando = null;
@@ -22,28 +24,29 @@ public class Controle_Jogo {
         if(instancia == null){
             instancia = new Controle_Jogo();
         }        
+        
         return instancia;
     }
     
     public void criarJogo(String nome) throws DiretorioInvalidaException,
                                        FileNotFoundException, IOException {
        Validacoes.getInstance().validarCaracteresNome(nome, true);
-       DAO.getInstancia().c_Jogo.verificarDiretorioRaiz();
+       DAO_Jogos.verificarDiretorioRaiz();
        Jogo jogo = new Jogo(nome);
-       DAO.getInstancia().c_Jogo.criarDiretoriosJogo(jogo);
-       DAO.getInstancia().c_Jogo.gravarJogo(jogo);       
+       DAO_Jogos.criarDiretoriosJogo(jogo);
+       DAO_Jogos.gravarJogo(jogo);       
     }
  
    public void abrirJogo(String nome) throws FileNotFoundException,
     IOException, ClassNotFoundException{
-        if(DAO.getInstancia().c_Jogo.jogoExiste(nome)){
-            jogo_rodando = DAO.getInstancia().c_Jogo.carregarJogo(nome);
+        if(DAO_Jogos.jogoExiste(nome)){
+            jogo_rodando = DAO_Jogos.carregarJogo(nome);
         }       
     }     
     
     public void apagarJogo(String nome){
         Jogo n = new Jogo(nome);
-        DAO.getInstancia().c_Jogo.deletarJogo(n);
+        DAO_Jogos.deletarJogo(n);
     }
    
    

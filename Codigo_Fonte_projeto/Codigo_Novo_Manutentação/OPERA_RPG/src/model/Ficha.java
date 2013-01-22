@@ -67,7 +67,7 @@ public class Ficha implements Serializable{
     private int dinheiro;
  
     /**
-     * Metodo Construtor para criar Personagens
+     * Metodo Construtor para criar Personagem , NPC ou Monstro
      * @param personagem Nome do personagem.
      * @param jogador Nome do jogador, ou seja, nome da pessoa que possui o personagem.
      * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
@@ -88,28 +88,7 @@ public class Ficha implements Serializable{
         this.setDinheiro(dinheiro);
     }
     
-    /**
-     * Metodo Construtor para criar NPC e Monstros
-     * @param personagem Nome do personagem.
-     * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
-     * @param campanha Campanha do personagem.
-     * @param experiencia Quantidade de experiencia do personagem.
-     * @param atributos Vetor com os atributos do personagem.
-     * @param dinheiro Quantidade de Dinheiro do personagem.
-     */
-    public Ficha(String personagem, String tipo, String campanha,
-                 int experiencia, int[] atributos, int dinheiro)
-                                                 throws FichaInvalidaException {
-        this.setJogador("Movido Pelo Mestre");
-        this.setPersonagem(personagem);
-        this.setTipo(tipo);
-        this.setCampanha(campanha);
-        this.setAtributos(atributos);
-        this.setExperiencia(experiencia);
-        this.setDinheiro(dinheiro);
-    }
     
-
     /**
      * Altera o Nome do Personagem.
      * @param personagem Nome do personagem.
@@ -179,7 +158,7 @@ public class Ficha implements Serializable{
      * Altera os Atributos do Personagem.
      * @param atributos Vetor com os atributos do personagem.
      */
-    public void setAtributos(int[] atributos) throws FichaInvalidaException {
+    public void setAtributos(int[] atributos) {
         this.atributos = atributos;
     }
 
@@ -212,7 +191,7 @@ public class Ficha implements Serializable{
      * Altera a Quantidade de Experiencia do Personagem
      * @param experiencia Quantidade de Experiencia do Personagem.
      */
-    public void setExperiencia(int experiencia) throws FichaInvalidaException {
+    public void setExperiencia(int experiencia){
         this.experiencia = experiencia;
     }
 

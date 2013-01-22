@@ -15,13 +15,13 @@ import java.io.ObjectOutputStream;
 
 public class DAO_Funcoes {
     
-    private FileInputStream arquivo_Entrada;
-    private FileOutputStream arquivo_Saida;
-    private ObjectInputStream objeto_Entrada;
-    private ObjectOutputStream objeto_Saida;
-    private File diretorio;
-    private File arquivo;
-    private boolean status;
+    private static FileInputStream arquivo_Entrada;
+    private static FileOutputStream arquivo_Saida;
+    private static ObjectInputStream objeto_Entrada;
+    private static ObjectOutputStream objeto_Saida;
+    private static File diretorio;
+    private static File arquivo;
+    private static boolean status;
     private static DAO_Funcoes instancia;
 
     public DAO_Funcoes() {
@@ -35,32 +35,30 @@ public class DAO_Funcoes {
     }
     
     
-    
-    
-    public boolean criarDiretorio(String endereco){
+    public static boolean criarDiretorio(String endereco){
         status = false;
         diretorio = new File(endereco);
         status = diretorio.mkdir();
         return status;
     }
     
-    public boolean removerDiretorio(String endereco){
+    public static boolean removerDiretorio(String endereco){
         status = false;
         diretorio= new File(endereco);
         status = diretorio.delete();
         return status;
     }
 
-    public boolean diretorioExiste(String endereco){
+    public static boolean diretorioExiste(String endereco){
         diretorio = new File(endereco);
         return diretorio.exists();
     }
-    public String[] listarDiretorios(String endereco){
+    public static String[] listarDiretorios(String endereco){
         diretorio = new File(endereco);
         return diretorio.list();
     }
     
-    public boolean arquivoExiste(String endereco,String nome_arquivo){
+    public static boolean arquivoExiste(String endereco,String nome_arquivo){
         status = false;
         diretorio = new File(endereco);
         arquivo = new File(diretorio,nome_arquivo+".opera");
@@ -70,7 +68,7 @@ public class DAO_Funcoes {
         return status;
     }
     
-    public String[] listarArquivos(String endereco){
+    public static String[] listarArquivos(String endereco){
         File[] f = retornarArquivos(endereco);
         if(f == null){
             return null;
@@ -83,13 +81,13 @@ public class DAO_Funcoes {
         return s;
     }
     
-    private File[] retornarArquivos(String endereco){
+    private static File[] retornarArquivos(String endereco){
         diretorio = new File(endereco);
         return diretorio.listFiles();     
     }
     
     
-    public boolean removerArquivo(String endereco,String nome_arquivo){
+    public static boolean removerArquivo(String endereco,String nome_arquivo){
         status = false;
         diretorio = new File(endereco);
         arquivo = new File(diretorio,nome_arquivo+".opera");
@@ -99,7 +97,7 @@ public class DAO_Funcoes {
         return status;
     }
     
-    public void criarArquivo(String endereco,String nome_arquivo,Object objeto) throws FileNotFoundException
+    public static void criarArquivo(String endereco,String nome_arquivo,Object objeto) throws FileNotFoundException
                                                                     , IOException{
         diretorio = new File(endereco);
         arquivo = new File(diretorio,nome_arquivo+".opera");
@@ -112,7 +110,7 @@ public class DAO_Funcoes {
         objeto_Saida.close();
         
     }
-    public Object carregarArquivo(String endereco,String nome_arquivo)
+    public static Object carregarArquivo(String endereco,String nome_arquivo)
                                     throws FileNotFoundException,IOException,
                                                     ClassNotFoundException{
         Object o;
@@ -128,7 +126,7 @@ public class DAO_Funcoes {
         return o;
     }
     
-    public boolean deletarArquivos(String endereco){    
+    public static boolean deletarArquivos(String endereco){    
         diretorio = new File(endereco);
         String[] arquivos = listarArquivos(endereco);
    

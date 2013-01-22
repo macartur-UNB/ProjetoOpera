@@ -5,6 +5,7 @@
 package control;
 
 import dao.DAO;
+import dao.DAO_Habilidades;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Habilidade;
@@ -30,16 +31,16 @@ public class Controle_Habilidade {
     throws FileNotFoundException, IOException{
        
         Habilidade h = new Habilidade(teste, nivel, custo, nome, tipo);
-        DAO.getInstancia().c_Habilidades.gravarHabilidade(h);        
+        DAO_Habilidades.gravarHabilidade(h);        
     }    
         
     public Habilidade encontrarHabilidade(String nome,String tipo) 
             throws FileNotFoundException, ClassNotFoundException, IOException{
-            return DAO.getInstancia().c_Habilidades.carregarHabilidade(nome, tipo);
+            return DAO_Habilidades.carregarHabilidade(nome, tipo);
     }    
     
     public boolean HabilidadeExiste(String nome,String tipo){
-        return DAO.getInstancia().c_Habilidades.HabilidadeExiste(nome, tipo);
+        return DAO_Habilidades.HabilidadeExiste(nome, tipo);
     }
     
     public boolean HabilidadeExiste(String nome){
@@ -53,27 +54,27 @@ public class Controle_Habilidade {
     }
        
     public void removeHabilidadeFisica(String nome){
-        DAO.getInstancia().c_Habilidades.removerHabilidade(nome, "Fisica");
+        DAO_Habilidades.removerHabilidade(nome, "Fisica");
     }
     
     public void removeHabilidadeBelica(String nome){
-        DAO.getInstancia().c_Habilidades.removerHabilidade(nome, "Belica");
+        DAO_Habilidades.removerHabilidade(nome, "Belica");
     }
     
     public void removeHabilidadePsiquica(String nome){
-        DAO.getInstancia().c_Habilidades.removerHabilidade(nome, "Psiquica");
+        DAO_Habilidades.removerHabilidade(nome, "Psiquica");
     }
     
     public void removeTodasHabilidadesFisicas(){
-        DAO.getInstancia().c_Habilidades.removerTodasHabilidades("Fisica");
+        DAO_Habilidades.removerTodasHabilidades("Fisica");
     }
     
     public void removeTodasHabilidadesPsiquicas(){
-        DAO.getInstancia().c_Habilidades.removerTodasHabilidades("Psiquica");
+        DAO_Habilidades.removerTodasHabilidades("Psiquica");
     }
     
     public void removeTodasHabilidadesBelicas(){
-        DAO.getInstancia().c_Habilidades.removerTodasHabilidades("Belica");
+        DAO_Habilidades.removerTodasHabilidades("Belica");
     }   
     
     public void removeTodasHabilidades(){
@@ -83,15 +84,15 @@ public class Controle_Habilidade {
     }
     
     public String[] listarHabilidadeFisicas(){
-       return DAO.getInstancia().c_Habilidades.listarHabilidades("Fisica"); 
+       return DAO_Habilidades.listarHabilidades("Fisica"); 
     }
     
     public String[] listarHabilidadesPsiquicas(){
-        return DAO.getInstancia().c_Habilidades.listarHabilidades("Psiquica");
+        return DAO_Habilidades.listarHabilidades("Psiquica");
     }
     
     public String[] listarHabilidadesBelicas(){
-        return DAO.getInstancia().c_Habilidades.listarHabilidades("Belica");
+        return DAO_Habilidades.listarHabilidades("Belica");
     }    
     
     

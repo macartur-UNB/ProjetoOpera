@@ -4,7 +4,9 @@
  */
 package control;
 
-import dao.DAO;
+
+
+import dao.DAO_Itens;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Arma_A_Distancia;
@@ -26,19 +28,17 @@ public class Controle_Item {
             instancia = new Controle_Item();
         }
         return instancia;
-    }
-    
-    
+    }    
    
     public void cadItemGenerico(String nome,String descricao,int preco) 
                                       throws FileNotFoundException, IOException{
         Item item = new Item(nome, descricao, preco);
-        DAO.getInstancia().c_Item.gravarItem(item);
+        DAO_Itens.gravarItem(item);
     }
     public void cadItemGenerico(String nome,String descricao,Boolean usando,
                            int preco) throws IOException, FileNotFoundException{
         Item item = new Item(nome, descricao, usando,preco);
-        DAO.getInstancia().c_Item.gravarItem(item);      
+        DAO_Itens.gravarItem(item);      
     }
     public void cadItemGenerico(String nome,String descricao,Boolean usando,
                                 int bonus_atributo[],int preco,
@@ -46,7 +46,7 @@ public class Controle_Item {
                                       throws FileNotFoundException, IOException{
         Item item = new Item(nome, descricao, usando, bonus_atributo,
                              preco, habilidade_Necessaria);
-        DAO.getInstancia().c_Item.gravarItem(item);        
+        DAO_Itens.gravarItem(item);        
     }
     
     
@@ -57,7 +57,7 @@ public class Controle_Item {
         
         Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
                 dano, danoAdicional, golpe, aparo, esquiva, usando, preco);
-        DAO.getInstancia().c_Item.gravarArma_Corpo_A_Corpo(arma);
+        DAO_Itens.gravarArma_Corpo_A_Corpo(arma);
     }
     
     
@@ -71,7 +71,7 @@ public class Controle_Item {
                                    dano, danoAdicional, golpe, aparo, esquiva,
                                    usando, bonus_atributo, preco,
                                    habilidade_Necessaria);
-         DAO.getInstancia().c_Item.gravarArma_Corpo_A_Corpo(arma);
+         DAO_Itens.gravarArma_Corpo_A_Corpo(arma);
      }
     
     
@@ -83,7 +83,7 @@ public class Controle_Item {
                                                       danoAdicional, tiro_Rapido,
                                                       tiro_Mirado, cadencia, 
                                                       usando, preco);
-         DAO.getInstancia().c_Item.gravarArma_A_Distancia(arma);
+         DAO_Itens.gravarArma_A_Distancia(arma);
      } 
      
      public void cadArma_A_Distancia(String nome,String descricao,
@@ -96,7 +96,7 @@ public class Controle_Item {
                                                       tiro_Mirado, cadencia,
                                                       usando, bonus_atributo,
                                                       preco, habilidade_Necessaria);
-         DAO.getInstancia().c_Item.gravarArma_A_Distancia(arma);
+         DAO_Itens.gravarArma_A_Distancia(arma);
      }
      
      public void cadArmadura(String nome,String descricao,int absorcao_Arma_Branca,
@@ -106,7 +106,7 @@ public class Controle_Item {
          Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, preco);
-         DAO.getInstancia().c_Item.gravarArmadura(armadura);
+         DAO_Itens.gravarArmadura(armadura);
      }
      
    
@@ -120,7 +120,7 @@ public class Controle_Item {
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, bonus_atributo,
                                           preco, habilidade_Necessaria);
-         DAO.getInstancia().c_Item.gravarArmadura(armadura);
+         DAO_Itens.gravarArmadura(armadura);
      }
      
      
@@ -128,21 +128,21 @@ public class Controle_Item {
     
     public Item encontrarItemGenerico(String nome)
             throws FileNotFoundException, ClassNotFoundException, IOException{
-          return DAO.getInstancia().c_Item.encontrarItemGenerico(nome);
+          return DAO_Itens.encontrarItemGenerico(nome);
     }
     
     public Arma_Corpo_A_Corpo encontrarArma_Corpo_A_Corpo(String nome,String tipo)
                throws FileNotFoundException,IOException, ClassNotFoundException{
-            return DAO.getInstancia().c_Item.encontrarArma_Corpo_A_Corpo(nome, tipo);
+            return DAO_Itens.encontrarArma_Corpo_A_Corpo(nome, tipo);
     }
     
     public Arma_A_Distancia encontrarArma_A_Distancia(String nome) 
               throws FileNotFoundException, IOException, ClassNotFoundException{
-        return DAO.getInstancia().c_Item.encontrarArma_A_Distancia(nome);
+        return DAO_Itens.encontrarArma_A_Distancia(nome);
     }
     public Armadura  encontrarArmadura(String nome) throws FileNotFoundException,
                                             ClassNotFoundException, IOException{
-        return DAO.getInstancia().c_Item.encontrarArmadura(nome);
+        return DAO_Itens.encontrarArmadura(nome);
     }
     
     
