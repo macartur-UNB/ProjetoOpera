@@ -4,7 +4,7 @@
  */
 package control;
 
-import dao.DAO;
+
 import dao.DAO_Caracteristicas;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,7 +32,9 @@ public class Controle_Caracteristica {
     throws FileNotFoundException, IOException{
        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
-        DAO_Caracteristicas.gravarCaracteristica(c);        
+        if(c != null){
+            DAO_Caracteristicas.gravarCaracteristica(c);        
+        }
     }
     
     public void cadCaracteristica(
@@ -40,8 +42,9 @@ public class Controle_Caracteristica {
     throws FileNotFoundException, IOException{
     
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
-        DAO_Caracteristicas.gravarCaracteristica(c); 
-       
+        if(c != null){
+            DAO_Caracteristicas.gravarCaracteristica(c);        
+        }
     }
     
     public void cadCaracteristicaEspecifica(
@@ -51,7 +54,9 @@ public class Controle_Caracteristica {
     
         Caracteristica ce = new Caracteristica_Especifica(
         nome_Especifico,descricao_Especifica,nome, descricao, tipo,custo);
-        DAO_Caracteristicas.gravarCaracteristica(ce);  
+       if(ce != null){
+            DAO_Caracteristicas.gravarCaracteristica(ce);        
+        }
     }
     
     public void cadCaracteristicaEspecifica(
@@ -62,20 +67,27 @@ public class Controle_Caracteristica {
         Caracteristica_Especifica ce;
         ce = new Caracteristica_Especifica(nome_Especifico, descricao_Especifica,
                                            nome, descricao, tipo, modificador,custo);
-        DAO_Caracteristicas.gravarCaracteristica(ce);  
+       if(ce != null){
+            DAO_Caracteristicas.gravarCaracteristicaEspecifica(ce);        
+        }
     }
     
     
     public Caracteristica encontrarCaracteristica(String nome,String tipo) 
             throws FileNotFoundException, ClassNotFoundException, IOException{
-            return DAO_Caracteristicas.carregarCaracteristica(nome, tipo);
+        
+        return  DAO_Caracteristicas.CaracteristicaExiste(nome, tipo)?
+                DAO_Caracteristicas.carregarCaracteristica(nome, tipo):null;
     }   
     
     public Caracteristica_Especifica encontrarCaracteristica_Especifica(
     String nome,String tipo)
-    throws FileNotFoundException, FileNotFoundException, IOException,
-    IOException, ClassNotFoundException{
-        return DAO_Caracteristicas.carregarCaracteristica_Especifica(nome, tipo);
+               throws FileNotFoundException, FileNotFoundException, IOException,
+                                            IOException, ClassNotFoundException{
+        
+        return DAO_Caracteristicas.CaracteristicaExiste(nome, tipo)?
+               DAO_Caracteristicas.carregarCaracteristica_Especifica(nome, tipo)
+               :null;
     }
     
     public boolean CaracteristicaExiste(String nome,String tipo){
@@ -93,34 +105,34 @@ public class Controle_Caracteristica {
         return status;      
     }
        
-    public void removeCaracteristicaFisica(String nome){
+    public void removerCaracteristicaFisica(String nome){
         DAO_Caracteristicas.removerCaracteristica(nome, "Fisica");
     }
     
-    public void removeCaracteristicaRacial(String nome){
+    public void removerCaracteristicaRacial(String nome){
         DAO_Caracteristicas.removerCaracteristica(nome, "Racial");
     }
     
-    public void removeCaracteristicaPsiquica(String nome){
+    public void removerCaracteristicaPsiquica(String nome){
         DAO_Caracteristicas.removerCaracteristica(nome, "Psiquica");
     }
     
-    public void removeTodasCaracteristicasFisicas(){
+    public void removerTodasCaracteristicasFisicas(){
         DAO_Caracteristicas.removerTodasHabilidades("Fisica");
     }
     
-    public void removeTodasCaracteristicasPsiquicas(){
+    public void removerTodasCaracteristicasPsiquicas(){
         DAO_Caracteristicas.removerTodasHabilidades("Psiquica");
     }
     
-    public void removeTodasCaracteristicasRaciais(){
+    public void removerTodasCaracteristicasRaciais(){
         DAO_Caracteristicas.removerTodasHabilidades("Racial");
     }   
     
-    public void removeTodasCaracteristicas(){
-        removeTodasCaracteristicasFisicas();
-        removeTodasCaracteristicasRaciais();
-        removeTodasCaracteristicasPsiquicas();
+    public void removerTodasCaracteristicas(){
+        removerTodasCaracteristicasFisicas();
+        removerTodasCaracteristicasRaciais();
+        removerTodasCaracteristicasPsiquicas();
     }
     
     public String[] listarCaracteristicasFisicas(){

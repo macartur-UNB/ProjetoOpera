@@ -37,10 +37,7 @@ public class Controle_Dado {
     public Dado encontrarDado(String nome_dado) throws FileNotFoundException,
             IOException,ClassNotFoundException{
     
-        Dado dado = DAO_Dados.carregarDado(nome_dado);
-        
-        return dado;
-    
+            return DAO_Dados.carregarDado(nome_dado);
     }
     public String[] listarTodosDados(){
        return DAO_Dados.listarTodosDados();

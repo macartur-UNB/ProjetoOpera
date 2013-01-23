@@ -26,12 +26,19 @@ public class DAO_Caracteristicas {
             DAO_Funcoes.criarArquivo(diretorio, caracteristica.getNome(), caracteristica);
         }
     }
+    public static void gravarCaracteristicaEspecifica(Caracteristica_Especifica caracteristica)
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
+        diretorio = DAO_Jogos.endereco_JogoRodando()+"\\Caracteristicas\\"+caracteristica.getTipo()+"\\";
+        if( DAO_Funcoes.diretorioExiste(diretorio) && !DAO_Funcoes.arquivoExiste(diretorio, caracteristica.getNome())){
+            DAO_Funcoes.criarArquivo(diretorio, caracteristica.getNome_Especifico(), caracteristica);
+        }
+    }
     
     public static Caracteristica carregarCaracteristica(String nome,String tipo)
               throws FileNotFoundException, ClassNotFoundException, IOException{
         diretorio = DAO_Jogos.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
         Caracteristica c = null;
-        if(DAO_Funcoes.arquivoExiste(diretorio, nome)){
+        if(CaracteristicaExiste(nome,tipo)){
             c = (Caracteristica) DAO_Funcoes.carregarArquivo(diretorio, nome);
         }
         return c;
@@ -49,7 +56,9 @@ public class DAO_Caracteristicas {
     
      public static void removerCaracteristica(String nome,String tipo){
         diretorio = DAO_Jogos.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
-        DAO_Funcoes.removerArquivo(diretorio, nome);  
+        if(DAO_Funcoes.diretorioExiste(diretorio)){
+            DAO_Funcoes.removerArquivo(diretorio, nome);  
+        }
     }
     public static void removerTodasHabilidades(String tipo){
          diretorio = DAO_Jogos.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";

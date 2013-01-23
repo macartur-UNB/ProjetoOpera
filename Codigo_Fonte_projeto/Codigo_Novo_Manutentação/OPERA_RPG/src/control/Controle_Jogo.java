@@ -33,12 +33,14 @@ public class Controle_Jogo {
        Validacoes.getInstance().validarCaracteresNome(nome, true);
        DAO_Jogos.verificarDiretorioRaiz();
        Jogo jogo = new Jogo(nome);
-       DAO_Jogos.criarDiretoriosJogo(jogo);
-       DAO_Jogos.gravarJogo(jogo);       
+       if(jogo != null){
+           DAO_Jogos.criarDiretoriosJogo(jogo);
+           DAO_Jogos.gravarJogo(jogo);       
+       }
     }
  
    public void abrirJogo(String nome) throws FileNotFoundException,
-    IOException, ClassNotFoundException{
+                                            IOException, ClassNotFoundException{
         if(DAO_Jogos.jogoExiste(nome)){
             jogo_rodando = DAO_Jogos.carregarJogo(nome);
         }       
@@ -46,7 +48,9 @@ public class Controle_Jogo {
     
     public void apagarJogo(String nome){
         Jogo n = new Jogo(nome);
-        DAO_Jogos.deletarJogo(n);
+        if(n != null){
+            DAO_Jogos.deletarJogo(n);
+        }        
     }
    
    

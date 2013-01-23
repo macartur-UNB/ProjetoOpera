@@ -4,7 +4,7 @@
  */
 package control;
 
-import dao.DAO;
+
 import dao.DAO_Habilidades;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,8 +30,10 @@ public class Controle_Habilidade {
     int teste, int nivel, int custo, String nome,String tipo)
     throws FileNotFoundException, IOException{
        
-        Habilidade h = new Habilidade(teste, nivel, custo, nome, tipo);
-        DAO_Habilidades.gravarHabilidade(h);        
+        Habilidade habilidade = new Habilidade(teste, nivel, custo, nome, tipo);
+        if(habilidade!=null){
+            DAO_Habilidades.gravarHabilidade(habilidade);
+        }
     }    
         
     public Habilidade encontrarHabilidade(String nome,String tipo) 
@@ -53,34 +55,34 @@ public class Controle_Habilidade {
         return status;      
     }
        
-    public void removeHabilidadeFisica(String nome){
+    public void removerHabilidadeFisica(String nome){
         DAO_Habilidades.removerHabilidade(nome, "Fisica");
     }
     
-    public void removeHabilidadeBelica(String nome){
+    public void removerHabilidadeBelica(String nome){
         DAO_Habilidades.removerHabilidade(nome, "Belica");
     }
     
-    public void removeHabilidadePsiquica(String nome){
+    public void removerHabilidadePsiquica(String nome){
         DAO_Habilidades.removerHabilidade(nome, "Psiquica");
     }
     
-    public void removeTodasHabilidadesFisicas(){
+    public void removerTodasHabilidadesFisicas(){
         DAO_Habilidades.removerTodasHabilidades("Fisica");
     }
     
-    public void removeTodasHabilidadesPsiquicas(){
+    public void removerTodasHabilidadesPsiquicas(){
         DAO_Habilidades.removerTodasHabilidades("Psiquica");
     }
     
-    public void removeTodasHabilidadesBelicas(){
+    public void removerTodasHabilidadesBelicas(){
         DAO_Habilidades.removerTodasHabilidades("Belica");
     }   
     
-    public void removeTodasHabilidades(){
-        removeTodasHabilidadesFisicas();
-        removeTodasHabilidadesBelicas();
-        removeTodasHabilidadesPsiquicas();
+    public void removerTodasHabilidades(){
+        removerTodasHabilidadesFisicas();
+        removerTodasHabilidadesBelicas();
+        removerTodasHabilidadesPsiquicas();
     }
     
     public String[] listarHabilidadeFisicas(){
