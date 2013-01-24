@@ -14,11 +14,11 @@ import model.Caracteristica_Especifica;
  *
  * @author Macartur
  */
-public class Controle_Caracteristicas {
+public class Controle_Caracteristica {
      
     private static Controle_Caracteristica instancia;
     
-    public Controle_Caracteristicas() {
+    public Controle_Caracteristica() {
     }
 
     public static Controle_Caracteristica getInstancia() {

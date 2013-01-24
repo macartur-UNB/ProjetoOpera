@@ -15,14 +15,14 @@ import model.Habilidade;
  */
 public class Controle_Habilidade {
     
-    private static Control_Habilidade instancia;
+    private static Controle_Habilidade instancia;
     
     public Controle_Habilidade() {
     }
 
-    public static Control_Habilidade getInstancia() {
+    public static Controle_Habilidade getInstancia() {
         if(instancia == null){
-            instancia = new Control_Habilidade();
+            instancia = new Controle_Habilidade();
         }
         return instancia;
     }

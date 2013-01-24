@@ -15,13 +15,13 @@ import model.Dado;
  */
 public class Controle_Dado {
     
-    private static Control_Dado instancia;
+    private static Controle_Dado instancia;
     public Controle_Dado() {
     }
 
-    public static Control_Dado getInstancia() {
+    public static Controle_Dado getInstancia() {
         if(instancia == null){
-            instancia = new Control_Dado();
+            instancia = new Controle_Dado();
         }
         return instancia;
     }

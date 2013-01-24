@@ -19,14 +19,14 @@ import model.Item;
  */
 public class Controle_Item {
      
-    private static Control_Item instancia;
+    private static Controle_Item instancia;
 
     public Controle_Item() {
     }
 
-    public static Control_Item getInstancia() {
+    public static Controle_Item getInstancia() {
         if(instancia == null){
-            instancia = new Control_Item();
+            instancia = new Controle_Item();
         }
         return instancia;
     }    
