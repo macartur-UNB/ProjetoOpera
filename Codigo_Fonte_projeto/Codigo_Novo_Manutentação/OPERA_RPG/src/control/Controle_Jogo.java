@@ -12,7 +12,6 @@ import exception.JogoInvalidoException;
 import exception.Validacao;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Jogo;
 
 public class Controle_Jogo {
     

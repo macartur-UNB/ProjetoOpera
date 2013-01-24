@@ -138,6 +138,7 @@ public class DAO_Jogo {
     public static void deletarJogo(String nome) throws DeletarInvalidoException, DiretorioInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA + "\\" + nome);
         DAO_Funcoes.removerDiretorio(jogo.getEndereco());
+        JOGO_RODANDO = null;
     }
   
     public static void verificarDiretorioRaiz() throws DiretorioInvalidoException{
