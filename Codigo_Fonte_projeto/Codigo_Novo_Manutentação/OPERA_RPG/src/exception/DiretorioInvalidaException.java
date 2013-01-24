@@ -8,12 +8,12 @@ package exception;
  *
  * @author Luciano
  */
-public class DiretorioInvalidoException extends Exception{
+public class DiretorioInvalidaException extends Exception{
 
-    public DiretorioInvalidoException() {
+    public DiretorioInvalidaException() {
     }
 
-    public DiretorioInvalidoException(String message) {
+    public DiretorioInvalidaException(String message) {
         super(message);
     }
         

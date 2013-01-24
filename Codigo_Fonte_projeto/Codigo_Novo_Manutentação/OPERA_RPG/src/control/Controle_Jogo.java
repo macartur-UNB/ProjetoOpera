@@ -4,42 +4,52 @@
  */
 package control;
 
-import dao.DAO_Jogo;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JogoInvalidoException;
-import exception.Validacao;
+import dao.DAO_Jogos;
+import exception.DiretorioInvalidaException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import model.Jogo;
+import validacao.Validacoes;
 
+/**
+ *
+ * @author Macartur
+ */
 public class Controle_Jogo {
+    private Jogo jogo_rodando = null;
+    private static Controle_Jogo instancia ;
     
-    /**
-     * Criar um novo Jogo
-     * @param nome Nome do Jogo a ser criado
-     * @throws DiretorioInvalidoException
-     * @throws FileNotFoundException
-     * @throws IOException 
-     */
-    public static void criarJogo(String nome) throws DiretorioInvalidoException,
-                                       FileNotFoundException, IOException,
-                                       ArquivoInvalidoException,
-                                       ClassNotFoundException {
-       Validacao.validarCaracteresNome(nome, true);
-       DAO_Jogo.verificarDiretorioRaiz();
-       DAO_Jogo.criarJogo(nome);
-       DAO_Jogo.gravarJogo();       
+    public Controle_Jogo() {
+    }
+
+    public static Controle_Jogo getInstancia() {
+        if(instancia == null){
+            instancia = new Controle_Jogo();
+        }        
+        
+        return instancia;
+    }
+    
+    public void criarJogo(String nome) throws DiretorioInvalidaException,
+                                       FileNotFoundException, IOException {
+       Validacoes.getInstance().validarCaracteresNome(nome, true);
+       DAO_Jogos.verificarDiretorioRaiz();
+       Jogo jogo = new Jogo(nome);
+       DAO_Jogos.criarDiretoriosJogo(jogo);
+       DAO_Jogos.gravarJogo(jogo);       
     }
  
-   public static void abrirJogo(String nome) throws FileNotFoundException,
-    IOException, ClassNotFoundException, JogoInvalidoException{
-       DAO_Jogo.carregarJogo(nome);
+   public void abrirJogo(String nome) throws FileNotFoundException,
+    IOException, ClassNotFoundException{
+        if(DAO_Jogos.jogoExiste(nome)){
+            jogo_rodando = DAO_Jogos.carregarJogo(nome);
+        }       
     }     
     
-    public static void apagarJogo(String nome) throws DeletarInvalidoException, DiretorioInvalidoException{
-        DAO_Jogo.deletarJogo(nome);
+    public void apagarJogo(String nome){
+        Jogo n = new Jogo(nome);
+        DAO_Jogos.deletarJogo(n);
     }
    
-   
+ 
 }
