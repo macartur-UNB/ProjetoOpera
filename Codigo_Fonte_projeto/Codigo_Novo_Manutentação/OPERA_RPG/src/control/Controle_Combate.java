@@ -8,6 +8,7 @@ package control;
 public class Controle_Combate {
         
     private static Controle_Combate instancia;
+    private String endereco;
     public Controle_Combate() {
     }
 
