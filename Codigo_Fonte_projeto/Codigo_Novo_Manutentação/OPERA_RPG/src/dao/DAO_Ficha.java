@@ -11,7 +11,7 @@ import model.Ficha;
  *
  * @author Macartur
  */
-public class DAO_Fichas {
+public class DAO_Ficha {
     
     private static String diretorio;
     

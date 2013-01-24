@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 
-public class DAO_Funcoes {
+public class DAO_Funcao {
     
     private static FileInputStream arquivo_Entrada;
     private static FileOutputStream arquivo_Saida;
@@ -22,14 +22,14 @@ public class DAO_Funcoes {
     private static File diretorio;
     private static File arquivo;
     private static boolean status;
-    private static DAO_Funcoes instancia;
+    private static DAO_Funcao instancia;
 
-    public DAO_Funcoes() {
+    public DAO_Funcao() {
     }
 
-    public static DAO_Funcoes getInstancia() {
+    public static DAO_Funcao getInstancia() {
         if(instancia == null){
-            instancia = new DAO_Funcoes();
+            instancia = new DAO_Funcao();
         }
         return instancia;
     }
