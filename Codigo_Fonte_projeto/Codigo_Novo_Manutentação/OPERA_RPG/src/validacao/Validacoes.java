@@ -95,8 +95,8 @@ public class Validacoes {
     }
 
     
-    public static boolean validarCusto(int Custo){
-        return true;
+    public static boolean validarCusto(int custo){
+        return custo<0?false:true;
     }
     
     public static boolean validarDescricao(String descricao){
@@ -108,25 +108,40 @@ public class Validacoes {
     }
     
     public static boolean validarNivel(int nivel){
-        return true;
+        return nivel<0?false:true;
     }
     
     public static boolean validarTeste(int teste){
-        return true;
+        return teste<0?false:true;
     }
     
     public static boolean validarPreco(int preco){
-        return true;
+        return preco<0?false:true;
     }
     
     public static boolean validarRegiao_Do_Corpo(char regiao){
-        return true;
+        switch(regiao){
+            case'a':
+            case'b':
+            case'c':
+            case'd':
+            case'e':
+            case'f':
+            case'g':
+            case'h':
+                    return true;
+            default:
+                    break;
+        }
+        return false;
     }
     
     public static boolean validarPenalidade(int penalidade){
-        return true;
+        return penalidade<0?
+                false:true;
     }
     public static boolean validarDado(int rolagem,int lados){
-        return true;
+        return rolagem>=0 && lados>0 ?
+                true:false;
     }
 }
