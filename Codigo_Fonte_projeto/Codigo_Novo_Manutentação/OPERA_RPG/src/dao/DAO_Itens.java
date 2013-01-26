@@ -38,14 +38,14 @@ public class DAO_Itens {
             DAO_Funcoes.criarArquivo(diretorio, arma.getNome(), arma);
         }
     }
+    
    public static void gravarArma_A_Distancia(Arma_A_Distancia arma)
                                       throws FileNotFoundException, IOException{
         diretorio = DAO_Jogos.endereco_JogoRodando()+
                    "\\Itens\\Armas\\Arma_A_Distancia\\";
         if(DAO_Funcoes.diretorioExiste(diretorio) && !DAO_Funcoes.arquivoExiste(diretorio, arma.getNome())){
             DAO_Funcoes.criarArquivo(diretorio, arma.getNome(), arma);
-        }
-        
+        }        
     }
     public static void gravarArmadura(Armadura armadura) 
                                       throws FileNotFoundException, IOException{
