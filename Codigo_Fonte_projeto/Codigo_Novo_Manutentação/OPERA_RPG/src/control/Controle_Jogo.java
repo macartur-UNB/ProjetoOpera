@@ -4,7 +4,7 @@
  */
 package control;
 
-import dao.DAO_Jogos;
+import dao.DAO_Jogo;
 import exception.DiretorioInvalidaException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,22 +33,22 @@ public class Controle_Jogo {
     public void criarJogo(String nome) throws DiretorioInvalidaException,
                                        FileNotFoundException, IOException {
        Validacoes.getInstance().validarCaracteresNome(nome, true);
-       DAO_Jogos.verificarDiretorioRaiz();
+       DAO_Jogo.verificarDiretorioRaiz();
        Jogo jogo = new Jogo(nome);
-       DAO_Jogos.criarDiretoriosJogo(jogo);
-       DAO_Jogos.gravarJogo(jogo);       
+       DAO_Jogo.criarDiretoriosJogo(jogo);
+       DAO_Jogo.gravarJogo(jogo);       
     }
  
    public void abrirJogo(String nome) throws FileNotFoundException,
     IOException, ClassNotFoundException{
-        if(DAO_Jogos.jogoExiste(nome)){
-            jogo_rodando = DAO_Jogos.carregarJogo(nome);
+        if(DAO_Jogo.jogoExiste(nome)){
+            jogo_rodando = DAO_Jogo.carregarJogo(nome);
         }       
     }     
     
     public void apagarJogo(String nome){
         Jogo n = new Jogo(nome);
-        DAO_Jogos.deletarJogo(n);
+        DAO_Jogo.deletarJogo(n);
     }
    
  

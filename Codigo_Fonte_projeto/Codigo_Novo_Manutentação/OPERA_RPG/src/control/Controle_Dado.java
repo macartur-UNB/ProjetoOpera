@@ -4,7 +4,7 @@
  */
 package control;
 
-import dao.DAO_Dados;
+import dao.DAO_Dado;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Dado;
@@ -31,7 +31,7 @@ public class Controle_Dado {
         
         Dado dado = new Dado(rolagem, lados);
         if(dado != null){
-            DAO_Dados.gravarDADO(dado);
+            DAO_Dado.gravarDADO(dado);
         }
     }
     
@@ -39,18 +39,18 @@ public class Controle_Dado {
     public Dado encontrarDado(String nome_dado) throws FileNotFoundException,
             IOException,ClassNotFoundException{
     
-        Dado dado = DAO_Dados.carregarDado(nome_dado);
+        Dado dado = DAO_Dado.carregarDado(nome_dado);
         
         return dado;
     
     }
     public String[] listarTodosDados(){
-       return DAO_Dados.listarTodosDados();
+       return DAO_Dado.listarTodosDados();
     }
     public void removerDado(String nome_dado){
-         DAO_Dados.removerDado(nome_dado);
+         DAO_Dado.removerDado(nome_dado);
     }
     public void removerTodosDados(){
-        DAO_Dados.removerTodosDados();
+        DAO_Dado.removerTodosDados();
     }
 }
