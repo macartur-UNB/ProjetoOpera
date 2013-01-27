@@ -559,8 +559,14 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             }else{
                 if( (tipo.equals("npc")) || (tipo.equals("monstro")) ){
                     JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    PainelFuncoes.limparTodosOsCampos(this);
+                    PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                    grpTipoFicha.clearSelection();
                 }else{
                     JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    PainelFuncoes.limparTodosOsCampos(this);
+                    PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                    grpTipoFicha.clearSelection();
                 }
             }
         } catch(JTextFieldInvalidoException e){

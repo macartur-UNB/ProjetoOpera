@@ -6,7 +6,7 @@ package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
 import dao.DAO_Jogo;
-import java.io.File;
+import exception.JogoInvalidoException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import view.BarraDeFerramentas;

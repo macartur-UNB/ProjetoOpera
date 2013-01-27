@@ -227,6 +227,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fisica"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbFisicaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rdbPsiquica">
           <Properties>
@@ -235,6 +238,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Psiquica"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbPsiquicaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rdbRacial">
           <Properties>
@@ -243,6 +249,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Racial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbRacialActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkEspecifica">
           <Properties>

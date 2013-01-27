@@ -24,7 +24,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pnlCadastrarCaracteristica2" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlCadastrarHabilidade1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -32,14 +32,15 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlCadastrarHabilidade1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="pnlCadastrarCaracteristica2" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="view.PaineisDeCadastro.PnlCadastrarCaracteristica" name="pnlCadastrarCaracteristica2">
+    <Component class="view.PaineisDeCadastro.PnlCadastrarHabilidade" name="pnlCadastrarHabilidade1">
     </Component>
   </SubComponents>
 </Form>

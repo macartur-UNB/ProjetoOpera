@@ -156,12 +156,27 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
 
         grpTipoCaracteristica.add(rdbFisica);
         rdbFisica.setText("Fisica");
+        rdbFisica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbFisicaActionPerformed(evt);
+            }
+        });
 
         grpTipoCaracteristica.add(rdbPsiquica);
         rdbPsiquica.setText("Psiquica");
+        rdbPsiquica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbPsiquicaActionPerformed(evt);
+            }
+        });
 
         grpTipoCaracteristica.add(rdbRacial);
         rdbRacial.setText("Racial");
+        rdbRacial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbRacialActionPerformed(evt);
+            }
+        });
 
         chkEspecifica.setText("Especifica");
 
@@ -702,11 +717,57 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                     }
                     JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 }
+                
+                PainelFuncoes.limparTodosOsCampos(this);
+                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                grpTipoCaracteristica.clearSelection();
+
+                txtDestreza.setEnabled(false);
+                txtFisico.setEnabled(false);
+                txtInteligencia.setEnabled(false);
+                txtMana.setEnabled(false);
+                txtMente.setEnabled(false);
+                txtPercepcao.setEnabled(false);
+                txtSorte.setEnabled(false);
+                txtVontade.setEnabled(false);
             }
-        } catch( IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
+        } catch(IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbFisicaActionPerformed
+
+    private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbPsiquicaActionPerformed
+
+    private void rdbRacialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRacialActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbRacialActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
