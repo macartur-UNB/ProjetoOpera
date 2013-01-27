@@ -13,7 +13,7 @@ public class Jogo implements Serializable {
     private String endereco;
     
 
-    public Jogo(String nome, String endereco) {
+    public Jogo(String nome) {
         this.nome = nome;
         this.endereco = endereco;
     }    

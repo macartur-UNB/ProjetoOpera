@@ -28,33 +28,17 @@ public class Ficha implements Serializable{
      * @param atributos Vetor com os atributos do personagem.
      * @param dinheiro Quantidade de Dinheiro do personagem.
      */
-    public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int dinheiro, int[] atributos){
-        this.setJogador(jogador);
-        this.setPersonagem(personagem);
-        this.setTipo(tipo);
-        this.setCampanha(campanha);
-        this.setAtributos(atributos);
-        this.setExperiencia(experiencia);
-        this.setDinheiro(dinheiro);
-    }
     
-    /**
-     * Metodo Construtor para criar NPC e Monstros
-     * @param personagem Nome do personagem.
-     * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
-     * @param campanha Campanha do personagem.
-     * @param experiencia Quantidade de experiencia do personagem.
-     * @param atributos Vetor com os atributos do personagem.
-     * @param dinheiro Quantidade de Dinheiro do personagem.
-     */
-    public Ficha(String personagem, String tipo, String campanha, int experiencia, int dinheiro, int[] atributos){
-        this.setJogador("Movido Pelo Mestre");
-        this.setPersonagem(personagem);
-        this.setTipo(tipo);
-        this.setCampanha(campanha);
-        this.setAtributos(atributos);
-        this.setExperiencia(experiencia);
-        this.setDinheiro(dinheiro);
+    
+    
+    public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro){
+        this.jogador = jogador;
+        this.personagem = personagem;
+        this.tipo = tipo;
+        this.campanha = campanha;
+        this.atributos = atributos;
+        this.experiencia = experiencia;
+        this.dinheiro = dinheiro;
     }
     
 

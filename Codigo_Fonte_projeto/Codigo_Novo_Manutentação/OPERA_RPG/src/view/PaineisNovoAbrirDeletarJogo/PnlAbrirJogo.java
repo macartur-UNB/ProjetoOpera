@@ -139,7 +139,7 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
                 int index = TelaPrincipal.tabbedPane.indexOfTab("Abrir Jogo");
                 TelaPrincipal.tabbedPane.remove(index);
             }
-            } catch(ClassNotFoundException | IOException | JogoInvalidoException e){
+            } catch(ClassNotFoundException | IOException e){
                 JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
             }
         }else{
@@ -161,7 +161,7 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
 
     private void carregarJComboBox(){
         cmbJogo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
-        File diretorio = new File("C:\\Opera");
+        File diretorio = new File("C:\\Opera\\Jogos");
         boolean statusDiretorio = true;
         if(!diretorio.exists()){
             statusDiretorio = diretorio.mkdir();

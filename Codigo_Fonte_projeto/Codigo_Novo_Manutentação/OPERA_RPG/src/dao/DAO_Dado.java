@@ -4,11 +4,10 @@
  */
 package dao;
 
+
 import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Constantes;
 import model.Dado;
 /**
  *
@@ -16,44 +15,38 @@ import model.Dado;
  */
 public class DAO_Dado {
     
-    private static final String ENDERECO_DADO = Constantes.Endereco.DADO;
-    
-    public static void gravarDADO(Dado dado) throws FileNotFoundException, IOException, ArquivoInvalidoException{
-       String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;
-       if(DAO_Funcao.diretorioExiste(diretorio)){
-            DAO_Funcao.criarArquivoOpera(diretorio, dado.toString(), dado);
-       }
+   
+    private static String diretorio;
+  
+    public static void gravarDADO(Dado dado) throws FileNotFoundException, IOException{
+       diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Dados";
+       DAO_Funcao.criarArquivo(diretorio, dado.toString(), dado);
+       
     }
     
-    public static Dado carregarDado(String nome) throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;
-        Dado dado = null;
-        if(DAO_Funcao.diretorioExiste(diretorio)){
-            dado = (Dado)DAO_Funcao.carregarArquivoOpera(diretorio, nome);
-        }
+    public static Dado carregarDado(String nome) throws FileNotFoundException, IOException, ClassNotFoundException{
+        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Dados";
+        Dado dado;
+        dado = (Dado)DAO_Funcao.carregarArquivo(diretorio, nome);
+        
         return dado;
     }
     
-    public static void removerDado(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;
-        if(DAO_Funcao.diretorioExiste(diretorio)){
-            DAO_Funcao.removerArquivo(diretorio, nome);
-        }    
+    public static void removerDado(String nome) throws ArquivoInvalidoException{
+        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Dados";
+        DAO_Funcao.removerArquivo(diretorio, nome);   
     }
-    public static void removerTodosDados() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;
-        if(DAO_Funcao.diretorioExiste(diretorio)){
-            DAO_Funcao.deletarArquivos(diretorio);
-        }
+    public static void removerTodosDados() throws ArquivoInvalidoException{
+        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Dados";
+        DAO_Funcao.deletarArquivos(diretorio);
+        
     }
     
     public static String[] listarTodosDados(){
-        String s[]  = null;
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;
+        String s[];
+        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Dados";
+        s = DAO_Funcao.listarArquivos(diretorio);
         
-        if(DAO_Funcao.diretorioExiste(diretorio)){
-            s = DAO_Funcao.listarArquivosOpera(diretorio);
-        }
         return s;
     }
     

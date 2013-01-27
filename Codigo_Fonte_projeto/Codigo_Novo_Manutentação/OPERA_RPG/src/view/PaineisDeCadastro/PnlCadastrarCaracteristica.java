@@ -703,7 +703,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-        } catch(ArquivoInvalidoException | IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
+        } catch( IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed

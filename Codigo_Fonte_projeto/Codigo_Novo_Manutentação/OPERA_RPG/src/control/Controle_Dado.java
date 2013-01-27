@@ -6,17 +6,19 @@ package control;
 
 import dao.DAO_Dado;
 import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Dado;
 
-
+/**
+ *
+ * @author Macartur
+ */
 public class Controle_Dado {
-
     
+   
     public static void cadDado(int rolagem, int lados) throws FileNotFoundException, 
-    IOException,ClassNotFoundException, ArquivoInvalidoException{
+    IOException,ClassNotFoundException{
         
         Dado dado = new Dado(rolagem, lados);
         if(dado != null){
@@ -26,7 +28,7 @@ public class Controle_Dado {
     
     
     public static Dado encontrarDado(String nome_dado) throws FileNotFoundException,
-            IOException,ClassNotFoundException, ArquivoInvalidoException{
+            IOException,ClassNotFoundException{
     
         Dado dado = DAO_Dado.carregarDado(nome_dado);
         
@@ -36,12 +38,10 @@ public class Controle_Dado {
     public static String[] listarTodosDados(){
        return DAO_Dado.listarTodosDados();
     }
-    public static void removerDado(String nome_dado) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDado(String nome_dado) throws ArquivoInvalidoException{
          DAO_Dado.removerDado(nome_dado);
     }
-    public static void removerTodosDados() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerTodosDados() throws ArquivoInvalidoException{
         DAO_Dado.removerTodosDados();
     }
-    
-    
 }
