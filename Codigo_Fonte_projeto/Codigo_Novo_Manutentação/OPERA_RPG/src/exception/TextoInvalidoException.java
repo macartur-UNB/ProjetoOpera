@@ -8,22 +8,22 @@ package exception;
  *
  * @author Luciano
  */
-public class InteiroInvalidoException extends Exception {
+public class TextoInvalidoException extends Exception {
 
     /**
      * Creates a new instance of
-     * <code>InteiroInvalidoException</code> without detail message.
+     * <code>TextoInvalidoException</code> without detail message.
      */
-    public InteiroInvalidoException() {
+    public TextoInvalidoException() {
     }
 
     /**
      * Constructs an instance of
-     * <code>InteiroInvalidoException</code> with the specified detail message.
+     * <code>TextoInvalidoException</code> with the specified detail message.
      *
      * @param msg the detail message.
      */
-    public InteiroInvalidoException(String msg) {
+    public TextoInvalidoException(String msg) {
         super(msg);
     }
 }

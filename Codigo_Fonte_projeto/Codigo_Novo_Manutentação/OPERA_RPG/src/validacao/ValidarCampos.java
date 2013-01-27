@@ -4,11 +4,14 @@
  */
 package validacao;
 
-import exception.InteiroInvalidoException;
+import exception.JTextAreaInvalidoException;
+import exception.NumeroInteiroInvalidoException;
 import exception.JTextFieldInvalidoException;
 import exception.NomeInvalidoException;
+import exception.TextoInvalidoException;
 import java.awt.Color;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
@@ -16,7 +19,7 @@ import javax.swing.border.LineBorder;
  *
  * @author Luciano
  */
-public class ValidarJTextField {
+public class ValidarCampos {
     
     
     public static String validarCampoTexto(JTextField txtField, boolean numero, String maisCaracteresValidos) throws JTextFieldInvalidoException{
@@ -37,18 +40,36 @@ public class ValidarJTextField {
         return txtField.getText();
     }
     
-    public static int validarCampoInteiro(JTextField txtField){
+    public static int validarCampoInteiro(JTextField txtField) throws JTextFieldInvalidoException{
         try {
-            ValidarInteiro.validarInteiro(txtField.getText());
+            ValidarNumero.validarNumeroInteiro(txtField.getText());
             txtField.setBorder(new LineBorder(Color.GRAY));
             txtField.setToolTipText("A entrada: " + txtField.getText() + ". esta Valida.");
             return Integer.parseInt(txtField.getText());
-        } catch (InteiroInvalidoException e) {
+        } catch (NumeroInteiroInvalidoException e) {
             txtField.setBorder(new LineBorder(Color.RED));
             txtField.setToolTipText(e.getMessage());
+            throw new JTextFieldInvalidoException(e.getMessage());
         }
-        return 0;
     }
+    
+    
+    public static String validarCampoAreaDeTexto(JTextArea txtArea) throws JTextAreaInvalidoException{
+        return validarCampoAreaDeTexto(txtArea, null);
+    }
+    
+    public static String validarCampoAreaDeTexto(JTextArea txtArea, String maisCaracteresValidos) throws JTextAreaInvalidoException{
+        try{
+            ValidarNome.validarTexto(txtArea.getText(), maisCaracteresValidos);
+            txtArea.setBorder(new LineBorder(Color.GRAY));
+            txtArea.setToolTipText("O Texto esta Valido.");
+        } catch(TextoInvalidoException e){
+            txtArea.setBorder(new LineBorder(Color.RED));
+            txtArea.setToolTipText(e.getMessage());
+            throw new JTextAreaInvalidoException(e.getMessage());
+        }
+        return txtArea.getText();
+        }
     
     
     

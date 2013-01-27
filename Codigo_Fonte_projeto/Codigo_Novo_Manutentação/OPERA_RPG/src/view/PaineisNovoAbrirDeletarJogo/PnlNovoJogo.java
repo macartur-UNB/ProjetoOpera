@@ -11,7 +11,7 @@ import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import validacao.ValidarJTextField;
+import validacao.ValidarCampos;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PaineisDeCadastro.PainelFuncoes;
@@ -109,7 +109,7 @@ public class PnlNovoJogo extends javax.swing.JPanel {
     private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
         // TODO add your handling code here:
         try{
-            ValidarJTextField.validarCampoTexto(txtNome, true);
+            ValidarCampos.validarCampoTexto(txtNome, true);
         } catch(JTextFieldInvalidoException e){
             
         }
@@ -118,7 +118,7 @@ public class PnlNovoJogo extends javax.swing.JPanel {
     private void btnCriarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarJogoActionPerformed
         // TODO add your handling code here:
         try{
-            String nome = ValidarJTextField.validarCampoTexto(txtNome, true);
+            String nome = ValidarCampos.validarCampoTexto(txtNome, true);
             Controle_Jogo.criarJogo(nome);
             JOptionPane.showMessageDialog(null,"Jogo: " + nome +"\nCriado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
             PainelFuncoes.limparCamposJTextField(this);

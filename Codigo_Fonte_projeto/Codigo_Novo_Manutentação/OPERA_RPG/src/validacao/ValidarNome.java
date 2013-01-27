@@ -5,6 +5,7 @@
 package validacao;
 
 import exception.NomeInvalidoException;
+import exception.TextoInvalidoException;
 
 /**
  *
@@ -78,4 +79,48 @@ public class ValidarNome {
         return nome;
     }
     
+    
+    /**
+     * Validar Texto
+     * @param texto Texto a ser validado
+     * @param maisCaracteresValidos Mais caracteres para serem validos
+     * @return o Proprio Texto
+     * @throws TextoInvalidoException 
+     */
+    public static String validarTexto(String texto, String maisCaracteresValidos) throws TextoInvalidoException{
+        String caracteresValidos = "qwertyuiopasdfghjklzxcvbnm  ";
+        int numCaracteresValidos = 0;
+        boolean caractereValido;
+        String caracteresInvalidos = "";
+        boolean possuiLetra = false;
+        
+        caracteresValidos += "1234567890";
+        caracteresValidos += maisCaracteresValidos;
+        
+        for(int i = 0; i < texto.length(); i++){
+            caractereValido = false;
+            for(int j = 0; j < caracteresValidos.length(); j++){
+                if(texto.toLowerCase().charAt(i) == caracteresValidos.charAt(j)){
+                    numCaracteresValidos++;
+                    caractereValido = true;
+                    if(texto.charAt(i) != ' '){
+                        possuiLetra = true;
+                    }
+                }
+            }
+            if(!caractereValido){
+                caracteresInvalidos += texto.charAt(i) + ", ";
+            }
+        }
+        
+        if( (texto.isEmpty()) || (!possuiLetra) ){
+            if( (texto.isEmpty()) || (!possuiLetra) ){
+                throw new TextoInvalidoException("O Texto nao pode ser vazio");
+            }
+            throw new TextoInvalidoException("O Texto. Possui caracteres invalidos: {" + 
+                    caracteresInvalidos.substring(0, caracteresInvalidos.length()-2) + "}");
+        }
+        
+        return texto;
+    }
 }

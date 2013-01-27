@@ -9,7 +9,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import model.Constantes;
-import validacao.ValidarJTextField;
+import validacao.ValidarCampos;
 
 /**
  *
@@ -406,18 +406,16 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private void txtJogadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJogadorFocusLost
         // TODO add your handling code here:
         try{
-            ValidarJTextField.validarCampoTexto((JTextField)evt.getSource(), false);
-        } catch(JTextFieldInvalidoException e){
-            
+            ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), false);
+        } catch(JTextFieldInvalidoException e){ 
         }
     }//GEN-LAST:event_txtJogadorFocusLost
 
     private void txtPersonagemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPersonagemFocusLost
         // TODO add your handling code here:
         try{
-            ValidarJTextField.validarCampoTexto((JTextField)evt.getSource(), true);
+            ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){
-            
         }
     }//GEN-LAST:event_txtPersonagemFocusLost
 
@@ -428,7 +426,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private void txtCampanhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCampanhaFocusLost
         // TODO add your handling code here:
         try{
-            ValidarJTextField.validarCampoTexto((JTextField)evt.getSource(), true);
+            ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){
             
         }
@@ -440,56 +438,83 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
 
     private void txtExperienciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtExperienciaFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtExperienciaFocusLost
 
     private void txtFisicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFisicoFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtFisicoFocusLost
 
     private void txtDestrezaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDestrezaFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtDestrezaFocusLost
 
     private void txtInteligenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInteligenciaFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtInteligenciaFocusLost
 
     private void txtVontadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVontadeFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtVontadeFocusLost
 
     private void txtPercepcaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPercepcaoFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtPercepcaoFocusLost
 
     private void txtMenteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMenteFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtMenteFocusLost
 
     private void txtManaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManaFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtManaFocusLost
 
     private void txtSorteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSorteFocusLost
         // TODO add your handling code here:
-        ValidarJTextField.validarCampoInteiro((JTextField)evt.getSource());
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
     }//GEN-LAST:event_txtSorteFocusLost
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         try{
-            String jogador = ValidarJTextField.validarCampoTexto(txtJogador, false);
-            String personagem = ValidarJTextField.validarCampoTexto(txtPersonagem, true);
-            String campanha = ValidarJTextField.validarCampoTexto(txtCampanha, true);
-            int experiencia = ValidarJTextField.validarCampoInteiro(txtExperiencia);
+            String jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
+            String personagem = ValidarCampos.validarCampoTexto(txtPersonagem, true);
+            String campanha = ValidarCampos.validarCampoTexto(txtCampanha, true);
+            int experiencia = ValidarCampos.validarCampoInteiro(txtExperiencia);
 
             int atributo[] = new int[8];
             final int FISICO = Constantes.Atributos.FISICO;
@@ -500,24 +525,24 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             final int MENTE = Constantes.Atributos.MENTE;
             final int MANA = Constantes.Atributos.MANA;
             final int SORTE = Constantes.Atributos.SORTE;
-            atributo[FISICO] = ValidarJTextField.validarCampoInteiro(txtFisico);
-            atributo[DESTREZA] = ValidarJTextField.validarCampoInteiro(txtDestreza);
-            atributo[INTELIGENCIA] = ValidarJTextField.validarCampoInteiro(txtInteligencia);
-            atributo[VONTADE] = ValidarJTextField.validarCampoInteiro(txtVontade);
-            atributo[PERCEPCAO] = ValidarJTextField.validarCampoInteiro(txtPercepcao);
-            atributo[MENTE] = ValidarJTextField.validarCampoInteiro(txtMente);
-            atributo[MANA] = ValidarJTextField.validarCampoInteiro(txtMana);
-            atributo[SORTE] = ValidarJTextField.validarCampoInteiro(txtSorte);
+            atributo[FISICO] = ValidarCampos.validarCampoInteiro(txtFisico);
+            atributo[DESTREZA] = ValidarCampos.validarCampoInteiro(txtDestreza);
+            atributo[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(txtInteligencia);
+            atributo[VONTADE] = ValidarCampos.validarCampoInteiro(txtVontade);
+            atributo[PERCEPCAO] = ValidarCampos.validarCampoInteiro(txtPercepcao);
+            atributo[MENTE] = ValidarCampos.validarCampoInteiro(txtMente);
+            atributo[MANA] = ValidarCampos.validarCampoInteiro(txtMana);
+            atributo[SORTE] = ValidarCampos.validarCampoInteiro(txtSorte);
 
             String tipo = null;
             if(rdbJogador.isSelected()){
-                tipo = "jogador";
+                tipo = "Jogador";
             }
             if(rdbNpc.isSelected()){
-                tipo = "npc";
+                tipo = "NPC";
             }
             if(rdbMonstro.isSelected()){
-                tipo = "monstro";
+                tipo = "Monstro";
             }
 
             if(tipo == null){

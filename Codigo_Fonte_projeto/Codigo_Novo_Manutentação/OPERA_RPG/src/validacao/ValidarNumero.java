@@ -4,26 +4,26 @@
  */
 package validacao;
 
-import exception.InteiroInvalidoException;
+import exception.NumeroInteiroInvalidoException;
 
 /**
  *
  * @author Luciano
  */
-public class ValidarInteiro {
+public class ValidarNumero {
     
     
-    public static int validarInteiro(String numero) throws InteiroInvalidoException{
+    public static int validarNumeroInteiro(String numero) throws NumeroInteiroInvalidoException{
         int num;
 
         try{
             num = Integer.parseInt(numero);
             if(num <= 0){
-                throw new InteiroInvalidoException("{" + numero + "}. Esta invalido, deve ser"
+                throw new NumeroInteiroInvalidoException("{" + numero + "}. Esta invalido, deve ser"
                     + " um Numero Inteiro e Natural.");
             }
         } catch(NumberFormatException e){
-            throw new InteiroInvalidoException("{" + numero + "}. Esta invalido, deve ser"
+            throw new NumeroInteiroInvalidoException("{" + numero + "}. Esta invalido, deve ser"
                     + " um Numero Inteiro e Natural.");
         }
         return num;

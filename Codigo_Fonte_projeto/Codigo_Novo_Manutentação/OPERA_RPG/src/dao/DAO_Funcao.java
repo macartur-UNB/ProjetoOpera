@@ -177,11 +177,46 @@ public class DAO_Funcao {
         File diretorio = new File(endereco);
         File arquivo = new File(diretorio, nomeObjeto);
         
+        if(arquivo.exists()){
+            throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - ja existe");
+        }
+        
         if(!arquivo.createNewFile()){
             if(!arquivoOperaExiste(endereco, arquivo.getName())){
                 throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao pode ser criado");
             }
         }
+        
+        FileOutputStream fos = new FileOutputStream(arquivo);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+        oos.writeObject(objeto);
+
+        oos.close();
+        fos.close();
+    }
+    
+    
+    public static void sobrescreverArquivoOpera(String endereco, String nomeObjeto, 
+            Object objeto) throws FileNotFoundException, IOException, ArquivoInvalidoException{
+        
+        if(!(nomeObjeto.endsWith(".opera"))){
+            nomeObjeto += ".opera";
+        }
+        
+        File diretorio = new File(endereco);
+        File arquivo = new File(diretorio, nomeObjeto);
+        
+        if(!arquivo.exists()){
+            throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao existe");
+        }
+        
+        if(!arquivo.createNewFile()){
+            if(!arquivoOperaExiste(endereco, arquivo.getName())){
+                throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao pode ser criado");
+            }
+        }
+        
         FileOutputStream fos = new FileOutputStream(arquivo);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 

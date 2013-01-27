@@ -4,6 +4,19 @@
  */
 package view.PaineisDeCadastro;
 
+import control.Controle_Caracteristica;
+import exception.ArquivoInvalidoException;
+import exception.JTextAreaInvalidoException;
+import exception.JTextFieldInvalidoException;
+import java.awt.Color;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+import model.Constantes;
+import validacao.ValidarCampos;
+
 /**
  *
  * @author Luciano
@@ -15,6 +28,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
      */
     public PnlCadastrarCaracteristica() {
         initComponents();
+        PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
     }
 
     /**
@@ -26,17 +40,707 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grpTipoCaracteristica = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtCusto = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescricao = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        rdbFisica = new javax.swing.JRadioButton();
+        rdbPsiquica = new javax.swing.JRadioButton();
+        rdbBelica = new javax.swing.JRadioButton();
+        chkEspecifica = new javax.swing.JCheckBox();
+        jPanel4 = new javax.swing.JPanel();
+        chkFisico = new javax.swing.JCheckBox();
+        chkDestreza = new javax.swing.JCheckBox();
+        chkInteligencia = new javax.swing.JCheckBox();
+        chkVontade = new javax.swing.JCheckBox();
+        txtInteligencia = new javax.swing.JTextField();
+        txtFisico = new javax.swing.JTextField();
+        txtVontade = new javax.swing.JTextField();
+        txtDestreza = new javax.swing.JTextField();
+        chkPercepcao = new javax.swing.JCheckBox();
+        chkMente = new javax.swing.JCheckBox();
+        chkMana = new javax.swing.JCheckBox();
+        chkSorte = new javax.swing.JCheckBox();
+        txtPercepcao = new javax.swing.JTextField();
+        txtMente = new javax.swing.JTextField();
+        txtMana = new javax.swing.JTextField();
+        txtSorte = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Caracteristica"));
+
+        jLabel1.setText("Nome:");
+
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNomeFocusLost(evt);
+            }
+        });
+
+        jLabel2.setText("Custo:");
+
+        txtCusto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCustoFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Descricao"));
+
+        txtDescricao.setColumns(20);
+        txtDescricao.setRows(5);
+        txtDescricao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDescricaoFocusLost(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txtDescricao);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
+
+        grpTipoCaracteristica.add(rdbFisica);
+        rdbFisica.setText("Fisica");
+
+        grpTipoCaracteristica.add(rdbPsiquica);
+        rdbPsiquica.setText("Psiquica");
+
+        grpTipoCaracteristica.add(rdbBelica);
+        rdbBelica.setText("Belica");
+
+        chkEspecifica.setText("Especifica");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdbFisica)
+                    .addComponent(rdbBelica)
+                    .addComponent(rdbPsiquica)
+                    .addComponent(chkEspecifica))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdbFisica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdbPsiquica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdbBelica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(chkEspecifica)
+                .addContainerGap())
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificadores"));
+
+        chkFisico.setText("Fisico:");
+        chkFisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkFisicoActionPerformed(evt);
+            }
+        });
+
+        chkDestreza.setText("Destreza:");
+        chkDestreza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkDestrezaActionPerformed(evt);
+            }
+        });
+
+        chkInteligencia.setText("Inteligencia:");
+        chkInteligencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkInteligenciaActionPerformed(evt);
+            }
+        });
+
+        chkVontade.setText("Vontade:");
+        chkVontade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVontadeActionPerformed(evt);
+            }
+        });
+
+        txtInteligencia.setEnabled(false);
+        txtInteligencia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtInteligenciaFocusLost(evt);
+            }
+        });
+
+        txtFisico.setEnabled(false);
+        txtFisico.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtFisicoFocusLost(evt);
+            }
+        });
+
+        txtVontade.setEnabled(false);
+        txtVontade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtVontadeFocusLost(evt);
+            }
+        });
+
+        txtDestreza.setEnabled(false);
+        txtDestreza.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDestrezaFocusLost(evt);
+            }
+        });
+
+        chkPercepcao.setText("Percepcao:");
+        chkPercepcao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPercepcaoActionPerformed(evt);
+            }
+        });
+
+        chkMente.setText("Mente:");
+        chkMente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkMenteActionPerformed(evt);
+            }
+        });
+
+        chkMana.setText("Mana:");
+        chkMana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkManaActionPerformed(evt);
+            }
+        });
+
+        chkSorte.setText("Sorte:");
+        chkSorte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkSorteActionPerformed(evt);
+            }
+        });
+
+        txtPercepcao.setEnabled(false);
+        txtPercepcao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPercepcaoFocusLost(evt);
+            }
+        });
+
+        txtMente.setEnabled(false);
+        txtMente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMenteFocusLost(evt);
+            }
+        });
+
+        txtMana.setEnabled(false);
+        txtMana.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtManaFocusLost(evt);
+            }
+        });
+
+        txtSorte.setEnabled(false);
+        txtSorte.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSorteFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkDestreza)
+                            .addComponent(chkFisico))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDestreza, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                            .addComponent(txtFisico)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkInteligencia)
+                            .addComponent(chkVontade))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtVontade, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                            .addComponent(txtInteligencia))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkSorte)
+                    .addComponent(chkMente)
+                    .addComponent(chkPercepcao)
+                    .addComponent(chkMana))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtMana, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                    .addComponent(txtSorte)
+                    .addComponent(txtMente)
+                    .addComponent(txtPercepcao))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkFisico)
+                    .addComponent(txtFisico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkPercepcao)
+                    .addComponent(txtPercepcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkDestreza)
+                    .addComponent(txtDestreza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkMente)
+                    .addComponent(txtMente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkInteligencia)
+                    .addComponent(txtInteligencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkMana)
+                    .addComponent(txtMana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkVontade)
+                    .addComponent(txtVontade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkSorte)
+                    .addComponent(txtSorte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpar)
+                    .addComponent(btnCadastrar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chkFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkFisicoActionPerformed
+        // TODO add your handling code here:
+        txtFisico.setEnabled(chkFisico.isSelected());
+        if(!chkFisico.isSelected()){
+            txtFisico.setText(null);
+            txtFisico.setBorder(new LineBorder(Color.GRAY));
+            txtFisico.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkFisicoActionPerformed
+
+    private void chkDestrezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDestrezaActionPerformed
+        // TODO add your handling code here:
+        txtDestreza.setEnabled(chkDestreza.isSelected());
+        if(!chkDestreza.isSelected()){
+            txtDestreza.setText(null);
+            txtDestreza.setBorder(new LineBorder(Color.GRAY));
+            txtDestreza.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkDestrezaActionPerformed
+
+    private void chkInteligenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkInteligenciaActionPerformed
+        // TODO add your handling code here:
+        txtInteligencia.setEnabled(chkInteligencia.isSelected());
+        if(!chkInteligencia.isSelected()){
+            txtInteligencia.setText(null);
+            txtInteligencia.setBorder(new LineBorder(Color.GRAY));
+            txtInteligencia.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkInteligenciaActionPerformed
+
+    private void chkVontadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVontadeActionPerformed
+        // TODO add your handling code here:
+        txtVontade.setEnabled(chkVontade.isSelected());
+        if(!chkVontade.isSelected()){
+            txtVontade.setText(null);
+            txtVontade.setBorder(new LineBorder(Color.GRAY));
+            txtVontade.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkVontadeActionPerformed
+
+    private void chkPercepcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPercepcaoActionPerformed
+        // TODO add your handling code here:
+        txtPercepcao.setEnabled(chkPercepcao.isSelected());
+        if(!chkPercepcao.isSelected()){
+            txtPercepcao.setText(null);
+            txtPercepcao.setBorder(new LineBorder(Color.GRAY));
+            txtPercepcao.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkPercepcaoActionPerformed
+
+    private void chkMenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMenteActionPerformed
+        // TODO add your handling code here:
+        txtMente.setEnabled(chkMente.isSelected());
+        if(!chkMente.isSelected()){
+            txtMente.setText(null);
+            txtMente.setBorder(new LineBorder(Color.GRAY));
+            txtMente.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkMenteActionPerformed
+
+    private void chkManaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkManaActionPerformed
+        // TODO add your handling code here:
+        txtMana.setEnabled(chkMana.isSelected());
+        if(!chkMana.isSelected()){
+            txtMana.setText(null);
+            txtMana.setBorder(new LineBorder(Color.GRAY));
+            txtMana.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkManaActionPerformed
+
+    private void chkSorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSorteActionPerformed
+        // TODO add your handling code here:
+        txtSorte.setEnabled(chkSorte.isSelected());
+        if(!chkSorte.isSelected()){
+            txtSorte.setText(null);
+            txtSorte.setBorder(new LineBorder(Color.GRAY));
+            txtSorte.setToolTipText(null);
+        }
+    }//GEN-LAST:event_chkSorteActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtNomeFocusLost
+
+    private void txtDescricaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescricaoFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoAreaDeTexto((JTextArea)evt.getSource());
+        } catch(JTextAreaInvalidoException e){
+        }
+    }//GEN-LAST:event_txtDescricaoFocusLost
+
+    private void txtCustoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustoFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtCustoFocusLost
+
+    private void txtFisicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFisicoFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtFisicoFocusLost
+
+    private void txtDestrezaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDestrezaFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtDestrezaFocusLost
+
+    private void txtInteligenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInteligenciaFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtInteligenciaFocusLost
+
+    private void txtVontadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVontadeFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtVontadeFocusLost
+
+    private void txtPercepcaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPercepcaoFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtPercepcaoFocusLost
+
+    private void txtMenteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMenteFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtMenteFocusLost
+
+    private void txtManaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManaFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtManaFocusLost
+
+    private void txtSorteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSorteFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtSorteFocusLost
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        PainelFuncoes.limparTodosOsCampos(this);
+        PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+        grpTipoCaracteristica.clearSelection();
+    
+        txtDestreza.setEnabled(false);
+        txtFisico.setEnabled(false);
+        txtInteligencia.setEnabled(false);
+        txtMana.setEnabled(false);
+        txtMente.setEnabled(false);
+        txtPercepcao.setEnabled(false);
+        txtSorte.setEnabled(false);
+        txtVontade.setEnabled(false);
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        try{
+            String nome = ValidarCampos.validarCampoTexto(txtNome, true);
+            String descricao = ValidarCampos.validarCampoAreaDeTexto(txtDescricao);
+            int custo = ValidarCampos.validarCampoInteiro(txtCusto);
+            
+            final int FISICO = Constantes.Atributos.FISICO;
+            final int DESTREZA = Constantes.Atributos.DESTREZA;
+            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
+            final int VONTADE = Constantes.Atributos.VONTADE;
+            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
+            final int MENTE = Constantes.Atributos.MENTE;
+            final int MANA = Constantes.Atributos.MANA;
+            final int SORTE = Constantes.Atributos.SORTE;
+            
+            int modificador[] = new int[8];
+            boolean possui_modificador = false;
+            if(chkFisico.isSelected()){
+                modificador[FISICO] = ValidarCampos.validarCampoInteiro(txtFisico);
+                possui_modificador = true;
+            }
+            if(chkDestreza.isSelected()){
+                modificador[DESTREZA] = ValidarCampos.validarCampoInteiro(txtDestreza);
+                possui_modificador = true;
+            }
+            if(chkInteligencia.isSelected()){
+                modificador[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(txtInteligencia);
+                possui_modificador = true;
+            }
+            if(chkVontade.isSelected()){
+                modificador[VONTADE] = ValidarCampos.validarCampoInteiro(txtVontade);
+                possui_modificador = true;
+            }
+            if(chkPercepcao.isSelected()){
+                modificador[PERCEPCAO] = ValidarCampos.validarCampoInteiro(txtPercepcao);
+                possui_modificador = true;
+            }
+            if(chkMente.isSelected()){
+                modificador[MENTE] = ValidarCampos.validarCampoInteiro(txtMente);
+                possui_modificador = true;
+            }
+            if(chkMana.isSelected()){
+                modificador[MANA] = ValidarCampos.validarCampoInteiro(txtMana);
+                possui_modificador = true;
+            }
+            if(chkSorte.isSelected()){
+                modificador[SORTE] = ValidarCampos.validarCampoInteiro(txtSorte);
+                possui_modificador = true;
+            }
+            
+            String tipo = null;
+            if(rdbBelica.isSelected()){
+                tipo = "Belica";
+            }
+            if(rdbFisica.isSelected()){
+                tipo = "Fisica";
+            }
+            if(rdbPsiquica.isSelected()){
+                tipo = "Psiquica";
+            }
+            
+            if(tipo == null){
+                rdbBelica.setForeground(Color.RED);
+                rdbFisica.setForeground(Color.RED);
+                rdbPsiquica.setForeground(Color.RED);
+
+                rdbBelica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
+                rdbFisica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
+                rdbPsiquica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
+                
+                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+            }else{
+                if(chkEspecifica.isSelected()){
+                    if(possui_modificador){
+                        Controle_Caracteristica.cadCaracteristicaEspecifica(nome, descricao, nome, descricao, tipo, custo, modificador);
+                    }else{
+                        Controle_Caracteristica.cadCaracteristicaEspecifica(nome, descricao, nome, descricao, tipo, custo);
+                    }
+                    JOptionPane.showMessageDialog(null,"Cadastro Caracteristica Especifica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    if(possui_modificador){
+                        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo, modificador);
+                    }else{
+                        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+                    }
+                    JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } catch(ArquivoInvalidoException | IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JCheckBox chkDestreza;
+    private javax.swing.JCheckBox chkEspecifica;
+    private javax.swing.JCheckBox chkFisico;
+    private javax.swing.JCheckBox chkInteligencia;
+    private javax.swing.JCheckBox chkMana;
+    private javax.swing.JCheckBox chkMente;
+    private javax.swing.JCheckBox chkPercepcao;
+    private javax.swing.JCheckBox chkSorte;
+    private javax.swing.JCheckBox chkVontade;
+    private javax.swing.ButtonGroup grpTipoCaracteristica;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton rdbBelica;
+    private javax.swing.JRadioButton rdbFisica;
+    private javax.swing.JRadioButton rdbPsiquica;
+    private javax.swing.JTextField txtCusto;
+    private javax.swing.JTextArea txtDescricao;
+    private javax.swing.JTextField txtDestreza;
+    private javax.swing.JTextField txtFisico;
+    private javax.swing.JTextField txtInteligencia;
+    private javax.swing.JTextField txtMana;
+    private javax.swing.JTextField txtMente;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPercepcao;
+    private javax.swing.JTextField txtSorte;
+    private javax.swing.JTextField txtVontade;
     // End of variables declaration//GEN-END:variables
 }
