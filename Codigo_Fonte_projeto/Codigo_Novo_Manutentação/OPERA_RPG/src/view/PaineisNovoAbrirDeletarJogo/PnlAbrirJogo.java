@@ -5,11 +5,10 @@
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
-import exception.JogoInvalidoException;
+import dao.DAO_Jogo;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import model.Jogo;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PanelTab;
@@ -161,17 +160,11 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
 
     private void carregarJComboBox(){
         cmbJogo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
-        File diretorio = new File("C:\\Opera\\Jogos");
-        boolean statusDiretorio = true;
-        if(!diretorio.exists()){
-            statusDiretorio = diretorio.mkdir();
-        }
-        if(statusDiretorio){
-            String diretorios[] = diretorio.list();
-            if(diretorio.list().length > 0){
-                for(int i = 0; i < diretorios.length; i++){
-                    cmbJogo.addItem(diretorios[i]);
-                }
+        
+        String diretorios[] = DAO_Jogo.jogosExistentes();
+        if(diretorios.length > 0){
+            for(int i = 0; i < diretorios.length; i++){
+                cmbJogo.addItem(diretorios[i]);
             }
         }
     }
