@@ -11,7 +11,7 @@ import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import validacao.ValidarCampos;
+import view.validacao.ValidarCampos;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PaineisDeCadastro.PainelFuncoes;

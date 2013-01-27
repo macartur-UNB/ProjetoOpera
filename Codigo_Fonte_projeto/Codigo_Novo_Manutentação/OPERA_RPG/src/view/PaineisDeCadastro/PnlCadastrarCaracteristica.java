@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import model.Constantes;
-import validacao.ValidarCampos;
+import view.validacao.ValidarCampos;
 
 /**
  *

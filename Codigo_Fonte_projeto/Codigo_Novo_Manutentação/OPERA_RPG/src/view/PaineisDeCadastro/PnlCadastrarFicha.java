@@ -9,7 +9,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import model.Constantes;
-import validacao.ValidarCampos;
+import view.validacao.ValidarCampos;
 
 /**
  *
