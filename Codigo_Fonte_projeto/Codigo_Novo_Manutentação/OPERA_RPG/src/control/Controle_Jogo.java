@@ -40,9 +40,11 @@ public class Controle_Jogo {
         Jogo jogo = new Jogo(nome);
         DAO_Jogo.deletarJogo(jogo);
     }
+    
    public String[] listarJogos(){
        return DAO_Jogo.jogosExistentes();
    }
+   
    public boolean jogoExiste(String nome){
        return DAO_Jogo.jogoExiste(nome);
    }
