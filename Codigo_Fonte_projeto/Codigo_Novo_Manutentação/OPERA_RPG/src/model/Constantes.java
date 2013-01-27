@@ -46,7 +46,7 @@ public class Constantes {
         public static final String CARACTERISTICA = "\\Caracteristicas";
         public static final String CARACTERISTICA_FISICA = CARACTERISTICA + "\\Fisica";
         public static final String CARACTERISTICA_PSIQUICA = CARACTERISTICA + "\\Psiquica";
-        public static final String CARACTERISTICA_BELICA = CARACTERISTICA + "\\Belica";
+        public static final String CARACTERISTICA_RACIAL = CARACTERISTICA + "\\Racial";
                 
         public static final String ITEM = "\\Itens";
         public static final String ITEM_GENERICO = ITEM + "\\Generico";

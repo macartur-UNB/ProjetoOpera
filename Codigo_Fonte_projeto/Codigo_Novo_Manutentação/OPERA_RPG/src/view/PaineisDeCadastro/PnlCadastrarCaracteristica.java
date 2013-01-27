@@ -52,7 +52,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         rdbFisica = new javax.swing.JRadioButton();
         rdbPsiquica = new javax.swing.JRadioButton();
-        rdbBelica = new javax.swing.JRadioButton();
+        rdbRacial = new javax.swing.JRadioButton();
         chkEspecifica = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         chkFisico = new javax.swing.JCheckBox();
@@ -160,8 +160,8 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
         grpTipoCaracteristica.add(rdbPsiquica);
         rdbPsiquica.setText("Psiquica");
 
-        grpTipoCaracteristica.add(rdbBelica);
-        rdbBelica.setText("Belica");
+        grpTipoCaracteristica.add(rdbRacial);
+        rdbRacial.setText("Racial");
 
         chkEspecifica.setText("Especifica");
 
@@ -173,7 +173,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbFisica)
-                    .addComponent(rdbBelica)
+                    .addComponent(rdbRacial)
                     .addComponent(rdbPsiquica)
                     .addComponent(chkEspecifica))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -186,7 +186,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rdbPsiquica)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rdbBelica)
+                .addComponent(rdbRacial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chkEspecifica)
                 .addContainerGap())
@@ -666,8 +666,8 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             }
             
             String tipo = null;
-            if(rdbBelica.isSelected()){
-                tipo = "Belica";
+            if(rdbRacial.isSelected()){
+                tipo = "Racial";
             }
             if(rdbFisica.isSelected()){
                 tipo = "Fisica";
@@ -677,11 +677,11 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             }
             
             if(tipo == null){
-                rdbBelica.setForeground(Color.RED);
+                rdbRacial.setForeground(Color.RED);
                 rdbFisica.setForeground(Color.RED);
                 rdbPsiquica.setForeground(Color.RED);
 
-                rdbBelica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
+                rdbRacial.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 rdbFisica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 rdbPsiquica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 
@@ -728,9 +728,9 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton rdbBelica;
     private javax.swing.JRadioButton rdbFisica;
     private javax.swing.JRadioButton rdbPsiquica;
+    private javax.swing.JRadioButton rdbRacial;
     private javax.swing.JTextField txtCusto;
     private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtDestreza;

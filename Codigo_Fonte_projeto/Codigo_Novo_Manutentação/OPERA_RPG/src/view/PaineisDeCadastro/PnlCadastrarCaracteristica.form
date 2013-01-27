@@ -195,7 +195,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="rdbFisica" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="rdbBelica" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="rdbRacial" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="rdbPsiquica" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="chkEspecifica" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -211,7 +211,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="rdbPsiquica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="rdbBelica" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbRacial" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="chkEspecifica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -236,12 +236,12 @@
             <Property name="text" type="java.lang.String" value="Psiquica"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="rdbBelica">
+        <Component class="javax.swing.JRadioButton" name="rdbRacial">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="grpTipoCaracteristica"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Belica"/>
+            <Property name="text" type="java.lang.String" value="Racial"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkEspecifica">
