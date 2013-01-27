@@ -5,29 +5,18 @@
 package control;
 
 import dao.DAO_Dado;
+import exception.ArquivoInvalidoException;
+import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Dado;
 
-/**
- *
- * @author Macartur
- */
-public class Controle_Dado {
-    
-    private static Controle_Dado instancia;
-    public Controle_Dado() {
-    }
 
-    public static Controle_Dado getInstancia() {
-        if(instancia == null){
-            instancia = new Controle_Dado();
-        }
-        return instancia;
-    }
+public class Controle_Dado {
+
     
-    public void cadDado(int rolagem, int lados) throws FileNotFoundException, 
-    IOException,ClassNotFoundException{
+    public static void cadDado(int rolagem, int lados) throws FileNotFoundException, 
+    IOException,ClassNotFoundException, ArquivoInvalidoException{
         
         Dado dado = new Dado(rolagem, lados);
         if(dado != null){
@@ -36,21 +25,23 @@ public class Controle_Dado {
     }
     
     
-    public Dado encontrarDado(String nome_dado) throws FileNotFoundException,
-            IOException,ClassNotFoundException{
+    public static Dado encontrarDado(String nome_dado) throws FileNotFoundException,
+            IOException,ClassNotFoundException, ArquivoInvalidoException{
     
         Dado dado = DAO_Dado.carregarDado(nome_dado);
         
         return dado;
     
     }
-    public String[] listarTodosDados(){
+    public static String[] listarTodosDados(){
        return DAO_Dado.listarTodosDados();
     }
-    public void removerDado(String nome_dado){
+    public static void removerDado(String nome_dado) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
          DAO_Dado.removerDado(nome_dado);
     }
-    public void removerTodosDados(){
+    public static void removerTodosDados() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Dado.removerTodosDados();
     }
+    
+    
 }

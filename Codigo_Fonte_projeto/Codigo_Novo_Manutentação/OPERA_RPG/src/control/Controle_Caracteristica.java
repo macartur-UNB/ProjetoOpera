@@ -5,61 +5,47 @@
 package control;
 
 import dao.DAO_Caracteristica;
+import exception.ArquivoInvalidoException;
+import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Caracteristica;
 import model.Caracteristica_Especifica;
 
-/**
- *
- * @author Macartur
- */
-public class Controle_Caracteristica {
-     
-    private static Controle_Caracteristica instancia;
-    
-    public Controle_Caracteristica() {
-    }
 
-    public static Controle_Caracteristica getInstancia() {
-        if(instancia == null){
-            instancia = new Controle_Caracteristica();
-        }
-        return instancia;
-    }
+public class Controle_Caracteristica {
+
     
-    
-    public void cadCaracteristica(
+    public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo)
-    throws FileNotFoundException, IOException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException{
        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
         DAO_Caracteristica.gravarCaracteristica(c);        
     }
     
-    public void cadCaracteristica(
+    public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException, IOException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException{
     
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
-        DAO_Caracteristica.gravarCaracteristica(c); 
-       
+        DAO_Caracteristica.gravarCaracteristica(c);  
     }
     
-    public void cadCaracteristicaEspecifica(
+    public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo) 
-    throws FileNotFoundException, IOException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException{
     
         Caracteristica ce = new Caracteristica_Especifica(
         nome_Especifico,descricao_Especifica,nome, descricao, tipo,custo);
         DAO_Caracteristica.gravarCaracteristica(ce);  
     }
     
-    public void cadCaracteristicaEspecifica(
+    public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
         
         Caracteristica_Especifica ce;
         ce = new Caracteristica_Especifica(nome_Especifico, descricao_Especifica,
@@ -68,73 +54,74 @@ public class Controle_Caracteristica {
     }
     
     
-    public Caracteristica encontrarCaracteristica(String nome,String tipo) 
-            throws FileNotFoundException, ClassNotFoundException, IOException{
+    public static Caracteristica encontrarCaracteristica(String nome,String tipo) 
+            throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
             return DAO_Caracteristica.carregarCaracteristica(nome, tipo);
     }   
     
-    public Caracteristica_Especifica encontrarCaracteristica_Especifica(
+    public static Caracteristica_Especifica encontrarCaracteristica_Especifica(
     String nome,String tipo)
     throws FileNotFoundException, FileNotFoundException, IOException,
-    IOException, ClassNotFoundException{
+    IOException, ClassNotFoundException,
+    ArquivoInvalidoException{
         return DAO_Caracteristica.carregarCaracteristica_Especifica(nome, tipo);
     }
     
-    public boolean CaracteristicaExiste(String nome,String tipo){
+    public static boolean CaracteristicaExiste(String nome,String tipo){
         return DAO_Caracteristica.CaracteristicaExiste(nome, tipo);
     }
     
-    public boolean CaracteristicaExiste(String nome){
+    public static boolean CaracteristicaExiste(String nome){
         boolean status = false;
         if(CaracteristicaExiste(nome, "Fisica")  ||
            CaracteristicaExiste(nome,"Psiquica") ||
-           CaracteristicaExiste(nome,"Racial")){
-            
+           CaracteristicaExiste(nome,"Belica")){
             status = true;
         }
         return status;      
     }
        
-    public void removeCaracteristicaFisica(String nome){
+    public static void removeCaracteristicaFisica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Caracteristica.removerCaracteristica(nome, "Fisica");
     }
     
-    public void removeCaracteristicaRacial(String nome){
-        DAO_Caracteristica.removerCaracteristica(nome, "Racial");
+    public static void removeCaracteristicaBelica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerCaracteristica(nome, "Belica");
     }
     
-    public void removeCaracteristicaPsiquica(String nome){
+    public static void removeCaracteristicaPsiquica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Caracteristica.removerCaracteristica(nome, "Psiquica");
     }
     
-    public void removeTodasCaracteristicasFisicas(){
-        DAO_Caracteristica.removerTodasHabilidades("Fisica");
+    public static void removeTodasCaracteristicasFisicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
     }
     
-    public void removeTodasCaracteristicasPsiquicas(){
-        DAO_Caracteristica.removerTodasHabilidades("Psiquica");
+    public static void removeTodasCaracteristicasPsiquicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
     }
     
-    public void removeTodasCaracteristicasRaciais(){
-        DAO_Caracteristica.removerTodasHabilidades("Racial");
+    public static void removeTodasCaracteristicasBelicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerTodasCaracteristicas("Belica");
     }   
     
-    public void removeTodasCaracteristicas(){
+    public static void removeTodasCaracteristicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         removeTodasCaracteristicasFisicas();
-        removeTodasCaracteristicasRaciais();
+        removeTodasCaracteristicasBelicas();
         removeTodasCaracteristicasPsiquicas();
     }
     
-    public String[] listarCaracteristicasFisicas(){
+    public static String[] listarCaracteristicasFisicas(){
        return DAO_Caracteristica.listarCaracteristicas("Fisica"); 
     }
     
-    public String[] listarCaracteristicasPsiquicas(){
+    public static String[] listarCaracteristicasPsiquicas(){
         return DAO_Caracteristica.listarCaracteristicas("Psiquica");
     }
     
-    public String[] listarCaracteristicasRaciais(){
-        return DAO_Caracteristica.listarCaracteristicas("Racial");
+    public static String[] listarCaracteristicasBelicas(){
+        return DAO_Caracteristica.listarCaracteristicas("Belica");
     }    
+    
     
 }

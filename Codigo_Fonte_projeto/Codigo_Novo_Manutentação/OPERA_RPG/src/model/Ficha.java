@@ -4,59 +4,11 @@
  */
 package model;
 
-import exception.FichaInvalidaException;
 import java.io.Serializable;
 
 
 public class Ficha implements Serializable{
-    
-    //Constantes
-    /**
-     * Possui o Indice que representa o Fisico nos Atributos
-     */
-    public final int FISICO = 0;
-    
-    /**
-     * Possui o Indice que representa a Destreza nos Atributos
-     */
-    public final int DESTREZA = 1;
-    
-    /**
-     * Possui o Indice que representa a Inteligencia nos Atributos
-     */
-    public final int INTELIGENCIA = 2;
-    
-    /**
-     * Possui o Indice que representa a Vontade nos Atributos
-     */
-    public final int VONTADE = 3;
-    
-    /**
-     * Possui o Indice que representa a Percepcao nos Atributos
-     */
-    public final int PERCEPCAO = 4;
-    
-    /**
-     * Possui o Indice que representa a Mana nos Atributos
-     */
-    public final int MANA = 5;
-    
-    /**
-     * Possui o Indice que representa a Mente nos Atributos
-     */
-    public final int MENTE = 6;
-    
-    /**
-     * Possui o Indice que representa a Sorte nos Atributos
-     */
-    public final int SORTE = 7;
-    
-    /**
-     * Cada Indice da String corresponde ao Indice nos Atributos
-     */
-    public final String[] nomeAtributo = {"Fisico", "Destreza", "Inteligencia", 
-        "Vontade", "Percepcao", "Mana", "Mente", "Sorte"};
-    
+
     //Variaveis
     private String personagem;
     private String jogador;
@@ -67,7 +19,7 @@ public class Ficha implements Serializable{
     private int dinheiro;
  
     /**
-     * Metodo Construtor para criar Personagem , NPC ou Monstro
+     * Metodo Construtor para criar Personagens
      * @param personagem Nome do personagem.
      * @param jogador Nome do jogador, ou seja, nome da pessoa que possui o personagem.
      * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
@@ -76,9 +28,7 @@ public class Ficha implements Serializable{
      * @param atributos Vetor com os atributos do personagem.
      * @param dinheiro Quantidade de Dinheiro do personagem.
      */
-    public Ficha(String personagem, String jogador, String tipo, String campanha,
-                 int experiencia, int[] atributos, int dinheiro) 
-                                                 throws FichaInvalidaException {
+    public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int dinheiro, int[] atributos){
         this.setJogador(jogador);
         this.setPersonagem(personagem);
         this.setTipo(tipo);
@@ -88,7 +38,26 @@ public class Ficha implements Serializable{
         this.setDinheiro(dinheiro);
     }
     
+    /**
+     * Metodo Construtor para criar NPC e Monstros
+     * @param personagem Nome do personagem.
+     * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
+     * @param campanha Campanha do personagem.
+     * @param experiencia Quantidade de experiencia do personagem.
+     * @param atributos Vetor com os atributos do personagem.
+     * @param dinheiro Quantidade de Dinheiro do personagem.
+     */
+    public Ficha(String personagem, String tipo, String campanha, int experiencia, int dinheiro, int[] atributos){
+        this.setJogador("Movido Pelo Mestre");
+        this.setPersonagem(personagem);
+        this.setTipo(tipo);
+        this.setCampanha(campanha);
+        this.setAtributos(atributos);
+        this.setExperiencia(experiencia);
+        this.setDinheiro(dinheiro);
+    }
     
+
     /**
      * Altera o Nome do Personagem.
      * @param personagem Nome do personagem.
@@ -158,7 +127,7 @@ public class Ficha implements Serializable{
      * Altera os Atributos do Personagem.
      * @param atributos Vetor com os atributos do personagem.
      */
-    public void setAtributos(int[] atributos) {
+    public void setAtributos(int[] atributos){
         this.atributos = atributos;
     }
 

@@ -4,21 +4,13 @@
  */
 package dao;
 
-import exception.FichaInvalidaException;
-import model.Ficha;
-
 /**
  *
- * @author Macartur
+ * @author Luciano
  */
 public class DAO_Ficha {
     
-    private static String diretorio;
     
     
-    public static void gravarFichaPersonagem(Ficha f){
-    
-    }
-   
     
 }
