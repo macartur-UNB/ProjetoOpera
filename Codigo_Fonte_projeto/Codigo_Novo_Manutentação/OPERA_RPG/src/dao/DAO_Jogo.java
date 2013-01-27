@@ -158,6 +158,7 @@ public class DAO_Jogo {
     
     public static void criarDiretoriosJogo(Jogo jogo) 
                                               throws DiretorioInvalidoException{ 
+        verificarDiretorioRaiz();
         if(!DAO_Funcao.diretorioExiste(ENDERECO+jogo.getNome())){
            criarDiretorioJogo(jogo);
            criarDiretorioCaracteristicas(jogo);
@@ -165,6 +166,8 @@ public class DAO_Jogo {
            criarDiretorioFichas(jogo);
            criarDiretorioHabilidades(jogo);          
            criarDiretorioItens(jogo);
+        }else{
+            throw  new DiretorioInvalidoException("Não foi possivel criar o diretorio deste jogo");
         }        
     }
    
@@ -200,7 +203,8 @@ public class DAO_Jogo {
         }
     }
     
-    public static void gravarJogo(Jogo jogo) throws FileNotFoundException, IOException{
+    public static void gravarJogo(Jogo jogo) throws FileNotFoundException, IOException, DiretorioInvalidoException{
+        criarDiretorioJogo(jogo);        
         DAO_Funcao.criarArquivo(ENDERECO+jogo.getNome(),jogo.getNome(), jogo);
     }
     public static Jogo carregarJogo(String nome) 

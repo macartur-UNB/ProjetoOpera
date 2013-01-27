@@ -22,7 +22,6 @@ public class Controle_Jogo {
     
     public static  void criarJogo(String nome) throws DiretorioInvalidoException,
                                        FileNotFoundException, IOException {
-       DAO_Jogo.verificarDiretorioRaiz();
        Jogo jogo = new Jogo(nome);
        DAO_Jogo.criarDiretoriosJogo(jogo);
        DAO_Jogo.gravarJogo(jogo);       
@@ -44,5 +43,7 @@ public class Controle_Jogo {
    public String[] listarJogos(){
        return DAO_Jogo.jogosExistentes();
    }
- 
+   public boolean jogoExiste(String nome){
+       return DAO_Jogo.jogoExiste(nome);
+   }
 }
