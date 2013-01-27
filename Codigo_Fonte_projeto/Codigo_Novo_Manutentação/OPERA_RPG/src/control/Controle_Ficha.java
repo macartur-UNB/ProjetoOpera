@@ -25,13 +25,13 @@ public class Controle_Ficha {
     public static void cadNPC(String personagem,String jogador,
             String campanha,int experiencia,int atributos[],int dinheiro)
                                       throws FileNotFoundException, IOException{
-        Ficha f = new Ficha(personagem,"jogado pelo mestre","NPC", campanha, experiencia, atributos, dinheiro);
+        Ficha f = new Ficha(personagem,"","NPC", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     public static void cadMonstro(String personagem,String jogador,
             String campanha,int experiencia,int atributos[],int dinheiro)
                                       throws FileNotFoundException, IOException{
-        Ficha f = new Ficha(personagem,"jogado pelo mestre","Monstro", campanha, experiencia, atributos, dinheiro);
+        Ficha f = new Ficha(personagem,"","Monstro", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     public static Ficha encontrarJogador(String nome) 
@@ -85,7 +85,7 @@ public class Controle_Ficha {
         DAO_Habilidade.removerTodasHabilidades("Monstro");
     }   
     
-    public static void removeTodasHabilidades() throws ArquivoInvalidoException{
+    public static void removeTodasFichas() throws ArquivoInvalidoException{
         removeTodasFichasJogador();
         removeTodasFichasNPC();
         removeTodasFichasMonstro();
