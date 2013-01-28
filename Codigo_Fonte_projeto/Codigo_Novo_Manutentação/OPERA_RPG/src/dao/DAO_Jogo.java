@@ -19,7 +19,8 @@ import model.Jogo;
  */
 public class DAO_Jogo {
     
-    private static final String DIRETORIO_OPERA = "C:\\Opera\\Jogos";
+    private static final String DIRETORIO_RAIZ = "C:\\Opera";
+    private static final String DIRETORIO_OPERA = DIRETORIO_RAIZ+"\\Jogos";
     private static Jogo JOGO_RODANDO;
     
     private static String ENDERECO_FICHA = Constantes.Endereco.FICHA;
@@ -167,7 +168,7 @@ public class DAO_Jogo {
   
     public static void verificarDiretorioRaiz() throws DiretorioInvalidoException{
         if(!DAO_Funcao.diretorioExiste(DIRETORIO_OPERA)){
-            DAO_Funcao.criarDiretorio("C:\\Opera");
+            DAO_Funcao.criarDiretorio(DIRETORIO_RAIZ);
             DAO_Funcao.criarDiretorio(DIRETORIO_OPERA);
             
         }
