@@ -22,8 +22,17 @@ public class TesteFicha {
     
     public static void main(String args[]){
         
+        System.out.println("*-------TESTE JOGADOR-------*");
+        testeJogador();
+        System.out.println("*-------FIM TESTE JOGADOR-------*");
+        System.out.println("\n\n");
+        System.out.println("*-------TESTE MONSTRO-------*");
+        testeMonstro();
+        System.out.println("*-------FIM TESTE MONSTRO-------*");
+        System.out.println("\n\n");
+        System.out.println("*-------TESTE NPC-------*");
         testeNpc();
-        
+        System.out.println("*-------FIM TESTE NPC-------*");
     }
     
     
