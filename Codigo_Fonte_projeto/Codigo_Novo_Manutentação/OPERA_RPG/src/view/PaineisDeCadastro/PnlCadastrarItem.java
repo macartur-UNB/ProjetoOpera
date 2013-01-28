@@ -1526,9 +1526,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 diretorios = Controle_Habilidade.listarHabilidadesBelicas();
                 break;
         }
-        if(diretorios.length > 0){
-            for(int i = 0; i < diretorios.length; i++){
-                cmbHabilidade.addItem(diretorios[i]);
+        if(diretorios != null){
+            if(diretorios.length > 0){
+                for(int i = 0; i < diretorios.length; i++){
+                    cmbHabilidade.addItem(diretorios[i]);
+                }
             }
         }
     }

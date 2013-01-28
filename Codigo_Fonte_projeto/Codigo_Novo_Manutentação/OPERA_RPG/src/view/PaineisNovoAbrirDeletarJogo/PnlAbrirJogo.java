@@ -164,9 +164,11 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
         cmbJogo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
         
         String diretorios[] = DAO_Jogo.jogosExistentes();
-        if(diretorios.length > 0){
-            for(int i = 0; i < diretorios.length; i++){
-                cmbJogo.addItem(diretorios[i]);
+        if(diretorios != null){
+            if(diretorios.length > 0){
+                for(int i = 0; i < diretorios.length; i++){
+                    cmbJogo.addItem(diretorios[i]);
+                }
             }
         }
     }
