@@ -206,7 +206,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         }
         
         if(origem.equals(itemAlterarFicha)){
-            
+            NovaAba.abaAlterarFicha(tabbedPane, (ImageIcon)itemAlterarFicha.getIcon());
         }
         
         //throw new UnsupportedOperationException("Not supported yet.");

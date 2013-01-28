@@ -9,7 +9,11 @@ import exception.ArquivoInvalidoException;
 import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import model.Constantes;
@@ -20,13 +24,16 @@ import view.validacao.ValidarCampos;
  * @author Luciano
  */
 public class PnlCadastrarFicha extends javax.swing.JPanel {
-
+    
+    private boolean podeCadastrar;
+    
     /**
      * Creates new form PnlCadastrarFicha
      */
     public PnlCadastrarFicha() {
         initComponents();
         PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+        podeCadastrar = true;
     }
 
     /**
@@ -559,77 +566,8 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        try{
-            String jogador = null;
-            if(rdbJogador.isSelected()){
-                jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
-            }
-            String personagem = ValidarCampos.validarCampoTexto(txtPersonagem, true);
-            String campanha = ValidarCampos.validarCampoTexto(txtCampanha, true);
-            int experiencia = ValidarCampos.validarCampoInteiro(txtExperiencia);
-            int dinheiro = ValidarCampos.validarCampoInteiro(txtDinheiro);
-
-            int atributo[] = new int[8];
-            final int FISICO = Constantes.Atributos.FISICO;
-            final int DESTREZA = Constantes.Atributos.DESTREZA;
-            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
-            final int VONTADE = Constantes.Atributos.VONTADE;
-            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
-            final int MENTE = Constantes.Atributos.MENTE;
-            final int MANA = Constantes.Atributos.MANA;
-            final int SORTE = Constantes.Atributos.SORTE;
-            atributo[FISICO] = ValidarCampos.validarCampoInteiro(txtFisico);
-            atributo[DESTREZA] = ValidarCampos.validarCampoInteiro(txtDestreza);
-            atributo[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(txtInteligencia);
-            atributo[VONTADE] = ValidarCampos.validarCampoInteiro(txtVontade);
-            atributo[PERCEPCAO] = ValidarCampos.validarCampoInteiro(txtPercepcao);
-            atributo[MENTE] = ValidarCampos.validarCampoInteiro(txtMente);
-            atributo[MANA] = ValidarCampos.validarCampoInteiro(txtMana);
-            atributo[SORTE] = ValidarCampos.validarCampoInteiro(txtSorte);
-
-            String tipo = null;
-            if(rdbJogador.isSelected()){
-                tipo = "Jogador";
-            }
-            if(rdbNpc.isSelected()){
-                tipo = "NPC";
-            }
-            if(rdbMonstro.isSelected()){
-                tipo = "Monstro";
-            }
-
-            if(tipo == null){
-                rdbJogador.setForeground(Color.RED);
-                rdbNpc.setForeground(Color.RED);
-                rdbMonstro.setForeground(Color.RED);
-
-                rdbJogador.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
-                rdbNpc.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
-                rdbMonstro.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
-                pnlTipoFicha.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
-                
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
-            }else{
-                switch (tipo) {
-                    case "NPC":
-                        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributo, dinheiro);
-                        break;
-                    case "Monstro":
-                        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributo, dinheiro);
-                        break;
-                    case "Jogador":
-                        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributo, dinheiro);
-                        break;
-                    default:
-                        break;
-                }
-                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-                PainelFuncoes.limparTodosOsCampos(this);
-                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-                grpTipoFicha.clearSelection();
-            }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        if(podeCadastrar){
+            cadastrarFicha();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -735,4 +673,175 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private javax.swing.JTextField txtSorte;
     private javax.swing.JTextField txtVontade;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void cadastrarFicha(){
+        try{
+            String jogador = null;
+            if(rdbJogador.isSelected()){
+                jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
+            }
+            String personagem = ValidarCampos.validarCampoTexto(txtPersonagem, true);
+            String campanha = ValidarCampos.validarCampoTexto(txtCampanha, true);
+            int experiencia = ValidarCampos.validarCampoInteiro(txtExperiencia);
+            int dinheiro = ValidarCampos.validarCampoInteiro(txtDinheiro);
+
+            int atributo[] = new int[8];
+            final int FISICO = Constantes.Atributos.FISICO;
+            final int DESTREZA = Constantes.Atributos.DESTREZA;
+            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
+            final int VONTADE = Constantes.Atributos.VONTADE;
+            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
+            final int MENTE = Constantes.Atributos.MENTE;
+            final int MANA = Constantes.Atributos.MANA;
+            final int SORTE = Constantes.Atributos.SORTE;
+            atributo[FISICO] = ValidarCampos.validarCampoInteiro(txtFisico);
+            atributo[DESTREZA] = ValidarCampos.validarCampoInteiro(txtDestreza);
+            atributo[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(txtInteligencia);
+            atributo[VONTADE] = ValidarCampos.validarCampoInteiro(txtVontade);
+            atributo[PERCEPCAO] = ValidarCampos.validarCampoInteiro(txtPercepcao);
+            atributo[MENTE] = ValidarCampos.validarCampoInteiro(txtMente);
+            atributo[MANA] = ValidarCampos.validarCampoInteiro(txtMana);
+            atributo[SORTE] = ValidarCampos.validarCampoInteiro(txtSorte);
+
+            String tipo = null;
+            if(rdbJogador.isSelected()){
+                tipo = "Jogador";
+            }
+            if(rdbNpc.isSelected()){
+                tipo = "NPC";
+            }
+            if(rdbMonstro.isSelected()){
+                tipo = "Monstro";
+            }
+
+            if(tipo == null){
+                rdbJogador.setForeground(Color.RED);
+                rdbNpc.setForeground(Color.RED);
+                rdbMonstro.setForeground(Color.RED);
+
+                rdbJogador.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
+                rdbNpc.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
+                rdbMonstro.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
+                pnlTipoFicha.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
+                
+                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+            }else{
+                switch (tipo) {
+                    case "NPC":
+                        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    case "Monstro":
+                        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    case "Jogador":
+                        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    default:
+                        break;
+                }
+                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                PainelFuncoes.limparTodosOsCampos(this);
+                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                grpTipoFicha.clearSelection();
+            }
+        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    /*
+     * Getters
+     */
+
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    public JButton getBtnLimpar() {
+        return btnLimpar;
+    }
+
+    public JRadioButton getRdbJogador() {
+        return rdbJogador;
+    }
+
+    public JRadioButton getRdbMonstro() {
+        return rdbMonstro;
+    }
+
+    public JRadioButton getRdbNpc() {
+        return rdbNpc;
+    }
+
+    public JTextField getTxtCampanha() {
+        return txtCampanha;
+    }
+
+    public JTextField getTxtDestreza() {
+        return txtDestreza;
+    }
+
+    public JTextField getTxtDinheiro() {
+        return txtDinheiro;
+    }
+
+    public JTextField getTxtExperiencia() {
+        return txtExperiencia;
+    }
+
+    public JTextField getTxtFisico() {
+        return txtFisico;
+    }
+
+    public JTextField getTxtInteligencia() {
+        return txtInteligencia;
+    }
+
+    public JTextField getTxtJogador() {
+        return txtJogador;
+    }
+
+    public JTextField getTxtMana() {
+        return txtMana;
+    }
+
+    public JTextField getTxtMente() {
+        return txtMente;
+    }
+
+    public JTextField getTxtPercepcao() {
+        return txtPercepcao;
+    }
+
+    public JTextField getTxtPersonagem() {
+        return txtPersonagem;
+    }
+
+    public JTextField getTxtSorte() {
+        return txtSorte;
+    }
+
+    public JTextField getTxtVontade() {
+        return txtVontade;
+    }
+
+    public ButtonGroup getGrpTipoFicha() {
+        return grpTipoFicha;
+    }
+
+    public JPanel getPnlTipoFicha() {
+        return pnlTipoFicha;
+    }
+
+    public boolean isPodeCadastrar() {
+        return podeCadastrar;
+    }
+
+    public void setPodeCadastrar(boolean podeCadastrar) {
+        this.podeCadastrar = podeCadastrar;
+    }
+    
+    
+    
 }

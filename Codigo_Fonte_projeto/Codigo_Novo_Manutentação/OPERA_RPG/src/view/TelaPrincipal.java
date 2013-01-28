@@ -58,8 +58,8 @@ public class TelaPrincipal extends JFrame{
         
         
         TelaPrincipal telaPrincipal = new TelaPrincipal();
-        telaPrincipal.setMinimumSize(new Dimension(800, 600));
-        telaPrincipal.setMaximumSize(new Dimension(800, 600));
+        telaPrincipal.setMinimumSize(new Dimension(800, 700));
+        telaPrincipal.setMaximumSize(new Dimension(800, 700));
         telaPrincipal.setVisible(true);
     }
 

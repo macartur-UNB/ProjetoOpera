@@ -5,6 +5,7 @@
 package view;
 
 import javax.swing.ImageIcon;
+import view.PaineisDeAlteracao.*;
 import view.PaineisDeCadastro.*;
 import view.PaineisNovoAbrirDeletarJogo.*;
 
@@ -70,6 +71,16 @@ public class NovaAba {
             PnlCadastrarItem painel = new PnlCadastrarItem();
             tabbedPane.adicionarPainel(painel, "Cadastrar Equipamento", icone);
             index = tabbedPane.indexOfTab("Cadastrar Equipamento");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
+    
+    public static void abaAlterarFicha(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Alterar Ficha");
+        if(index == -1){
+            PnlAlterarFicha painel = new PnlAlterarFicha();
+            tabbedPane.adicionarPainel(painel, "Alterar Ficha", icone);
+            index = tabbedPane.indexOfTab("Alterar Ficha");
         }
         tabbedPane.setSelectedIndex(index);
     }

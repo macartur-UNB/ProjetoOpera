@@ -1508,12 +1508,12 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     private javax.swing.JTextField txtVontade;
     // End of variables declaration//GEN-END:variables
 
-    private void carregarJComboBox(String tipoHabilidade){
+    private void carregarJComboBox(String tipoDeHabilidade){
         cmbHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
         
         String diretorios[] = null;
         
-        switch(tipoHabilidade){
+        switch(tipoDeHabilidade){
             case "Fisica":
                 diretorios = Controle_Habilidade.listarHabilidadeFisicas();
                 break;
