@@ -28,9 +28,7 @@ public class Controle_Jogo {
                                        ArquivoInvalidoException,
                                        ClassNotFoundException {
        Validacao.validarCaracteresNome(nome, true);
-       DAO_Jogo.verificarDiretorioRaiz();
        DAO_Jogo.criarJogo(nome);
-       DAO_Jogo.gravarJogo();       
     }
  
    public static void abrirJogo(String nome) throws FileNotFoundException,
