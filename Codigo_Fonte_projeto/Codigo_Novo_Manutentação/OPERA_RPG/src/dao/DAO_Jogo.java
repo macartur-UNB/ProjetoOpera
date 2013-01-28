@@ -167,7 +167,9 @@ public class DAO_Jogo {
   
     public static void verificarDiretorioRaiz() throws DiretorioInvalidoException{
         if(!DAO_Funcao.diretorioExiste(DIRETORIO_OPERA)){
+            DAO_Funcao.criarDiretorio("C:\\Opera");
             DAO_Funcao.criarDiretorio(DIRETORIO_OPERA);
+            
         }
     }
         
