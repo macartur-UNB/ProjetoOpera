@@ -4,10 +4,14 @@
  */
 package view.PaineisDeCadastro;
 
+import control.Controle_Ficha;
+import exception.ArquivoInvalidoException;
 import exception.JTextFieldInvalidoException;
 import java.awt.Color;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 import model.Constantes;
 import view.validacao.ValidarCampos;
 
@@ -67,6 +71,8 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         txtSorte = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        txtDinheiro = new javax.swing.JTextField();
 
         pnlNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
@@ -205,7 +211,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         pnlExperiencia.setLayout(pnlExperienciaLayout);
         pnlExperienciaLayout.setHorizontalGroup(
             pnlExperienciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtExperiencia)
+            .addComponent(txtExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
         );
         pnlExperienciaLayout.setVerticalGroup(
             pnlExperienciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,6 +359,32 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dinheiro"));
+
+        txtDinheiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDinheiroActionPerformed(evt);
+            }
+        });
+        txtDinheiro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDinheiroFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -364,8 +396,12 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
                         .addComponent(pnlTipoFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlCampanha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(pnlCampanha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 3, Short.MAX_VALUE)
+                                .addComponent(pnlExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(pnlAtributos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -382,16 +418,19 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlTipoFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlTipoFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlAtributos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpar)
-                    .addComponent(btnCadastrar))
+                        .addComponent(pnlAtributos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLimpar)
+                            .addComponent(btnCadastrar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -511,10 +550,14 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         try{
-            String jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
+            String jogador = null;
+            if(rdbJogador.isSelected()){
+                jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
+            }
             String personagem = ValidarCampos.validarCampoTexto(txtPersonagem, true);
             String campanha = ValidarCampos.validarCampoTexto(txtCampanha, true);
             int experiencia = ValidarCampos.validarCampoInteiro(txtExperiencia);
+            int dinheiro = ValidarCampos.validarCampoInteiro(txtDinheiro);
 
             int atributo[] = new int[8];
             final int FISICO = Constantes.Atributos.FISICO;
@@ -557,19 +600,25 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
             }else{
-                if( (tipo.equals("npc")) || (tipo.equals("monstro")) ){
-                    JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-                    PainelFuncoes.limparTodosOsCampos(this);
-                    PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-                    grpTipoFicha.clearSelection();
-                }else{
-                    JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-                    PainelFuncoes.limparTodosOsCampos(this);
-                    PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-                    grpTipoFicha.clearSelection();
+                switch (tipo) {
+                    case "NPC":
+                        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    case "Monstro":
+                        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    case "Jogador":
+                        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributo, dinheiro);
+                        break;
+                    default:
+                        break;
                 }
+                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                PainelFuncoes.limparTodosOsCampos(this);
+                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                grpTipoFicha.clearSelection();
             }
-        } catch(JTextFieldInvalidoException e){
+        } catch(IOException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -583,6 +632,12 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         rdbJogador.setToolTipText("");
         rdbNpc.setToolTipText("");
         rdbMonstro.setToolTipText("");
+        
+        txtJogador.setEnabled(true);
+        try{
+            ValidarCampos.validarCampoTexto(txtJogador, false);
+        } catch(JTextFieldInvalidoException e){ 
+        }
     }//GEN-LAST:event_rdbJogadorActionPerformed
 
     private void rdbNpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNpcActionPerformed
@@ -594,6 +649,9 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         rdbJogador.setToolTipText("");
         rdbNpc.setToolTipText("");
         rdbMonstro.setToolTipText("");
+        
+        txtJogador.setEnabled(false);
+        txtJogador.setBorder(new LineBorder(Color.GRAY));
     }//GEN-LAST:event_rdbNpcActionPerformed
 
     private void rdbMonstroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMonstroActionPerformed
@@ -605,7 +663,22 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         rdbJogador.setToolTipText("");
         rdbNpc.setToolTipText("");
         rdbMonstro.setToolTipText("");
+        
+        txtJogador.setEnabled(false);
+        txtJogador.setBorder(new LineBorder(Color.GRAY));
     }//GEN-LAST:event_rdbMonstroActionPerformed
+
+    private void txtDinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDinheiroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDinheiroActionPerformed
+
+    private void txtDinheiroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDinheiroFocusLost
+        // TODO add your handling code here:
+        try{
+            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
+        } catch(JTextFieldInvalidoException e){
+        }
+    }//GEN-LAST:event_txtDinheiroFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
@@ -621,6 +694,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlAtributos;
     private javax.swing.JPanel pnlCampanha;
     private javax.swing.JPanel pnlExperiencia;
@@ -631,6 +705,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     private javax.swing.JRadioButton rdbNpc;
     private javax.swing.JTextField txtCampanha;
     private javax.swing.JTextField txtDestreza;
+    private javax.swing.JTextField txtDinheiro;
     private javax.swing.JTextField txtExperiencia;
     private javax.swing.JTextField txtFisico;
     private javax.swing.JTextField txtInteligencia;

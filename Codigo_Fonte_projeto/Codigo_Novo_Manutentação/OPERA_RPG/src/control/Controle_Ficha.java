@@ -22,14 +22,13 @@ public class Controle_Ficha {
         Ficha f = new Ficha(personagem, jogador,"Jogador", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
-    public static void cadNPC(String personagem,String jogador,
-            String campanha,int experiencia,int atributos[],int dinheiro)
-                                      throws FileNotFoundException, IOException{
+    public static void cadNPC(String personagem,String campanha,int experiencia,
+            int atributos[],int dinheiro) throws FileNotFoundException, IOException{
         Ficha f = new Ficha(personagem,"","NPC", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
-    public static void cadMonstro(String personagem,String jogador,
-            String campanha,int experiencia,int atributos[],int dinheiro)
+    public static void cadMonstro(String personagem,String campanha,
+            int experiencia,int atributos[],int dinheiro)
                                       throws FileNotFoundException, IOException{
         Ficha f = new Ficha(personagem,"","Monstro", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
