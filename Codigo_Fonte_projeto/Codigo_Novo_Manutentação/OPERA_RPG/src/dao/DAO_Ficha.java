@@ -19,7 +19,6 @@ public class DAO_Ficha {
     public static void gravarFicha(Ficha f)
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+f.getTipo()+"\\";
-        System.out.println("Diretorio: " + diretorio);
         DAO_Funcao.criarArquivoOpera(diretorio, f.getPersonagem(), f);
     }
     public static Ficha carregarFicha(String personagem,String tipo) 
