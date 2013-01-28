@@ -201,15 +201,17 @@ public class DAO_Jogo {
         DAO_Funcao.criarArquivoOpera(JOGO_RODANDO.getEndereco(), JOGO_RODANDO.getNome(), JOGO_RODANDO);
     }
     
-    public static void criarJogo(String nome) throws DiretorioInvalidoException{
+    public static void criarJogo(String nome) throws DiretorioInvalidoException, FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA + "\\" + nome);
         JOGO_RODANDO = jogo;
+        verificarDiretorioRaiz();
         criarDiretorioJogo(JOGO_RODANDO);
         criarDiretorioFichas(JOGO_RODANDO);
         criarDiretorioHabilidades(JOGO_RODANDO);
         criarDiretorioCaracteristicas(JOGO_RODANDO);
         criarDiretorioItens(JOGO_RODANDO);
         criarDiretorioDados(JOGO_RODANDO);
+         gravarJogo();
     }
     
 }
