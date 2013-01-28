@@ -92,14 +92,14 @@ public class Controle_Ficha {
     }
     
     public static String[] listarFichasJogador(){
-       return DAO_Habilidade.listarHabilidades("Jogador"); 
+       return DAO_Ficha.listarFichas("Jogador"); 
     }
     
     public static String[] listarFichasNPC(){
-        return DAO_Habilidade.listarHabilidades("NPC");
+        return DAO_Ficha.listarFichas("NPC");
     }
     
     public static String[] listarFichasMonstro(){
-        return DAO_Habilidade.listarHabilidades("Monstro");
-    }    
+        return DAO_Ficha.listarFichas("Monstro");
+    }   
 }
