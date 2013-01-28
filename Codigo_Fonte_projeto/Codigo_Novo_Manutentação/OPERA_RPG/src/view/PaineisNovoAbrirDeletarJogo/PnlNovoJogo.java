@@ -132,7 +132,7 @@ public class PnlNovoJogo extends javax.swing.JPanel {
                 int index = TelaPrincipal.tabbedPane.indexOfTab("Novo Jogo");
                 TelaPrincipal.tabbedPane.remove(index);
             }
-        } catch(DiretorioInvalidoException | IOException | JTextFieldInvalidoException e){
+        } catch(ArquivoInvalidoException | ClassNotFoundException | DiretorioInvalidoException | IOException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCriarJogoActionPerformed

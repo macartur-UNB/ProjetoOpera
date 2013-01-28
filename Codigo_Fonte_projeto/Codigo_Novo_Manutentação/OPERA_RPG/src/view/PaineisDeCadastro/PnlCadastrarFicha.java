@@ -86,6 +86,11 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             }
         });
 
+        txtJogador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJogadorActionPerformed(evt);
+            }
+        });
         txtJogador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtJogadorFocusLost(evt);
@@ -240,6 +245,11 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             }
         });
 
+        txtFisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFisicoActionPerformed(evt);
+            }
+        });
         txtFisico.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtFisicoFocusLost(evt);
@@ -618,7 +628,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoFicha.clearSelection();
             }
-        } catch(IOException | JTextFieldInvalidoException e){
+        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -679,6 +689,14 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         } catch(JTextFieldInvalidoException e){
         }
     }//GEN-LAST:event_txtDinheiroFocusLost
+
+    private void txtJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJogadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJogadorActionPerformed
+
+    private void txtFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFisicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFisicoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;

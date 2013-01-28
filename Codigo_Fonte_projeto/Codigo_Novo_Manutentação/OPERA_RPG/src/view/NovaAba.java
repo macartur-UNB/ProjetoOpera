@@ -64,4 +64,13 @@ public class NovaAba {
         tabbedPane.setSelectedIndex(index);
     }
     
+    public static void abaCadastrarEquipamento(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Cadastrar Equipamento");
+        if(index == -1){
+            PnlCadastrarItem painel = new PnlCadastrarItem();
+            tabbedPane.adicionarPainel(painel, "Cadastrar Equipamento", icone);
+            index = tabbedPane.indexOfTab("Cadastrar Equipamento");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
 }

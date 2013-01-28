@@ -70,7 +70,7 @@ public class ValidarNome {
                 
         if( (nome.length() != numCaracteresValidos) || (nome.isEmpty()) || (!possuiLetra) ){
             if( (nome.isEmpty()) || (!possuiLetra) ){
-                throw new NomeInvalidoException("O Nome nao pode ser vazio");
+                throw new NomeInvalidoException("O Campo nao pode ser vazio");
             }
             throw new NomeInvalidoException("{" + nome + "}. Possui caracteres invalidos: {" + 
                     caracteresInvalidos.substring(0, caracteresInvalidos.length()-2) + "}");
@@ -122,5 +122,56 @@ public class ValidarNome {
         }
         
         return texto;
+    }
+    
+    
+    
+    
+    public static char validarCaractere(char caractere, boolean numeros, String maisCaracteresValidos) throws CaractereInvalidoException{
+        
+        String caracteresValidos = "qwertyuiopasdfghjklzxcvbnm";
+        boolean caractereValido = false;
+        
+        caracteresValidos += maisCaracteresValidos;
+        
+        if(numeros){
+            caracteresValidos += "1234567890";
+        }
+        
+        
+        for(int i = 0; i < caracteresValidos.length(); i++){
+            if( (caractere == caracteresValidos.charAt(i)) || (caractere == caracteresValidos.toUpperCase().charAt(i)) ){
+                caractereValido = true;
+                break;
+            }
+        }
+        
+        if(!caractereValido){
+            throw new CaractereInvalidoException("O Caractere: " + caractere + ", nao eh valido");
+        }
+        
+        return caractere;
+    }
+    
+    
+    public static char validarCaractere(char caractere, boolean numeros) throws CaractereInvalidoException{
+        
+        validarCaractere(caractere, numeros, null);
+        
+        return caractere;
+    }
+    
+    public static char validarCaractere(char caractere, String maisCaracteresValidos) throws CaractereInvalidoException{
+        
+        validarCaractere(caractere, false, maisCaracteresValidos);
+        
+        return caractere;
+    }
+    
+    public static char validarCaractere(char caractere) throws CaractereInvalidoException{
+        
+        validarCaractere(caractere, false, null);
+        
+        return caractere;
     }
 }

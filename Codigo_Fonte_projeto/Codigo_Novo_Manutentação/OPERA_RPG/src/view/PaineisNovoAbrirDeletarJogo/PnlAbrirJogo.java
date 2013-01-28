@@ -7,8 +7,10 @@ package view.PaineisNovoAbrirDeletarJogo;
 import control.Controle_Jogo;
 import dao.DAO_Jogo;
 import exception.JogoInvalidoException;
+import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import model.Jogo;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PanelTab;
@@ -138,7 +140,7 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
                 int index = TelaPrincipal.tabbedPane.indexOfTab("Abrir Jogo");
                 TelaPrincipal.tabbedPane.remove(index);
             }
-            } catch(ClassNotFoundException | IOException e){
+            } catch(ClassNotFoundException | IOException | JogoInvalidoException e){
                 JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
             }
         }else{

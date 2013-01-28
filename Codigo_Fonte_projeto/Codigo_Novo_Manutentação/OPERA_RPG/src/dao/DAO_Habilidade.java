@@ -6,8 +6,10 @@ package dao;
 
 
 import exception.ArquivoInvalidoException;
+import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import model.Constantes;
 import model.Habilidade;
 
 /**
@@ -16,41 +18,40 @@ import model.Habilidade;
  */
 public class DAO_Habilidade {
     
-   
-    private static String diretorio;
+    private static String ENDERECO_HABILIDADE = Constantes.Endereco.HABILIDADE;
   
     
     public static void gravarHabilidade(Habilidade habilidade)
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+habilidade.getTipo()+"\\";
-        DAO_Funcao.criarArquivo(diretorio, habilidade.getNome(), habilidade);
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+habilidade.getTipo()+"\\";
+        DAO_Funcao.criarArquivoOpera(diretorio, habilidade.getNome(), habilidade);
     }
     
-    public static Habilidade carregarHabilidade(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
+    public static Habilidade carregarHabilidade(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+tipo+"\\";
         Habilidade h ;
-        h = (Habilidade) DAO_Funcao.carregarArquivo(diretorio, nome);
+        h = (Habilidade) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
         return h;
     }    
     
     public static boolean HabilidadeExiste(String nome,String tipo){
-        diretorio= DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
-        return DAO_Funcao.arquivoExiste(diretorio, nome);
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+tipo+"\\";
+        return DAO_Funcao.arquivoOperaExiste(diretorio, nome);
     }
     
-    public static void removerHabilidade(String nome,String tipo) throws ArquivoInvalidoException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
+    public static void removerHabilidade(String nome,String tipo) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+tipo+"\\";
         DAO_Funcao.removerArquivo(diretorio, nome);  
     }
-    public static void removerTodasHabilidades(String tipo) throws ArquivoInvalidoException{
-         diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\";
+    public static void removerTodasHabilidades(String tipo) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+tipo+"\\";
          DAO_Funcao.deletarArquivos(diretorio);   
          
     }
     public static String[] listarHabilidades(String tipo){
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Habilidades\\"+tipo+"\\"; 
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+tipo+"\\"; 
         String s[];
-        s = DAO_Funcao.listarArquivos(diretorio);
+        s = DAO_Funcao.listarArquivosOpera(diretorio);
         
         return s;
     }     

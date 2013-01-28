@@ -5,6 +5,7 @@
 package dao;
 
 import exception.ArquivoInvalidoException;
+import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Ficha;
@@ -15,35 +16,34 @@ import model.Ficha;
  */
 public class DAO_Ficha {
     
-    private static String diretorio;
-    
     public static void gravarFicha(Ficha f)
-                                      throws FileNotFoundException, IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas"+f.getTipo()+"\\";
-        DAO_Funcao.criarArquivo(diretorio, f.getPersonagem(), f);
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+f.getTipo()+"\\";
+        System.out.println("Diretorio: " + diretorio);
+        DAO_Funcao.criarArquivoOpera(diretorio, f.getPersonagem(), f);
     }
     public static Ficha carregarFicha(String personagem,String tipo) 
-              throws FileNotFoundException, ClassNotFoundException, IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas"+tipo+"\\";
-       return (Ficha) DAO_Funcao.carregarArquivo(diretorio, personagem);
+              throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\";
+       return (Ficha) DAO_Funcao.carregarArquivoOpera(diretorio, personagem);
     }
     
     public static boolean fichaExiste(String personagem,String tipo){
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas"+tipo+"\\";
-        return DAO_Funcao.arquivoExiste(diretorio, personagem);
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\";
+        return DAO_Funcao.arquivoOperaExiste(diretorio, personagem);
     }
-    public static void removerFicha(String personagem,String tipo) throws ArquivoInvalidoException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas\\"+tipo+"\\";
+    public static void removerFicha(String personagem,String tipo) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\";
         DAO_Funcao.removerArquivo(diretorio, personagem);  
     }
-    public static void removerTodasFichas(String tipo) throws ArquivoInvalidoException{
-         diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas\\"+tipo+"\\";
+    public static void removerTodasFichas(String tipo) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\";
          DAO_Funcao.deletarArquivos(diretorio);   
     }
     public static String[] listarFichas(String tipo){
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Fichas\\"+tipo+"\\"; 
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\"; 
         String s[];
-        s = DAO_Funcao.listarArquivos(diretorio);
+        s = DAO_Funcao.listarArquivosOpera(diretorio);
         return s;
     }  
 }

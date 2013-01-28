@@ -290,7 +290,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoHabilidade.clearSelection();
             }
-        } catch(IOException | JTextFieldInvalidoException e){
+        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed

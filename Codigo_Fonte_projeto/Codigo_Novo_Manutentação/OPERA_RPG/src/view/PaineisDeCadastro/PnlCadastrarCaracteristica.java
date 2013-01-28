@@ -700,7 +700,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 rdbFisica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 rdbPsiquica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Caracteristica nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
             }else{
                 if(chkEspecifica.isSelected()){
                     if(possui_modificador){
@@ -731,7 +731,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 txtSorte.setEnabled(false);
                 txtVontade.setEnabled(false);
             }
-        } catch(IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
+        } catch(ArquivoInvalidoException | IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed

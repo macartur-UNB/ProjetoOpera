@@ -71,6 +71,25 @@ public class ValidarCampos {
         return txtArea.getText();
         }
     
-    
+    public static char validarCampoCaractere(JTextField txtField) throws JTextFieldInvalidoException{
+        try{
+            if(txtField.getText().length() == 1){
+                ValidarNome.validarCaractere(txtField.getText().charAt(0));
+                txtField.setBorder(new LineBorder(Color.GRAY));
+                txtField.setToolTipText("A entrada: " + txtField.getText() + ". esta Valida.");
+                return txtField.getText().charAt(0);
+            }else{
+                txtField.setBorder(new LineBorder(Color.RED));
+                txtField.setToolTipText("A entrada: " + txtField.getText() + ""
+                        + ". Deve ser de  UM Caractere.");
+                throw new JTextFieldInvalidoException("A entrada: " + txtField.getText() + ""
+                        + ". Deve ser de  UM Caractere.");
+            }
+        } catch (CaractereInvalidoException e) {
+            txtField.setBorder(new LineBorder(Color.RED));
+            txtField.setToolTipText(e.getMessage());
+            throw new JTextFieldInvalidoException(e.getMessage());
+        }
+    }
     
 }

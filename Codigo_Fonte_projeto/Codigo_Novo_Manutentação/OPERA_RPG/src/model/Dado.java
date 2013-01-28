@@ -12,7 +12,7 @@ public class Dado implements Serializable {
     private int lados;
     private int rolagem;
 
-    public Dado(int rolagem, int lados) {
+    public Dado(int lados, int rolagem) {
         this.lados = lados;
         this.rolagem = rolagem;
     }

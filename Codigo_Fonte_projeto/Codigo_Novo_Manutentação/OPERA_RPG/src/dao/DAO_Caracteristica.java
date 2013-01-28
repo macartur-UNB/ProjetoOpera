@@ -6,10 +6,12 @@ package dao;
 
 
 import exception.ArquivoInvalidoException;
+import exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.Caracteristica;
 import model.Caracteristica_Especifica;
+import model.Constantes;
 
 /**
  *
@@ -17,47 +19,48 @@ import model.Caracteristica_Especifica;
  */
 public class DAO_Caracteristica {
     
-    private static String diretorio;
-   
+    private static final String ENDERECO_CARACTERISTICA = Constantes.Endereco.CARACTERISTICA;
     
     public static void gravarCaracteristica(Caracteristica caracteristica)
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+caracteristica.getTipo()+"\\";
-       DAO_Funcao.criarArquivo(diretorio, caracteristica.getNome(), caracteristica);
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+caracteristica.getTipo()+"\\";
+        if(DAO_Funcao.diretorioExiste(diretorio)){
+            DAO_Funcao.criarArquivoOpera(diretorio, caracteristica.getNome(), caracteristica);
+        }
     }
     
-    public static Caracteristica carregarCaracteristica(String nome,String tipo)
-              throws FileNotFoundException, ClassNotFoundException, IOException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
-        Caracteristica c;
-        c = (Caracteristica) DAO_Funcao.carregarArquivo(diretorio, nome);
+    public static Caracteristica carregarCaracteristica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
+        Caracteristica c = null;
+        if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
+            c = (Caracteristica) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
+        }
         return c;
     }
-    
-    public static Caracteristica_Especifica carregarCaracteristica_Especifica(
-                                                         String nome,String tipo)
-               throws FileNotFoundException, ClassNotFoundException, IOException{
-        
+    public static Caracteristica_Especifica carregarCaracteristica_Especifica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
         return (Caracteristica_Especifica) carregarCaracteristica(nome, tipo);
     }   
-    
     public static boolean CaracteristicaExiste(String nome,String tipo){
-        diretorio= DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
-        return DAO_Funcao.arquivoExiste(diretorio, nome);
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
+        return DAO_Funcao.arquivoOperaExiste(diretorio, nome);
     }
     
-     public static void removerCaracteristica(String nome,String tipo) throws ArquivoInvalidoException{
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
+     public static void removerCaracteristica(String nome,String tipo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
         DAO_Funcao.removerArquivo(diretorio, nome);  
     }
-    public static void removerTodasHabilidades(String tipo) throws ArquivoInvalidoException{
-         diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\";
-         DAO_Funcao.deletarArquivos(diretorio);
+    public static void removerTodasCaracteristicas(String tipo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
+         if(DAO_Funcao.diretorioExiste(diretorio)){
+            DAO_Funcao.deletarArquivos(diretorio);   
+         }
     }
     public static String[] listarCaracteristicas(String tipo){
-        diretorio = DAO_Jogo.endereco_JogoRodando()+"\\Caracteristicas\\"+tipo+"\\"; 
-        String s[];
-        s = DAO_Funcao.listarArquivos(diretorio);
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\"; 
+        String s[] = null;
+        if(DAO_Funcao.diretorioExiste(diretorio)){
+            s = DAO_Funcao.listarArquivosOpera(diretorio);
+        }
         return s;
     }
      

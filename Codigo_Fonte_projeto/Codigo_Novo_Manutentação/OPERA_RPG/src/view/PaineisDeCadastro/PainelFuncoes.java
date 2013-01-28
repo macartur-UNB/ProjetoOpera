@@ -6,8 +6,10 @@ package view.PaineisDeCadastro;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -69,6 +71,40 @@ public class PainelFuncoes {
             }
             if(objeto[i] instanceof JTextField){
                 ((JTextField)objeto[i]).setBorder(new LineBorder(cor));
+            }
+        }
+    }
+    
+    public static void habilitarCampos(JComponent componente, boolean habilitar){
+        Object objeto[] = componente.getComponents();
+        for(int i = 0; i < objeto.length; i++){
+            if(objeto[i] instanceof JPanel){
+                habilitarCampos(((JPanel)objeto[i]), habilitar);
+            }
+            if(objeto[i] instanceof JCheckBox){
+                ((JCheckBox)objeto[i]).setEnabled(habilitar);
+                if(!habilitar){
+                    ((JCheckBox)objeto[i]).setSelected(false);
+                }
+            }
+            if(objeto[i] instanceof JTextField){
+                ((JTextField)objeto[i]).setEnabled(habilitar);
+                if(!habilitar){
+                    ((JTextField)objeto[i]).setText(null);
+                    ((JTextField)objeto[i]).setBorder(new LineBorder(Color.GRAY));
+                }
+            }
+            if(objeto[i] instanceof JRadioButton){
+                ((JRadioButton)objeto[i]).setEnabled(habilitar);
+                if(!habilitar){
+                    ((JRadioButton)objeto[i]).setForeground(Color.BLACK);
+                }
+            }
+            if(objeto[i] instanceof JPanel){
+                ((JPanel)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JLabel){
+                ((JLabel)objeto[i]).setEnabled(habilitar);
             }
         }
     }

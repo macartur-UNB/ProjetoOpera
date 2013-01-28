@@ -143,6 +143,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtJogador">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtJogadorActionPerformed"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtJogadorFocusLost"/>
           </Events>
         </Component>
@@ -394,6 +395,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtFisico">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFisicoActionPerformed"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFisicoFocusLost"/>
           </Events>
         </Component>
