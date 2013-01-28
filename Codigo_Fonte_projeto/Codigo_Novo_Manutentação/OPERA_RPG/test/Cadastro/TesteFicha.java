@@ -22,13 +22,108 @@ public class TesteFicha {
     
     public static void main(String args[]){
         
-        testeJogador();
+        testeNpc();
         
     }
     
     
+    private static void testeNpc(){
+        try{
+            String nomeJogo = "Testando NPC";
+            if(Controle_Jogo.jogoExiste(nomeJogo)){
+                Controle_Jogo.abrirJogo(nomeJogo);
+            }else{
+                Controle_Jogo.criarJogo(nomeJogo);
+            }
+            
+            String personagem = "Vendedor";
+            String campanha = "Vender";
+            int experiencia = 1000;
+            int dinheiro = 100000;
+
+            int atributos[] = new int[8];
+            for(int i = 0; i < atributos.length; i++){
+                atributos[i] = i;
+            }
+
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.NPCExiste(personagem));
+            
+            Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+            
+            System.out.println("\nCriando Ficha NPC...");
+            System.out.println("Ficha Cadastrada:");
+            System.out.println(Controle_Ficha.encontrarNPC(personagem) + "\n");
+            
+            
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.NPCExiste(personagem));
+            
+            System.out.println("Deletando Ficha NPC...");
+            Controle_Ficha.removerNPC(personagem);
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.NPCExiste(personagem));
+            
+            Controle_Jogo.apagarJogo(nomeJogo);
+            
+            System.out.println("\nTeste Concluido com SUCESSO!");
+            
+        } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException |
+                DiretorioInvalidoException | ClassNotFoundException | JogoInvalidoException e){
+            System.out.println(e.getMessage());
+        }
+    }
     
-    public static void testeJogador(){
+    
+    private static void testeMonstro(){
+        try{
+            String nomeJogo = "Testando Monstro";
+            if(Controle_Jogo.jogoExiste(nomeJogo)){
+                Controle_Jogo.abrirJogo(nomeJogo);
+            }else{
+                Controle_Jogo.criarJogo(nomeJogo);
+            }
+            
+            String personagem = "Orc";
+            String campanha = "Matar";
+            int experiencia = 1000;
+            int dinheiro = 1000;
+
+            int atributos[] = new int[8];
+            for(int i = 0; i < atributos.length; i++){
+                atributos[i] = i;
+            }
+
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.MonstroExiste(personagem));
+            
+            Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+            
+            System.out.println("\nCriando Ficha Monstro...");
+            System.out.println("Ficha Cadastrada:");
+            System.out.println(Controle_Ficha.encontrarMonstro(personagem) + "\n");
+            
+            
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.MonstroExiste(personagem));
+            
+            System.out.println("Deletando Ficha Monstro...");
+            Controle_Ficha.removerMonstro(personagem);
+            System.out.println("Ficha " + personagem + " existe? R-)" + 
+                    Controle_Ficha.MonstroExiste(personagem));
+            
+            Controle_Jogo.apagarJogo(nomeJogo);
+            
+            System.out.println("\nTeste Concluido com SUCESSO!");
+            
+        } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException |
+                DiretorioInvalidoException | ClassNotFoundException | JogoInvalidoException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    private static void testeJogador(){
         try{
             String nomeJogo = "Testando Ficha";
             if(Controle_Jogo.jogoExiste(nomeJogo)){
@@ -53,18 +148,22 @@ public class TesteFicha {
             
             Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
             
-            
-            System.out.println("\nFicha Cadastrada:");
+            System.out.println("\nCriando Ficha Jogador...");
+            System.out.println("Ficha Cadastrada:");
             System.out.println(Controle_Ficha.encontrarJogador(personagem) + "\n");
             
             
             System.out.println("Ficha " + personagem + " existe? R-)" + 
                     Controle_Ficha.JogadorExiste(personagem));
             
+            System.out.println("Deletando Ficha Jogador...");
             Controle_Ficha.removerJogador(personagem);
             System.out.println("Ficha " + personagem + " existe? R-)" + 
                     Controle_Ficha.JogadorExiste(personagem));
             
+            Controle_Jogo.apagarJogo(nomeJogo);
+            
+            System.out.println("\nTeste Concluido com SUCESSO!");
             
         } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException |
                 DiretorioInvalidoException | ClassNotFoundException | JogoInvalidoException e){
