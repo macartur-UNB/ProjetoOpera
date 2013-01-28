@@ -42,5 +42,11 @@ public class Controle_Jogo {
         DAO_Jogo.deletarJogo(nome);
     }
    
+    public static boolean jogoExiste(String nome){
+        return DAO_Jogo.jogoExiste(nome);
+    }
    
+    public static String[] jogosExistentes(){
+        return DAO_Jogo.jogosExistentes();
+    } 
 }

@@ -174,7 +174,7 @@ public class DAO_Jogo {
     
     public static void carregarJogo(String nome) throws FileNotFoundException, IOException, ClassNotFoundException, JogoInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA+"\\"+nome);
-        if(jogoExiste(jogo)){
+        if(jogoExiste(jogo.getNome())){
             JOGO_RODANDO = jogo;
         }else{
             throw new JogoInvalidoException("O Jogo - " + jogo.getNome() + " - Nao Existe!");
@@ -189,7 +189,8 @@ public class DAO_Jogo {
         return DAO_Funcao.listarDiretorio(DIRETORIO_OPERA);        
     }
      
-    public static boolean jogoExiste(Jogo jogo){
+    public static boolean jogoExiste(String nome){
+        Jogo jogo = new Jogo(nome, DIRETORIO_OPERA+"\\"+nome);
         return DAO_Funcao.diretorioExiste(jogo.getEndereco());
     }     
     

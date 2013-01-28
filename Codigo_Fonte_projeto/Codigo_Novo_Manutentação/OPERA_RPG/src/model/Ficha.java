@@ -162,12 +162,12 @@ public class Ficha implements Serializable{
      */
     @Override
     public String toString() {
-        return "Personagem = "+this.getPersonagem()+
-               "Jogador = "+this.getJogador()+
-               "Campanha = "+this.getCampanha()+
-               "Tipo  = "+this.getTipo()+
-               "Experiencia = "+this.getExperiencia()+
-               "Dinheiro = "+this.getDinheiro();
+        return "{Personagem = "+this.getPersonagem()+
+               "; Jogador = "+this.getJogador()+
+               "; Campanha = "+this.getCampanha()+
+               "; Tipo = "+this.getTipo()+
+               "; Experiencia = "+this.getExperiencia()+
+               "; Dinheiro = "+this.getDinheiro() + "}";
     }
     
 }
