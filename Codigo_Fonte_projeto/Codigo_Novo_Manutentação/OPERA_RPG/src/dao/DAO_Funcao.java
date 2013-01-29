@@ -147,19 +147,12 @@ public class DAO_Funcao {
                     + " nao pode ser deletado. "
                     + "Verifique se esta sendo usado em outro processo");
                 }
-                //Path delArquivo = Paths.get(arquivo.getAbsolutePath());
-                //Files.delete(delArquivo);
             }
         }
         
     }
     
-    /*
-     throw new DeletarInvalidoException("O Arquivo - " + nome_arquivo + " - nao existe ou"
-                        + " nao pode ser deletado. Verifique se algum programa"
-                        + " esta utilizando esse diretorio.");
-     */
-    
+  
     /**
      * Criar Novo Arquivo Opera
      * @param endereco Endereco do Arquivo a ser Criado

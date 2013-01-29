@@ -158,6 +158,8 @@ public class DAO_Jogo {
            criarDiretorioFichas(jogo);
            criarDiretorioHabilidades(jogo);          
            criarDiretorioItens(jogo);
+        }else{
+            throw new DiretorioInvalidoException("Não foi possivel criar diretorio,jogo já existente");
         }        
     }
    
@@ -175,12 +177,11 @@ public class DAO_Jogo {
     }
         
     
-    public static void carregarJogo(String nome) throws FileNotFoundException, IOException, ClassNotFoundException, JogoInvalidoException{
-        Jogo jogo = new Jogo(nome, DIRETORIO_OPERA+"\\"+nome);
-        if(jogoExiste(jogo.getNome())){
-            JOGO_RODANDO = jogo;
+    public static void carregarJogo(String nome) throws FileNotFoundException, IOException, ClassNotFoundException, JogoInvalidoException, ArquivoInvalidoException{
+        if(jogoExiste(nome)){
+            JOGO_RODANDO = (Jogo) DAO_Funcao.carregarArquivoOpera(DIRETORIO_OPERA+"\\"+nome+"\\", nome);
         }else{
-            throw new JogoInvalidoException("O Jogo - " + jogo.getNome() + " - Nao Existe!");
+            throw new JogoInvalidoException("O Jogo - " + nome + " - Nao Existe!");
         }
     } 
     
@@ -197,21 +198,16 @@ public class DAO_Jogo {
         return DAO_Funcao.diretorioExiste(jogo.getEndereco());
     }     
     
-    public static void gravarJogo() throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
-        DAO_Funcao.criarArquivoOpera(JOGO_RODANDO.getEndereco(), JOGO_RODANDO.getNome(), JOGO_RODANDO);
+    public static void gravarJogo(Jogo jogo) throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
+        DAO_Funcao.criarArquivoOpera(jogo.getEndereco(), jogo.getNome(), jogo);
     }
     
-    public static void criarJogo(String nome) throws DiretorioInvalidoException, FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
+    public static void criarJogo(String nome) throws DiretorioInvalidoException, FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException, JogoInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA + "\\" + nome);
-        JOGO_RODANDO = jogo;
         verificarDiretorioRaiz();
-        criarDiretorioJogo(JOGO_RODANDO);
-        criarDiretorioFichas(JOGO_RODANDO);
-        criarDiretorioHabilidades(JOGO_RODANDO);
-        criarDiretorioCaracteristicas(JOGO_RODANDO);
-        criarDiretorioItens(JOGO_RODANDO);
-        criarDiretorioDados(JOGO_RODANDO);
-         gravarJogo();
+        criarDiretoriosJogo(jogo);
+        gravarJogo(jogo);
+        carregarJogo(nome);
     }
     
 }

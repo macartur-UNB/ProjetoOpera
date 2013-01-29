@@ -26,13 +26,14 @@ public class Controle_Jogo {
     public static void criarJogo(String nome) throws DiretorioInvalidoException,
                                        FileNotFoundException, IOException,
                                        ArquivoInvalidoException,
-                                       ClassNotFoundException {
+                                       ClassNotFoundException,
+                                       JogoInvalidoException {
        Validacao.validarCaracteresNome(nome, true);
        DAO_Jogo.criarJogo(nome);
     }
  
    public static void abrirJogo(String nome) throws FileNotFoundException,
-    IOException, ClassNotFoundException, JogoInvalidoException{
+    IOException, ClassNotFoundException, JogoInvalidoException, ArquivoInvalidoException{
        DAO_Jogo.carregarJogo(nome);
     }     
     
