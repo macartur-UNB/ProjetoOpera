@@ -4,14 +4,14 @@
  */
 package control;
 
-import exception.ArquivoInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JogoInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DiretorioInvalidoException;
+import model.exception.JogoInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Dado;
+import model.classes.Dado;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

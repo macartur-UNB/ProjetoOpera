@@ -4,7 +4,7 @@
  */
 package view.validacao;
 
-import exception.NumeroInteiroInvalidoException;
+import model.exception.NumeroInteiroInvalidoException;
 
 /**
  *

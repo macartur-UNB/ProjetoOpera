@@ -5,8 +5,8 @@
 package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
-import exception.ArquivoInvalidoException;
-import exception.JTextFieldInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;

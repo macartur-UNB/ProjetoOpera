@@ -6,16 +6,16 @@ package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
 import control.Controle_Item;
-import exception.ArquivoInvalidoException;
-import exception.JTextFieldInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import model.Constantes;
-import model.Dado;
+import model.classes.Constantes;
+import model.classes.Dado;
 import view.validacao.ValidarCampos;
 
 /**

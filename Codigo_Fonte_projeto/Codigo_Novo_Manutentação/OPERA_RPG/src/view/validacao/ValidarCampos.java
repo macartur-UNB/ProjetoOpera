@@ -4,11 +4,11 @@
  */
 package view.validacao;
 
-import exception.JTextAreaInvalidoException;
-import exception.NumeroInteiroInvalidoException;
-import exception.JTextFieldInvalidoException;
-import exception.NomeInvalidoException;
-import exception.TextoInvalidoException;
+import model.exception.JTextAreaInvalidoException;
+import model.exception.NumeroInteiroInvalidoException;
+import model.exception.JTextFieldInvalidoException;
+import model.exception.NomeInvalidoException;
+import model.exception.TextoInvalidoException;
 import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;

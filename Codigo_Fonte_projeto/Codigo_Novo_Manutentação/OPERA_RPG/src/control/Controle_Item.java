@@ -4,16 +4,16 @@
  */
 package control;
 
-import dao.DAO_Item;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
+import model.dao.DAO_Item;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Arma_A_Distancia;
-import model.Arma_Corpo_A_Corpo;
-import model.Armadura;
-import model.Dado;
-import model.Item;
+import model.classes.Arma_A_Distancia;
+import model.classes.Arma_Corpo_A_Corpo;
+import model.classes.Armadura;
+import model.classes.Dado;
+import model.classes.Item;
 
 
 public class Controle_Item {    

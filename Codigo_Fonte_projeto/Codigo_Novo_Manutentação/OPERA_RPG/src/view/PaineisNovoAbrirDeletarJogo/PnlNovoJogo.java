@@ -5,9 +5,9 @@
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
-import exception.ArquivoInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JTextFieldInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DiretorioInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;

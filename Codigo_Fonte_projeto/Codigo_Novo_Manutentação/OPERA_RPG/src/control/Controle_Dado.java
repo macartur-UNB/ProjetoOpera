@@ -4,12 +4,12 @@
  */
 package control;
 
-import dao.DAO_Dado;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
+import model.dao.DAO_Dado;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Dado;
+import model.classes.Dado;
 
 
 public class Controle_Dado {
