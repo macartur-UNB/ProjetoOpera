@@ -75,7 +75,7 @@ public class Controle_Caracteristica {
         boolean status = false;
         if(CaracteristicaExiste(nome, "Fisica")  ||
            CaracteristicaExiste(nome,"Psiquica") ||
-           CaracteristicaExiste(nome,"Belica")){
+           CaracteristicaExiste(nome,"Racial")){
             status = true;
         }
         return status;      
@@ -85,8 +85,8 @@ public class Controle_Caracteristica {
         DAO_Caracteristica.removerCaracteristica(nome, "Fisica");
     }
     
-    public static void removeCaracteristicaBelica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        DAO_Caracteristica.removerCaracteristica(nome, "Belica");
+    public static void removeCaracteristicaRacial(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerCaracteristica(nome, "Racial");
     }
     
     public static void removeCaracteristicaPsiquica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
@@ -101,13 +101,13 @@ public class Controle_Caracteristica {
         DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
     }
     
-    public static void removeTodasCaracteristicasBelicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        DAO_Caracteristica.removerTodasCaracteristicas("Belica");
+    public static void removeTodasCaracteristicasRacial() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Caracteristica.removerTodasCaracteristicas("Racial");
     }   
     
     public static void removeTodasCaracteristicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         removeTodasCaracteristicasFisicas();
-        removeTodasCaracteristicasBelicas();
+        removeTodasCaracteristicasRacial();
         removeTodasCaracteristicasPsiquicas();
     }
     
