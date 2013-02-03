@@ -9,7 +9,11 @@ import exception.ArquivoInvalidoException;
 import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import view.validacao.ValidarCampos;
 
@@ -19,12 +23,15 @@ import view.validacao.ValidarCampos;
  */
 public class PnlCadastrarHabilidade extends javax.swing.JPanel {
 
+    private boolean podeCadastrar;
+    
     /**
      * Creates new form PnlCadastrarHabilidade
      */
     public PnlCadastrarHabilidade() {
         initComponents();
         PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+        podeCadastrar = true;
     }
 
     /**
@@ -39,10 +46,10 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
         grpTipoHabilidade = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtNome1 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtCusto1 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        txtCusto = new javax.swing.JTextField();
+        pnlTipo = new javax.swing.JPanel();
         rdbFisica = new javax.swing.JRadioButton();
         rdbPsiquica = new javax.swing.JRadioButton();
         rdbBelica = new javax.swing.JRadioButton();
@@ -55,22 +62,22 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
 
         jLabel3.setText("Nome:");
 
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
-        txtNome1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNome1FocusLost(evt);
+                txtNomeFocusLost(evt);
             }
         });
 
         jLabel4.setText("Custo:");
 
-        txtCusto1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtCusto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCusto1FocusLost(evt);
+                txtCustoFocusLost(evt);
             }
         });
 
@@ -82,11 +89,11 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCusto1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -95,13 +102,13 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(txtCusto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
+        pnlTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
 
         grpTipoHabilidade.add(rdbFisica);
         rdbFisica.setText("Fisica");
@@ -127,11 +134,11 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTipoLayout = new javax.swing.GroupLayout(pnlTipo);
+        pnlTipo.setLayout(pnlTipoLayout);
+        pnlTipoLayout.setHorizontalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rdbFisica)
                 .addGap(18, 18, 18)
@@ -140,11 +147,11 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 .addComponent(rdbBelica)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlTipoLayout.setVerticalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdbFisica)
                     .addComponent(rdbPsiquica)
                     .addComponent(rdbBelica))
@@ -199,7 +206,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                         .addComponent(btnLimpar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -212,7 +219,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,31 +229,31 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void txtNome1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNome1FocusLost
+    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
         // TODO add your handling code here:
-        try{
-            ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
-        } catch(JTextFieldInvalidoException e){
+        try {
+            ValidarCampos.validarCampoTexto((JTextField) evt.getSource(), true);
+        } catch (JTextFieldInvalidoException e) {
         }
-    }//GEN-LAST:event_txtNome1FocusLost
+    }//GEN-LAST:event_txtNomeFocusLost
 
-    private void txtCusto1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCusto1FocusLost
+    private void txtCustoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustoFocusLost
         // TODO add your handling code here:
-        try{
-            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
-        } catch(JTextFieldInvalidoException e){
+        try {
+            ValidarCampos.validarCampoInteiro((JTextField) evt.getSource());
+        } catch (JTextFieldInvalidoException e) {
         }
-    }//GEN-LAST:event_txtCusto1FocusLost
+    }//GEN-LAST:event_txtCustoFocusLost
 
     private void txtTesteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTesteFocusLost
         // TODO add your handling code here:
-        try{
-            ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
-        } catch(JTextFieldInvalidoException e){
+        try {
+            ValidarCampos.validarCampoInteiro((JTextField) evt.getSource());
+        } catch (JTextFieldInvalidoException e) {
         }
     }//GEN-LAST:event_txtTesteFocusLost
 
@@ -259,39 +266,8 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        try{
-            String nome = ValidarCampos.validarCampoTexto(txtNome1, true);
-            int custo = ValidarCampos.validarCampoInteiro(txtCusto1);
-            int teste = ValidarCampos.validarCampoInteiro(txtTeste);
-            
-            String tipo = null;
-            if(rdbBelica.isSelected()){
-                tipo = "Belica";
-            }
-            if(rdbFisica.isSelected()){
-                tipo = "Fisica";
-            }
-            if(rdbPsiquica.isSelected()){
-                tipo = "Psiquica";
-            }
-            if(tipo == null){
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Um TIPO de Habilidade deve ser selecionado","Erro",JOptionPane.ERROR_MESSAGE);
-                rdbFisica.setForeground(Color.RED);
-                rdbPsiquica.setForeground(Color.RED);
-                rdbBelica.setForeground(Color.RED);
-
-                rdbFisica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
-                rdbPsiquica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
-                rdbBelica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
-            }else{
-                Controle_Habilidade.cadHabilidade(teste, 0, custo, nome, tipo);
-                JOptionPane.showMessageDialog(null,"Cadastro Habildiade: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-                PainelFuncoes.limparTodosOsCampos(this);
-                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-                grpTipoHabilidade.clearSelection();
-            }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        if(podeCadastrar){
+            cadastrarHabilidade();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -300,7 +276,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
-        
+
         rdbFisica.setToolTipText("");
         rdbPsiquica.setToolTipText("");
         rdbBelica.setToolTipText("");
@@ -311,7 +287,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
-        
+
         rdbFisica.setToolTipText("");
         rdbPsiquica.setToolTipText("");
         rdbBelica.setToolTipText("");
@@ -322,31 +298,156 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
-        
+
         rdbFisica.setToolTipText("");
         rdbPsiquica.setToolTipText("");
         rdbBelica.setToolTipText("");
     }//GEN-LAST:event_rdbBelicaActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.ButtonGroup grpTipoHabilidade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel pnlTipo;
     private javax.swing.JRadioButton rdbBelica;
     private javax.swing.JRadioButton rdbFisica;
     private javax.swing.JRadioButton rdbPsiquica;
     private javax.swing.JTextField txtCusto;
-    private javax.swing.JTextField txtCusto1;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtTeste;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void cadastrarHabilidade(){
+        try {
+            String nome = ValidarCampos.validarCampoTexto(txtNome, true);
+            int custo = ValidarCampos.validarCampoInteiro(txtCusto);
+            int teste = ValidarCampos.validarCampoInteiro(txtTeste);
+
+            String tipo = null;
+            if (rdbBelica.isSelected()) {
+                tipo = "Belica";
+            }
+            if (rdbFisica.isSelected()) {
+                tipo = "Fisica";
+            }
+            if (rdbPsiquica.isSelected()) {
+                tipo = "Psiquica";
+            }
+            if (tipo == null) {
+                JOptionPane.showMessageDialog(null, "ERROR: " + "Um TIPO de Habilidade deve ser selecionado", "Erro", JOptionPane.ERROR_MESSAGE);
+                rdbFisica.setForeground(Color.RED);
+                rdbPsiquica.setForeground(Color.RED);
+                rdbBelica.setForeground(Color.RED);
+
+                rdbFisica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
+                rdbPsiquica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
+                rdbBelica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
+            } else {
+                Controle_Habilidade.cadHabilidade(teste, 0, custo, nome, tipo);
+                JOptionPane.showMessageDialog(null, "Cadastro Habildiade: " + nome + "\nRealizado com Sucesso!", "Concluido", JOptionPane.INFORMATION_MESSAGE);
+                PainelFuncoes.limparTodosOsCampos(this);
+                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+                grpTipoHabilidade.clearSelection();
+            }
+        } catch (ArquivoInvalidoException | IOException | JTextFieldInvalidoException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    public void setBtnCadastrar(JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
+
+    public JButton getBtnLimpar() {
+        return btnLimpar;
+    }
+
+    public void setBtnLimpar(JButton btnLimpar) {
+        this.btnLimpar = btnLimpar;
+    }
+
+    public ButtonGroup getGrpTipoHabilidade() {
+        return grpTipoHabilidade;
+    }
+
+    public void setGrpTipoHabilidade(ButtonGroup grpTipoHabilidade) {
+        this.grpTipoHabilidade = grpTipoHabilidade;
+    }
+
+    public JRadioButton getRdbBelica() {
+        return rdbBelica;
+    }
+
+    public void setRdbBelica(JRadioButton rdbBelica) {
+        this.rdbBelica = rdbBelica;
+    }
+
+    public JRadioButton getRdbFisica() {
+        return rdbFisica;
+    }
+
+    public void setRdbFisica(JRadioButton rdbFisica) {
+        this.rdbFisica = rdbFisica;
+    }
+
+    public JRadioButton getRdbPsiquica() {
+        return rdbPsiquica;
+    }
+
+    public void setRdbPsiquica(JRadioButton rdbPsiquica) {
+        this.rdbPsiquica = rdbPsiquica;
+    }
+
+    public JTextField getTxtCusto() {
+        return txtCusto;
+    }
+
+    public void setTxtCusto(JTextField txtCusto) {
+        this.txtCusto = txtCusto;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtTeste() {
+        return txtTeste;
+    }
+
+    public void setTxtTeste(JTextField txtTeste) {
+        this.txtTeste = txtTeste;
+    }
+
+    public JPanel getPnlTipo() {
+        return pnlTipo;
+    }
+
+    public void setPnlTipo(JPanel pnlTipo) {
+        this.pnlTipo = pnlTipo;
+    }
+
+    public boolean isPodeCadastrar() {
+        return podeCadastrar;
+    }
+
+    public void setPodeCadastrar(boolean podeCadastrar) {
+        this.podeCadastrar = podeCadastrar;
+    }
+    
+    
+    
+    
 }

@@ -172,7 +172,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
             NovaAba.abaAlterarFicha(tabbedPane, (ImageIcon)btnAlterarFicha.getIcon());
         }
         if(origem.equals(btnAlterarHabilidade)){
-            
+            NovaAba.abaAlterarHabilidade(tabbedPane, (ImageIcon)btnAlterarHabilidade.getIcon());
         }
         if(origem.equals(btnAlterarCaracteristica)){
             

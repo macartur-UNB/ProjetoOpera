@@ -53,7 +53,6 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
         rdbFisica = new javax.swing.JRadioButton();
         rdbPsiquica = new javax.swing.JRadioButton();
         rdbRacial = new javax.swing.JRadioButton();
-        chkEspecifica = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         chkFisico = new javax.swing.JCheckBox();
         chkDestreza = new javax.swing.JCheckBox();
@@ -149,7 +148,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
@@ -178,8 +177,6 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             }
         });
 
-        chkEspecifica.setText("Especifica");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -189,22 +186,19 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbFisica)
                     .addComponent(rdbRacial)
-                    .addComponent(rdbPsiquica)
-                    .addComponent(chkEspecifica))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rdbPsiquica))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rdbFisica)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(rdbPsiquica)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(rdbRacial)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(chkEspecifica)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificadores"));
@@ -702,21 +696,14 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Caracteristica nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
             }else{
-                if(chkEspecifica.isSelected()){
-                    if(possui_modificador){
-                        Controle_Caracteristica.cadCaracteristicaEspecifica(nome, descricao, nome, descricao, tipo, custo, modificador);
-                    }else{
-                        Controle_Caracteristica.cadCaracteristicaEspecifica(nome, descricao, nome, descricao, tipo, custo);
-                    }
-                    JOptionPane.showMessageDialog(null,"Cadastro Caracteristica Especifica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                
+                if(possui_modificador){
+                    Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo, modificador);
                 }else{
-                    if(possui_modificador){
-                        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo, modificador);
-                    }else{
-                        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
-                    }
-                    JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
                 }
+                JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+
                 
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
@@ -773,7 +760,6 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JCheckBox chkDestreza;
-    private javax.swing.JCheckBox chkEspecifica;
     private javax.swing.JCheckBox chkFisico;
     private javax.swing.JCheckBox chkInteligencia;
     private javax.swing.JCheckBox chkMana;

@@ -84,4 +84,14 @@ public class NovaAba {
         }
         tabbedPane.setSelectedIndex(index);
     }
+    
+    public static void abaAlterarHabilidade(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Alterar Habilidade");
+        if(index == -1){
+            PnlAlterarHabilidade painel = new PnlAlterarHabilidade();
+            tabbedPane.adicionarPainel(painel, "Alterar Habilidade", icone);
+            index = tabbedPane.indexOfTab("Alterar Habilidade");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
 }

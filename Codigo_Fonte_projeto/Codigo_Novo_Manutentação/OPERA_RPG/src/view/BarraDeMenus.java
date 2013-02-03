@@ -194,7 +194,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         }
         
         if(origem.equals(itemAlterarHabilidade)){
-            
+            NovaAba.abaAlterarHabilidade(tabbedPane, (ImageIcon)itemAlterarHabilidade.getIcon());
         }
         
         if(origem.equals(itemAlterarCaracteristica)){

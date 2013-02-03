@@ -33,6 +33,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
         PainelFuncoes.habilitarCampos(pnlCadastrarFicha, false);
         iniciarBtnLimpar();
         pnlCadastrarFicha.setPodeCadastrar(false);
+        pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
         iniciarBtnAlterar();
     }
 
@@ -204,9 +205,11 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarFicha);
             pnlCadastrarFicha.getGrpTipoFicha().clearSelection();
             PainelFuncoes.habilitarCampos(pnlCadastrarFicha.getPnlTipoFicha(), false);
+            pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
             
             if(!cmbFicha.getSelectedItem().toString().equals("Nenhuma")){
                 PainelFuncoes.habilitarCampos(pnlCadastrarFicha, true);
+                pnlCadastrarFicha.getBtnCadastrar().setEnabled(true);
                 Ficha ficha = null;
                 if(rdbJogador.isSelected()){
                     ficha = Controle_Ficha.encontrarJogador(cmbFicha.getSelectedItem().toString());
@@ -291,7 +294,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
         pnlCadastrarFicha.getBtnCadastrar().setText("Alterar");
         pnlCadastrarFicha.getBtnCadastrar().addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                btnAlterarActionPerformed(evt);
             }
         });
     }
@@ -304,10 +307,12 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
         cmbFicha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
         cmbFicha.setEnabled(false);
         
+        pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
+        
         grpTipoDeFicha.clearSelection();
     }  
     
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {
         alterarFicha();
         
         rdbJogador.setForeground(Color.BLACK);
@@ -419,6 +424,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 pnlCadastrarFicha.getGrpTipoFicha().clearSelection();
+                pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
             }
         } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | DeletarInvalidoException | HeadlessException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
