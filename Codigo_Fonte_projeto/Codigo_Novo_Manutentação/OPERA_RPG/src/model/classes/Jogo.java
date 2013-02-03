@@ -39,7 +39,8 @@ public class Jogo implements Serializable {
 
     @Override
     public String toString() {
-        return "Jogo = "+this.getNome();
+        return " Jogo = "+this.getNome()+
+               " Endereco = "+this.getEndereco();
     }
     
 }
