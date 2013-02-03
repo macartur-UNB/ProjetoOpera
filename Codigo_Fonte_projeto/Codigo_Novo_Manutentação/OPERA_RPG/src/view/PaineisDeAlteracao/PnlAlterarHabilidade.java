@@ -5,15 +5,15 @@
 package view.PaineisDeAlteracao;
 
 import control.Controle_Habilidade;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import model.Habilidade;
+import model.classes.Habilidade;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.validacao.ValidarCampos;
 

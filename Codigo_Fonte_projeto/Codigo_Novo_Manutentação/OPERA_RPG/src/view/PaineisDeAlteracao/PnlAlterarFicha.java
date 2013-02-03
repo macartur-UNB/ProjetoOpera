@@ -5,15 +5,15 @@
 package view.PaineisDeAlteracao;
 
 import control.Controle_Ficha;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import model.Constantes;
-import model.Ficha;
+import model.classes.Constantes;
+import model.classes.Ficha;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.validacao.ValidarCampos;
 
