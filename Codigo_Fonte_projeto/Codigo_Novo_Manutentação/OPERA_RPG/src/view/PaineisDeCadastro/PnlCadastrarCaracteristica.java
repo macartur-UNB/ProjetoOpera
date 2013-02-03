@@ -5,16 +5,16 @@
 package view.PaineisDeCadastro;
 
 import control.Controle_Caracteristica;
-import exception.ArquivoInvalidoException;
-import exception.JTextAreaInvalidoException;
-import exception.JTextFieldInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextAreaInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import model.Constantes;
+import model.classes.Constantes;
 import view.validacao.ValidarCampos;
 
 /**

@@ -4,15 +4,15 @@
  */
 package control;
 
-import dao.DAO_Jogo;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JogoInvalidoException;
-import exception.Validacao;
+import model.dao.DAO_Jogo;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.DiretorioInvalidoException;
+import model.exception.JogoInvalidoException;
+import model.exception.Validacao;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Jogo;
+import model.classes.Jogo;
 
 public class Controle_Jogo {
     
@@ -24,15 +24,14 @@ public class Controle_Jogo {
      * @throws IOException 
      */
     public static void criarJogo(String nome) throws DiretorioInvalidoException,
-                                       FileNotFoundException, IOException,
-                                       ArquivoInvalidoException,
-                                       ClassNotFoundException {
+            IOException, FileNotFoundException, ClassNotFoundException,
+                                ArquivoInvalidoException, JogoInvalidoException {
        Validacao.validarCaracteresNome(nome, true);
        DAO_Jogo.criarJogo(nome);
     }
  
    public static void abrirJogo(String nome) throws FileNotFoundException,
-    IOException, ClassNotFoundException, JogoInvalidoException{
+    IOException, ClassNotFoundException, JogoInvalidoException, ArquivoInvalidoException{
        DAO_Jogo.carregarJogo(nome);
     }     
     

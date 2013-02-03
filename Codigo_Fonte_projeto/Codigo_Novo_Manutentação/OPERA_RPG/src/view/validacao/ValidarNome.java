@@ -4,8 +4,8 @@
  */
 package view.validacao;
 
-import exception.NomeInvalidoException;
-import exception.TextoInvalidoException;
+import model.exception.NomeInvalidoException;
+import model.exception.TextoInvalidoException;
 
 /**
  *

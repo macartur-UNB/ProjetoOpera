@@ -5,12 +5,16 @@
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
-import exception.ArquivoInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JTextFieldInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DiretorioInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.exception.JogoInvalidoException;
 import view.validacao.ValidarCampos;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
@@ -132,9 +136,19 @@ public class PnlNovoJogo extends javax.swing.JPanel {
                 int index = TelaPrincipal.tabbedPane.indexOfTab("Novo Jogo");
                 TelaPrincipal.tabbedPane.remove(index);
             }
-        } catch(ArquivoInvalidoException | ClassNotFoundException | DiretorioInvalidoException | IOException | JTextFieldInvalidoException e){
+        } catch (JTextFieldInvalidoException e) {
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
-        }
+        } catch (DiretorioInvalidoException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch (ArquivoInvalidoException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch (JogoInvalidoException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } 
     }//GEN-LAST:event_btnCriarJogoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,13 +4,13 @@
  */
 package control;
 
-import dao.DAO_Ficha;
-import dao.DAO_Habilidade;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
+import model.dao.DAO_Ficha;
+import model.dao.DAO_Habilidade;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Ficha;
+import model.classes.Ficha;
 
 
 public class Controle_Ficha {

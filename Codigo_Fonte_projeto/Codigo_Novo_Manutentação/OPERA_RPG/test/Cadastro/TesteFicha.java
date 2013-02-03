@@ -6,10 +6,10 @@ package Cadastro;
 
 import control.Controle_Ficha;
 import control.Controle_Jogo;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.DiretorioInvalidoException;
-import exception.JogoInvalidoException;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.DiretorioInvalidoException;
+import model.exception.JogoInvalidoException;
 import java.io.IOException;
 
 

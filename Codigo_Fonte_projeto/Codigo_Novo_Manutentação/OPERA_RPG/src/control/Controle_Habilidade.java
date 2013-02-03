@@ -4,13 +4,13 @@
  */
 package control;
 
-import dao.DAO_Habilidade;
-import exception.ArquivoInvalidoException;
-import exception.DeletarInvalidoException;
-import exception.HabilidadeInvalidaException;
+import model.dao.DAO_Habilidade;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.HabilidadeInvalidaException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.Habilidade;
+import model.classes.Habilidade;
 
 /**
  *
