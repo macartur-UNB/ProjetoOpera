@@ -5,16 +5,22 @@
 package view.PaineisDeCadastro;
 
 import control.Controle_Caracteristica;
-import model.exception.ArquivoInvalidoException;
-import model.exception.JTextAreaInvalidoException;
-import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import model.classes.Caracteristica;
 import model.classes.Constantes;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextAreaInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
 /**
@@ -23,12 +29,15 @@ import view.validacao.ValidarCampos;
  */
 public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
 
+    private boolean podeCadastrar;
+    
     /**
      * Creates new form PnlCadastrarCaracteristica
      */
     public PnlCadastrarCaracteristica() {
         initComponents();
         PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+        podeCadastrar = true;
     }
 
     /**
@@ -49,7 +58,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
+        pnlTipo = new javax.swing.JPanel();
         rdbFisica = new javax.swing.JRadioButton();
         rdbPsiquica = new javax.swing.JRadioButton();
         rdbRacial = new javax.swing.JRadioButton();
@@ -151,7 +160,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
+        pnlTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
 
         grpTipoCaracteristica.add(rdbFisica);
         rdbFisica.setText("Fisica");
@@ -177,21 +186,21 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTipoLayout = new javax.swing.GroupLayout(pnlTipo);
+        pnlTipo.setLayout(pnlTipoLayout);
+        pnlTipoLayout.setHorizontalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbFisica)
                     .addComponent(rdbRacial)
                     .addComponent(rdbPsiquica))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlTipoLayout.setVerticalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rdbFisica)
                 .addGap(18, 18, 18)
@@ -410,7 +419,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -424,7 +433,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -621,11 +630,115 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
         txtPercepcao.setEnabled(false);
         txtSorte.setEnabled(false);
         txtVontade.setEnabled(false);
+        
+        PainelFuncoes.habilitarCampos(this, false);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+        if(podeCadastrar){
+            cadastrarCaracteristica();
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbFisicaActionPerformed
+
+    private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbPsiquicaActionPerformed
+
+    private void rdbRacialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRacialActionPerformed
+        // TODO add your handling code here:
+        rdbFisica.setForeground(Color.BLACK);
+        rdbPsiquica.setForeground(Color.BLACK);
+        rdbRacial.setForeground(Color.BLACK);
+        
+        rdbFisica.setToolTipText("");
+        rdbPsiquica.setToolTipText("");
+        rdbRacial.setToolTipText("");
+    }//GEN-LAST:event_rdbRacialActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JCheckBox chkDestreza;
+    private javax.swing.JCheckBox chkFisico;
+    private javax.swing.JCheckBox chkInteligencia;
+    private javax.swing.JCheckBox chkMana;
+    private javax.swing.JCheckBox chkMente;
+    private javax.swing.JCheckBox chkPercepcao;
+    private javax.swing.JCheckBox chkSorte;
+    private javax.swing.JCheckBox chkVontade;
+    private javax.swing.ButtonGroup grpTipoCaracteristica;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pnlTipo;
+    private javax.swing.JRadioButton rdbFisica;
+    private javax.swing.JRadioButton rdbPsiquica;
+    private javax.swing.JRadioButton rdbRacial;
+    private javax.swing.JTextField txtCusto;
+    private javax.swing.JTextArea txtDescricao;
+    private javax.swing.JTextField txtDestreza;
+    private javax.swing.JTextField txtFisico;
+    private javax.swing.JTextField txtInteligencia;
+    private javax.swing.JTextField txtMana;
+    private javax.swing.JTextField txtMente;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPercepcao;
+    private javax.swing.JTextField txtSorte;
+    private javax.swing.JTextField txtVontade;
+    // End of variables declaration//GEN-END:variables
+
+
+    private void cadastrarCaracteristica(){
         try{
+            Caracteristica caracteristica = pegarDadosDoPainel();
+            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), caracteristica.getDescricao(), caracteristica.getTipo(), caracteristica.getCusto(), caracteristica.getModificador());
+            
+            JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + caracteristica.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+  
+            PainelFuncoes.limparTodosOsCampos(this);
+            PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+            txtDescricao.setText(null);
+            grpTipoCaracteristica.clearSelection();
+
+            txtDestreza.setEnabled(false);
+            txtFisico.setEnabled(false);
+            txtInteligencia.setEnabled(false);
+            txtMana.setEnabled(false);
+            txtMente.setEnabled(false);
+            txtPercepcao.setEnabled(false);
+            txtSorte.setEnabled(false);
+            txtVontade.setEnabled(false);
+        } catch(ArquivoInvalidoException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public Caracteristica pegarDadosDoPainel(){
+        try{
+            Caracteristica caracteristica = null;
+            
             String nome = ValidarCampos.validarCampoTexto(txtNome, true);
             String descricao = ValidarCampos.validarCampoAreaDeTexto(txtDescricao);
             int custo = ValidarCampos.validarCampoInteiro(txtCusto);
@@ -698,96 +811,235 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             }else{
                 
                 if(possui_modificador){
-                    Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo, modificador);
+                    caracteristica = new Caracteristica(nome, descricao, tipo, modificador, custo);
                 }else{
-                    Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+                    caracteristica = new Caracteristica(nome, descricao, tipo, custo);
                 }
-                JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-
                 
-                PainelFuncoes.limparTodosOsCampos(this);
-                PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-                grpTipoCaracteristica.clearSelection();
-
-                txtDestreza.setEnabled(false);
-                txtFisico.setEnabled(false);
-                txtInteligencia.setEnabled(false);
-                txtMana.setEnabled(false);
-                txtMente.setEnabled(false);
-                txtPercepcao.setEnabled(false);
-                txtSorte.setEnabled(false);
-                txtVontade.setEnabled(false);
+                return caracteristica;
             }
-        } catch(ArquivoInvalidoException | IOException | JTextAreaInvalidoException | JTextFieldInvalidoException e){
+        } catch(JTextAreaInvalidoException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+        return null;
+    }
+    
+    public boolean isPodeCadastrar() {
+        return podeCadastrar;
+    }
 
-    private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
-        // TODO add your handling code here:
-        rdbFisica.setForeground(Color.BLACK);
-        rdbPsiquica.setForeground(Color.BLACK);
-        rdbRacial.setForeground(Color.BLACK);
-        
-        rdbFisica.setToolTipText("");
-        rdbPsiquica.setToolTipText("");
-        rdbRacial.setToolTipText("");
-    }//GEN-LAST:event_rdbFisicaActionPerformed
+    public void setPodeCadastrar(boolean podeCadastrar) {
+        this.podeCadastrar = podeCadastrar;
+    }
 
-    private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
-        // TODO add your handling code here:
-        rdbFisica.setForeground(Color.BLACK);
-        rdbPsiquica.setForeground(Color.BLACK);
-        rdbRacial.setForeground(Color.BLACK);
-        
-        rdbFisica.setToolTipText("");
-        rdbPsiquica.setToolTipText("");
-        rdbRacial.setToolTipText("");
-    }//GEN-LAST:event_rdbPsiquicaActionPerformed
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
 
-    private void rdbRacialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRacialActionPerformed
-        // TODO add your handling code here:
-        rdbFisica.setForeground(Color.BLACK);
-        rdbPsiquica.setForeground(Color.BLACK);
-        rdbRacial.setForeground(Color.BLACK);
-        
-        rdbFisica.setToolTipText("");
-        rdbPsiquica.setToolTipText("");
-        rdbRacial.setToolTipText("");
-    }//GEN-LAST:event_rdbRacialActionPerformed
+    public void setBtnCadastrar(JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnLimpar;
-    private javax.swing.JCheckBox chkDestreza;
-    private javax.swing.JCheckBox chkFisico;
-    private javax.swing.JCheckBox chkInteligencia;
-    private javax.swing.JCheckBox chkMana;
-    private javax.swing.JCheckBox chkMente;
-    private javax.swing.JCheckBox chkPercepcao;
-    private javax.swing.JCheckBox chkSorte;
-    private javax.swing.JCheckBox chkVontade;
-    private javax.swing.ButtonGroup grpTipoCaracteristica;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton rdbFisica;
-    private javax.swing.JRadioButton rdbPsiquica;
-    private javax.swing.JRadioButton rdbRacial;
-    private javax.swing.JTextField txtCusto;
-    private javax.swing.JTextArea txtDescricao;
-    private javax.swing.JTextField txtDestreza;
-    private javax.swing.JTextField txtFisico;
-    private javax.swing.JTextField txtInteligencia;
-    private javax.swing.JTextField txtMana;
-    private javax.swing.JTextField txtMente;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtPercepcao;
-    private javax.swing.JTextField txtSorte;
-    private javax.swing.JTextField txtVontade;
-    // End of variables declaration//GEN-END:variables
+    public JButton getBtnLimpar() {
+        return btnLimpar;
+    }
+
+    public void setBtnLimpar(JButton btnLimpar) {
+        this.btnLimpar = btnLimpar;
+    }
+
+    public JCheckBox getChkDestreza() {
+        return chkDestreza;
+    }
+
+    public void setChkDestreza(JCheckBox chkDestreza) {
+        this.chkDestreza = chkDestreza;
+    }
+
+    public JCheckBox getChkFisico() {
+        return chkFisico;
+    }
+
+    public void setChkFisico(JCheckBox chkFisico) {
+        this.chkFisico = chkFisico;
+    }
+
+    public JCheckBox getChkInteligencia() {
+        return chkInteligencia;
+    }
+
+    public void setChkInteligencia(JCheckBox chkInteligencia) {
+        this.chkInteligencia = chkInteligencia;
+    }
+
+    public JCheckBox getChkMana() {
+        return chkMana;
+    }
+
+    public void setChkMana(JCheckBox chkMana) {
+        this.chkMana = chkMana;
+    }
+
+    public JCheckBox getChkMente() {
+        return chkMente;
+    }
+
+    public void setChkMente(JCheckBox chkMente) {
+        this.chkMente = chkMente;
+    }
+
+    public JCheckBox getChkPercepcao() {
+        return chkPercepcao;
+    }
+
+    public void setChkPercepcao(JCheckBox chkPercepcao) {
+        this.chkPercepcao = chkPercepcao;
+    }
+
+    public JCheckBox getChkSorte() {
+        return chkSorte;
+    }
+
+    public void setChkSorte(JCheckBox chkSorte) {
+        this.chkSorte = chkSorte;
+    }
+
+    public JCheckBox getChkVontade() {
+        return chkVontade;
+    }
+
+    public void setChkVontade(JCheckBox chkVontade) {
+        this.chkVontade = chkVontade;
+    }
+
+    public ButtonGroup getGrpTipoCaracteristica() {
+        return grpTipoCaracteristica;
+    }
+
+    public void setGrpTipoCaracteristica(ButtonGroup grpTipoCaracteristica) {
+        this.grpTipoCaracteristica = grpTipoCaracteristica;
+    }
+
+    public JRadioButton getRdbFisica() {
+        return rdbFisica;
+    }
+
+    public void setRdbFisica(JRadioButton rdbFisica) {
+        this.rdbFisica = rdbFisica;
+    }
+
+    public JRadioButton getRdbPsiquica() {
+        return rdbPsiquica;
+    }
+
+    public void setRdbPsiquica(JRadioButton rdbPsiquica) {
+        this.rdbPsiquica = rdbPsiquica;
+    }
+
+    public JRadioButton getRdbRacial() {
+        return rdbRacial;
+    }
+
+    public void setRdbRacial(JRadioButton rdbRacial) {
+        this.rdbRacial = rdbRacial;
+    }
+
+    public JTextField getTxtCusto() {
+        return txtCusto;
+    }
+
+    public void setTxtCusto(JTextField txtCusto) {
+        this.txtCusto = txtCusto;
+    }
+
+    public JTextArea getTxtDescricao() {
+        return txtDescricao;
+    }
+
+    public void setTxtDescricao(JTextArea txtDescricao) {
+        this.txtDescricao = txtDescricao;
+    }
+
+    public JTextField getTxtDestreza() {
+        return txtDestreza;
+    }
+
+    public void setTxtDestreza(JTextField txtDestreza) {
+        this.txtDestreza = txtDestreza;
+    }
+
+    public JTextField getTxtFisico() {
+        return txtFisico;
+    }
+
+    public void setTxtFisico(JTextField txtFisico) {
+        this.txtFisico = txtFisico;
+    }
+
+    public JTextField getTxtInteligencia() {
+        return txtInteligencia;
+    }
+
+    public void setTxtInteligencia(JTextField txtInteligencia) {
+        this.txtInteligencia = txtInteligencia;
+    }
+
+    public JTextField getTxtMana() {
+        return txtMana;
+    }
+
+    public void setTxtMana(JTextField txtMana) {
+        this.txtMana = txtMana;
+    }
+
+    public JTextField getTxtMente() {
+        return txtMente;
+    }
+
+    public void setTxtMente(JTextField txtMente) {
+        this.txtMente = txtMente;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtPercepcao() {
+        return txtPercepcao;
+    }
+
+    public void setTxtPercepcao(JTextField txtPercepcao) {
+        this.txtPercepcao = txtPercepcao;
+    }
+
+    public JTextField getTxtSorte() {
+        return txtSorte;
+    }
+
+    public void setTxtSorte(JTextField txtSorte) {
+        this.txtSorte = txtSorte;
+    }
+
+    public JTextField getTxtVontade() {
+        return txtVontade;
+    }
+
+    public void setTxtVontade(JTextField txtVontade) {
+        this.txtVontade = txtVontade;
+    }
+
+    public JPanel getPnlTipo() {
+        return pnlTipo;
+    }
+
+    public void setPnlTipo(JPanel pnlTipo) {
+        this.pnlTipo = pnlTipo;
+    }
+    
+    
+    
 }

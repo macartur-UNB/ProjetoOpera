@@ -94,4 +94,14 @@ public class NovaAba {
         }
         tabbedPane.setSelectedIndex(index);
     }
+    
+    public static void abaAlterarCaracteristica(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Alterar Caracteristica");
+        if(index == -1){
+            PnlAlterarCaracteristica painel = new PnlAlterarCaracteristica();
+            tabbedPane.adicionarPainel(painel, "Alterar Caracteristica", icone);
+            index = tabbedPane.indexOfTab("Alterar Caracteristica");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
 }

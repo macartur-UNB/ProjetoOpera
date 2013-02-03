@@ -276,8 +276,6 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
         
         pnlCadastrarHabilidade.getBtnCadastrar().setEnabled(false);
         
-        
-        
         grpTipoDeHabilidade.clearSelection();
     }
     

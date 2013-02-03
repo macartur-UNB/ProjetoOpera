@@ -12,6 +12,8 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
@@ -34,6 +36,18 @@ public class PainelFuncoes {
         }
     }
     
+    public static void limparCamposJTextArea(JComponent componente){
+        Object objeto[] = componente.getComponents();
+        for(int i = 0; i < objeto.length; i++){
+            if(objeto[i] instanceof JComponent){
+                limparCamposJTextArea(((JComponent)objeto[i]));
+            }
+            if(objeto[i] instanceof JTextArea){
+                ((JTextArea)objeto[i]).setText(null);
+            }
+        }
+    }
+    
     public static void limparCamposJCheckBox(JComponent componente){
         Object objeto[] = componente.getComponents();
         for(int i = 0; i < objeto.length; i++){
@@ -50,14 +64,20 @@ public class PainelFuncoes {
     public static void limparTodosOsCampos(JComponent componente){
         Object objeto[] = componente.getComponents();
         for(int i = 0; i < objeto.length; i++){
-            if(objeto[i] instanceof JPanel){
-                limparTodosOsCampos(((JPanel)objeto[i]));
+            if(objeto[i] instanceof JComponent){
+                limparTodosOsCampos(((JComponent)objeto[i]));
             }
             if(objeto[i] instanceof JCheckBox){
                 ((JCheckBox)objeto[i]).setSelected(false);
             }
             if(objeto[i] instanceof JTextField){
                 ((JTextField)objeto[i]).setText(null);
+            }
+            if(objeto[i] instanceof JTextArea){
+                ((JTextArea)objeto[i]).setText(null);
+            }
+            if(objeto[i] instanceof ButtonGroup){
+                ((ButtonGroup)objeto[i]).clearSelection();
             }
         }
     }
@@ -80,6 +100,9 @@ public class PainelFuncoes {
         for(int i = 0; i < objeto.length; i++){
             if(objeto[i] instanceof JPanel){
                 habilitarCampos(((JPanel)objeto[i]), habilitar);
+            }
+            if(objeto[i] instanceof JComponent){
+                habilitarCampos((JComponent)objeto[i], habilitar);
             }
             if(objeto[i] instanceof JCheckBox){
                 ((JCheckBox)objeto[i]).setEnabled(habilitar);
@@ -105,6 +128,12 @@ public class PainelFuncoes {
             }
             if(objeto[i] instanceof JLabel){
                 ((JLabel)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JTextArea){
+                ((JTextArea)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JScrollPane){
+                ((JScrollPane)objeto[i]).setEnabled(habilitar);
             }
         }
     }
