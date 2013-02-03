@@ -4,9 +4,6 @@
  */
 package control;
 
-import model.dao.DAO_Item;
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.classes.Arma_A_Distancia;
@@ -14,6 +11,9 @@ import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
 import model.classes.Dado;
 import model.classes.Item;
+import model.dao.DAO_Item;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 
 public class Controle_Item {    
@@ -139,5 +139,20 @@ public class Controle_Item {
         return DAO_Item.encontrarArmadura(nome);
     }
     
+    public static String[] listarItemGenerico(){
+        return DAO_Item.listarItem("Generico");
+    }
+    
+    public static String[] listarItemArmaADistancia(){
+        return DAO_Item.listarItem("Arma a Distancia");
+    }
+    
+    public static String[] listarItemArmaCorpoACorpo(){
+        return DAO_Item.listarItem("Arma Corpo a Corpo");
+    }
+    
+    public static String[] listarItemArmadura(){
+        return DAO_Item.listarItem("Armadura");
+    }
     
 }

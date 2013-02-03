@@ -36,7 +36,7 @@ public class DAO_Item {
     public static void gravarArma_Corpo_A_Corpo(Arma_Corpo_A_Corpo arma)
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
-                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO+"\\Branca";
+                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
         if(DAO_Funcao.diretorioExiste(diretorio)){
             DAO_Funcao.criarArquivoOpera(diretorio, arma.getNome(), arma);
         }
@@ -74,7 +74,7 @@ public class DAO_Item {
     
     public static void removeArma_Corpo_A_Corpo(String nome,String tipo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
          String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
-                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO+"\\"+tipo+"\\";
+                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
          if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                DAO_Funcao.removerArquivo(diretorio, nome);
          }
@@ -101,7 +101,7 @@ public class DAO_Item {
                throws FileNotFoundException,IOException, ClassNotFoundException, ArquivoInvalidoException{
             Arma_Corpo_A_Corpo acc = null;
             String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
-                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO+"\\"+tipo+"\\";
+                   ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
             if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                 acc =(Arma_Corpo_A_Corpo) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
             }
@@ -129,6 +129,26 @@ public class DAO_Item {
         }
         return a;
     }
-    
+    public static String[] listarItem(String tipo){
+        //String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\"; 
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco();
+        switch(tipo){
+            case "Generico":
+                diretorio += Constantes.Endereco.ITEM_GENERICO;
+                break;
+            case "Arma a Distancia":
+                diretorio += Constantes.Endereco.ITEM_ARMA_A_DISTANCIA;
+                break;
+            case "Arma Corpo a Corpo":
+                diretorio += Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO;
+                break;
+            case "Armadura":
+                diretorio += Constantes.Endereco.ITEM_ARMADURA;
+                break;
+        }
+        String s[];
+        s = DAO_Funcao.listarArquivosOpera(diretorio);
+        return s;
+    }
     
 }
