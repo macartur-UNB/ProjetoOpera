@@ -42,6 +42,17 @@ public class Controle_Item {
         DAO_Item.removerItemGenerico(nome);
     }
     
+    public static void removerArmaADistancia(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Item.removerArma_A_Distancia(nome);
+    }
+    
+    public static void removerArmaCorpoACorpo(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Item.removerArma_Corpo_A_Corpo(nome, "");
+    }
+    
+    public static void removerArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+        DAO_Item.removerArmadura(nome);
+    }
     
     public static void cadArma_Corpo_A_Corpo(String nome, String descricao,String tipo,
                 Dado dano,int danoAdicional,int golpe,int aparo,int esquiva,

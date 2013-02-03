@@ -4,8 +4,6 @@
  */
 package model.dao;
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.classes.Arma_A_Distancia;
@@ -13,6 +11,8 @@ import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
 import model.classes.Constantes;
 import model.classes.Item;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 /**
  *
@@ -64,7 +64,7 @@ public class DAO_Item {
             DAO_Funcao.removerArquivo(diretorio, nome);
         }
     }
-    public static void removeArma_A_Distancia(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArma_A_Distancia(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
          String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                   ENDERECO_ITEM_ARMA_A_DISTANCIA;
          if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
@@ -72,7 +72,7 @@ public class DAO_Item {
          }
     }
     
-    public static void removeArma_Corpo_A_Corpo(String nome,String tipo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArma_Corpo_A_Corpo(String nome,String tipo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
          String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                    ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
          if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
@@ -80,7 +80,7 @@ public class DAO_Item {
          }
     }
     
-    public static void removeArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constantes.Endereco.ITEM_ARMADURA;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                DAO_Funcao.removerArquivo(diretorio, nome);
