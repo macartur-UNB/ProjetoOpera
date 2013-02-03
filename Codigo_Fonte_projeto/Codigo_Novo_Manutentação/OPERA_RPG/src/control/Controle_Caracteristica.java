@@ -119,8 +119,8 @@ public class Controle_Caracteristica {
         return DAO_Caracteristica.listarCaracteristicas("Psiquica");
     }
     
-    public static String[] listarCaracteristicasBelicas(){
-        return DAO_Caracteristica.listarCaracteristicas("Belica");
+    public static String[] listarCaracteristicasRaciais(){
+        return DAO_Caracteristica.listarCaracteristicas("Racial");
     }    
     
     
