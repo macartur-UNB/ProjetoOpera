@@ -11,11 +11,21 @@ import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import model.classes.Arma_A_Distancia;
+import model.classes.Arma_Corpo_A_Corpo;
+import model.classes.Armadura;
 import model.classes.Constantes;
 import model.classes.Dado;
+import model.classes.Item;
 import view.validacao.ValidarCampos;
 
 /**
@@ -24,6 +34,9 @@ import view.validacao.ValidarCampos;
  */
 public class PnlCadastrarItem extends javax.swing.JPanel {
 
+    
+    private boolean podeCadastrar;
+    
     /**
      * Creates new form PnlCadastrarItem
      */
@@ -34,6 +47,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         PainelFuncoes.habilitarCampos(pnlArmadura, false);
         cmbHabilidade.setEnabled(false);
         cmbHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+        podeCadastrar = true;
     }
 
     /**
@@ -100,7 +114,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         txtEsquiva = new javax.swing.JTextField();
         txtAparo = new javax.swing.JTextField();
         txtGolpe = new javax.swing.JTextField();
-        jPanel8 = new javax.swing.JPanel();
+        pnlTipoDeArma = new javax.swing.JPanel();
         rdbArmaADistancia = new javax.swing.JRadioButton();
         rdbArmaCorpoACorpo = new javax.swing.JRadioButton();
         pnlArmadura = new javax.swing.JPanel();
@@ -113,7 +127,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         txtPenalidade = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtRegiaoDoCorpo = new javax.swing.JTextField();
-        jPanel9 = new javax.swing.JPanel();
+        pnlTipo = new javax.swing.JPanel();
         rdbItem = new javax.swing.JRadioButton();
         rdbArma = new javax.swing.JRadioButton();
         rdbArmadura = new javax.swing.JRadioButton();
@@ -607,7 +621,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
+        pnlTipoDeArma.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
 
         grpTipoDeArma.add(rdbArmaADistancia);
         rdbArmaADistancia.setText("Arma a Distancia");
@@ -625,19 +639,19 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlTipoDeArmaLayout = new javax.swing.GroupLayout(pnlTipoDeArma);
+        pnlTipoDeArma.setLayout(pnlTipoDeArmaLayout);
+        pnlTipoDeArmaLayout.setHorizontalGroup(
+            pnlTipoDeArmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoDeArmaLayout.createSequentialGroup()
+                .addGroup(pnlTipoDeArmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rdbArmaADistancia)
                     .addComponent(rdbArmaCorpoACorpo))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        pnlTipoDeArmaLayout.setVerticalGroup(
+            pnlTipoDeArmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoDeArmaLayout.createSequentialGroup()
                 .addComponent(rdbArmaADistancia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rdbArmaCorpoACorpo))
@@ -665,7 +679,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtDanoAdicional)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlTipoDeArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlArmaLayout.createSequentialGroup()
                         .addComponent(pnlArmaADistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -687,7 +701,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         .addGroup(pnlArmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(txtDanoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlTipoDeArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(pnlArmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlArmaADistancia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -790,7 +804,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Equipamento"));
+        pnlTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Equipamento"));
 
         grpTipoEquipamento.add(rdbItem);
         rdbItem.setText("Item");
@@ -816,11 +830,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTipoLayout = new javax.swing.GroupLayout(pnlTipo);
+        pnlTipo.setLayout(pnlTipoLayout);
+        pnlTipoLayout.setHorizontalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rdbItem)
                 .addGap(18, 18, 18)
@@ -829,11 +843,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 .addComponent(rdbArmadura)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        pnlTipoLayout.setVerticalGroup(
+            pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTipoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdbItem)
                     .addComponent(rdbArma)
                     .addComponent(rdbArmadura))
@@ -864,7 +878,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -896,7 +910,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1105,27 +1119,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        PainelFuncoes.limparTodosOsCampos(this);
-        PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
-        
-        PainelFuncoes.habilitarCampos(pnlArma, false);
-        PainelFuncoes.habilitarCampos(pnlArmadura, false);
-        
-        grpTipoDeArma.clearSelection();
-        grpTipoEquipamento.clearSelection();
-        grpTipoHabilidade.clearSelection();
-        
-        cmbHabilidade.setEnabled(false);
-        
-        txtDestreza.setEnabled(false);
-        txtFisico.setEnabled(false);
-        txtInteligencia.setEnabled(false);
-        txtMana.setEnabled(false);
-        txtMente.setEnabled(false);
-        txtPercepcao.setEnabled(false);
-        txtSorte.setEnabled(false);
-        txtVontade.setEnabled(false);
-        
+        limparCampos();        
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtLadosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLadosFocusLost
@@ -1261,7 +1255,132 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+        if(podeCadastrar){
+            cadastrarItem();
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
+        // TODO add your handling code here:
+        PainelFuncoes.habilitarCampos(pnlArmaCorpoACorpo, false);
+        PainelFuncoes.habilitarCampos(pnlArmaADistancia, true);
+        rdbArmaADistancia.setForeground(Color.BLACK);
+        rdbArmaCorpoACorpo.setForeground(Color.BLACK);
+    }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
+
+    private void rdbArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaCorpoACorpoActionPerformed
+        // TODO add your handling code here:
+        PainelFuncoes.habilitarCampos(pnlArmaADistancia, false);
+        PainelFuncoes.habilitarCampos(pnlArmaCorpoACorpo, true);
+        rdbArmaADistancia.setForeground(Color.BLACK);
+        rdbArmaCorpoACorpo.setForeground(Color.BLACK);
+    }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JCheckBox chkDestreza;
+    private javax.swing.JCheckBox chkFisico;
+    private javax.swing.JCheckBox chkInteligencia;
+    private javax.swing.JCheckBox chkMana;
+    private javax.swing.JCheckBox chkMente;
+    private javax.swing.JCheckBox chkPercepcao;
+    private javax.swing.JCheckBox chkSorte;
+    private javax.swing.JCheckBox chkVontade;
+    private javax.swing.JComboBox cmbHabilidade;
+    private javax.swing.ButtonGroup grpTipoDeArma;
+    private javax.swing.ButtonGroup grpTipoEquipamento;
+    private javax.swing.ButtonGroup grpTipoHabilidade;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel pnlArma;
+    private javax.swing.JPanel pnlArmaADistancia;
+    private javax.swing.JPanel pnlArmaCorpoACorpo;
+    private javax.swing.JPanel pnlArmadura;
+    private javax.swing.JPanel pnlTipo;
+    private javax.swing.JPanel pnlTipoDeArma;
+    private javax.swing.JRadioButton rdbArma;
+    private javax.swing.JRadioButton rdbArmaADistancia;
+    private javax.swing.JRadioButton rdbArmaCorpoACorpo;
+    private javax.swing.JRadioButton rdbArmadura;
+    private javax.swing.JRadioButton rdbBelica;
+    private javax.swing.JRadioButton rdbFisica;
+    private javax.swing.JRadioButton rdbItem;
+    private javax.swing.JRadioButton rdbPsiquica;
+    private javax.swing.JTextField txtAbsorcaoArmaBranca;
+    private javax.swing.JTextField txtAbsorcaoArmaDeFogo;
+    private javax.swing.JTextField txtAparo;
+    private javax.swing.JTextField txtCadencia;
+    private javax.swing.JTextField txtDanoAdicional;
+    private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtDestreza;
+    private javax.swing.JTextField txtEsquiva;
+    private javax.swing.JTextField txtFisico;
+    private javax.swing.JTextField txtGolpe;
+    private javax.swing.JTextField txtInteligencia;
+    private javax.swing.JTextField txtLados;
+    private javax.swing.JTextField txtMana;
+    private javax.swing.JTextField txtMente;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPenalidade;
+    private javax.swing.JTextField txtPercepcao;
+    private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtRegiaoDoCorpo;
+    private javax.swing.JTextField txtRolagem;
+    private javax.swing.JTextField txtSorte;
+    private javax.swing.JTextField txtTiroMirado;
+    private javax.swing.JTextField txtTiroRapido;
+    private javax.swing.JTextField txtVontade;
+    // End of variables declaration//GEN-END:variables
+
+    
+    public void limparCampos(){
+        PainelFuncoes.limparTodosOsCampos(this);
+        PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
+        
+        PainelFuncoes.habilitarCampos(pnlArma, false);
+        PainelFuncoes.habilitarCampos(pnlArmadura, false);
+        
+        grpTipoDeArma.clearSelection();
+        grpTipoEquipamento.clearSelection();
+        grpTipoHabilidade.clearSelection();
+        
+        cmbHabilidade.setEnabled(false);
+        
+        txtDestreza.setEnabled(false);
+        txtFisico.setEnabled(false);
+        txtInteligencia.setEnabled(false);
+        txtMana.setEnabled(false);
+        txtMente.setEnabled(false);
+        txtPercepcao.setEnabled(false);
+        txtSorte.setEnabled(false);
+        txtVontade.setEnabled(false);
+    }
+    
+    public Item pegarDadosDoPainel(){
         try{
+            Item item = null;
+            
             String nome = ValidarCampos.validarCampoTexto(txtNome, true);
             String descricao = ValidarCampos.validarCampoTexto(txtDescricao, true);
             int preco = ValidarCampos.validarCampoInteiro(txtPreco);
@@ -1336,11 +1455,10 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             }else{
                 if(tipoDeEquipamento == "Generico"){
                     if(possui_modificador){
-                        Controle_Item.cadItemGenerico(nome, descricao, false, modificador, preco, habilidade_Necessaria);
+                        item = new Item(nome, descricao, false, modificador, preco, habilidade_Necessaria);
                     }else{
-                        Controle_Item.cadItemGenerico(nome, descricao, false, null, preco, habilidade_Necessaria);
+                        item = new Item(nome, descricao, false, null, preco, habilidade_Necessaria);
                     }
-                    JOptionPane.showMessageDialog(null,"Cadastro Item: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 }
                 if(tipoDeEquipamento == "Arma"){
                     
@@ -1373,12 +1491,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                             int cadencia = ValidarCampos.validarCampoInteiro(txtCadencia);
                             
                             if(possui_modificador){
-                                Controle_Item.cadArma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, modificador, preco, habilidade_Necessaria);
+                                item = new Arma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, modificador, preco, habilidade_Necessaria);
                             }else{
-                                Controle_Item.cadArma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, null, preco, habilidade_Necessaria);
+                                item = new Arma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, null, preco, habilidade_Necessaria);
                             }
                             
-                            JOptionPane.showMessageDialog(null,"Cadastro Arma a Distancia: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                         }
                         
                         if(tipoDeArma == "Arma_Corpo_A_Corpo"){
@@ -1387,11 +1504,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                             int esquiva = ValidarCampos.validarCampoInteiro(txtEsquiva);
                             
                             if(possui_modificador){
-                                Controle_Item.cadArma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, modificador, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, modificador, preco, habilidade_Necessaria);
                             }else{
-                                Controle_Item.cadArma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, null, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, null, preco, habilidade_Necessaria);
                             }
-                            JOptionPane.showMessageDialog(null,"Cadastro Arma Corpo a Corpo: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                            
                         }
                     }
                 }
@@ -1403,112 +1520,60 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     char regiaoDoCorpo = ValidarCampos.validarCampoCaractere(txtRegiaoDoCorpo);
                     
                     if(possui_modificador){
-                        Controle_Item.cadArmadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, modificador, preco, habilidade_Necessaria);
+                        item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, modificador, preco, habilidade_Necessaria);
                     }else{
+                        item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
                         Controle_Item.cadArmadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
                     }
-                    JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    
                 }
+                
+                return item;
             }
         } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
-        // TODO add your handling code here:
-        PainelFuncoes.habilitarCampos(pnlArmaCorpoACorpo, false);
-        PainelFuncoes.habilitarCampos(pnlArmaADistancia, true);
-        rdbArmaADistancia.setForeground(Color.BLACK);
-        rdbArmaCorpoACorpo.setForeground(Color.BLACK);
-    }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
-
-    private void rdbArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaCorpoACorpoActionPerformed
-        // TODO add your handling code here:
-        PainelFuncoes.habilitarCampos(pnlArmaADistancia, false);
-        PainelFuncoes.habilitarCampos(pnlArmaCorpoACorpo, true);
-        rdbArmaADistancia.setForeground(Color.BLACK);
-        rdbArmaCorpoACorpo.setForeground(Color.BLACK);
-    }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnLimpar;
-    private javax.swing.JCheckBox chkDestreza;
-    private javax.swing.JCheckBox chkFisico;
-    private javax.swing.JCheckBox chkInteligencia;
-    private javax.swing.JCheckBox chkMana;
-    private javax.swing.JCheckBox chkMente;
-    private javax.swing.JCheckBox chkPercepcao;
-    private javax.swing.JCheckBox chkSorte;
-    private javax.swing.JCheckBox chkVontade;
-    private javax.swing.JComboBox cmbHabilidade;
-    private javax.swing.ButtonGroup grpTipoDeArma;
-    private javax.swing.ButtonGroup grpTipoEquipamento;
-    private javax.swing.ButtonGroup grpTipoHabilidade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel pnlArma;
-    private javax.swing.JPanel pnlArmaADistancia;
-    private javax.swing.JPanel pnlArmaCorpoACorpo;
-    private javax.swing.JPanel pnlArmadura;
-    private javax.swing.JRadioButton rdbArma;
-    private javax.swing.JRadioButton rdbArmaADistancia;
-    private javax.swing.JRadioButton rdbArmaCorpoACorpo;
-    private javax.swing.JRadioButton rdbArmadura;
-    private javax.swing.JRadioButton rdbBelica;
-    private javax.swing.JRadioButton rdbFisica;
-    private javax.swing.JRadioButton rdbItem;
-    private javax.swing.JRadioButton rdbPsiquica;
-    private javax.swing.JTextField txtAbsorcaoArmaBranca;
-    private javax.swing.JTextField txtAbsorcaoArmaDeFogo;
-    private javax.swing.JTextField txtAparo;
-    private javax.swing.JTextField txtCadencia;
-    private javax.swing.JTextField txtDanoAdicional;
-    private javax.swing.JTextField txtDescricao;
-    private javax.swing.JTextField txtDestreza;
-    private javax.swing.JTextField txtEsquiva;
-    private javax.swing.JTextField txtFisico;
-    private javax.swing.JTextField txtGolpe;
-    private javax.swing.JTextField txtInteligencia;
-    private javax.swing.JTextField txtLados;
-    private javax.swing.JTextField txtMana;
-    private javax.swing.JTextField txtMente;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtPenalidade;
-    private javax.swing.JTextField txtPercepcao;
-    private javax.swing.JTextField txtPreco;
-    private javax.swing.JTextField txtRegiaoDoCorpo;
-    private javax.swing.JTextField txtRolagem;
-    private javax.swing.JTextField txtSorte;
-    private javax.swing.JTextField txtTiroMirado;
-    private javax.swing.JTextField txtTiroRapido;
-    private javax.swing.JTextField txtVontade;
-    // End of variables declaration//GEN-END:variables
-
-    private void carregarJComboBox(String tipoDeHabilidade){
+        return null;
+    }
+    
+    private void cadastrarItem(){
+        try{
+            Item item = pegarDadosDoPainel();
+            
+            if(rdbItem.isSelected()){
+                Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(), item.isUsando(), item.getBonus_atributo(), item.getPreco(), item.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,"Cadastro Item: " + item.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+            if(rdbArma.isSelected()){
+                if(rdbArmaADistancia.isSelected()){
+                    Arma_A_Distancia arma = (Arma_A_Distancia)item;
+                    Controle_Item.cadArma_A_Distancia(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getTiro_Rapido(), arma.getTiro_Mirado(), arma.getCadencia(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,"Cadastro Arma a Distancia: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                }
+                if(rdbArmaCorpoACorpo.isSelected()){
+                    Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
+                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getTipo(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,"Cadastro Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            
+            if(rdbArmadura.isSelected()){
+                Armadura armadura = (Armadura)item;
+                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Arma_Branca(), armadura.getAbsorcao_Arma_De_Fogo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+            limparCampos();
+            
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | HeadlessException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void carregarJComboBox(String tipoDeHabilidade){
         cmbHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
         
         String diretorios[] = null;
@@ -1534,4 +1599,432 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             }
         }
     }
+
+    public boolean isPodeCadastrar() {
+        return podeCadastrar;
+    }
+
+    public void setPodeCadastrar(boolean podeCadastrar) {
+        this.podeCadastrar = podeCadastrar;
+    }
+
+    public JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    public void setBtnCadastrar(JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
+
+    public JButton getBtnLimpar() {
+        return btnLimpar;
+    }
+
+    public void setBtnLimpar(JButton btnLimpar) {
+        this.btnLimpar = btnLimpar;
+    }
+
+    public JCheckBox getChkDestreza() {
+        return chkDestreza;
+    }
+
+    public void setChkDestreza(JCheckBox chkDestreza) {
+        this.chkDestreza = chkDestreza;
+    }
+
+    public JCheckBox getChkFisico() {
+        return chkFisico;
+    }
+
+    public void setChkFisico(JCheckBox chkFisico) {
+        this.chkFisico = chkFisico;
+    }
+
+    public JCheckBox getChkInteligencia() {
+        return chkInteligencia;
+    }
+
+    public void setChkInteligencia(JCheckBox chkInteligencia) {
+        this.chkInteligencia = chkInteligencia;
+    }
+
+    public JCheckBox getChkMana() {
+        return chkMana;
+    }
+
+    public void setChkMana(JCheckBox chkMana) {
+        this.chkMana = chkMana;
+    }
+
+    public JCheckBox getChkMente() {
+        return chkMente;
+    }
+
+    public void setChkMente(JCheckBox chkMente) {
+        this.chkMente = chkMente;
+    }
+
+    public JCheckBox getChkPercepcao() {
+        return chkPercepcao;
+    }
+
+    public void setChkPercepcao(JCheckBox chkPercepcao) {
+        this.chkPercepcao = chkPercepcao;
+    }
+
+    public JCheckBox getChkSorte() {
+        return chkSorte;
+    }
+
+    public void setChkSorte(JCheckBox chkSorte) {
+        this.chkSorte = chkSorte;
+    }
+
+    public JCheckBox getChkVontade() {
+        return chkVontade;
+    }
+
+    public void setChkVontade(JCheckBox chkVontade) {
+        this.chkVontade = chkVontade;
+    }
+
+    public JComboBox getCmbHabilidade() {
+        return cmbHabilidade;
+    }
+
+    public void setCmbHabilidade(JComboBox cmbHabilidade) {
+        this.cmbHabilidade = cmbHabilidade;
+    }
+
+    public ButtonGroup getGrpTipoDeArma() {
+        return grpTipoDeArma;
+    }
+
+    public void setGrpTipoDeArma(ButtonGroup grpTipoDeArma) {
+        this.grpTipoDeArma = grpTipoDeArma;
+    }
+
+    public ButtonGroup getGrpTipoEquipamento() {
+        return grpTipoEquipamento;
+    }
+
+    public void setGrpTipoEquipamento(ButtonGroup grpTipoEquipamento) {
+        this.grpTipoEquipamento = grpTipoEquipamento;
+    }
+
+    public ButtonGroup getGrpTipoHabilidade() {
+        return grpTipoHabilidade;
+    }
+
+    public void setGrpTipoHabilidade(ButtonGroup grpTipoHabilidade) {
+        this.grpTipoHabilidade = grpTipoHabilidade;
+    }
+
+    public JPanel getPnlArma() {
+        return pnlArma;
+    }
+
+    public void setPnlArma(JPanel pnlArma) {
+        this.pnlArma = pnlArma;
+    }
+
+    public JPanel getPnlArmaADistancia() {
+        return pnlArmaADistancia;
+    }
+
+    public void setPnlArmaADistancia(JPanel pnlArmaADistancia) {
+        this.pnlArmaADistancia = pnlArmaADistancia;
+    }
+
+    public JPanel getPnlArmaCorpoACorpo() {
+        return pnlArmaCorpoACorpo;
+    }
+
+    public void setPnlArmaCorpoACorpo(JPanel pnlArmaCorpoACorpo) {
+        this.pnlArmaCorpoACorpo = pnlArmaCorpoACorpo;
+    }
+
+    public JPanel getPnlArmadura() {
+        return pnlArmadura;
+    }
+
+    public void setPnlArmadura(JPanel pnlArmadura) {
+        this.pnlArmadura = pnlArmadura;
+    }
+
+    public JPanel getPnlTipo() {
+        return pnlTipo;
+    }
+
+    public void setPnlTipo(JPanel pnlTipo) {
+        this.pnlTipo = pnlTipo;
+    }
+
+    public JPanel getPnlTipoDeArma() {
+        return pnlTipoDeArma;
+    }
+
+    public void setPnlTipoDeArma(JPanel pnlTipoDeArma) {
+        this.pnlTipoDeArma = pnlTipoDeArma;
+    }
+
+    public JRadioButton getRdbArma() {
+        return rdbArma;
+    }
+
+    public void setRdbArma(JRadioButton rdbArma) {
+        this.rdbArma = rdbArma;
+    }
+
+    public JRadioButton getRdbArmaADistancia() {
+        return rdbArmaADistancia;
+    }
+
+    public void setRdbArmaADistancia(JRadioButton rdbArmaADistancia) {
+        this.rdbArmaADistancia = rdbArmaADistancia;
+    }
+
+    public JRadioButton getRdbArmaCorpoACorpo() {
+        return rdbArmaCorpoACorpo;
+    }
+
+    public void setRdbArmaCorpoACorpo(JRadioButton rdbArmaCorpoACorpo) {
+        this.rdbArmaCorpoACorpo = rdbArmaCorpoACorpo;
+    }
+
+    public JRadioButton getRdbArmadura() {
+        return rdbArmadura;
+    }
+
+    public void setRdbArmadura(JRadioButton rdbArmadura) {
+        this.rdbArmadura = rdbArmadura;
+    }
+
+    public JRadioButton getRdbBelica() {
+        return rdbBelica;
+    }
+
+    public void setRdbBelica(JRadioButton rdbBelica) {
+        this.rdbBelica = rdbBelica;
+    }
+
+    public JRadioButton getRdbFisica() {
+        return rdbFisica;
+    }
+
+    public void setRdbFisica(JRadioButton rdbFisica) {
+        this.rdbFisica = rdbFisica;
+    }
+
+    public JRadioButton getRdbItem() {
+        return rdbItem;
+    }
+
+    public void setRdbItem(JRadioButton rdbItem) {
+        this.rdbItem = rdbItem;
+    }
+
+    public JRadioButton getRdbPsiquica() {
+        return rdbPsiquica;
+    }
+
+    public void setRdbPsiquica(JRadioButton rdbPsiquica) {
+        this.rdbPsiquica = rdbPsiquica;
+    }
+
+    public JTextField getTxtAbsorcaoArmaBranca() {
+        return txtAbsorcaoArmaBranca;
+    }
+
+    public void setTxtAbsorcaoArmaBranca(JTextField txtAbsorcaoArmaBranca) {
+        this.txtAbsorcaoArmaBranca = txtAbsorcaoArmaBranca;
+    }
+
+    public JTextField getTxtAbsorcaoArmaDeFogo() {
+        return txtAbsorcaoArmaDeFogo;
+    }
+
+    public void setTxtAbsorcaoArmaDeFogo(JTextField txtAbsorcaoArmaDeFogo) {
+        this.txtAbsorcaoArmaDeFogo = txtAbsorcaoArmaDeFogo;
+    }
+
+    public JTextField getTxtAparo() {
+        return txtAparo;
+    }
+
+    public void setTxtAparo(JTextField txtAparo) {
+        this.txtAparo = txtAparo;
+    }
+
+    public JTextField getTxtCadencia() {
+        return txtCadencia;
+    }
+
+    public void setTxtCadencia(JTextField txtCadencia) {
+        this.txtCadencia = txtCadencia;
+    }
+
+    public JTextField getTxtDanoAdicional() {
+        return txtDanoAdicional;
+    }
+
+    public void setTxtDanoAdicional(JTextField txtDanoAdicional) {
+        this.txtDanoAdicional = txtDanoAdicional;
+    }
+
+    public JTextField getTxtDescricao() {
+        return txtDescricao;
+    }
+
+    public void setTxtDescricao(JTextField txtDescricao) {
+        this.txtDescricao = txtDescricao;
+    }
+
+    public JTextField getTxtDestreza() {
+        return txtDestreza;
+    }
+
+    public void setTxtDestreza(JTextField txtDestreza) {
+        this.txtDestreza = txtDestreza;
+    }
+
+    public JTextField getTxtEsquiva() {
+        return txtEsquiva;
+    }
+
+    public void setTxtEsquiva(JTextField txtEsquiva) {
+        this.txtEsquiva = txtEsquiva;
+    }
+
+    public JTextField getTxtFisico() {
+        return txtFisico;
+    }
+
+    public void setTxtFisico(JTextField txtFisico) {
+        this.txtFisico = txtFisico;
+    }
+
+    public JTextField getTxtGolpe() {
+        return txtGolpe;
+    }
+
+    public void setTxtGolpe(JTextField txtGolpe) {
+        this.txtGolpe = txtGolpe;
+    }
+
+    public JTextField getTxtInteligencia() {
+        return txtInteligencia;
+    }
+
+    public void setTxtInteligencia(JTextField txtInteligencia) {
+        this.txtInteligencia = txtInteligencia;
+    }
+
+    public JTextField getTxtLados() {
+        return txtLados;
+    }
+
+    public void setTxtLados(JTextField txtLados) {
+        this.txtLados = txtLados;
+    }
+
+    public JTextField getTxtMana() {
+        return txtMana;
+    }
+
+    public void setTxtMana(JTextField txtMana) {
+        this.txtMana = txtMana;
+    }
+
+    public JTextField getTxtMente() {
+        return txtMente;
+    }
+
+    public void setTxtMente(JTextField txtMente) {
+        this.txtMente = txtMente;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtPenalidade() {
+        return txtPenalidade;
+    }
+
+    public void setTxtPenalidade(JTextField txtPenalidade) {
+        this.txtPenalidade = txtPenalidade;
+    }
+
+    public JTextField getTxtPercepcao() {
+        return txtPercepcao;
+    }
+
+    public void setTxtPercepcao(JTextField txtPercepcao) {
+        this.txtPercepcao = txtPercepcao;
+    }
+
+    public JTextField getTxtPreco() {
+        return txtPreco;
+    }
+
+    public void setTxtPreco(JTextField txtPreco) {
+        this.txtPreco = txtPreco;
+    }
+
+    public JTextField getTxtRegiaoDoCorpo() {
+        return txtRegiaoDoCorpo;
+    }
+
+    public void setTxtRegiaoDoCorpo(JTextField txtRegiaoDoCorpo) {
+        this.txtRegiaoDoCorpo = txtRegiaoDoCorpo;
+    }
+
+    public JTextField getTxtRolagem() {
+        return txtRolagem;
+    }
+
+    public void setTxtRolagem(JTextField txtRolagem) {
+        this.txtRolagem = txtRolagem;
+    }
+
+    public JTextField getTxtSorte() {
+        return txtSorte;
+    }
+
+    public void setTxtSorte(JTextField txtSorte) {
+        this.txtSorte = txtSorte;
+    }
+
+    public JTextField getTxtTiroMirado() {
+        return txtTiroMirado;
+    }
+
+    public void setTxtTiroMirado(JTextField txtTiroMirado) {
+        this.txtTiroMirado = txtTiroMirado;
+    }
+
+    public JTextField getTxtTiroRapido() {
+        return txtTiroRapido;
+    }
+
+    public void setTxtTiroRapido(JTextField txtTiroRapido) {
+        this.txtTiroRapido = txtTiroRapido;
+    }
+
+    public JTextField getTxtVontade() {
+        return txtVontade;
+    }
+
+    public void setTxtVontade(JTextField txtVontade) {
+        this.txtVontade = txtVontade;
+    }
+    
+    
+    
+    
 }

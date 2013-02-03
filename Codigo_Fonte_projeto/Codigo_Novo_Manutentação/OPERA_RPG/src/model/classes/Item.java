@@ -56,7 +56,7 @@ public class Item implements Serializable {
     }
 
    
-    public boolean getUsando(){
+    public boolean isUsando(){
        return this.usando;
     }    
 
@@ -89,7 +89,7 @@ public class Item implements Serializable {
         return " Nome  = "+this.getNome()+
                " Descricao = "+this.getDescricao()+
                " Preco = "+this.getPreco()+
-               " Usando ="+this.getUsando()+
+               " Usando ="+this.isUsando()+
                " Bonus de Atributo = "+this.getBonus_atributo()+
                " Habilidade Necessaria ="+this.getHabilidade_Necessaria();
     }    

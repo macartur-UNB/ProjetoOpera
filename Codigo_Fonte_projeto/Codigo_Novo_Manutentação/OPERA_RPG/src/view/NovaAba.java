@@ -104,4 +104,14 @@ public class NovaAba {
         }
         tabbedPane.setSelectedIndex(index);
     }
+    
+    public static void abaAlterarEquipamento(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Alterar Equipamento");
+        if(index == -1){
+            PnlAlterarEquipamento painel = new PnlAlterarEquipamento();
+            tabbedPane.adicionarPainel(painel, "Alterar Equipamento", icone);
+            index = tabbedPane.indexOfTab("Alterar Equipamento");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
 }

@@ -202,7 +202,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         }
         
         if(origem.equals(itemAlterarEquipamento)){
-            
+            NovaAba.abaAlterarEquipamento(tabbedPane, (ImageIcon)itemAlterarEquipamento.getIcon());
         }
         
         if(origem.equals(itemAlterarFicha)){
