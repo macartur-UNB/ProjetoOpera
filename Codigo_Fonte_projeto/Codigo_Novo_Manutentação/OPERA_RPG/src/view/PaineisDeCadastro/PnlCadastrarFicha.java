@@ -6,6 +6,7 @@ package view.PaineisDeCadastro;
 
 import control.Controle_Ficha;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.io.IOException;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -678,15 +679,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     
     private void cadastrarFicha(){
         try{
-            String jogador = null;
-            if(rdbJogador.isSelected()){
-                jogador = ValidarCampos.validarCampoTexto(txtJogador, false);
-            }
-            String personagem = ValidarCampos.validarCampoTexto(txtPersonagem, true);
-            String campanha = ValidarCampos.validarCampoTexto(txtCampanha, true);
-            int experiencia = ValidarCampos.validarCampoInteiro(txtExperiencia);
-            int dinheiro = ValidarCampos.validarCampoInteiro(txtDinheiro);
-
+            
             int atributo[] = new int[8];
             final int FISICO = Constante_Atributo.FISICO;
             final int DESTREZA = Constante_Atributo.DESTREZA;
@@ -696,15 +689,15 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             final int MENTE = Constante_Atributo.MENTE;
             final int MANA = Constante_Atributo.MANA;
             final int SORTE = Constante_Atributo.SORTE;
-            atributo[FISICO] = ValidarCampos.validarCampoInteiro(txtFisico);
-            atributo[DESTREZA] = ValidarCampos.validarCampoInteiro(txtDestreza);
-            atributo[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(txtInteligencia);
-            atributo[VONTADE] = ValidarCampos.validarCampoInteiro(txtVontade);
-            atributo[PERCEPCAO] = ValidarCampos.validarCampoInteiro(txtPercepcao);
-            atributo[MENTE] = ValidarCampos.validarCampoInteiro(txtMente);
-            atributo[MANA] = ValidarCampos.validarCampoInteiro(txtMana);
-            atributo[SORTE] = ValidarCampos.validarCampoInteiro(txtSorte);
-
+            atributo[FISICO] = Integer.parseInt(txtFisico.getText());
+            atributo[DESTREZA] = Integer.parseInt(txtDestreza.getText());
+            atributo[INTELIGENCIA] = Integer.parseInt(txtInteligencia.getText());
+            atributo[VONTADE] = Integer.parseInt(txtVontade.getText());
+            atributo[PERCEPCAO] = Integer.parseInt(txtPercepcao.getText());
+            atributo[MENTE] = Integer.parseInt(txtMente.getText());
+            atributo[MANA] = Integer.parseInt(txtMana.getText());
+            atributo[SORTE] = Integer.parseInt(txtSorte.getText());
+            
             String tipo = null;
             if(rdbJogador.isSelected()){
                 tipo = "Jogador";
@@ -730,24 +723,29 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
             }else{
                 switch (tipo) {
                     case "NPC":
-                        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.cadNPC(txtPersonagem.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
+                                , atributo, Integer.parseInt(txtDinheiro.getText()));
                         break;
                     case "Monstro":
-                        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.cadMonstro(txtPersonagem.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
+                                , atributo, Integer.parseInt(txtDinheiro.getText()));
                         break;
                     case "Jogador":
-                        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.cadJogador(txtPersonagem.getText(), txtJogador.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
+                                , atributo, Integer.parseInt(txtDinheiro.getText()));
                         break;
                     default:
                         break;
                 }
-                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + txtPersonagem.getText() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoFicha.clearSelection();
             }
-        } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | JTextFieldInvalidoException e){
+        } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | HeadlessException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor","Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
     
