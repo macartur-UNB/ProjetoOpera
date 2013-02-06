@@ -99,7 +99,7 @@ public class Ficha implements Serializable{
     /**
      * Altera o Nome do Jogador.
      * @param jogador Nome do jogador, ou seja, nome da pessoa que possui
-     * o personagem. Deve conter apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)".
+     * o personagem. Deve conter apenas caracteres Alfabeto (A-Z e a-z)".
      * @throws FichaInvalidaException
      */
     public void setJogador(String jogador) throws FichaInvalidaException{
