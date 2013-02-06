@@ -149,7 +149,8 @@ public class Ficha implements Serializable{
     /**
      * Altera os Atributos do Personagem.
      * @param atributos Vetor com os Valores dos Atributos do personagem. Todos
-     * os valores devem ser maiores ou iguais a zero(0).
+     * os valores devem ser maiores ou iguais a zero(0), e o Vetor deve ter
+     * tamanho igual a oito(8), pois sao 8 Tipos de Atributos na Ficha
      * @throws FichaInvalidaException
      */
     public void setAtributos(int[] atributos) throws FichaInvalidaException{
