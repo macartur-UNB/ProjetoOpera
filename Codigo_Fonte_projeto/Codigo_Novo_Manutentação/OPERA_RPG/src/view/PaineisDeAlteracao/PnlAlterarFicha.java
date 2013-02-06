@@ -9,10 +9,11 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import model.classes.Constantes;
+import model.classes.Constante_Atributo;
 import model.classes.Ficha;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
+import model.exception.FichaInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.validacao.ValidarCampos;
@@ -233,14 +234,14 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                 pnlCadastrarFicha.getTxtExperiencia().setText(""+ficha.getExperiencia());
                 pnlCadastrarFicha.getTxtDinheiro().setText(""+ficha.getDinheiro());
                 int atributos[] = ficha.getAtributos();
-                pnlCadastrarFicha.getTxtFisico().setText(""+atributos[Constantes.Atributos.FISICO]);
-                pnlCadastrarFicha.getTxtDestreza().setText(""+atributos[Constantes.Atributos.DESTREZA]);
-                pnlCadastrarFicha.getTxtInteligencia().setText(""+atributos[Constantes.Atributos.INTELIGENCIA]);
-                pnlCadastrarFicha.getTxtVontade().setText(""+atributos[Constantes.Atributos.VONTADE]);
-                pnlCadastrarFicha.getTxtPercepcao().setText(""+atributos[Constantes.Atributos.PERCEPCAO]);
-                pnlCadastrarFicha.getTxtMente().setText(""+atributos[Constantes.Atributos.MENTE]);
-                pnlCadastrarFicha.getTxtMana().setText(""+atributos[Constantes.Atributos.MANA]);
-                pnlCadastrarFicha.getTxtSorte().setText(""+atributos[Constantes.Atributos.SORTE]);
+                pnlCadastrarFicha.getTxtFisico().setText(""+atributos[Constante_Atributo.FISICO]);
+                pnlCadastrarFicha.getTxtDestreza().setText(""+atributos[Constante_Atributo.DESTREZA]);
+                pnlCadastrarFicha.getTxtInteligencia().setText(""+atributos[Constante_Atributo.INTELIGENCIA]);
+                pnlCadastrarFicha.getTxtVontade().setText(""+atributos[Constante_Atributo.VONTADE]);
+                pnlCadastrarFicha.getTxtPercepcao().setText(""+atributos[Constante_Atributo.PERCEPCAO]);
+                pnlCadastrarFicha.getTxtMente().setText(""+atributos[Constante_Atributo.MENTE]);
+                pnlCadastrarFicha.getTxtMana().setText(""+atributos[Constante_Atributo.MANA]);
+                pnlCadastrarFicha.getTxtSorte().setText(""+atributos[Constante_Atributo.SORTE]);
             }
             
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
@@ -364,14 +365,14 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             int dinheiro = ValidarCampos.validarCampoInteiro(pnlCadastrarFicha.getTxtDinheiro());
 
             int atributo[] = new int[8];
-            final int FISICO = Constantes.Atributos.FISICO;
-            final int DESTREZA = Constantes.Atributos.DESTREZA;
-            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
-            final int VONTADE = Constantes.Atributos.VONTADE;
-            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
-            final int MENTE = Constantes.Atributos.MENTE;
-            final int MANA = Constantes.Atributos.MANA;
-            final int SORTE = Constantes.Atributos.SORTE;
+            final int FISICO = Constante_Atributo.FISICO;
+            final int DESTREZA = Constante_Atributo.DESTREZA;
+            final int INTELIGENCIA = Constante_Atributo.INTELIGENCIA;
+            final int VONTADE = Constante_Atributo.VONTADE;
+            final int PERCEPCAO = Constante_Atributo.PERCEPCAO;
+            final int MENTE = Constante_Atributo.MENTE;
+            final int MANA = Constante_Atributo.MANA;
+            final int SORTE = Constante_Atributo.SORTE;
             atributo[FISICO] = ValidarCampos.validarCampoInteiro(pnlCadastrarFicha.getTxtFisico());
             atributo[DESTREZA] = ValidarCampos.validarCampoInteiro(pnlCadastrarFicha.getTxtDestreza());
             atributo[INTELIGENCIA] = ValidarCampos.validarCampoInteiro(pnlCadastrarFicha.getTxtInteligencia());
@@ -426,7 +427,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                 pnlCadastrarFicha.getGrpTipoFicha().clearSelection();
                 pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
             }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | DeletarInvalidoException | HeadlessException e){
+        } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | JTextFieldInvalidoException | DeletarInvalidoException | HeadlessException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }

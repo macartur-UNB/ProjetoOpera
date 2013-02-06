@@ -4,19 +4,19 @@
  */
 package model.dao;
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.classes.Constantes;
+import model.classes.Constante_Endereco;
 import model.classes.Dado;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 /**
  *
  * @author Macartur
  */
 public class DAO_Dado {
     
-    private static final String ENDERECO_DADO = Constantes.Endereco.DADO;
+    private static final String ENDERECO_DADO = Constante_Endereco.DADO;
     
     public static void gravarDADO(Dado dado) throws FileNotFoundException, IOException, ArquivoInvalidoException{
        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_DADO;

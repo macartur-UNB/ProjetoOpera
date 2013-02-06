@@ -4,14 +4,14 @@
  */
 package model.dao;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import model.classes.Constante_Endereco;
+import model.classes.Jogo;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JogoInvalidoException;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import model.classes.Constantes;
-import model.classes.Jogo;
 
 /**
  *
@@ -23,31 +23,31 @@ public class DAO_Jogo {
     private static final String DIRETORIO_OPERA = DIRETORIO_RAIZ+"\\Jogos";
     private static Jogo JOGO_RODANDO;
     
-    private static String ENDERECO_FICHA = Constantes.Endereco.FICHA;
-    private static String ENDERECO_FICHA_JOGADOR = Constantes.Endereco.FICHA_JOGADOR;
-    private static String ENDERECO_FICHA_NPC = Constantes.Endereco.FICHA_NPC;
-    private static String ENDERECO_FICHA_MONSTRO = Constantes.Endereco.FICHA_MONSTRO;
+    private static String ENDERECO_FICHA = Constante_Endereco.FICHA;
+    private static String ENDERECO_FICHA_JOGADOR = Constante_Endereco.FICHA_JOGADOR;
+    private static String ENDERECO_FICHA_NPC = Constante_Endereco.FICHA_NPC;
+    private static String ENDERECO_FICHA_MONSTRO = Constante_Endereco.FICHA_MONSTRO;
     
-    private static String ENDERECO_HABILIDADE = Constantes.Endereco.HABILIDADE;
-    private static String ENDERECO_HABILIDADE_FISICA = Constantes.Endereco.HABILIDADE_FISICA;
-    private static String ENDERECO_HABILIDADE_PSIQUICA = Constantes.Endereco.HABILIDADE_PSIQUICA;
-    private static String ENDERECO_HABILIDADE_BELICA = Constantes.Endereco.HABILIDADE_BELICA;
+    private static String ENDERECO_HABILIDADE = Constante_Endereco.HABILIDADE;
+    private static String ENDERECO_HABILIDADE_FISICA = Constante_Endereco.HABILIDADE_FISICA;
+    private static String ENDERECO_HABILIDADE_PSIQUICA = Constante_Endereco.HABILIDADE_PSIQUICA;
+    private static String ENDERECO_HABILIDADE_BELICA = Constante_Endereco.HABILIDADE_BELICA;
     
-    private static final String ENDERECO_CARACTERISTICA = Constantes.Endereco.CARACTERISTICA;
-    private static String ENDERECO_CARACTERISTICA_FISICA = Constantes.Endereco.CARACTERISTICA_FISICA;
-    private static String ENDERECO_CARACTERISTICA_PSIQUICA = Constantes.Endereco.CARACTERISTICA_PSIQUICA;
-    private static String ENDERECO_CARACTERISTICA_RACIAL = Constantes.Endereco.CARACTERISTICA_RACIAL;
+    private static final String ENDERECO_CARACTERISTICA = Constante_Endereco.CARACTERISTICA;
+    private static String ENDERECO_CARACTERISTICA_FISICA = Constante_Endereco.CARACTERISTICA_FISICA;
+    private static String ENDERECO_CARACTERISTICA_PSIQUICA = Constante_Endereco.CARACTERISTICA_PSIQUICA;
+    private static String ENDERECO_CARACTERISTICA_RACIAL = Constante_Endereco.CARACTERISTICA_RACIAL;
     
-    private static final String ENDERECO_ITEM = Constantes.Endereco.ITEM;
-    private static final String ENDERECO_ITEM_GENERICO = Constantes.Endereco.ITEM_GENERICO;
-    private static final String ENDERECO_ITEM_ARMA = Constantes.Endereco.ITEM_ARMA;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO = Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_BRANCA = Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO_BRANCA;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_DE_FOGO = Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO_DE_FOGO;
-    private static final String ENDERECO_ITEM_ARMA_A_DISTANCIA = Constantes.Endereco.ITEM_ARMA_A_DISTANCIA;
-    private static final String ENDERECO_ITEM_ARMADURA = Constantes.Endereco.ITEM_ARMADURA;
+    private static final String ENDERECO_ITEM = Constante_Endereco.ITEM;
+    private static final String ENDERECO_ITEM_GENERICO = Constante_Endereco.ITEM_GENERICO;
+    private static final String ENDERECO_ITEM_ARMA = Constante_Endereco.ITEM_ARMA;
+    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO;
+    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_BRANCA = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO_BRANCA;
+    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_DE_FOGO = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO_DE_FOGO;
+    private static final String ENDERECO_ITEM_ARMA_A_DISTANCIA = Constante_Endereco.ITEM_ARMA_A_DISTANCIA;
+    private static final String ENDERECO_ITEM_ARMADURA = Constante_Endereco.ITEM_ARMADURA;
     
-    private static final String ENDERECO_DADO = Constantes.Endereco.DADO;
+    private static final String ENDERECO_DADO = Constante_Endereco.DADO;
     
     public static void criarDiretorioJogo(Jogo jogo) throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco());

@@ -9,7 +9,7 @@ import java.io.IOException;
 import model.classes.Arma_A_Distancia;
 import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
-import model.classes.Constantes;
+import model.classes.Constante_Endereco;
 import model.classes.Item;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
@@ -20,10 +20,10 @@ import model.exception.DeletarInvalidoException;
  */
 public class DAO_Item {   
     
-    private static final String ENDERECO_ITEM_GENERICO = Constantes.Endereco.ITEM_GENERICO;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO = Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO;
-    private static final String ENDERECO_ITEM_ARMA_A_DISTANCIA = Constantes.Endereco.ITEM_ARMA_A_DISTANCIA;
-    private static final String ENDERECO_ITEM_ARMADURA = Constantes.Endereco.ITEM_ARMADURA;
+    private static final String ENDERECO_ITEM_GENERICO = Constante_Endereco.ITEM_GENERICO;
+    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO;
+    private static final String ENDERECO_ITEM_ARMA_A_DISTANCIA = Constante_Endereco.ITEM_ARMA_A_DISTANCIA;
+    private static final String ENDERECO_ITEM_ARMADURA = Constante_Endereco.ITEM_ARMADURA;
     
     public static void gravarItem(Item item) throws FileNotFoundException,
                                               FileNotFoundException,IOException, ArquivoInvalidoException{
@@ -52,7 +52,7 @@ public class DAO_Item {
     }
     public static void gravarArmadura(Armadura armadura) 
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constantes.Endereco.ITEM_ARMADURA;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constante_Endereco.ITEM_ARMADURA;
         if(DAO_Funcao.diretorioExiste(diretorio)){
             DAO_Funcao.criarArquivoOpera(diretorio, armadura.getNome(), armadura);
         }
@@ -81,7 +81,7 @@ public class DAO_Item {
     }
     
     public static void removerArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constantes.Endereco.ITEM_ARMADURA;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constante_Endereco.ITEM_ARMADURA;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                DAO_Funcao.removerArquivo(diretorio, nome);
          }
@@ -134,16 +134,16 @@ public class DAO_Item {
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco();
         switch(tipo){
             case "Generico":
-                diretorio += Constantes.Endereco.ITEM_GENERICO;
+                diretorio += Constante_Endereco.ITEM_GENERICO;
                 break;
             case "Arma a Distancia":
-                diretorio += Constantes.Endereco.ITEM_ARMA_A_DISTANCIA;
+                diretorio += Constante_Endereco.ITEM_ARMA_A_DISTANCIA;
                 break;
             case "Arma Corpo a Corpo":
-                diretorio += Constantes.Endereco.ITEM_ARMA_CORPO_A_CORPO;
+                diretorio += Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO;
                 break;
             case "Armadura":
-                diretorio += Constantes.Endereco.ITEM_ARMADURA;
+                diretorio += Constante_Endereco.ITEM_ARMADURA;
                 break;
         }
         String s[];

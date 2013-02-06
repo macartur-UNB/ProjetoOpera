@@ -4,13 +4,13 @@
  */
 package control;
 
-import model.dao.DAO_Caracteristica;
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
+import model.dao.DAO_Caracteristica;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 
 public class Controle_Caracteristica {

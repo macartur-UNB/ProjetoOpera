@@ -5,12 +5,12 @@
 package model.dao;
 
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import model.classes.Constantes;
+import model.classes.Constante_Endereco;
 import model.classes.Habilidade;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 /**
  *
@@ -18,7 +18,7 @@ import model.classes.Habilidade;
  */
 public class DAO_Habilidade {
     
-    private static String ENDERECO_HABILIDADE = Constantes.Endereco.HABILIDADE;
+    private static String ENDERECO_HABILIDADE = Constante_Endereco.HABILIDADE;
   
     
     public static void gravarHabilidade(Habilidade habilidade)

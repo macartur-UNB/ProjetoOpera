@@ -5,7 +5,6 @@
 package view.PaineisDeCadastro;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;

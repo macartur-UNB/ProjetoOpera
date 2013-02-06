@@ -5,22 +5,19 @@
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
+import java.awt.Color;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JTextFieldInvalidoException;
-import java.awt.Color;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import model.exception.JogoInvalidoException;
-import view.validacao.ValidarCampos;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.PanelTab;
 import view.TelaPrincipal;
+import view.validacao.ValidarCampos;
 
 /**
  *

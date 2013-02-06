@@ -4,8 +4,8 @@
  */
 package model.classes;
 
-import model.exception.HabilidadeInvalidaException;
 import java.io.Serializable;
+import model.exception.HabilidadeInvalidaException;
 
 
 

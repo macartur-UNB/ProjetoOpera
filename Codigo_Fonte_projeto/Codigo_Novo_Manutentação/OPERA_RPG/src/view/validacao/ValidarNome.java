@@ -4,6 +4,7 @@
  */
 package view.validacao;
 
+import model.exception.CaractereInvalidoException;
 import model.exception.NomeInvalidoException;
 import model.exception.TextoInvalidoException;
 

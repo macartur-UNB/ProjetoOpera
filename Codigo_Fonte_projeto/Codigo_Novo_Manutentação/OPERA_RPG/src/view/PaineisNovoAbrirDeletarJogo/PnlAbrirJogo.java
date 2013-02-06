@@ -5,16 +5,11 @@
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
-import model.dao.DAO_Jogo;
-import model.exception.ArquivoInvalidoException;
-import model.exception.JogoInvalidoException;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.classes.Jogo;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JogoInvalidoException;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PanelTab;

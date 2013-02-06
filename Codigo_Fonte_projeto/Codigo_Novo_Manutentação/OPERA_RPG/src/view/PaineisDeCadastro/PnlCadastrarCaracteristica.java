@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import model.classes.Caracteristica;
-import model.classes.Constantes;
+import model.classes.Constante_Atributo;
 import model.exception.ArquivoInvalidoException;
 import model.exception.JTextAreaInvalidoException;
 import model.exception.JTextFieldInvalidoException;
@@ -743,14 +743,14 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             String descricao = ValidarCampos.validarCampoAreaDeTexto(txtDescricao);
             int custo = ValidarCampos.validarCampoInteiro(txtCusto);
             
-            final int FISICO = Constantes.Atributos.FISICO;
-            final int DESTREZA = Constantes.Atributos.DESTREZA;
-            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
-            final int VONTADE = Constantes.Atributos.VONTADE;
-            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
-            final int MENTE = Constantes.Atributos.MENTE;
-            final int MANA = Constantes.Atributos.MANA;
-            final int SORTE = Constantes.Atributos.SORTE;
+            final int FISICO = Constante_Atributo.FISICO;
+            final int DESTREZA = Constante_Atributo.DESTREZA;
+            final int INTELIGENCIA = Constante_Atributo.INTELIGENCIA;
+            final int VONTADE = Constante_Atributo.VONTADE;
+            final int PERCEPCAO = Constante_Atributo.PERCEPCAO;
+            final int MENTE = Constante_Atributo.MENTE;
+            final int MANA = Constante_Atributo.MANA;
+            final int SORTE = Constante_Atributo.SORTE;
             
             int modificador[] = new int[8];
             boolean possui_modificador = false;

@@ -4,13 +4,14 @@
  */
 package control;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import model.classes.Ficha;
 import model.dao.DAO_Ficha;
 import model.dao.DAO_Habilidade;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import model.classes.Ficha;
+import model.exception.FichaInvalidaException;
 
 
 public class Controle_Ficha {
@@ -19,18 +20,18 @@ public class Controle_Ficha {
     
     public static void cadJogador(String personagem,String jogador,
             String campanha,int experiencia,int atributos[],int dinheiro)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
         Ficha f = new Ficha(personagem, jogador,"Jogador", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     public static void cadNPC(String personagem, String campanha,int experiencia,
-            int atributos[],int dinheiro) throws FileNotFoundException, IOException, ArquivoInvalidoException{
+            int atributos[],int dinheiro) throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
         Ficha f = new Ficha(personagem,"jogado pelo mestre","NPC", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     public static void cadMonstro(String personagem,String campanha,
             int experiencia,int atributos[],int dinheiro)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
         Ficha f = new Ficha(personagem,"jogado pelo mestre","Monstro", campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }

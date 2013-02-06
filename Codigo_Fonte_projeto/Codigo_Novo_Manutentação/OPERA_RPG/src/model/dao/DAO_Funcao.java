@@ -4,9 +4,6 @@
  */
 package model.dao;
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
-import model.exception.DiretorioInvalidoException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +11,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.DiretorioInvalidoException;
 
 
 public class DAO_Funcao {

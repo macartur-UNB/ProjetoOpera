@@ -5,13 +5,13 @@
 package model.dao;
 
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
-import model.classes.Constantes;
+import model.classes.Constante_Endereco;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 /**
  *
@@ -19,7 +19,7 @@ import model.classes.Constantes;
  */
 public class DAO_Caracteristica {
     
-    private static final String ENDERECO_CARACTERISTICA = Constantes.Endereco.CARACTERISTICA;
+    private static final String ENDERECO_CARACTERISTICA = Constante_Endereco.CARACTERISTICA;
     
     public static void gravarCaracteristica(Caracteristica caracteristica)
     throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{

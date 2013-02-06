@@ -4,16 +4,16 @@
  */
 package view.validacao;
 
-import model.exception.JTextAreaInvalidoException;
-import model.exception.NumeroInteiroInvalidoException;
-import model.exception.JTextFieldInvalidoException;
-import model.exception.NomeInvalidoException;
-import model.exception.TextoInvalidoException;
 import java.awt.Color;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import model.exception.CaractereInvalidoException;
+import model.exception.JTextAreaInvalidoException;
+import model.exception.JTextFieldInvalidoException;
+import model.exception.NomeInvalidoException;
+import model.exception.NumeroInteiroInvalidoException;
+import model.exception.TextoInvalidoException;
 
 /**
  *

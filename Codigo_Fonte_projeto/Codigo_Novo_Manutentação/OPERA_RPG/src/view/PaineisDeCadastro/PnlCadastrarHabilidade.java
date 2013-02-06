@@ -5,8 +5,6 @@
 package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
-import model.exception.ArquivoInvalidoException;
-import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.io.IOException;
 import javax.swing.ButtonGroup;
@@ -15,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
 /**

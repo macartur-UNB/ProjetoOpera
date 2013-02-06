@@ -6,8 +6,6 @@ package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
 import control.Controle_Item;
-import model.exception.ArquivoInvalidoException;
-import model.exception.JTextFieldInvalidoException;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
@@ -23,9 +21,11 @@ import javax.swing.border.LineBorder;
 import model.classes.Arma_A_Distancia;
 import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
-import model.classes.Constantes;
+import model.classes.Constante_Atributo;
 import model.classes.Dado;
 import model.classes.Item;
+import model.exception.ArquivoInvalidoException;
+import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
 /**
@@ -1386,14 +1386,14 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             int preco = ValidarCampos.validarCampoInteiro(txtPreco);
             String habilidade_Necessaria = cmbHabilidade.getSelectedItem().toString();
             
-            final int FISICO = Constantes.Atributos.FISICO;
-            final int DESTREZA = Constantes.Atributos.DESTREZA;
-            final int INTELIGENCIA = Constantes.Atributos.INTELIGENCIA;
-            final int VONTADE = Constantes.Atributos.VONTADE;
-            final int PERCEPCAO = Constantes.Atributos.PERCEPCAO;
-            final int MENTE = Constantes.Atributos.MENTE;
-            final int MANA = Constantes.Atributos.MANA;
-            final int SORTE = Constantes.Atributos.SORTE;
+            final int FISICO = Constante_Atributo.FISICO;
+            final int DESTREZA = Constante_Atributo.DESTREZA;
+            final int INTELIGENCIA = Constante_Atributo.INTELIGENCIA;
+            final int VONTADE = Constante_Atributo.VONTADE;
+            final int PERCEPCAO = Constante_Atributo.PERCEPCAO;
+            final int MENTE = Constante_Atributo.MENTE;
+            final int MANA = Constante_Atributo.MANA;
+            final int SORTE = Constante_Atributo.SORTE;
             
             int modificador[] = new int[8];
             boolean possui_modificador = false;

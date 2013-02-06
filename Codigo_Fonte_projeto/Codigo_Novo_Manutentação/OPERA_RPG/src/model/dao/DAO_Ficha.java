@@ -4,11 +4,11 @@
  */
 package model.dao;
 
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import model.classes.Ficha;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
 
 /**
  *

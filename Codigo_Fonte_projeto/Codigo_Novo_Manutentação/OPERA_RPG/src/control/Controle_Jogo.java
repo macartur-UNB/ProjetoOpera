@@ -4,15 +4,14 @@
  */
 package control;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import model.dao.DAO_Jogo;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JogoInvalidoException;
 import model.exception.Validacao;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import model.classes.Jogo;
 
 public class Controle_Jogo {
     
