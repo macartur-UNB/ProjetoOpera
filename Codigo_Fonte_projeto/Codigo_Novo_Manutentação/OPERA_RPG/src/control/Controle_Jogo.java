@@ -37,7 +37,9 @@ public class Controle_Jogo {
     public static void apagarJogo(String nome) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Jogo.deletarJogo(nome);
     }
-   
+   public static void apagarTodosJogos() throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+       DAO_Jogo.deletarTodosJogos();
+   }
     public static boolean jogoExiste(String nome){
         return DAO_Jogo.jogoExiste(nome);
     }
