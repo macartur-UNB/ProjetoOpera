@@ -4,6 +4,11 @@
  */
 package model.classes;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.exception.FichaInvalidaException;
+import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -12,7 +17,25 @@ import org.junit.Test;
  */
 public class FichaTest {
     
+    Ficha instance;
+    
     public FichaTest() {
+    }
+    
+    @Before
+    public void setUP(){
+        String personagem = "Personagem";
+        String jogador = "Luciano";
+        String tipo = "Jogador";
+        String campanha = "Camapanha";
+        int experiencia = 0;;
+        int atributos[] = {1, 2, 3, 4, 5, 6, 7, 8};
+        int dinheiro = 0;
+        try {
+            instance = new Ficha(personagem, jogador, tipo, campanha, experiencia, atributos, dinheiro);
+        } catch (FichaInvalidaException e) {
+            fail(e.getMessage());
+        }
     }
     
     /**
@@ -22,8 +45,14 @@ public class FichaTest {
     public void testSetPersonagem() throws Exception {
         System.out.println("setPersonagem");
         String personagem = "Personagem";
-        Ficha instance = new Ficha();
         instance.setPersonagem(personagem);
+        try{
+            personagem = "Personagem Invalido ##";
+            instance.setPersonagem(personagem);
+            fail("O Personagem esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -35,14 +64,18 @@ public class FichaTest {
     public void testSetTipo() throws Exception {
         System.out.println("setTipo");
         String tipo = "Jogador";
-        Ficha instance = new Ficha();
         instance.setTipo(tipo);
-        
         tipo = "NPC";
         instance.setTipo(tipo);
-        
         tipo = "Monstro";
         instance.setTipo(tipo);
+        try{
+            tipo = "Tipo Invalido";
+            instance.setTipo(tipo);
+            fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -54,8 +87,14 @@ public class FichaTest {
     public void testSetJogador() throws Exception {
         System.out.println("setJogador");
         String jogador = "Jogador";
-        Ficha instance = new Ficha();
         instance.setJogador(jogador);
+        try{
+            jogador = "Jogador Invalido ##";
+            instance.setJogador(jogador);
+            fail("O Jogador esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -67,8 +106,14 @@ public class FichaTest {
     public void testSetCampanha() throws Exception {
         System.out.println("setCampanha");
         String campanha = "Campanha da Ficha";
-        Ficha instance = new Ficha();
         instance.setCampanha(campanha);
+        try{
+            campanha = "Campanha Invalida ##";
+            instance.setCampanha(campanha);
+            fail("A Campanha esta invalida, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -80,8 +125,20 @@ public class FichaTest {
     public void testSetAtributos() throws Exception {
         System.out.println("setAtributos");
         int[] atributos = {1, 2, 3, 4, 5, 6, 7, 8};
-        Ficha instance = new Ficha();
         instance.setAtributos(atributos);
+        atributos = null;
+        instance.setAtributos(atributos);
+        try{
+            int[] atributos1 = {-1, 2, 3, 4, 5, 6, 7};
+            instance.setAtributos(atributos1);
+            int[] atributos2 = {'a', 2, 3, 4, 5, 6, 7, 8};
+            instance.setAtributos(atributos2);
+            int[] atributos3 = {1, 2};
+            instance.setAtributos(atributos3);
+            fail("O Atributo esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -93,8 +150,14 @@ public class FichaTest {
     public void testSetDinheiro() throws Exception {
         System.out.println("setDinheiro");
         int dinheiro = 0;
-        Ficha instance = new Ficha();
         instance.setDinheiro(dinheiro);
+        try{
+            dinheiro = -1;
+            instance.setDinheiro(dinheiro);
+            fail("O Dinheiro esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -107,8 +170,14 @@ public class FichaTest {
     public void testSetExperiencia() throws Exception {
         System.out.println("setExperiencia");
         int experiencia = 0;
-        Ficha instance = new Ficha();
         instance.setExperiencia(experiencia);
+        try{
+            experiencia = -1;
+            instance.setExperiencia(experiencia);
+            fail("A Experiencia esta invalida, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+            
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

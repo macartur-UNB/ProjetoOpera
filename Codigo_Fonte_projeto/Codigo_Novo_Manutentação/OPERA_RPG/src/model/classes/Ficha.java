@@ -41,11 +41,7 @@ public class Ficha implements Serializable{
         setAtributos(atributos);
         setDinheiro(dinheiro);
     }
-    
-    public Ficha(){
         
-    }
-    
 
     /**
      * Altera o Nome do Personagem.
@@ -99,7 +95,7 @@ public class Ficha implements Serializable{
     /**
      * Altera o Nome do Jogador.
      * @param jogador Nome do jogador, ou seja, nome da pessoa que possui
-     * o personagem. Deve conter apenas caracteres Alfabeto (A-Z e a-z)".
+     * o personagem. Deve conter apenas caracteres do Alfabeto (A-Z e a-z)".
      * @throws FichaInvalidaException
      */
     public void setJogador(String jogador) throws FichaInvalidaException{
@@ -149,8 +145,7 @@ public class Ficha implements Serializable{
     /**
      * Altera os Atributos do Personagem.
      * @param atributos Vetor com os Valores dos Atributos do personagem. Todos
-     * os valores devem ser maiores ou iguais a zero(0), e o Vetor deve ter
-     * tamanho igual a oito(8), pois sao 8 Tipos de Atributos na Ficha
+     * os valores devem ser maiores ou iguais a zero(0).
      * @throws FichaInvalidaException
      */
     public void setAtributos(int[] atributos) throws FichaInvalidaException{
