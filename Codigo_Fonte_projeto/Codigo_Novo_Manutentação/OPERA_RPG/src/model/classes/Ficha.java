@@ -29,7 +29,7 @@ public class Ficha implements Serializable{
      * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
      * @param campanha Campanha do personagem.
      * @param experiencia Quantidade de experiencia do personagem.
-     * @param stringAtributos Vetor com os stringAtributos do personagem.
+     * @param atributos Vetor com os Atributos do personagem.
      * @param dinheiro Quantidade de Dinheiro do personagem.
      */
     public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro) throws FichaInvalidaException{
