@@ -274,7 +274,7 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasHabilidades() throws Exception {
         System.out.println("removeTodasHabilidades");
-        Controle_Ficha.removeTodasHabilidades();
+        Controle_Ficha.removeTodasFichas();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
