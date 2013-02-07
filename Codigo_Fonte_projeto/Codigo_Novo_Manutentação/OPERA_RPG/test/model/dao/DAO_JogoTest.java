@@ -120,4 +120,14 @@ public class DAO_JogoTest {
         DAO_Jogo.criarJogo(nome);
         DAO_Jogo.deletarJogo(nome);
     }
+    
+    @Test
+    public void testDeletarTodosJogos() throws Exception{
+        System.out.println("deletar todos jogos");
+        DAO_Jogo.criarJogo("JUnitTest");
+        DAO_Jogo.criarJogo("JUnitTest1");
+        DAO_Jogo.deletarTodosJogos();
+    }
+    
+    
 }
