@@ -4,7 +4,11 @@
  */
 package model.dao;
 
+import java.io.IOException;
 import model.classes.Jogo;
+import model.exception.ArquivoInvalidoException;
+import model.exception.DeletarInvalidoException;
+import model.exception.DiretorioInvalidoException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -30,7 +34,11 @@ public class DAO_JogoTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws Exception{
+        if(DAO_Jogo.jogoExiste("JUnitTest")){
+            DAO_Jogo.deletarJogo("JUnitTest");
+            DAO_Jogo.deletarJogo("JUnitTest1");
+        }
     }
     
     @After
@@ -44,13 +52,10 @@ public class DAO_JogoTest {
     @Test
     public void testDeletarJogo() throws Exception {
         System.out.println("deletarJogo");
-        String nome = "";
+        String nome = "JUnitTest";
+        DAO_Jogo.criarJogo(nome);
         DAO_Jogo.deletarJogo(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    
 
     /**
      * Test of carregarJogo method, of class DAO_Jogo.
@@ -58,50 +63,51 @@ public class DAO_JogoTest {
     @Test
     public void testCarregarJogo() throws Exception {
         System.out.println("carregarJogo");
-        String nome = "";
+        String nome = "JUnitTest";
+        DAO_Jogo.criarJogo(nome);
         DAO_Jogo.carregarJogo(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DAO_Jogo.deletarJogo(nome);
     }
 
     /**
      * Test of getJogoRodando method, of class DAO_Jogo.
      */
     @Test
-    public void testGetJogoRodando() {
+    public void testGetJogoRodando() throws Exception {
         System.out.println("getJogoRodando");
-        Jogo expResult = null;
+        String expResult = "JUnitTest";
         Jogo result = DAO_Jogo.getJogoRodando();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result.getNome());
+        DAO_Jogo.deletarJogo("JUnitTest");
     }
 
     /**
      * Test of jogosExistentes method, of class DAO_Jogo.
      */
     @Test
-    public void testJogosExistentes() {
+    public void testJogosExistentes()throws Exception {
         System.out.println("jogosExistentes");
-        String[] expResult = null;
+        String[] expResult = {"JUnitTest","JUnitTest1"};
+        DAO_Jogo.criarJogo("JUnitTest");
+        DAO_Jogo.criarJogo("JUnitTest1");
         String[] result = DAO_Jogo.jogosExistentes();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DAO_Jogo.deletarJogo("JUnitTest");
+        DAO_Jogo.deletarJogo("JUnitTest1");
     }
 
     /**
      * Test of jogoExiste method, of class DAO_Jogo.
      */
     @Test
-    public void testJogoExiste() {
+    public void testJogoExiste() throws Exception{
         System.out.println("jogoExiste");
-        String nome = "";
-        boolean expResult = false;
+        String nome = "JUnitTest";
+        boolean expResult = true;
+        DAO_Jogo.criarJogo(nome);
         boolean result = DAO_Jogo.jogoExiste(nome);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DAO_Jogo.deletarJogo(nome);
     }
 
     /**
@@ -112,5 +118,6 @@ public class DAO_JogoTest {
         System.out.println("criarJogo");
         String nome = "JUnitTest";
         DAO_Jogo.criarJogo(nome);
+        DAO_Jogo.deletarJogo(nome);
     }
 }

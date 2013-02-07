@@ -168,6 +168,17 @@ public class DAO_Jogo {
         DAO_Funcao.removerDiretorio(jogo.getEndereco());
     }
   
+    public static void deletarTodosJogos() throws DeletarInvalidoException,
+            DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+        String jogos[] = jogosExistentes();
+        
+        for(int i=0;i<jogos.length;i++)
+        {
+            deletarJogo(jogos[i]);
+        }
+        
+    }
+    
     public static void verificarDiretorioRaiz() throws DiretorioInvalidoException{
         if(!DAO_Funcao.diretorioExiste(DIRETORIO_OPERA)){
             DAO_Funcao.criarDiretorio(DIRETORIO_RAIZ);
