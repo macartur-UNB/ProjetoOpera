@@ -31,6 +31,7 @@ public class Controle_JogoTest {
     
     @Before
     public void setUp()throws Exception{
+        DAO_Jogo.verificarDiretorioRaiz();
         DAO_Jogo.deletarTodosJogos();        
     }
     

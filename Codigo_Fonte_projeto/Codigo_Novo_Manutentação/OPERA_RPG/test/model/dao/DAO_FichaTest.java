@@ -39,6 +39,7 @@ public class DAO_FichaTest {
     
     @After
     public void tearDown()throws Exception{
+        DAO_Jogo.deletarTodosJogos();
     }
 
     /**
