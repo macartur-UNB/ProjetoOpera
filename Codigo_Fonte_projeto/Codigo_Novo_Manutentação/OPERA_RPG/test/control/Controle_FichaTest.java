@@ -267,21 +267,30 @@ public class Controle_FichaTest {
      * Test of listarFichasNPC method, of class Controle_Ficha.
      */
     @Test
-    public void testListarFichasNPC() {
+    public void testListarFichasNPC()throws Exception{
         System.out.println("listarFichasNPC");
-        String[] expResult = null;
-        String[] result = Controle_Ficha.listarFichasNPC();
-        assertArrayEquals(expResult, result);
+         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+         Controle_Ficha.cadNPC("Test1", campanha, experiencia, atributos, dinheiro);
+         Controle_Ficha.cadNPC("Test2", campanha, experiencia, atributos, dinheiro);
+         String[] expResult = {personagem,"Test1","Test2"};
+         String[] result = Controle_Ficha.listarFichasNPC();
+         assertArrayEquals(expResult, result);
+         Controle_Ficha.removeTodasFichas();
     }
 
     /**
      * Test of listarFichasMonstro method, of class Controle_Ficha.
      */
     @Test
-    public void testListarFichasMonstro() {
+    public void testListarFichasMonstro() throws Exception{
         System.out.println("listarFichasMonstro");
-        String[] expResult = null;
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);  
+        Controle_Ficha.cadMonstro("Test1", campanha, experiencia, atributos, dinheiro);  
+        Controle_Ficha.cadMonstro("Test2", campanha, experiencia, atributos, dinheiro);  
+        
+        String[] expResult = {personagem,"Test1","Test2"};
         String[] result = Controle_Ficha.listarFichasMonstro();
         assertArrayEquals(expResult, result);
+        Controle_Ficha.removeTodasFichas();
     }
 }
