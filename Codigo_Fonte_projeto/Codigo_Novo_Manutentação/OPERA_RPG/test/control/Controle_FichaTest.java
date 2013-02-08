@@ -5,6 +5,7 @@
 package control;
 
 import model.classes.Ficha;
+import model.dao.DAO_Ficha;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -30,25 +31,30 @@ public class Controle_FichaTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp()throws Exception{
+        if(!Controle_Jogo.jogoExiste("JunitTest")){
+            Controle_Jogo.criarJogo("JUnitTest");
+        }
+        DAO_Ficha.removerTodasFichas("NPC");
+        DAO_Ficha.removerTodasFichas("Jogador");
+        DAO_Ficha.removerTodasFichas("Monstro");
     }
-    
     @After
     public void tearDown() {
     }
-
+    
+    String personagem = "Test";
+    String campanha = "Test";
+    String jogador = "Test";
+    int experiencia = 0;
+    int[] atributos = {3,2,4,5,6,7,8,1};
+    int dinheiro = 0;
     /**
      * Test of cadJogador method, of class Controle_Ficha.
      */
     @Test
     public void testCadJogador() throws Exception {
         System.out.println("cadJogador");
-        String personagem = "NomePersonagem";
-        String jogador = "NomeJogador";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {2,3,4,1,5,6,7,8};
-        int dinheiro = 0;
         Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerJogador(personagem);
     }
@@ -59,11 +65,6 @@ public class Controle_FichaTest {
     @Test
     public void testCadNPC() throws Exception {
         System.out.println("cadNPC");
-        String personagem = "Test";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {2,1,3,4,5,6,7,8};
-        int dinheiro = 0;
         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerNPC(personagem);
     }
@@ -74,11 +75,6 @@ public class Controle_FichaTest {
     @Test
     public void testCadMonstro() throws Exception {
         System.out.println("cadMonstro");
-        String personagem = "Test";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {3,2,4,5,6,7,8,1};
-        int dinheiro = 0;
         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removeTodasFichasMonstro();
     }
@@ -89,14 +85,7 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarJogador() throws Exception {
         System.out.println("encontrarJogador");
-        String personagem = "NomePersonagem";
-        String jogador = "NomeJogador";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {2,3,4,1,5,6,7,8};
-        int dinheiro = 0;
         Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.removerJogador(personagem);
         Ficha result = Controle_Ficha.encontrarJogador(personagem);
         if(result == null)
         {
@@ -111,11 +100,6 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarNPC() throws Exception {
         System.out.println("encontrarNPC");
-        String personagem = "Test";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {2,1,3,4,5,6,7,8};
-        int dinheiro = 0;
         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Ficha result = Controle_Ficha.encontrarNPC(personagem);
         if(result == null)
@@ -131,11 +115,6 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarMonstro() throws Exception {
         System.out.println("encontrarMonstro");
-        String personagem = "Test";
-        String campanha = "Test";
-        int experiencia = 0;
-        int[] atributos = {3,2,4,5,6,7,8,1};
-        int dinheiro = 0;
         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
         Ficha result = Controle_Ficha.encontrarMonstro(personagem);
         if(result == null)
@@ -149,54 +128,52 @@ public class Controle_FichaTest {
      * Test of JogadorExiste method, of class Controle_Ficha.
      */
     @Test
-    public void testJogadorExiste() {
+    public void testJogadorExiste() throws Exception{
         System.out.println("JogadorExiste");
-        String personagem = "";
-        boolean expResult = false;
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        boolean expResult = true;
         boolean result = Controle_Ficha.JogadorExiste(personagem);
         assertEquals(expResult, result);
+        Controle_Ficha.removeTodasFichas();
     }
 
     /**
      * Test of NPCExiste method, of class Controle_Ficha.
      */
     @Test
-    public void testNPCExiste() {
+    public void testNPCExiste() throws Exception{
         System.out.println("NPCExiste");
-        String nome = "";
-        boolean expResult = false;
-        boolean result = Controle_Ficha.NPCExiste(nome);
+        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+        boolean expResult = true;
+        boolean result = Controle_Ficha.NPCExiste(personagem);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Controle_Ficha.removeTodasFichas();
     }
 
     /**
      * Test of MonstroExiste method, of class Controle_Ficha.
      */
     @Test
-    public void testMonstroExiste() {
+    public void testMonstroExiste() throws Exception{
         System.out.println("MonstroExiste");
-        String nome = "";
-        boolean expResult = false;
-        boolean result = Controle_Ficha.MonstroExiste(nome);
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+        boolean expResult = true;
+        boolean result = Controle_Ficha.MonstroExiste(personagem);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Controle_Ficha.removeTodasFichas();        
     }
 
     /**
      * Test of FichaExiste method, of class Controle_Ficha.
      */
     @Test
-    public void testFichaExiste() {
+    public void testFichaExiste()throws Exception{
         System.out.println("FichaExiste");
-        String nome = "";
-        boolean expResult = false;
-        boolean result = Controle_Ficha.FichaExiste(nome);
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+        boolean expResult = true;
+        boolean result = Controle_Ficha.FichaExiste(personagem);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Controle_Ficha.removeTodasFichas(); 
     }
 
     /**
@@ -205,10 +182,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverJogador() throws Exception {
         System.out.println("removerJogador");
-        String personagem = "";
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerJogador(personagem);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -217,10 +192,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverNPC() throws Exception {
         System.out.println("removerNPC");
-        String personagem = "";
+        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerNPC(personagem);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -229,10 +202,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverMonstro() throws Exception {
         System.out.println("removerMonstro");
-        String personagem = "";
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);        
         Controle_Ficha.removerMonstro(personagem);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -241,9 +212,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasJogador() throws Exception {
         System.out.println("removeTodasFichasJogador");
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removeTodasFichasJogador();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -252,9 +222,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasNPC() throws Exception {
         System.out.println("removeTodasFichasNPC");
+         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removeTodasFichasNPC();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -263,33 +232,35 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasMonstro() throws Exception {
         System.out.println("removeTodasFichasMonstro");
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);             
         Controle_Ficha.removeTodasFichasMonstro();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of removeTodasHabilidades method, of class Controle_Ficha.
      */
     @Test
-    public void testRemoveTodasHabilidades() throws Exception {
+    public void testRemoveTodasFichas() throws Exception {
         System.out.println("removeTodasHabilidades");
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);  
         Controle_Ficha.removeTodasFichas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of listarFichasJogador method, of class Controle_Ficha.
      */
     @Test
-    public void testListarFichasJogador() {
+    public void testListarFichasJogador()throws Exception{
         System.out.println("listarFichasJogador");
-        String[] expResult = null;
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador("Test2", jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador("Test3", jogador, campanha, experiencia, atributos, dinheiro);
+        String[] expResult = {"Test","Test2","Test3"};
         String[] result = Controle_Ficha.listarFichasJogador();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Controle_Ficha.removeTodasFichas();
     }
 
     /**
@@ -301,8 +272,6 @@ public class Controle_FichaTest {
         String[] expResult = null;
         String[] result = Controle_Ficha.listarFichasNPC();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -314,7 +283,5 @@ public class Controle_FichaTest {
         String[] expResult = null;
         String[] result = Controle_Ficha.listarFichasMonstro();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
