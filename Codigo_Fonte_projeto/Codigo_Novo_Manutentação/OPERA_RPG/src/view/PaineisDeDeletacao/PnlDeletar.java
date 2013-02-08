@@ -11,7 +11,6 @@ import control.Controle_Item;
 import control.Controle_Jogo;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
@@ -801,7 +800,7 @@ public class PnlDeletar extends javax.swing.JPanel {
             String itemSelecionado = cmbSelecionar.getSelectedItem().toString();
 
             if(radioButtonSelecionado.equals("Jogo")){
-                if(itemSelecionado.equals(Controle_Jogo.jogoRodando()))
+                if(!itemSelecionado.equals(Controle_Jogo.jogoRodando()))
                     Controle_Jogo.apagarJogo(itemSelecionado);
                 else
                     JOptionPane.showMessageDialog(null,"ERROR: " + "Esse Jogo esta em Andamento.","Erro",JOptionPane.ERROR_MESSAGE);
