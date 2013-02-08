@@ -111,6 +111,9 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
     }
     
     public static void habilitarMenus(boolean habilitar){
+        
+        itemDeletar.setEnabled(habilitar);
+        
         itemNovaFichaRPG.setEnabled(habilitar);
         itemNovaHabilidade.setEnabled(habilitar);
         itemNovaCaracteristica.setEnabled(habilitar);

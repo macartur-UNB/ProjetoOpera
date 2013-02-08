@@ -107,6 +107,9 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
     
     
     public static void habilitarMenus(boolean habilitar){
+        
+        btnDeletar.setEnabled(habilitar);
+        
         btnNovaFicha.setEnabled(habilitar);
         btnNovaHabilidade.setEnabled(habilitar);
         btnNovaCaracteristica.setEnabled(habilitar);
