@@ -798,12 +798,15 @@ public class PnlDeletar extends javax.swing.JPanel {
     private void deletar(){
         try{
             String itemSelecionado = cmbSelecionar.getSelectedItem().toString();
-
+            boolean erro = false;
             if(radioButtonSelecionado.equals("Jogo")){
-                if(!itemSelecionado.equals(Controle_Jogo.jogoRodando()))
+                if(!itemSelecionado.equals(Controle_Jogo.jogoRodando())){
                     Controle_Jogo.apagarJogo(itemSelecionado);
-                else
+                }
+                else{
                     JOptionPane.showMessageDialog(null,"ERROR: " + "Esse Jogo esta em Andamento.","Erro",JOptionPane.ERROR_MESSAGE);
+                    erro = true;
+                }
             }
 
             if(radioButtonSelecionado.equals("Jogador"))
@@ -836,7 +839,8 @@ public class PnlDeletar extends javax.swing.JPanel {
             if(radioButtonSelecionado.equals("Arma Corpo"))
                 Controle_Item.removerArmaCorpoACorpo(itemSelecionado);
             
-            JOptionPane.showMessageDialog(null,"Deletar: " + itemSelecionado +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            if(!erro)
+                JOptionPane.showMessageDialog(null,"Deletar: " + itemSelecionado +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
             limpar();
             grpDeletar.clearSelection();
         } catch(ArquivoInvalidoException | DeletarInvalidoException | DiretorioInvalidoException | IOException e){
