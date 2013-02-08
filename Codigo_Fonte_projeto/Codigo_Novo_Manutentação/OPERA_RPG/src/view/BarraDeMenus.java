@@ -170,7 +170,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         }
         
         if(origem.equals(itemDeletar)){
-            
+            NovaAba.abaDeletarJogo(tabbedPane, (ImageIcon)itemDeletar.getIcon());
         }
         
         if(origem.equals(itemSair)){

@@ -154,7 +154,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
             NovaAba.abaAbrirJogo(tabbedPane, (ImageIcon)btnAbrirJogo.getIcon());
         }
         if(origem.equals(btnDeletar)){
-            
+            NovaAba.abaDeletarJogo(tabbedPane, (ImageIcon)btnDeletar.getIcon());
         }
         if(origem.equals(btnNovaFicha)){
             NovaAba.abaCadastrarFicha(tabbedPane, (ImageIcon)btnNovaFicha.getIcon());

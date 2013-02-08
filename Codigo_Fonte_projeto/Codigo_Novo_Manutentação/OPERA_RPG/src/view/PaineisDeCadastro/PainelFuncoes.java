@@ -7,6 +7,7 @@ package view.PaineisDeCadastro;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -96,10 +97,13 @@ public class PainelFuncoes {
     
     public static void habilitarCampos(JComponent componente, boolean habilitar){
         Object objeto[] = componente.getComponents();
+        
+        if(componente instanceof JPanel){
+            ((JPanel)componente).setEnabled(habilitar);
+        }
+        
         for(int i = 0; i < objeto.length; i++){
-            if(objeto[i] instanceof JPanel){
-                habilitarCampos(((JPanel)objeto[i]), habilitar);
-            }
+            
             if(objeto[i] instanceof JComponent){
                 habilitarCampos((JComponent)objeto[i], habilitar);
             }
@@ -108,6 +112,9 @@ public class PainelFuncoes {
                 if(!habilitar){
                     ((JCheckBox)objeto[i]).setSelected(false);
                 }
+            }
+            if(objeto[i] instanceof JComboBox){
+                ((JComboBox)objeto[i]).setEnabled(habilitar);
             }
             if(objeto[i] instanceof JTextField){
                 ((JTextField)objeto[i]).setEnabled(habilitar);

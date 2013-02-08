@@ -47,4 +47,8 @@ public class Controle_Jogo {
     public static String[] jogosExistentes(){
         return DAO_Jogo.jogosExistentes();
     } 
+    
+     public static String jogoRodando(){
+        return DAO_Jogo.getJogoRodando().getNome();
+    }
 }
