@@ -4,19 +4,21 @@
  */
 package model.classes;
 
+import model.exception.CaracteristicaInvalidaException;
+
 
 public class Caracteristica_Especifica extends Caracteristica{
 
     private String nome_Especifico;
     private String descricao_Especifica;
     
-    public Caracteristica_Especifica(String nome_Especifico,String descricao_Especifica,String nome, String descricao, String tipo, int custo) {
+    public Caracteristica_Especifica(String nome_Especifico,String descricao_Especifica,String nome, String descricao, String tipo, int custo) throws CaracteristicaInvalidaException {
         super(nome, descricao, tipo, custo);
         this.nome_Especifico = nome_Especifico;
         this.descricao_Especifica = descricao_Especifica;
     }
 
-    public Caracteristica_Especifica(String nome_Especifico,String descricao_Especifica,String nome, String descricao, String tipo, int[] modificador, int custo) {
+    public Caracteristica_Especifica(String nome_Especifico,String descricao_Especifica,String nome, String descricao, String tipo, int[] modificador, int custo) throws CaracteristicaInvalidaException {
         super(nome, descricao, tipo, modificador, custo);
         this.nome_Especifico = nome_Especifico;
         this.descricao_Especifica = descricao_Especifica;

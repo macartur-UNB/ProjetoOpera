@@ -17,7 +17,16 @@ public class Caracteristica  implements Serializable{
     private int[] modificador = null;
     private int custo;
 
-    
+    /**
+     * 
+     * @param nome Nome da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param descricao Descricao da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param tipo Tipo de Caracteristica, podendo ser: Fisica, Psiquica ou Racial.
+     * @param custo Custo necessario para ter a Caracteristica
+     * @throws CaracteristicaInvalidaException 
+     */
     public Caracteristica(String nome, String descricao, String tipo, int custo) throws CaracteristicaInvalidaException {
         setNome(nome);
         setDescricao(descricao);
@@ -25,6 +34,18 @@ public class Caracteristica  implements Serializable{
         setCusto(custo);
     }
 
+    /**
+     * 
+     * @param nome Nome da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param descricao Descricao da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param tipo Tipo de Caracteristica, podendo ser: Fisica, Psiquica ou Racial.
+     * @param modificador Vetor com os Valores dos Modificadores da Caracteristica. Todos
+     * os valores devem ser maiores ou iguais a zero(0).
+     * @param custo Custo necessario para ter a Caracteristica
+     * @throws CaracteristicaInvalidaException 
+     */
     public Caracteristica(String nome, String descricao, String tipo, int[] modificador, int custo) throws CaracteristicaInvalidaException {
         this(nome,descricao,tipo,custo);
         setModificador(modificador);

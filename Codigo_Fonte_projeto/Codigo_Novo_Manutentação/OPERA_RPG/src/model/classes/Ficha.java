@@ -24,13 +24,19 @@ public class Ficha implements Serializable{
  
     /**
      * Metodo Construtor para criar Fichas
-     * @param personagem Nome do personagem.
-     * @param jogador Nome do jogador, ou seja, nome da pessoa que possui o personagem.
-     * @param tipo Tipo de personagem, podendo ser: NPC ou Monstro.
-     * @param campanha Campanha do personagem.
-     * @param experiencia Quantidade de experiencia do personagem.
-     * @param atributos Vetor com os Atributos do personagem.
-     * @param dinheiro Quantidade de Dinheiro do personagem.
+     * @param personagem Nome do personagem. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param jogador Nome do jogador, ou seja, nome da pessoa que possui
+     * o personagem. Deve conter apenas caracteres do Alfabeto (A-Z e a-z)".
+     * @param tipo Tipo de personagem, podendo ser: Jogador, NPC ou Monstro.
+     * @param campanha Capanha do Personagem. Deve conter apenas caracteres 
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param experiencia Quantidade de Experiencia do Personagem. O valor deve ser
+     * maior ou igual a zero(0).
+     * @param atributos Vetor com os Valores dos Atributos do personagem. Todos
+     * os valores devem ser maiores ou iguais a zero(0).
+     * @param dinheiro Quantidade de Dinheiro do personagem. O valor deve ser
+     * maior ou igual a zero(0).
      */
     public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro) throws FichaInvalidaException{
         setPersonagem(personagem);
@@ -184,7 +190,7 @@ public class Ficha implements Serializable{
         if(dinheiro >= 0){
             this.dinheiro = dinheiro;
         }else{
-            throw new FichaInvalidaException("Dinheiro Invalido, valor Abaixo"
+            throw new FichaInvalidaException("Dinheiro Invalido, valor Abaixo "
                     + "de Zero(0)");
         }
     }
@@ -207,7 +213,7 @@ public class Ficha implements Serializable{
         if(experiencia >= 0){
             this.experiencia = experiencia;
         }else{
-            throw new FichaInvalidaException("Experiencia Invalida, valor Abaixo"
+            throw new FichaInvalidaException("Experiencia Invalida, valor Abaixo "
                     + "de Zero(0)");
         }
     }
