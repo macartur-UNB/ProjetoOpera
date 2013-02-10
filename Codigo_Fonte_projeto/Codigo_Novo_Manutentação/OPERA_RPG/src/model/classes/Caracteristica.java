@@ -24,7 +24,8 @@ public class Caracteristica  implements Serializable{
      * @param descricao Descricao da Caracteristica. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param tipo Tipo de Caracteristica, podendo ser: Fisica, Psiquica ou Racial.
-     * @param custo Custo necessario para ter a Caracteristica
+     * @param custo Custo necessario para ter a Caracteristica. O custo deve ser
+     * um numero inteiro e maior que zero(0)
      * @throws CaracteristicaInvalidaException 
      */
     public Caracteristica(String nome, String descricao, String tipo, int custo) throws CaracteristicaInvalidaException {
@@ -159,7 +160,8 @@ public class Caracteristica  implements Serializable{
 
     /**
      * Altera o Custo da Caracteristica
-     * @param custo Custo necessario para ter a Caracteristica
+     * @param custo Custo necessario para ter a Caracteristica. O custo deve ser
+     * um numero inteiro e maior que zero(0)
      * @throws CaracteristicaInvalidaException
      */
     public void setCusto(int custo) throws CaracteristicaInvalidaException {
