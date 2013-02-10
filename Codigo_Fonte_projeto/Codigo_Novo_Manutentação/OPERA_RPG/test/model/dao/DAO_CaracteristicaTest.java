@@ -71,7 +71,7 @@ public class DAO_CaracteristicaTest {
         DAO_Caracteristica.gravarCaracteristica(caracteristica);
         Caracteristica result = DAO_Caracteristica.carregarCaracteristica("Test", "Racial");
         if(result == null){
-            fail("não foi possivel carregar caracteristica");
+            fail("não foi possivel carregar caracteristica racial");
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Racial");
         
@@ -79,14 +79,14 @@ public class DAO_CaracteristicaTest {
         DAO_Caracteristica.gravarCaracteristica(caracteristicaf);
         result = DAO_Caracteristica.carregarCaracteristica("Test", "Fisica");
         if(result == null){
-            fail("nao foi possivel carregar caracteristica");
+            fail("nao foi possivel carregar caracteristica fisica");
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
         Caracteristica caracteristicap = new Caracteristica("Test", "teste", "Psiquica", 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristicaf);
         result = DAO_Caracteristica.carregarCaracteristica("Test", "Psiquica");
         if(result == null){
-            fail("nao foi possivel carregar caracteristica");
+            fail("nao foi possivel carregar caracteristica psiquica");
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
         
@@ -98,7 +98,29 @@ public class DAO_CaracteristicaTest {
     @Test
     public void testCarregarCaracteristica_Especifica() throws Exception {
         System.out.println("carregarCaracteristica_Especifica");
-        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("","");
+        Caracteristica_Especifica ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Fisica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("Test","Fisica");
+        
+        if(result == null){
+            fail("não pode carregar caracteristica especifica fisica");
+        }
+        
+        ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Belica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        result = DAO_Caracteristica.carregarCaracteristica_Especifica("Test","Belica");
+        
+        if(result == null){
+            fail("não pode carregar caracteristica especifica fisica");
+        }
+        
+        ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Psiquica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        result = DAO_Caracteristica.carregarCaracteristica_Especifica("Test","Psiquica");
+        
+        if(result == null){
+            fail("não pode carregar caracteristica especifica fisica");
+        }    
         
     }
 
@@ -106,13 +128,31 @@ public class DAO_CaracteristicaTest {
      * Test of CaracteristicaExiste method, of class DAO_Caracteristica.
      */
     @Test
-    public void testCaracteristicaExiste() {
+    public void testCaracteristicaExiste()throws Exception{
         System.out.println("CaracteristicaExiste");
-        String nome = "";
-        String tipo = "";
-        boolean expResult = false;
-        boolean result = DAO_Caracteristica.CaracteristicaExiste(nome, tipo);
-        assertEquals(expResult, result);
+        
+        Caracteristica_Especifica ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Fisica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        boolean result = DAO_Caracteristica.CaracteristicaExiste("Test","Fisica");
+        if(result == false){
+            fail("não pode carregar caracteristica especifica fisica");
+        }
+        
+        ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Belica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        result = DAO_Caracteristica.CaracteristicaExiste("Test","Belica");
+        
+        if(result == false){
+            fail("não pode carregar caracteristica especifica fisica");
+        }
+        
+        ce = new Caracteristica_Especifica("Test", "Test", "Test", "Test", "Psiquica", 2);
+        DAO_Caracteristica.gravarCaracteristica(ce);        
+        result = DAO_Caracteristica.CaracteristicaExiste("Test","Psiquica");
+        
+        if(result == false){
+            fail("não pode carregar caracteristica especifica fisica");
+        }    
     }
 
     /**
@@ -121,9 +161,34 @@ public class DAO_CaracteristicaTest {
     @Test
     public void testRemoverCaracteristica() throws Exception {
         System.out.println("removerCaracteristica");
-        String nome = "";
-        String tipo = "";
-        DAO_Caracteristica.removerCaracteristica(nome, tipo);
+        
+        Caracteristica caracteristica = new Caracteristica("Test", "teste", "Racial", 2);  
+        DAO_Caracteristica.gravarCaracteristica(caracteristica);
+        DAO_Caracteristica.removerCaracteristica("Test", "Racial");
+        Caracteristica result = DAO_Caracteristica.carregarCaracteristica("Test", "Racial");
+        if(result != null){
+            fail("caracteristica racial não removida");
+        }
+        DAO_Caracteristica.removerTodasCaracteristicas("Racial");
+        
+        caracteristica = new Caracteristica("Test", "teste", "Fisica", 2);
+        DAO_Caracteristica.gravarCaracteristica(caracteristica);
+        DAO_Caracteristica.removerCaracteristica("Test", "Fisica");
+        result = DAO_Caracteristica.carregarCaracteristica("Test", "Fisica");
+        if(result != null){
+            fail("caracteristica fisica não removida");
+        }
+        DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
+        
+        caracteristica = new Caracteristica("Test", "teste", "Psiquica", 2);
+        DAO_Caracteristica.gravarCaracteristica(caracteristica);
+        DAO_Caracteristica.removerCaracteristica("Test", "Psiquica");
+        result = DAO_Caracteristica.carregarCaracteristica("Test", "Psiquica");
+        if(result != null){
+            fail("caracteristica psiquica não removida");
+        }
+        DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
+        
     }
 
     /**
