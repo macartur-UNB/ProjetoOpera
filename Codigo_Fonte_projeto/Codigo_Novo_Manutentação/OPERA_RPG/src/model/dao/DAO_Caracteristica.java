@@ -21,12 +21,23 @@ public class DAO_Caracteristica {
     
     private static final String ENDERECO_CARACTERISTICA = Constante_Endereco.CARACTERISTICA;
     
-    public static void gravarCaracteristica(Caracteristica caracteristica)
+    public static void gravarCaracteristica(Object caracteristica)
     throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+caracteristica.getTipo()+"\\";
-        if(DAO_Funcao.diretorioExiste(diretorio)){
-            DAO_Funcao.criarArquivoOpera(diretorio, caracteristica.getNome(), caracteristica);
+        String nome = null;
+        String tipo = null;
+        if(caracteristica instanceof Caracteristica_Especifica){
+              Caracteristica_Especifica ce = (Caracteristica_Especifica) caracteristica;
+              nome = ce.getNome_Especifico();
+              tipo = ce.getTipo();
+        }else{
+                Caracteristica c = (Caracteristica) caracteristica;
+                nome = c.getNome();
+                tipo = c.getTipo();
         }
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
+        if(DAO_Funcao.diretorioExiste(diretorio)){
+                DAO_Funcao.criarArquivoOpera(diretorio, nome, caracteristica);
+       }
     }
     
     public static Caracteristica carregarCaracteristica(String nome,String tipo) 
