@@ -35,7 +35,9 @@ public class DAO_CaracteristicaTest {
     public void setUp() throws Exception{
         if(!Controle_Jogo.jogoExiste("JunitTest")){
             Controle_Jogo.criarJogo("JUnitTest");
-            
+            DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
+            DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
+            DAO_Caracteristica.removerTodasCaracteristicas("Racial");
         }
     }
     
@@ -101,22 +103,22 @@ public class DAO_CaracteristicaTest {
     public void testCarregarCaracteristica_Especifica() throws Exception {
         System.out.println("carregarCaracteristica_Especifica");
         
-        Caracteristica_Especifica ce = new Caracteristica_Especifica("TestJUnit", "TestDescriacaoE", "TestNome", "TestDescricao", "Fisica", 2);
+        Caracteristica_Especifica ce = new Caracteristica_Especifica("CE", "Test", "Test", "Test", "Fisica", 2);
         DAO_Caracteristica.gravarCaracteristica(ce);        
-        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("TestJUnit","Fisica");
-        
+        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("CE","Fisica");
         if(result == null){
-            fail("não pode carregar caracteristica especifica fisica");
+            fail("não pode carregar caracteristica especifica Fisica");
         }
-         DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
+        DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
+        
         ce = new Caracteristica_Especifica("CE", "Test", "Test", "Test", "Racial", 2);
         DAO_Caracteristica.gravarCaracteristica(ce);        
         result = DAO_Caracteristica.carregarCaracteristica_Especifica("CE","Racial");
-        
         if(result == null){
-            fail("não pode carregar caracteristica especifica fisica");
+            fail("não pode carregar caracteristica especifica racial");
         }
-         DAO_Caracteristica.removerTodasCaracteristicas("Racial");
+        DAO_Caracteristica.removerTodasCaracteristicas("Racial");
+        
         ce = new Caracteristica_Especifica("CE", "Test", "Test", "Test", "Psiquica", 2);
         DAO_Caracteristica.gravarCaracteristica(ce);        
         result = DAO_Caracteristica.carregarCaracteristica_Especifica("CE","Psiquica");
