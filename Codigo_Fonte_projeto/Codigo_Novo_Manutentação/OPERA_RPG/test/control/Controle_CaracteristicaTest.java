@@ -6,7 +6,6 @@ package control;
 
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
-import model.dao.DAO_Caracteristica;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,11 +48,12 @@ public class Controle_CaracteristicaTest {
     @Test
     public void testCadCaracteristica_4args() throws Exception {
         System.out.println("cadCaracteristica");
-        String nome = "";
-        String descricao = "";
-        String tipo = "";
+        String nome = "JUnit";
+        String descricao = "JUNit";
+        String tipo = "Fisica";
         int custo = 0;
         Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        Controle_Caracteristica.removeCaracteristicaFisica(nome);
     }
 
     /**
@@ -64,11 +64,12 @@ public class Controle_CaracteristicaTest {
         System.out.println("cadCaracteristica");
         String nome = "TestJUnit";
         String descricao = "Descricao";
-        String tipo = "Fisica";
+        String tipo = "Racial";
         int custo = 4;
         int[] modificador = {2,2,2,2,2,2,2,2};
         Controle_Caracteristica.cadCaracteristica(
                                      nome, descricao, tipo, custo, modificador);
+        Controle_Caracteristica.removeCaracteristicaRacial(nome);
     }
 
     /**
@@ -81,11 +82,11 @@ public class Controle_CaracteristicaTest {
         String descricao_Especifica = "DescricaoEspecifica";
         String nome = "NomeCaracteristica";
         String descricao = "DescricaoCaracteristica";
-        String tipo = "Caracteristica";
+        String tipo = "Psiquica";
         int custo = 0;
         Controle_Caracteristica.cadCaracteristicaEspecifica(nome_Especifico,
                             descricao_Especifica, nome, descricao, tipo, custo);
-        
+        Controle_Caracteristica.removeCaracteristicaPsiquica(nome_Especifico);
     }
 
     /**
@@ -94,16 +95,16 @@ public class Controle_CaracteristicaTest {
     @Test
     public void testCadCaracteristicaEspecifica_7args() throws Exception {
         System.out.println("cadCaracteristicaEspecifica");
-        String nome_Especifico = "";
-        String descricao_Especifica = "";
-        String nome = "";
-        String descricao = "";
-        String tipo = "";
+        String nome_Especifico = "JUnitTest";
+        String descricao_Especifica = "DescricaoEspecifica";
+        String nome = "nome";
+        String descricao = "descricao";
+        String tipo = "Fisica";
         int custo = 0;
-        int[] modificador = null;
-        Controle_Caracteristica.cadCaracteristicaEspecifica(nome_Especifico, descricao_Especifica, nome, descricao, tipo, custo, modificador);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int[] modificador = {1,2,3,4,5,6,7,8};
+        Controle_Caracteristica.cadCaracteristicaEspecifica(nome_Especifico,
+                descricao_Especifica, nome, descricao, tipo, custo, modificador);
+        Controle_Caracteristica.removeCaracteristicaFisica(nome_Especifico);
     }
 
     /**
@@ -112,13 +113,18 @@ public class Controle_CaracteristicaTest {
     @Test
     public void testEncontrarCaracteristica() throws Exception {
         System.out.println("encontrarCaracteristica");
-        String nome = "";
-        String tipo = "";
-        Caracteristica expResult = null;
+            
+        String nome = "JUnit";
+        String descricao = "JUNit";
+        String tipo = "Fisica";
+        int custo = 0;
+        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
         Caracteristica result = Controle_Caracteristica.encontrarCaracteristica(nome, tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if(result == null)
+        {
+            fail("não encontrou caracteristica especifica");
+        }
+        Controle_Caracteristica.removeCaracteristicaFisica(nome);
     }
 
     /**
@@ -127,89 +133,62 @@ public class Controle_CaracteristicaTest {
     @Test
     public void testEncontrarCaracteristica_Especifica() throws Exception {
         System.out.println("encontrarCaracteristica_Especifica");
-        String nome = "";
-        String tipo = "";
-        Caracteristica_Especifica expResult = null;
+        String nome_Especifico = "JUnitTest";
+        String descricao_Especifica = "DescricaoEspecifica";
+        String nome = "nome";
+        String descricao = "descricao";
+        String tipo = "Psiquica";
+        int custo = 0;
+        int[] modificador = {1,2,3,4,5,6,7,8};
+        Controle_Caracteristica.cadCaracteristicaEspecifica(nome_Especifico,
+                descricao_Especifica, nome, descricao, tipo, custo, modificador);
         Caracteristica_Especifica result = Controle_Caracteristica.encontrarCaracteristica_Especifica(nome, tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if(result == null)
+        {
+            fail("Não pode encontrar caracteristica especifica");
+        }
+        Controle_Caracteristica.removeCaracteristicaPsiquica(nome_Especifico);
     }
 
     /**
      * Test of CaracteristicaExiste method, of class Controle_Caracteristica.
      */
     @Test
-    public void testCaracteristicaExiste_String_String() {
-        System.out.println("CaracteristicaExiste");
-        String nome = "";
-        String tipo = "";
-        boolean expResult = false;
+    public void testCaracteristicaExiste() throws Exception{
+        System.out.println("CaracteristicaExiste-tipo");
+         String nome = "JUnit";
+        String descricao = "JUNit";
+        String tipo = "Fisica";
+        int custo = 0;
+        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        boolean expResult = true;
         boolean result = Controle_Caracteristica.CaracteristicaExiste(nome, tipo);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of CaracteristicaExiste method, of class Controle_Caracteristica.
      */
     @Test
-    public void testCaracteristicaExiste_String() {
-        System.out.println("CaracteristicaExiste");
-        String nome = "";
-        boolean expResult = false;
+    public void testCaracteristicaExiste_String() throws Exception{
+        System.out.println("CaracteristicaExiste-todas");
+         String nome = "JUnit";
+        String descricao = "JUNit";
+        String tipo = "Fisica";
+        int custo = 0;
+        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        boolean expResult = true;
         boolean result = Controle_Caracteristica.CaracteristicaExiste(nome);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of removeCaracteristicaFisica method, of class Controle_Caracteristica.
-     */
-    @Test
-    public void testRemoveCaracteristicaFisica() throws Exception {
-        System.out.println("removeCaracteristicaFisica");
-        String nome = "";
-        Controle_Caracteristica.removeCaracteristicaFisica(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of removeCaracteristicaRacial method, of class Controle_Caracteristica.
-     */
-    @Test
-    public void testRemoveCaracteristicaRacial() throws Exception {
-        System.out.println("removeCaracteristicaRacial");
-        String nome = "";
-        Controle_Caracteristica.removeCaracteristicaRacial(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of removeCaracteristicaPsiquica method, of class Controle_Caracteristica.
-     */
-    @Test
-    public void testRemoveCaracteristicaPsiquica() throws Exception {
-        System.out.println("removeCaracteristicaPsiquica");
-        String nome = "";
-        Controle_Caracteristica.removeCaracteristicaPsiquica(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
+     /**
      * Test of removeTodasCaracteristicasFisicas method, of class Controle_Caracteristica.
      */
     @Test
     public void testRemoveTodasCaracteristicasFisicas() throws Exception {
         System.out.println("removeTodasCaracteristicasFisicas");
         Controle_Caracteristica.removeTodasCaracteristicasFisicas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -219,8 +198,6 @@ public class Controle_CaracteristicaTest {
     public void testRemoveTodasCaracteristicasPsiquicas() throws Exception {
         System.out.println("removeTodasCaracteristicasPsiquicas");
         Controle_Caracteristica.removeTodasCaracteristicasPsiquicas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -230,8 +207,6 @@ public class Controle_CaracteristicaTest {
     public void testRemoveTodasCaracteristicasRacial() throws Exception {
         System.out.println("removeTodasCaracteristicasRacial");
         Controle_Caracteristica.removeTodasCaracteristicasRacial();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -241,8 +216,6 @@ public class Controle_CaracteristicaTest {
     public void testRemoveTodasCaracteristicas() throws Exception {
         System.out.println("removeTodasCaracteristicas");
         Controle_Caracteristica.removeTodasCaracteristicas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -254,8 +227,6 @@ public class Controle_CaracteristicaTest {
         String[] expResult = null;
         String[] result = Controle_Caracteristica.listarCaracteristicasFisicas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -267,8 +238,6 @@ public class Controle_CaracteristicaTest {
         String[] expResult = null;
         String[] result = Controle_Caracteristica.listarCaracteristicasPsiquicas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -280,7 +249,5 @@ public class Controle_CaracteristicaTest {
         String[] expResult = null;
         String[] result = Controle_Caracteristica.listarCaracteristicasRaciais();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
