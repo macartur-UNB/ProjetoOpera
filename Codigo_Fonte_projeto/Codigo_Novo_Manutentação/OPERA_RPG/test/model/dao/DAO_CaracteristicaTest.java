@@ -69,7 +69,7 @@ public class DAO_CaracteristicaTest {
     public void testCarregarCaracteristica() throws Exception {
         System.out.println("carregarCaracteristica");
         
-        Caracteristica caracteristica = new Caracteristica("Caracteristica", "teste", "Racial", 2);  
+        Caracteristica caracteristica = new Caracteristica( "Caracteristica", "teste", "Racial", 2);  
         DAO_Caracteristica.gravarCaracteristica(caracteristica);
         Caracteristica result = DAO_Caracteristica.carregarCaracteristica("Caracteristica", "Racial");
         if(result == null){
@@ -77,15 +77,15 @@ public class DAO_CaracteristicaTest {
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Racial");
         
-        Caracteristica caracteristicaf = new Caracteristica("Caracteristica", "teste", "Fisica", 2);
-        DAO_Caracteristica.gravarCaracteristica(caracteristicaf);
+        caracteristica = new Caracteristica("Caracteristica", "teste", "Fisica", 2);
+        DAO_Caracteristica.gravarCaracteristica(caracteristica);
         result = DAO_Caracteristica.carregarCaracteristica("Caracteristica", "Fisica");
         if(result == null){
             fail("nao foi possivel carregar caracteristica fisica");
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
-        Caracteristica caracteristicap = new Caracteristica("Caracteristica", "teste", "Psiquica", 2);
-        DAO_Caracteristica.gravarCaracteristica(caracteristicaf);
+        caracteristica = new Caracteristica("Caracteristica", "teste", "Psiquica", 2);
+        DAO_Caracteristica.gravarCaracteristica(caracteristica);
         result = DAO_Caracteristica.carregarCaracteristica("Caracteristica", "Psiquica");
         if(result == null){
             fail("nao foi possivel carregar caracteristica psiquica");
@@ -100,9 +100,10 @@ public class DAO_CaracteristicaTest {
     @Test
     public void testCarregarCaracteristica_Especifica() throws Exception {
         System.out.println("carregarCaracteristica_Especifica");
-        Caracteristica_Especifica ce = new Caracteristica_Especifica("CE", "Test", "Test", "Test", "Fisica", 2);
+        
+        Caracteristica_Especifica ce = new Caracteristica_Especifica("TestJUnit", "TestDescriacaoE", "TestNome", "TestDescricao", "Fisica", 2);
         DAO_Caracteristica.gravarCaracteristica(ce);        
-        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("CE","Fisica");
+        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica("TestJUnit","Fisica");
         
         if(result == null){
             fail("não pode carregar caracteristica especifica fisica");
@@ -203,7 +204,7 @@ public class DAO_CaracteristicaTest {
         DAO_Caracteristica.gravarCaracteristica(caracteristica);
         Caracteristica_Especifica ce = new Caracteristica_Especifica("CE", "CE", "CE", "CE", "Psiquica", 2);
         DAO_Caracteristica.gravarCaracteristica(ce);
-        String[] expResult = {"Test","CE"};
+        String[] expResult = {"CE","Test"};
         String[] result = DAO_Caracteristica.listarCaracteristicas("Psiquica");
         assertArrayEquals(expResult, result);
     }

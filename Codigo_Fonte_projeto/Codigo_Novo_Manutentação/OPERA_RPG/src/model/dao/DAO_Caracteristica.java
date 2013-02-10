@@ -29,7 +29,9 @@ public class DAO_Caracteristica {
         }
     }
     
-    public static Caracteristica carregarCaracteristica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+    public static Caracteristica carregarCaracteristica(String nome,String tipo) 
+                            throws FileNotFoundException, ClassNotFoundException,
+                                          IOException, ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_CARACTERISTICA +"\\"+tipo+"\\";
         Caracteristica c = null;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
@@ -37,7 +39,9 @@ public class DAO_Caracteristica {
         }
         return c;
     }
-    public static Caracteristica_Especifica carregarCaracteristica_Especifica(String nome,String tipo) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+    public static Caracteristica_Especifica carregarCaracteristica_Especifica(String nome,String tipo)
+                           throws FileNotFoundException, ClassNotFoundException,
+                                          IOException, ArquivoInvalidoException{
         return (Caracteristica_Especifica) carregarCaracteristica(nome, tipo);
     }   
     public static boolean CaracteristicaExiste(String nome,String tipo){
