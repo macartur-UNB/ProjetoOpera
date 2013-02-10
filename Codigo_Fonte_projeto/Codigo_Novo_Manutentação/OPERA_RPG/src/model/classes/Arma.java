@@ -4,6 +4,8 @@
  */
 package model.classes;
 
+import model.exception.ItemInvalidoException;
+
 
 public class Arma extends Item{
     
@@ -11,7 +13,7 @@ public class Arma extends Item{
     private int danoAdicional;
     
     public Arma(String nome, String descricao,Dado dano,
-                int danoAdicional, boolean usando, int preco) {
+                int danoAdicional, boolean usando, int preco) throws ItemInvalidoException {
         super(nome, descricao, usando, preco);
         this.dano = dano;
         this.danoAdicional = danoAdicional;
@@ -19,7 +21,7 @@ public class Arma extends Item{
 
     public Arma(String nome, String descricao,Dado dano,
                 int danoAdicional, boolean usando, int[] bonus_atributo,
-                int preco, String habilidade_Necessaria) {
+                int preco, String habilidade_Necessaria) throws ItemInvalidoException, ItemInvalidoException {
         super(nome, descricao, usando, bonus_atributo, preco, habilidade_Necessaria);
         this.dano = dano;
         this.danoAdicional = danoAdicional;

@@ -4,6 +4,8 @@
  */
 package model.classes;
 
+import model.exception.ItemInvalidoException;
+
 
 public class Armadura extends Item{
 
@@ -14,7 +16,7 @@ public class Armadura extends Item{
     
     public Armadura(String nome, String descricao, int absorcao_Arma_Branca,
                     int absorcao_Arma_De_Fogo,int penalidade , char regiao_Do_Corpo,
-                    boolean usando, int preco) {
+                    boolean usando, int preco) throws ItemInvalidoException {
         super(nome, descricao, usando, preco);
         this.absorcao_Arma_Branca  = absorcao_Arma_Branca;
         this.absorcao_Arma_De_Fogo = absorcao_Arma_De_Fogo;
@@ -25,7 +27,7 @@ public class Armadura extends Item{
     public Armadura(String nome, String descricao,int absorcao_Arma_Branca,
                     int absorcao_Arma_De_Fogo,int penalidade , char regiao_Do_Corpo,
                     boolean usando, int[] bonus_atributo,
-                    int preco, String habilidade_Necessaria) {
+                    int preco, String habilidade_Necessaria) throws ItemInvalidoException {
         super(nome, descricao, usando, bonus_atributo, preco, habilidade_Necessaria);
         this.absorcao_Arma_Branca  = absorcao_Arma_Branca;
         this.absorcao_Arma_De_Fogo = absorcao_Arma_De_Fogo;

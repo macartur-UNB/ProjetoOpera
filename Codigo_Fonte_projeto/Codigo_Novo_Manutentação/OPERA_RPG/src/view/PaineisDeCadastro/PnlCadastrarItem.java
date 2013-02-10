@@ -25,6 +25,7 @@ import model.classes.Constante_Atributo;
 import model.classes.Dado;
 import model.classes.Item;
 import model.exception.ArquivoInvalidoException;
+import model.exception.ItemInvalidoException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
@@ -1530,7 +1531,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 
                 return item;
             }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException e){
+        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException | ItemInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
         return null;
@@ -1568,7 +1569,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             
         } catch(NullPointerException e){
             JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
-        } catch(ArquivoInvalidoException | HeadlessException | IOException e){
+        } catch(ArquivoInvalidoException | HeadlessException | IOException | ItemInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }

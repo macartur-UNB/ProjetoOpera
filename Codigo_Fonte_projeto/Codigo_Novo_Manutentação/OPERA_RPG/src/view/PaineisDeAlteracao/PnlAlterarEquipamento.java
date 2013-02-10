@@ -20,6 +20,7 @@ import model.classes.Item;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.HabilidadeInvalidaException;
+import model.exception.ItemInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
 /**
@@ -536,7 +537,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
             limparCampos();
         } catch(NullPointerException e){
             JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
-        } catch(DeletarInvalidoException | ArquivoInvalidoException | HeadlessException | IOException e){
+        } catch(DeletarInvalidoException | ArquivoInvalidoException | HeadlessException | IOException | ItemInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } 
     }

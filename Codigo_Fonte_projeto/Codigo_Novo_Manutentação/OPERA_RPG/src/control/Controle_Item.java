@@ -14,25 +14,26 @@ import model.classes.Item;
 import model.dao.DAO_Item;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
+import model.exception.ItemInvalidoException;
 
 
 public class Controle_Item {    
     
    
     public static void cadItemGenerico(String nome,String descricao,int preco) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
         Item item = new Item(nome, descricao, preco);
         DAO_Item.gravarItem(item);
     }
     public static void cadItemGenerico(String nome,String descricao,Boolean usando,
-                           int preco) throws IOException, FileNotFoundException, ArquivoInvalidoException{
+                           int preco) throws IOException, FileNotFoundException, ArquivoInvalidoException, ItemInvalidoException{
         Item item = new Item(nome, descricao, usando,preco);
         DAO_Item.gravarItem(item);      
     }
     public static void cadItemGenerico(String nome,String descricao,Boolean usando,
                                 int bonus_atributo[],int preco,
                                 String habilidade_Necessaria)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
         Item item = new Item(nome, descricao, usando, bonus_atributo,
                              preco, habilidade_Necessaria);
         DAO_Item.gravarItem(item);        
@@ -57,7 +58,7 @@ public class Controle_Item {
     public static void cadArma_Corpo_A_Corpo(String nome, String descricao,String tipo,
                 Dado dano,int danoAdicional,int golpe,int aparo,int esquiva,
                 boolean usando,int preco)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
         
         Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
                 dano, danoAdicional, golpe, aparo, esquiva, usando, preco);
@@ -69,7 +70,7 @@ public class Controle_Item {
                 Dado dano,int danoAdicional,int golpe,int aparo,int esquiva,
                 boolean usando,int bonus_atributo[],int preco,
                 String habilidade_Necessaria)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
       
          Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
                                    dano, danoAdicional, golpe, aparo, esquiva,
@@ -82,7 +83,7 @@ public class Controle_Item {
      public static void cadArma_A_Distancia(String nome,String descricao,
              Dado dano,int danoAdicional,int tiro_Rapido,int tiro_Mirado,
              int cadencia,boolean usando,int preco) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
          Arma_A_Distancia arma = new Arma_A_Distancia(nome, descricao, dano,
                                                       danoAdicional, tiro_Rapido,
                                                       tiro_Mirado, cadencia, 
@@ -94,7 +95,7 @@ public class Controle_Item {
                     Dado dano,int danoAdicional,int tiro_Rapido,int tiro_Mirado,
                     int cadencia,boolean usando,int bonus_atributo[],
                     int preco,String habilidade_Necessaria) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
          Arma_A_Distancia arma = new Arma_A_Distancia(nome, descricao,  dano,
                                                       danoAdicional, tiro_Rapido,
                                                       tiro_Mirado, cadencia,
@@ -106,7 +107,7 @@ public class Controle_Item {
      public static void cadArmadura(String nome,String descricao,int absorcao_Arma_Branca,
              int absorcao_Arma_De_Fogo,int penalidade,char regiao_Do_Corpo,
              boolean usando,int preco) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
          Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, preco);
@@ -119,7 +120,7 @@ public class Controle_Item {
                                int penalidade,char regiao_Do_Corpo,boolean usando,
                                int bonus_atributo[],int preco,
                                String habilidade_Necessaria) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
          Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
                                           absorcao_Arma_De_Fogo, penalidade,
                                           regiao_Do_Corpo, usando, bonus_atributo,
