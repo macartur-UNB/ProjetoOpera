@@ -15,11 +15,12 @@ import org.junit.Test;
  *
  * @author Luciano
  */
-public class FichaTest {
+public class FichaTest{
     
     Ficha instance;
     
-    public FichaTest() {
+    public FichaTest(){
+        
     }
     
     @Before
@@ -129,16 +130,18 @@ public class FichaTest {
         atributos = null;
         instance.setAtributos(atributos);
         try{
-            int[] atributos1 = {-1, 2, 3, 4, 5, 6, 7};
+            int[] atributos1 = {-1, 2, 3, 4, 5, 6, 7, 8};
             instance.setAtributos(atributos1);
-            int[] atributos2 = {'a', 2, 3, 4, 5, 6, 7, 8};
-            instance.setAtributos(atributos2);
+            fail("O Atributo esta invalido, a excecao deveria ter pegado");
+        } catch(FichaInvalidaException e){
+        }
+        try{
             int[] atributos3 = {1, 2};
             instance.setAtributos(atributos3);
             fail("O Atributo esta invalido, a excecao deveria ter pegado");
         } catch(FichaInvalidaException e){
-            
         }
+        
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -156,7 +159,6 @@ public class FichaTest {
             instance.setDinheiro(dinheiro);
             fail("O Dinheiro esta invalido, a excecao deveria ter pegado");
         } catch(FichaInvalidaException e){
-            
         }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -180,6 +182,15 @@ public class FichaTest {
         }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of toString method, of class Ficha.
+     */
+    @Test
+    public void testToString() throws Exception {
+    	String expected = "{Personagem = Personagem; Jogador = Luciano; Campanha = Camapanha; Tipo = Jogador; Experiencia = 0; Dinheiro = 0}";
+    	assertEquals(expected, instance.toString());
     }
 
 }

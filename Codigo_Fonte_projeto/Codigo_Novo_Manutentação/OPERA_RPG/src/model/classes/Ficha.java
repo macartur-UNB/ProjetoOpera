@@ -149,25 +149,19 @@ public class Ficha implements Serializable{
      * @throws FichaInvalidaException
      */
     public void setAtributos(int[] atributos) throws FichaInvalidaException{
-        try{
-            if(atributos == null){
-                this.atributos = atributos;
-            }else if(atributos.length == 8){
-                for(int i = 0; i < atributos.length; i++){
-                    if(atributos[i] < 0){
-                        throw new FichaInvalidaException("Atributo " + Constante_Atributo.ATRIBUTO[i]
-                                + " Invalido, valor Abaixo de Zero(0)");
-                    }
+        if(atributos == null){
+            this.atributos = atributos;
+        }else if(atributos.length == 8){
+            for(int i = 0; i < atributos.length; i++){
+                if(atributos[i] < 0){
+                    throw new FichaInvalidaException("Atributo " + Constante_Atributo.ATRIBUTO[i]
+                            + " Invalido, valor Abaixo de Zero(0)");
                 }
-                this.atributos = atributos;
-            }else{
-                throw new FichaInvalidaException("O campo Atribubos deve receber apenas 8 atributos."
-                        + "\nForam recebidos: " + atributos.length);
             }
-        } catch(NumberFormatException | NullPointerException e){
-            throw new FichaInvalidaException("Atributos invalidos, certifique-se de que os valores"
-                    + "\ndos Atributos sao Numericos Maiores ou Iguais a Zero, "
-                    + "Inteiros, e que sao Oito Atributos.");
+            this.atributos = atributos;
+        }else{
+            throw new FichaInvalidaException("O campo Atribubos deve receber apenas 8 atributos."
+                    + "\nForam recebidos: " + atributos.length);
         }
     }
 
@@ -187,16 +181,11 @@ public class Ficha implements Serializable{
      * @throws FichaInvalidaException
      */
     public void setDinheiro(int dinheiro) throws FichaInvalidaException{
-        try{
-            if(dinheiro >= 0){
-                this.dinheiro = dinheiro;
-            }else{
-                throw new FichaInvalidaException("Dinheiro Invalido, valor Abaixo"
-                        + "de Zero(0)");
-            }
-        } catch(NumberFormatException e){
-            throw new FichaInvalidaException("Dinheiro Invalido, certifique-se de que o"
-                    + "Valor do Dinheiro eh Numerico, Maior ou Igual a Zero e Inteiro.");
+        if(dinheiro >= 0){
+            this.dinheiro = dinheiro;
+        }else{
+            throw new FichaInvalidaException("Dinheiro Invalido, valor Abaixo"
+                    + "de Zero(0)");
         }
     }
 
@@ -215,16 +204,11 @@ public class Ficha implements Serializable{
      * @throws FichaInvalidaException
      */
     public void setExperiencia(int experiencia) throws FichaInvalidaException{
-        try{
-            if(experiencia >= 0){
-                this.experiencia = experiencia;
-            }else{
-                throw new FichaInvalidaException("Experiencia Invalida, valor Abaixo"
-                        + "de Zero(0)");
-            }
-        } catch(NumberFormatException e){
-            throw new FichaInvalidaException("Experiencia Invalida, certifique-se de que o"
-                    + "Valor da Experiencia eh Numerico, Maior ou Igual a Zero e Inteiro.");
+        if(experiencia >= 0){
+            this.experiencia = experiencia;
+        }else{
+            throw new FichaInvalidaException("Experiencia Invalida, valor Abaixo"
+                    + "de Zero(0)");
         }
     }
 

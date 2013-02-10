@@ -4,6 +4,9 @@
  */
 package model.validacao;
 
+import static org.junit.Assert.fail;
+import model.exception.PalavraInvalidaException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,25 +18,7 @@ import org.junit.Test;
  * @author Luciano
  */
 public class ValidarPalavraTest {
-    
-    public ValidarPalavraTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+
 
     /**
      * Test of validarPalavra method, of class ValidarPalavra.
@@ -47,6 +32,25 @@ public class ValidarPalavraTest {
         palavra = "Luciano 123";
         numeros = true;
         ValidarPalavra.validarPalavra(palavra, numeros);
+        
+        try{
+        	ValidarPalavra.validarPalavra(null, true);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	ValidarPalavra.validarPalavra("", true);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	ValidarPalavra.validarPalavra("Invalido ##", true);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -62,9 +66,41 @@ public class ValidarPalavraTest {
         String palavra03 = "Monstro";
         String[] palavrasValidas = {"Jogador", "NPC", "Monstro"};
         boolean caseSensitive = false;
+        
         ValidarPalavra.validarPalavra(palavra01, palavrasValidas, caseSensitive);
         ValidarPalavra.validarPalavra(palavra02, palavrasValidas, caseSensitive);
-        ValidarPalavra.validarPalavra(palavra03, palavrasValidas, caseSensitive);
+        ValidarPalavra.validarPalavra(palavra03, palavrasValidas, !caseSensitive);
+        
+        try{
+        	ValidarPalavra.validarPalavra("Invalido **", palavrasValidas, caseSensitive);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	ValidarPalavra.validarPalavra(null, palavrasValidas, caseSensitive);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	ValidarPalavra.validarPalavra("", palavrasValidas, caseSensitive);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	ValidarPalavra.validarPalavra(palavra01, null, caseSensitive);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
+        
+        try{
+        	String palavrasValidasVazio[] = null;
+        	ValidarPalavra.validarPalavra(palavra01, palavrasValidasVazio, caseSensitive);
+        	fail("O Tipo esta invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+		}
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

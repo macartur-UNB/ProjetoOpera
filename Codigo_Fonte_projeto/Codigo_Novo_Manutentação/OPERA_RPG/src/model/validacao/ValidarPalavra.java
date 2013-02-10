@@ -21,8 +21,12 @@ public class ValidarPalavra {
             caracteresValidos += "1234567890";
         }
         
-        if(palavra.length() == 0){
-            throw new PalavraInvalidaException("Nao pode ser Vazio(a).");
+        if(palavra != null) {
+	        if(palavra.length() == 0){
+	            throw new PalavraInvalidaException("Nao pode ser Vazio(a).");
+	        }
+        }else{
+        	throw new PalavraInvalidaException("Nao pode ser Vazio(a).");
         }
         
         String palavraLowerCase = palavra.toLowerCase();
@@ -49,34 +53,35 @@ public class ValidarPalavra {
     
     public static void validarPalavra(String palavra, String palavrasValidas[], boolean caseSensitive) throws PalavraInvalidaException{
         
-        if(palavra.length() == 0){
-            throw new PalavraInvalidaException("A Palavra Nao pode ser Vazia.");
+    	if(palavra != null) {
+	        if(palavra.length() == 0){
+	            throw new PalavraInvalidaException("A Palvra nao pode ser Vazio(a).");
+	        }
+        }else{
+        	throw new PalavraInvalidaException("A Palvra nao pode ser Nulo(a).");
+        }
+    	
+    	
+    	if(palavrasValidas == null){
+    		throw new PalavraInvalidaException("O Conjunto de palavras nao pode ser Vazio(a).");
         }
         
-        String backupPalavra = palavra;
-        
-        if(!caseSensitive){
-            palavra = palavra.toLowerCase();
-            
-            for(int i = 0; i < palavrasValidas.length; i++){
-                palavrasValidas[i] = palavrasValidas[i].toLowerCase();
-            }
+        boolean palavraValida = false;
+        for(int i = 0; (i < palavrasValidas.length) && (!palavraValida) ; i++){
+        	if(!caseSensitive){
+        		if(palavrasValidas[i].toLowerCase().equals(palavra.toLowerCase())){
+        			palavraValida = true;
+        		}
+        	}else{
+	            if(palavrasValidas[i].equals(palavra)){
+	                palavraValida = true;
+	            }
+        	}
         }
         
-        if(palavrasValidas != null){
-            if(palavrasValidas.length > 0){
-                boolean palavraValida = false;
-                for(int i = 0; (i < palavrasValidas.length) && (!palavraValida) ; i++){
-                    if(palavrasValidas[i].equals(palavra)){
-                        palavraValida = true;
-                    }
-                }
-                
-                if(!palavraValida){
-                    throw new PalavraInvalidaException("A Palavra {" + backupPalavra
-                            + "} eh Invalida");
-                }
-            }
+        if(!palavraValida){
+            throw new PalavraInvalidaException("A Palavra {" + palavra
+                    + "} eh Invalida");
         }
     }
 }
