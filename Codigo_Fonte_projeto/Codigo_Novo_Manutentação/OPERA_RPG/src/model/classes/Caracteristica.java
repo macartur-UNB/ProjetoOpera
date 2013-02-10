@@ -5,78 +5,167 @@
 package model.classes;
 
 import java.io.Serializable;
+import model.exception.CaracteristicaInvalidaException;
+import model.exception.PalavraInvalidaException;
+import model.validacao.ValidarPalavra;
 
 
 public class Caracteristica  implements Serializable{
     private String nome;
     private String descricao;
     private String tipo;
-    private int[] modificador;
+    private int[] modificador = null;
     private int custo;
 
-    public Caracteristica(String nome, String descricao, String tipo, int custo) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.tipo = tipo;
-        this.custo = custo;
+    
+    public Caracteristica(String nome, String descricao, String tipo, int custo) throws CaracteristicaInvalidaException {
+        setNome(nome);
+        setDescricao(descricao);
+        setTipo(tipo);
+        setCusto(custo);
     }
 
-    public Caracteristica(String nome, String descricao, String tipo, int[] modificador, int custo) {
+    public Caracteristica(String nome, String descricao, String tipo, int[] modificador, int custo) throws CaracteristicaInvalidaException {
         this(nome,descricao,tipo,custo);
-        this.modificador = modificador;
+        setModificador(modificador);
      }
     
-    
-    public void setNome(String nome) {
-        this.nome = nome;
+    /**
+     * Altera o Nome da Caracteristica
+     * @param nome Nome da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @throws CaracteristicaInvalidaException
+     */
+    public void setNome(String nome) throws CaracteristicaInvalidaException{
+    	try{
+            ValidarPalavra.validarPalavra(nome, true);
+            this.nome = nome;
+        } catch(PalavraInvalidaException e){
+            throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+                    + "\n" + e.getMessage());
+        }
     }
 
+    /**
+     * Retorna o Nome da Caracteristica
+     * @return Nome da Caracteristica
+     */
     public String getNome() {
         return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    
+    /**
+     * Altera a Descricao da Caracteristica
+     * @param descricao Descricao da Caracteristica. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @throws CaracteristicaInvalidaException
+     */
+    public void setDescricao(String descricao) throws CaracteristicaInvalidaException {
+    	try{
+            ValidarPalavra.validarPalavra(descricao, true);
+            this.descricao = descricao;
+        } catch(PalavraInvalidaException e){
+            throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+                    + "\n" + e.getMessage());
+        }
     }
 
+    /**
+     * Retorna a Descricao da Caracteristica
+     * @return Descricao da Caracteristica
+     */
     public String getDescricao() {
         return descricao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    /**
+     * Altera o Tipo da Caracteristica (Fisica, Psiquica, ou Racial).
+     * @param tipo Tipo de Caracteristica, podendo ser: Fisica, Psiquica ou Racial.
+     * @throws CaracteristicaInvalidaException
+     */
+    public void setTipo(String tipo) throws CaracteristicaInvalidaException {
+    	try{
+            String tiposValidos[] = {"Fisica", "Psiquica", "Racial"};
+            ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
+            this.tipo = tipo;
+        } catch(PalavraInvalidaException e){
+            throw new CaracteristicaInvalidaException("Tipo de Ficha Invalido."
+                    + "\nDeve ser: 'Fisica', 'Psiquica' ou 'Racial'");
+        }
     }
 
+    /**
+     * Retorna o Tipo da Caracteristica
+     * @return Tipo da Caracteristica
+     */
     public String getTipo() {
         return tipo;
     }
 
-    public void setModificador(int[] modificador) {
-        this.modificador = modificador;
+    /**
+     * Altera os Modificadores da Caracteristica.
+     * @param modificador Vetor com os Valores dos Modificadores da Caracteristica. Todos
+     * os valores devem ser maiores ou iguais a zero(0).
+     * @throws CaracteristicaInvalidaException
+     */
+    public void setModificador(int[] modificador) throws CaracteristicaInvalidaException {
+    	if(modificador == null){
+            this.modificador = modificador;
+        }else if(modificador.length == 8){
+            for(int i = 0; i < modificador.length; i++){
+                if(modificador[i] < 0){
+                    throw new CaracteristicaInvalidaException("Modificador " + Constante_Atributo.ATRIBUTO[i]
+                            + " Invalido, valor Abaixo de Zero(0)");
+                }
+            }
+            this.modificador = modificador;
+        }else{
+            throw new CaracteristicaInvalidaException("O campo Modificadores deve receber apenas 8 modificadores."
+                    + "\nForam recebidos: " + modificador.length);
+        }
     }
 
+    /**
+     * Retorna os Modificadores da Caracteristica
+     * @return Modificadores da Caracteristica
+     */
     public int[] getModificador() {
         return modificador;
     }
 
-    public void setCusto(int custo) {
-        this.custo = custo;
+    /**
+     * Altera o Custo da Caracteristica
+     * @param custo Custo necessario para ter a Caracteristica
+     * @throws CaracteristicaInvalidaException
+     */
+    public void setCusto(int custo) throws CaracteristicaInvalidaException {
+    	if(custo >= 0){
+    		this.custo = custo;
+    	}else{
+            throw new CaracteristicaInvalidaException("Custo Invalido, valor Abaixo "
+                    + "de Zero(0)");
+        }
     }
 
+    /**
+     * Retorna o Custo da Caracteristica
+     * @return Custo da Caracteristica
+     */
     public int getCusto() {
         return custo;
     }
 
     @Override
     public String toString() {
-        String tem_modificador = (this.getModificador() == null)?"não":"sim";
-        return "Nome ="+this.getNome()+
-               "Descricao = "+this.getDescricao()+
-               "Tipo = "+this.getTipo()+
-               "Tem modificador ="+ tem_modificador+
-                "Custo = "+this.getCusto();
+        String tem_modificador = (this.getModificador() == null)?"Nao":"Sim";
+        return "Nome = "+this.getNome()+
+               "; Descricao = "+this.getDescricao()+
+               "; Tipo = "+this.getTipo()+
+               "; Tem modificador = "+ tem_modificador+
+               "; Custo = "+this.getCusto();
     }
-    
-    
     
 }

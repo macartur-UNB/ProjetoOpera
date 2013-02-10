@@ -34,7 +34,6 @@ public class DAO_Caracteristica {
         Caracteristica c = null;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
             c = (Caracteristica) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
-            System.out.println(c);
         }
         return c;
     }

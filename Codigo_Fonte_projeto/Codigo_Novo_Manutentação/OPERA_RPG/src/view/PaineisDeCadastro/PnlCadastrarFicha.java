@@ -745,7 +745,7 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
         } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | HeadlessException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor ou Vazio","Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
     

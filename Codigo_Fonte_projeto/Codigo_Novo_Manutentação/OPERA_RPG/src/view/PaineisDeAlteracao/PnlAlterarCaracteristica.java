@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import model.classes.Caracteristica;
 import model.classes.Constante_Atributo;
 import model.exception.ArquivoInvalidoException;
+import model.exception.CaracteristicaInvalidaException;
 import model.exception.DeletarInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
@@ -359,8 +360,6 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
     
     private void alterarCaracteristica(){
         try{
-            System.out.println("Alterando Caracteristica");
-            
             Caracteristica caracteristica = pnlCadastrarCaracteristica.pegarDadosDoPainel();
             String nomeCaracteristicaSelecionada = cmbCaracteristica.getSelectedItem().toString();
             switch(caracteristica.getTipo()){
@@ -382,7 +381,7 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarCaracteristica);
             btnLimparActionPerformed();
             
-        } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException e){
+        } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException | CaracteristicaInvalidaException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }

@@ -19,6 +19,7 @@ import javax.swing.border.LineBorder;
 import model.classes.Caracteristica;
 import model.classes.Constante_Atributo;
 import model.exception.ArquivoInvalidoException;
+import model.exception.CaracteristicaInvalidaException;
 import model.exception.JTextAreaInvalidoException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
@@ -713,10 +714,13 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
     private void cadastrarCaracteristica(){
         try{
             Caracteristica caracteristica = pegarDadosDoPainel();
-            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), caracteristica.getDescricao(), caracteristica.getTipo(), caracteristica.getCusto(), caracteristica.getModificador());
             
+            if(caracteristica == null){
+                return;
+            }
+            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), caracteristica.getDescricao(), caracteristica.getTipo(), caracteristica.getCusto(), caracteristica.getModificador());
             JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + caracteristica.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
-  
+
             PainelFuncoes.limparTodosOsCampos(this);
             PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
             txtDescricao.setText(null);
@@ -730,8 +734,10 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             txtPercepcao.setEnabled(false);
             txtSorte.setEnabled(false);
             txtVontade.setEnabled(false);
-        } catch(ArquivoInvalidoException | IOException e){
+        } catch(CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }  catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor ou Vazio","Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -818,7 +824,7 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 
                 return caracteristica;
             }
-        } catch(JTextAreaInvalidoException | JTextFieldInvalidoException e){
+        } catch(JTextAreaInvalidoException | JTextFieldInvalidoException | CaracteristicaInvalidaException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
         return null;

@@ -10,6 +10,7 @@ import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
 import model.dao.DAO_Caracteristica;
 import model.exception.ArquivoInvalidoException;
+import model.exception.CaracteristicaInvalidaException;
 import model.exception.DeletarInvalidoException;
 
 
@@ -18,7 +19,7 @@ public class Controle_Caracteristica {
     
     public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo)
-    throws FileNotFoundException, IOException, ArquivoInvalidoException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
         DAO_Caracteristica.gravarCaracteristica(c);        
@@ -26,7 +27,7 @@ public class Controle_Caracteristica {
     
     public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException, IOException, ArquivoInvalidoException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
     
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
         DAO_Caracteristica.gravarCaracteristica(c);  
@@ -35,7 +36,7 @@ public class Controle_Caracteristica {
     public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo) 
-    throws FileNotFoundException, IOException, ArquivoInvalidoException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
     
         Caracteristica ce = new Caracteristica_Especifica(
         nome_Especifico,descricao_Especifica,nome, descricao, tipo,custo);
@@ -45,7 +46,7 @@ public class Controle_Caracteristica {
     public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
         
         Caracteristica_Especifica ce;
         ce = new Caracteristica_Especifica(nome_Especifico, descricao_Especifica,
