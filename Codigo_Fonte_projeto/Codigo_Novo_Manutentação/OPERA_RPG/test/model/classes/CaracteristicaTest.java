@@ -216,4 +216,16 @@ public class CaracteristicaTest {
         //fail("The test case is a prototype.");
     }
     
+    
+    /**
+     * Test of toString method, of class Caracteristica.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        String expResult = "Nome = Caracteristica; Descricao = Caracteristica de um personagem; Tipo = Fisica; Custo = 0; Modificadores = [1, 2, 3, 4, 5, 6, 7, 8]";
+        assertEquals(expResult, instance.toString());
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

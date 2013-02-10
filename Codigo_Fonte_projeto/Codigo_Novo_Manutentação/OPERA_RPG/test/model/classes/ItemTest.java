@@ -52,7 +52,13 @@ public class ItemTest {
     
     @AfterClass
     public static void tearDownClass() {
-    	
+    	try{
+    		if(Controle_Jogo.jogoExiste("ItemTest")){
+    			Controle_Jogo.apagarJogo("ItemTest");
+    		}
+    	} catch (Exception e){
+            fail(e.getMessage());
+        }
     }
     
     @Before

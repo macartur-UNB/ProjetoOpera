@@ -5,6 +5,8 @@
 package model.classes;
 
 import java.io.Serializable;
+import java.util.Arrays;
+
 import model.exception.FichaInvalidaException;
 import model.exception.PalavraInvalidaException;
 import model.validacao.ValidarPalavra;
@@ -237,7 +239,8 @@ public class Ficha implements Serializable{
                "; Campanha = "+this.getCampanha()+
                "; Tipo = "+this.getTipo()+
                "; Experiencia = "+this.getExperiencia()+
-               "; Dinheiro = "+this.getDinheiro() + "}";
+               "; Dinheiro = "+this.getDinheiro() +
+               "; Atributos = " + Arrays.toString(this.getAtributos())+ "}";
     }
     
 }

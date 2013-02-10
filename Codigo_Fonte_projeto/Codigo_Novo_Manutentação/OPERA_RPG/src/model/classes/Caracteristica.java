@@ -5,6 +5,8 @@
 package model.classes;
 
 import java.io.Serializable;
+import java.util.Arrays;
+
 import model.exception.CaracteristicaInvalidaException;
 import model.exception.PalavraInvalidaException;
 import model.validacao.ValidarPalavra;
@@ -183,12 +185,11 @@ public class Caracteristica  implements Serializable{
 
     @Override
     public String toString() {
-        String tem_modificador = (this.getModificador() == null)?"Nao":"Sim";
         return "Nome = "+this.getNome()+
                "; Descricao = "+this.getDescricao()+
                "; Tipo = "+this.getTipo()+
-               "; Tem modificador = "+ tem_modificador+
-               "; Custo = "+this.getCusto();
+               "; Custo = "+this.getCusto()+
+               "; Modificadores = " + Arrays.toString(this.getModificador());
     }
     
 }

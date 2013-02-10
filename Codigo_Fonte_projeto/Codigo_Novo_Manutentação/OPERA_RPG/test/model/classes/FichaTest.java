@@ -189,7 +189,8 @@ public class FichaTest{
      */
     @Test
     public void testToString() throws Exception {
-    	String expected = "{Personagem = Personagem; Jogador = Luciano; Campanha = Camapanha; Tipo = Jogador; Experiencia = 0; Dinheiro = 0}";
+    	System.out.println("toString");
+    	String expected = "{Personagem = Personagem; Jogador = Luciano; Campanha = Camapanha; Tipo = Jogador; Experiencia = 0; Dinheiro = 0; Atributos = [1, 2, 3, 4, 5, 6, 7, 8]}";
     	assertEquals(expected, instance.toString());
     }
 

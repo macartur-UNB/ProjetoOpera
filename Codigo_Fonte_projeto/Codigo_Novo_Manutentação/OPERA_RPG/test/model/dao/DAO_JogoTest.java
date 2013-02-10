@@ -91,6 +91,9 @@ public class DAO_JogoTest {
         DAO_Jogo.criarJogo("JUnitTest");
         DAO_Jogo.criarJogo("JUnitTest1");
         String[] result = DAO_Jogo.jogosExistentes();
+        for(int i = 0; i < result.length; i++){
+        	System.out.println(result[i]);
+        }
         assertArrayEquals(expResult, result);
         DAO_Jogo.deletarJogo("JUnitTest");
         DAO_Jogo.deletarJogo("JUnitTest1");
