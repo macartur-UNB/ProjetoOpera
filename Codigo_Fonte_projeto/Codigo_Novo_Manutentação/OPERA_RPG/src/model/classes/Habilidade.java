@@ -6,6 +6,8 @@ package model.classes;
 
 import java.io.Serializable;
 import model.exception.HabilidadeInvalidaException;
+import model.exception.PalavraInvalidaException;
+import model.validacao.ValidarPalavra;
 
 
 
@@ -19,26 +21,38 @@ public class Habilidade implements Serializable{
 
     /**
      * Metodo Construtor para Criar Habilidades.
-     * @param teste 
-     * @param nivel Nivel da Habilidade.
-     * @param custo Custo da Habilidade.
-     * @param nome Nome da Habilidade.
-     * @param tipo Tipo da Habilidade.
+     * @param teste Teste da Habilidade. O Teste deve ser um numero inteiro 
+     * e maior que zero(0)
+     * @param nivel Nivel da Habilidade. O Nivel deve ser um numero inteiro 
+     * e maior que zero(0)
+     * @param custo Custo necessario para ter a Habilidade. O Custo deve ser
+     * um numero inteiro e maior que zero(0)
+     * @param nome Nome da Habilidade. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @param tipo Tipo de Habilidade. Pode ser: Fisica, Psiquica ou Belica.
+     * @throws HabilidadeInvalidaException
      */
-    public Habilidade(int teste, int nivel, int custo, String nome, String tipo) {
-        this.teste = teste;
-        this.nivel = nivel;
-        this.custo = custo;
-        this.nome = nome;
-        this.tipo = tipo;
+    public Habilidade(int teste, int nivel, int custo, String nome, String tipo) throws HabilidadeInvalidaException {
+        setTeste(teste);
+        setNivel(nivel);
+        setCusto(custo);
+        setNome(nome);
+        setTipo(tipo);
     }
 
     /**
-     * Altera o Custo da Habilidade.
-     * @param custo Custo da Habildiade.
+     * Altera o Custo da Habilidade
+     * @param custo Custo necessario para ter a Habilidade. O Custo deve ser
+     * um numero inteiro e maior que zero(0)
+     * @throws HabilidadeInvalidaException
      */
     public void setCusto(int custo) throws HabilidadeInvalidaException {
-        this.custo = custo;
+    	if(custo >= 0){
+    		this.custo = custo;
+    	}else{
+            throw new HabilidadeInvalidaException("Custo Invalido, valor Abaixo "
+                    + "de Zero(0)");
+        }
     }
 
     /**
@@ -51,10 +65,17 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Nivel da Habilidade.
-     * @param nivel Nivel da Habilidade.
+     * @param nivel Nivel da Habilidade. O Nivel deve ser um numero inteiro 
+     * e maior que zero(0)
+     * @throws HabilidadeInvalidaException
      */
-    public void setNivel(int nivel){
-        this.nivel = nivel;
+    public void setNivel(int nivel) throws HabilidadeInvalidaException{
+        if(nivel >= 0){
+    		this.nivel = nivel;
+    	}else{
+            throw new HabilidadeInvalidaException("Custo Invalido, valor Abaixo "
+                    + "de Zero(0)");
+        }
     }
 
     /**
@@ -66,11 +87,20 @@ public class Habilidade implements Serializable{
     }
 
     /**
-     * Altera o Nome da Habilidade.
-     * @param nome Nome da Habilidade.
+     * Altera o Nome da Habilidade
+     * @param nome Nome da Habilidade. Deve conter apenas caracteres
+     * Alfa-Numericos (A-Z, a-z e 0-9)".
+     * @throws HabilidadeInvalidaException
      */
-    public void setNome(String nome) throws HabilidadeInvalidaException {
-        this.nome = nome;
+    public void setNome(String nome) throws HabilidadeInvalidaException{
+    	try{
+            ValidarPalavra.validarPalavra(nome, true);
+            this.nome = nome;
+        } catch(PalavraInvalidaException e){
+            throw new HabilidadeInvalidaException("Nome de Habilidade Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+                    + "\n" + e.getMessage());
+        }
     }
 
     /**
@@ -83,10 +113,16 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Teste da Habilidade
-     * @param teste 
+     * @param teste Teste da Habilidade. O Teste deve ser um numero inteiro 
+     * e maior que zero(0)
      */
-    public void setTeste(int teste) {
-        this.teste = teste;
+    public void setTeste(int teste) throws HabilidadeInvalidaException {
+        if(teste >= 0){
+    		this.teste = teste;
+    	}else{
+            throw new HabilidadeInvalidaException("Teste Invalido, valor Abaixo "
+                    + "de Zero(0)");
+        }
     }
 
     /**
@@ -99,10 +135,18 @@ public class Habilidade implements Serializable{
 
     /**
      * Altera o Tipo da Habilidade
-     * @param Tipo da Habilidade
+     * @param tipo Tipo de Habilidade. Pode ser: Fisica, Psiquica ou Belica.
+     * @throws HabilidadeInvalidaException
      */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(String tipo) throws HabilidadeInvalidaException {
+        try{
+            String tiposValidos[] = {"Fisica", "Psiquica", "Belica"};
+            ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
+            this.tipo = tipo;
+        } catch(PalavraInvalidaException e){
+            throw new HabilidadeInvalidaException("Tipo de Habilidade Invalido."
+                    + "\nDeve ser: 'Fisica', 'Psiquica' ou 'Belica'");
+        }
     }
 
     /**
@@ -116,10 +160,10 @@ public class Habilidade implements Serializable{
     @Override
     public String toString() {
         return "Nome = "+this.getNome()+
-               "Tipo = "+this.getTipo()+
-               "Nivel = "+this.getNivel()+
-               "Teste = "+this.getTeste()+
-               "Custo = "+this.getCusto();
+               "; Tipo = "+this.getTipo()+
+               "; Nivel = "+this.getNivel()+
+               "; Teste = "+this.getTeste()+
+               "; Custo = "+this.getCusto();
     }
     
 }

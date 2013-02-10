@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import model.classes.Habilidade;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
+import model.exception.HabilidadeInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.validacao.ValidarCampos;
@@ -354,7 +355,7 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarHabilidade);
             pnlCadastrarHabilidade.getGrpTipoHabilidade().clearSelection();
 
-         } catch(ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | IOException | JTextFieldInvalidoException e){
+         } catch(HabilidadeInvalidaException | ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | IOException | JTextFieldInvalidoException e){
              JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
          }
      }

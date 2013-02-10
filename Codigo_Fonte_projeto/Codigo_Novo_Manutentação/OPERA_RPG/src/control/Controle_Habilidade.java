@@ -23,7 +23,7 @@ public class Controle_Habilidade {
     
     public static void cadHabilidade(
     int teste, int nivel, int custo, String nome,String tipo)
-    throws FileNotFoundException, IOException, ArquivoInvalidoException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException, HabilidadeInvalidaException{
        
         Habilidade h = new Habilidade(teste, nivel, custo, nome, tipo);
         DAO_Habilidade.gravarHabilidade(h);        

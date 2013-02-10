@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import model.exception.ArquivoInvalidoException;
+import model.exception.HabilidadeInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
@@ -353,7 +354,7 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoHabilidade.clearSelection();
             }
-        } catch (ArquivoInvalidoException | IOException | JTextFieldInvalidoException e) {
+        } catch (ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HabilidadeInvalidaException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -446,8 +447,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     public void setPodeCadastrar(boolean podeCadastrar) {
         this.podeCadastrar = podeCadastrar;
     }
-    
-    
     
     
 }
