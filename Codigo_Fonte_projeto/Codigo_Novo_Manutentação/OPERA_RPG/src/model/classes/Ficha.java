@@ -87,7 +87,8 @@ public class Ficha implements Serializable{
             ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
-            throw new FichaInvalidaException("Tipo de Ficha Invalido."
+            throw new FichaInvalidaException("Tipo de Ficha"
+                    + "{" + tipo + "} Invalido."
                     + "\nDeve ser: 'Jogador', 'NPC' ou 'Monstro'");
         }
     }

@@ -104,4 +104,41 @@ public class ValidarPalavraTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    
+    /**
+     * Test of validarCaractere method, of class ValidarPalavra.
+     */
+    @Test
+    public void testvalidarCaractere() throws Exception {
+        char caracteresValidos[] = {'A', 'B', 'C'};
+        
+        ValidarPalavra.validarCaractere('A', caracteresValidos);
+        ValidarPalavra.validarCaractere('B', caracteresValidos);
+        ValidarPalavra.validarCaractere('C', caracteresValidos);
+        
+        try{
+            ValidarPalavra.validarCaractere(' ', caracteresValidos);
+            fail("validarCaractere invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+        }
+        try{
+            ValidarPalavra.validarCaractere('a', caracteresValidos);
+            fail("validarCaractere invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+        }
+        try{
+            ValidarPalavra.validarCaractere('D', caracteresValidos);
+            fail("validarCaractere invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+        }
+        try{
+            ValidarPalavra.validarCaractere('a', caracteresValidos);
+            fail("validarCaractere invalido, a excecao deveria ter pegado");
+        } catch (PalavraInvalidaException e) {
+        }
+        
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

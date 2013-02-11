@@ -116,7 +116,8 @@ public class Caracteristica  implements Serializable{
             ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
-            throw new CaracteristicaInvalidaException("Tipo de Ficha Invalido."
+            throw new CaracteristicaInvalidaException("Tipo de Ficha"
+                    + "{" + tipo + "} Invalido."
                     + "\nDeve ser: 'Fisica', 'Psiquica' ou 'Racial'");
         }
     }

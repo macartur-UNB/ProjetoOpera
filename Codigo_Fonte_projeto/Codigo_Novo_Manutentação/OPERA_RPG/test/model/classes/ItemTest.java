@@ -83,6 +83,7 @@ public class ItemTest {
      */
     @Test
     public void testConstructors() throws Exception {
+    	System.out.println("Constructors");
     	String nome = "Item";
         String descricao = "Descricao do Item";
         boolean usando = false;
@@ -304,7 +305,7 @@ public class ItemTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        String expResult = "Nome = Item; Descricao = Descricao do Item; Preco = 0; Usando = false; Bonus de Atributo = [1, 2, 3, 4, 5, 6, 7, 8]; Habilidade Necessaria =null";
+        String expResult = "Nome = Item; Descricao = Descricao do Item; Preco = 0; Usando = false; Bonus de Atributo = [1, 2, 3, 4, 5, 6, 7, 8]; Habilidade Necessaria = null";
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

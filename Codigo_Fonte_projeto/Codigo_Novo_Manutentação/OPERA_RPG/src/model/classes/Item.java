@@ -34,8 +34,8 @@ public class Item implements Serializable {
      */
     public Item(String nome, String descricao, int preco) throws ItemInvalidoException {
         setNome(nome);
-        this.descricao = descricao;
-        this.preco = preco;
+        setDescricao(descricao);
+        setPreco(preco);
     }
     
     /**
@@ -51,7 +51,7 @@ public class Item implements Serializable {
      */
      public Item(String nome, String descricao, boolean usando, int preco) throws ItemInvalidoException {
         this(nome,descricao,preco);
-        this.usando = usando;
+        setUsando(usando);
     }
     
     /**
@@ -231,6 +231,6 @@ public class Item implements Serializable {
                "; Preco = "+this.getPreco()+
                "; Usando = "+this.isUsando()+
                "; Bonus de Atributo = "+ Arrays.toString(getBonus_atributo())+
-               "; Habilidade Necessaria ="+this.getHabilidade_Necessaria();
+               "; Habilidade Necessaria = "+this.getHabilidade_Necessaria();
     }    
 }

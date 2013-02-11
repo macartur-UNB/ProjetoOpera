@@ -144,7 +144,8 @@ public class Habilidade implements Serializable{
             ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
-            throw new HabilidadeInvalidaException("Tipo de Habilidade Invalido."
+            throw new HabilidadeInvalidaException("Tipo de Habilidade"
+                    + "{" + tipo + "} Invalido."
                     + "\nDeve ser: 'Fisica', 'Psiquica' ou 'Belica'");
         }
     }
