@@ -44,7 +44,7 @@ public class Controle_HabilidadeTest {
         int teste = 7;
         int nivel = 3;
         int custo = 5;
-        String nome = "JUnit";
+        String nome = "NOmeHabilidade";
         String tipo = "Fisica";
     /**
      * Test of cadHabilidade method, of class Controle_Habilidade.
@@ -52,6 +52,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testCadHabilidade() throws Exception {
         System.out.println("cadHabilidade");
+        nome = "Habilidade1";
+        tipo = "Fisica";
         Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
         if(!Controle_Habilidade.HabilidadeExiste(nome))
         {
@@ -99,6 +101,7 @@ public class Controle_HabilidadeTest {
         nome = "JUnitTest";
         tipo = "Fisica";
         boolean expResult = true;
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
         boolean result = Controle_Habilidade.HabilidadeExiste(nome, tipo);
         assertEquals(expResult, result);
         Controle_Habilidade.removeHabilidadeFisica(nome);
@@ -193,12 +196,12 @@ public class Controle_HabilidadeTest {
         nome = "Habilidade3";
         Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
         Controle_Habilidade.removeTodasHabilidadesFisicas();
-        
-        Habilidade h1,h2,h3;
-        h1 = Controle_Habilidade.encontrarHabilidade("Habilidade1", tipo);
-        h2 = Controle_Habilidade.encontrarHabilidade("Habilidade2", tipo);
-        h3 = Controle_Habilidade.encontrarHabilidade("Habilidade3", tipo);  
-        
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade1")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade2")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade3"))
+        {
+                fail("Ao menos uma habilidade fisica não foi removida");
+        }
     }
 
     /**
@@ -217,11 +220,12 @@ public class Controle_HabilidadeTest {
         Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
         Controle_Habilidade.removeTodasHabilidadesPsiquicas();
         
-        Habilidade h1,h2,h3;
-        h1 = Controle_Habilidade.encontrarHabilidade("Habilidade1", tipo);
-        h2 = Controle_Habilidade.encontrarHabilidade("Habilidade2", tipo);
-        h3 = Controle_Habilidade.encontrarHabilidade("Habilidade3", tipo);  
- 
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade1")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade2")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade3"))
+        {
+                fail("Ao menos uma habilidade psiquica não foi removida");
+        }
     }
 
     /**
@@ -241,14 +245,11 @@ public class Controle_HabilidadeTest {
         
         Controle_Habilidade.removeTodasHabilidadesBelicas();
         
-        Habilidade h1,h2,h3;
-        h1 = Controle_Habilidade.encontrarHabilidade("Habilidade1", tipo);
-        h2 = Controle_Habilidade.encontrarHabilidade("Habilidade2", tipo);
-        h3 = Controle_Habilidade.encontrarHabilidade("Habilidade3", tipo);  
-        if(h1 != null || h2 != null || h3 != null)
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade1")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade2")||
+           Controle_Habilidade.HabilidadeExiste("Habilidade3"))
         {
-            fail("Não foi possivel remover todas as habilidades");
-            DAO_Habilidade.removerTodasHabilidades(tipo);
+                fail("Ao menos uma habilidade belica não foi removida");
         }
     }
 
@@ -270,19 +271,16 @@ public class Controle_HabilidadeTest {
         
         Controle_Habilidade.removeTodasHabilidades();
         
-        Habilidade h1,h2,h3;
-        h1 = Controle_Habilidade.encontrarHabilidade("Habilidade1", "Belica");
-        h2 = Controle_Habilidade.encontrarHabilidade("Habilidade2", "Psiquica");
-        h3 = Controle_Habilidade.encontrarHabilidade("Habilidade3", "Fisica");  
-        if(h1 != null || h2 != null || h3 != null)
-        {
-            fail("Não foi possivel remover todas as habilidades");
-            DAO_Habilidade.removerTodasHabilidades("Fisica");
-            DAO_Habilidade.removerTodasHabilidades("Psiquica");
-            DAO_Habilidade.removerTodasHabilidades("Belica");
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade1")){
+                     fail("A habilidade belica não foi removida de todas as habilidades");
         }
-        
-        
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade2")){
+             fail("Ao menos uma habilidade psiquica não foi removida de todas as habilidades");
+        }
+        if(Controle_Habilidade.HabilidadeExiste("Habilidade3"))
+        {
+                fail("Ao menos uma habilidade fisica  não foi removida de todas as habilidades");
+        }
     }
 
     /**
