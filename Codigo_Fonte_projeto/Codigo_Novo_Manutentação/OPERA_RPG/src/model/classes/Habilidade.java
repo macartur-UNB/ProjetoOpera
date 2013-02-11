@@ -22,11 +22,11 @@ public class Habilidade implements Serializable{
     /**
      * Metodo Construtor para Criar Habilidades.
      * @param teste Teste da Habilidade. O Teste deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      * @param nivel Nivel da Habilidade. O Nivel deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      * @param custo Custo necessario para ter a Habilidade. O Custo deve ser
-     * um numero inteiro e maior que zero(0)
+     * um numero inteiro e maior ou igual a zero(0)
      * @param nome Nome da Habilidade. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param tipo Tipo de Habilidade. Pode ser: Fisica, Psiquica ou Belica.
@@ -43,7 +43,7 @@ public class Habilidade implements Serializable{
     /**
      * Altera o Custo da Habilidade
      * @param custo Custo necessario para ter a Habilidade. O Custo deve ser
-     * um numero inteiro e maior que zero(0)
+     * um numero inteiro e maior ou igual a zero(0)
      * @throws HabilidadeInvalidaException
      */
     public void setCusto(int custo) throws HabilidadeInvalidaException {
@@ -66,7 +66,7 @@ public class Habilidade implements Serializable{
     /**
      * Altera o Nivel da Habilidade.
      * @param nivel Nivel da Habilidade. O Nivel deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      * @throws HabilidadeInvalidaException
      */
     public void setNivel(int nivel) throws HabilidadeInvalidaException{
@@ -114,7 +114,7 @@ public class Habilidade implements Serializable{
     /**
      * Altera o Teste da Habilidade
      * @param teste Teste da Habilidade. O Teste deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      */
     public void setTeste(int teste) throws HabilidadeInvalidaException {
         if(teste >= 0){

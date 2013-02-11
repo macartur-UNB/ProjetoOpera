@@ -25,6 +25,7 @@ import model.classes.Constante_Atributo;
 import model.classes.Dado;
 import model.classes.Item;
 import model.exception.ArquivoInvalidoException;
+import model.exception.DadoInvalidoException;
 import model.exception.ItemInvalidoException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
@@ -1531,7 +1532,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 
                 return item;
             }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException | ItemInvalidoException e){
+        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException | ItemInvalidoException | DadoInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
         return null;

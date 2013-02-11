@@ -9,6 +9,7 @@ import java.io.IOException;
 import model.classes.Dado;
 import model.dao.DAO_Dado;
 import model.exception.ArquivoInvalidoException;
+import model.exception.DadoInvalidoException;
 import model.exception.DeletarInvalidoException;
 
 
@@ -16,7 +17,7 @@ public class Controle_Dado {
 
     
     public static void cadDado(int rolagem, int lados) throws FileNotFoundException, 
-    IOException,ClassNotFoundException, ArquivoInvalidoException{
+    IOException,ClassNotFoundException, ArquivoInvalidoException, DadoInvalidoException{
         
         Dado dado = new Dado(rolagem, lados);
         if(dado != null){

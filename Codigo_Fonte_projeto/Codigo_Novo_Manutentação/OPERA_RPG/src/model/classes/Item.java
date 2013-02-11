@@ -29,7 +29,7 @@ public class Item implements Serializable {
      * @param descricao Descricao do Item. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param preco  O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
     public Item(String nome, String descricao, int preco) throws ItemInvalidoException {
@@ -45,8 +45,8 @@ public class Item implements Serializable {
      * @param descricao Descricao do Item. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param usando Define se o Item esta sendo Usado, TRUE - Sim. FALSE - Nao
-     * @param preco O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * @param preco Preco do Item. Deve ser um numero inteiro e 
+     * maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
      public Item(String nome, String descricao, boolean usando, int preco) throws ItemInvalidoException {
@@ -64,7 +64,7 @@ public class Item implements Serializable {
      * @param bonus_atributo Vetor com os Valores dos Bonus de Atributo do Item. 
      * Todos os valores devem ser maiores ou iguais a zero(0).
      * @param preco O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * maior ou igual a zero(0)
      * @param habilidade_Necessaria Habilidade Necessaria para se usar o Item
      * @throws ItemInvalidoException 
      */
@@ -146,14 +146,14 @@ public class Item implements Serializable {
     /**
      * Altera o Preco do Item
      * @param preco Preco do Item. O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * maior ou igual a zero(0)
      * @throws ItemInvalidoException
      */
     public void setPreco(int preco) throws ItemInvalidoException {
         if(preco >= 0){
     		this.preco = preco;
     	}else{
-            throw new ItemInvalidoException("Custo Invalido, valor Abaixo "
+            throw new ItemInvalidoException("Preco Invalido, valor Abaixo "
                     + "de Zero(0)");
         }
     }

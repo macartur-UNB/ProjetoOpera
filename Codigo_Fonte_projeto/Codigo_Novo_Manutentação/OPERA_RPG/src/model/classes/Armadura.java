@@ -23,16 +23,16 @@ public class Armadura extends Item{
      * @param descricao Descricao da Armadura. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param absorcao_Arma_Branca Absorcao de Arma Branca deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @param absorcao_Arma_De_Fogo Absorcao de Arma de Fogo deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @param penalidade Penalidade deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      * @param regiao_Do_Corpo Regiao do Corpo, deve ser: A, B, C, D, E, 
      * F, G ou H
      * @param usando Define se a Armadura esta sendo Usada, TRUE - Sim. FALSE - Nao
      * @param preco O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
     public Armadura(String nome, String descricao, int absorcao_Arma_Branca,
@@ -52,18 +52,18 @@ public class Armadura extends Item{
      * @param descricao Descricao da Armadura. Deve conter apenas caracteres
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param absorcao_Arma_Branca Absorcao de Arma Branca deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @param absorcao_Arma_De_Fogo Absorcao de Arma de Fogo deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @param penalidade Penalidade deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      * @param regiao_Do_Corpo Regiao do Corpo, deve ser: A, B, C, D, E, 
      * F, G ou H
      * @param usando Define se a Armadura esta sendo Usada, TRUE - Sim. FALSE - Nao
      * @param bonus_atributo Vetor com os Valores dos Bonus de Atributo da Armadura. 
      * Todos os valores devem ser maiores ou iguais a zero(0).
      * @param preco O Preco deve ser um numero inteiro e 
-     * maior que zero(0)
+     * maior ou igual a zero(0)
      * @param habilidade_Necessaria Habilidade Necessaria para se usar a Armadura
      * @throws ItemInvalidoException 
      */
@@ -82,7 +82,7 @@ public class Armadura extends Item{
     /**
      * Altera a Absorcao de Arma Branca da Armadura
      * @param absorcao_Arma_Branca Absorcao de Arma Branca deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @throws ItemInvalidoException
      */
     public void setAbsorcao_Arma_Branca(int absorcao_Arma_Branca) throws ItemInvalidoException {
@@ -105,7 +105,7 @@ public class Armadura extends Item{
     /**
      * Altera a Absorcao de Arma de Fogo da Armadura
      * @param absorcao_Arma_De_Fogo Absorcao de Arma de Fogo deve ser um numero
-     * inteiro e maior que zero(0)
+     * inteiro e maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
     public void setAbsorcao_Arma_De_Fogo(int absorcao_Arma_De_Fogo) throws ItemInvalidoException {
@@ -155,7 +155,7 @@ public class Armadura extends Item{
     /**
      * Altera a Penalidade da Armadura
      * @param penalidade Penalidade deve ser um numero inteiro 
-     * e maior que zero(0)
+     * e maior ou igual a zero(0)
      */
     public void setPenalidade(int penalidade) throws ItemInvalidoException {
         if(penalidade >= 0){
