@@ -287,32 +287,64 @@ public class Controle_HabilidadeTest {
      * Test of listarHabilidadeFisicas method, of class Controle_Habilidade.
      */
     @Test
-    public void testListarHabilidadeFisicas() {
+    public void testListarHabilidadeFisicas() throws Exception{
         System.out.println("listarHabilidadeFisicas");
-        String[] expResult = null;
+        
+        nome = "Habilidade1";
+        tipo="Fisica";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade2";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade3";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        
+        String[] expResult = {"Habilidade1","Habilidade2","Habilidade3"};
         String[] result = Controle_Habilidade.listarHabilidadeFisicas();
-        assertArrayEquals(expResult, result);
+        assertArrayEquals(expResult, result);        
+        
+        Controle_Habilidade.removeTodasHabilidadesFisicas();
+        
     }
 
     /**
      * Test of listarHabilidadesPsiquicas method, of class Controle_Habilidade.
      */
     @Test
-    public void testListarHabilidadesPsiquicas() {
+    public void testListarHabilidadesPsiquicas()throws Exception{
         System.out.println("listarHabilidadesPsiquicas");
-        String[] expResult = null;
+        nome = "Habilidade1";
+        tipo="Psiquica";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade2";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade3";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        
+        String[] expResult = {"Habilidade1","Habilidade2","Habilidade3"};
         String[] result = Controle_Habilidade.listarHabilidadesPsiquicas();
-        assertArrayEquals(expResult, result);
+        assertArrayEquals(expResult, result);        
+        
+        Controle_Habilidade.removeTodasHabilidadesPsiquicas();
     }
 
     /**
      * Test of listarHabilidadesBelicas method, of class Controle_Habilidade.
      */
     @Test
-    public void testListarHabilidadesBelicas() {
+    public void testListarHabilidadesBelicas()throws Exception{
         System.out.println("listarHabilidadesBelicas");
-        String[] expResult = null;
+        nome = "Habilidade1";
+        tipo="Belica";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade2";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        nome = "Habilidade3";
+        Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
+        
+        String[] expResult = {"Habilidade1","Habilidade2","Habilidade3"};
         String[] result = Controle_Habilidade.listarHabilidadesBelicas();
-        assertArrayEquals(expResult, result);
+        assertArrayEquals(expResult, result);        
+        
+        Controle_Habilidade.removeTodasHabilidadesBelicas();
     }
 }
