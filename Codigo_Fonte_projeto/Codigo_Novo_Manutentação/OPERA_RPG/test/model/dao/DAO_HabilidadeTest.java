@@ -55,8 +55,8 @@ public class DAO_HabilidadeTest {
         DAO_Habilidade.gravarHabilidade(habilidadeP);
         Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
-        
         //colocar um assert de FileExists
+        
         
     }
 
@@ -71,8 +71,17 @@ public class DAO_HabilidadeTest {
         Habilidade expResult = new Habilidade(2,2,2,"Teste","Fisica");
         Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        tipo = "Psiquica";
+        expResult = new Habilidade(2,2,2,"Teste","Psiquica");
+        result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        assertEquals(expResult, result);
+        
+        tipo = "Belica";
+        expResult = new Habilidade(2,2,2,"Teste","Belica");
+        result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        assertEquals(expResult, result);
+        
     }
 
     /**
