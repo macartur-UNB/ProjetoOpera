@@ -55,7 +55,9 @@ public class DAO_HabilidadeTest {
         DAO_Habilidade.gravarHabilidade(habilidadeP);
         Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
-        //colocar um assert de FileExists
+        //colocar um assert de FileExists aqui
+        //posso remover os que eu cadastrei, mas estou reaproveitando
+        //no testCarregarHabilidade()
         
         
     }
