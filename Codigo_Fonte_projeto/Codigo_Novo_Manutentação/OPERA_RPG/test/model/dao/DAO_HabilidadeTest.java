@@ -4,6 +4,7 @@
  */
 package model.dao;
 
+import control.Controle_Jogo;
 import model.classes.Habilidade;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,11 +31,18 @@ public class DAO_HabilidadeTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+        if(!Controle_Jogo.jogoExiste("JunitTest")){
+            Controle_Jogo.criarJogo("JUnitTest");
+            DAO_Habilidade.removerTodasHabilidades("Fisica");
+            DAO_Habilidade.removerTodasHabilidades("Psiquica");
+            DAO_Habilidade.removerTodasHabilidades("Belica");
+        }
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
+        Controle_Jogo.apagarJogo("JUnitTest");
     }
 
     /**
