@@ -51,8 +51,12 @@ public class DAO_HabilidadeTest {
     @Test
     public void testGravarHabilidade() throws Exception {
         System.out.println("gravarHabilidade");
-        Habilidade habilidade = null;
-        DAO_Habilidade.gravarHabilidade(habilidade);
+        Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
+        DAO_Habilidade.gravarHabilidade(habilidadeF);
+        Habilidade habilidadeP = new Habilidade(2,2,2,"Teste","Psiquica");
+        DAO_Habilidade.gravarHabilidade(habilidadeP);
+        Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
+        DAO_Habilidade.gravarHabilidade(habilidadeB);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
