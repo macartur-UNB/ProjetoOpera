@@ -33,10 +33,8 @@ public class DAO_HabilidadeTest {
     @Before
     public void setUp() throws Exception {
         if(!Controle_Jogo.jogoExiste("JunitTest")){
-            Controle_Jogo.criarJogo("JUnitTest");
-            DAO_Habilidade.removerTodasHabilidades("Fisica");
-            DAO_Habilidade.removerTodasHabilidades("Psiquica");
-            DAO_Habilidade.removerTodasHabilidades("Belica");
+            Controle_Jogo.apagarJogo("JUnitTest");
+            Controle_Jogo.criarJogo("JUnitTest");            
         }
     }
     
@@ -57,8 +55,9 @@ public class DAO_HabilidadeTest {
         DAO_Habilidade.gravarHabilidade(habilidadeP);
         Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        //colocar um assert de FileExists
+        
     }
 
     /**
@@ -67,9 +66,9 @@ public class DAO_HabilidadeTest {
     @Test
     public void testCarregarHabilidade() throws Exception {
         System.out.println("carregarHabilidade");
-        String nome = "";
-        String tipo = "";
-        Habilidade expResult = null;
+        String nome = "Teste";
+        String tipo = "Fisica";
+        Habilidade expResult = new Habilidade(2,2,2,"Teste","Fisica");
         Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
