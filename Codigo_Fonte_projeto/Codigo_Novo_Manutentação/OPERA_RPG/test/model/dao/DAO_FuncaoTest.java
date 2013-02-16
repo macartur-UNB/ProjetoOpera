@@ -18,11 +18,14 @@ import static org.junit.Assert.*;
  */
 public class DAO_FuncaoTest {
     
+    private static String testDirectory = "C://Opera";
+    
     public DAO_FuncaoTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -43,13 +46,11 @@ public class DAO_FuncaoTest {
     @Test
     public void testCriarDiretorio() throws Exception {
         System.out.println("criarDiretorio");
-        String endereco = "C:\\OperaRPG";
+        String endereco = testDirectory;
         DAO_Funcao.criarDiretorio(endereco);
         File diretorio = new File(endereco);
         boolean expResult = diretorio.exists();
-        assertEquals(expResult, true);
-        //colocar assert de diretorio exists
-        
+        assertEquals(expResult, true);        
     }
 
     /**
@@ -58,7 +59,7 @@ public class DAO_FuncaoTest {
     @Test
     public void testRemoverDiretorio() throws Exception {
         System.out.println("removerDiretorio");
-        String endereco = "C:\\OperaRPG";
+        String endereco = testDirectory;
         DAO_Funcao.removerDiretorio(endereco);
         File diretorio = new File(endereco);
         boolean expResult = diretorio.exists();
@@ -72,7 +73,7 @@ public class DAO_FuncaoTest {
     @Test
     public void testDiretorioExiste() throws Exception {
         System.out.println("diretorioExiste");
-        String endereco = "C:\\OperaRPG";
+        String endereco = testDirectory;
         DAO_Funcao.criarDiretorio(endereco);
         File diretorio = new File(endereco);
         boolean expResult = diretorio.isDirectory();
