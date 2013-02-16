@@ -4,6 +4,7 @@
  */
 package model.dao;
 
+import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,10 +43,10 @@ public class DAO_FuncaoTest {
     @Test
     public void testCriarDiretorio() throws Exception {
         System.out.println("criarDiretorio");
-        String endereco = "";
+        String endereco = "C:\\OperaRPG";
         DAO_Funcao.criarDiretorio(endereco);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //colocar assert de diretorio exists
+        
     }
 
     /**
@@ -54,24 +55,24 @@ public class DAO_FuncaoTest {
     @Test
     public void testRemoverDiretorio() throws Exception {
         System.out.println("removerDiretorio");
-        String endereco = "";
+        String endereco = "C:\\OperaRPG";
         DAO_Funcao.removerDiretorio(endereco);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //colocar assert de diretorio exists
     }
 
     /**
      * Test of diretorioExiste method, of class DAO_Funcao.
      */
     @Test
-    public void testDiretorioExiste() {
+    public void testDiretorioExiste() throws Exception {
         System.out.println("diretorioExiste");
-        String endereco = "";
-        boolean expResult = false;
+        String endereco = "C:\\OperaRPG";
+        DAO_Funcao.criarDiretorio(endereco);
+        File diretorio = new File(endereco);
+        boolean expResult = diretorio.isDirectory();
         boolean result = DAO_Funcao.diretorioExiste(endereco);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
