@@ -45,6 +45,9 @@ public class DAO_FuncaoTest {
         System.out.println("criarDiretorio");
         String endereco = "C:\\OperaRPG";
         DAO_Funcao.criarDiretorio(endereco);
+        File diretorio = new File(endereco);
+        boolean expResult = diretorio.exists();
+        assertEquals(expResult, true);
         //colocar assert de diretorio exists
         
     }
@@ -57,6 +60,9 @@ public class DAO_FuncaoTest {
         System.out.println("removerDiretorio");
         String endereco = "C:\\OperaRPG";
         DAO_Funcao.removerDiretorio(endereco);
+        File diretorio = new File(endereco);
+        boolean expResult = diretorio.exists();
+        assertEquals(expResult, false);
         //colocar assert de diretorio exists
     }
 
@@ -86,7 +92,7 @@ public class DAO_FuncaoTest {
         String[] result = DAO_Funcao.listarDiretorio(endereco);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");        
     }
 
     /**
