@@ -64,7 +64,7 @@ public class DAO_FuncaoTest {
         File diretorio = new File(endereco);
         boolean expResult = diretorio.exists();
         assertEquals(expResult, false);
-        //colocar assert de diretorio exists
+        
     }
 
     /**
