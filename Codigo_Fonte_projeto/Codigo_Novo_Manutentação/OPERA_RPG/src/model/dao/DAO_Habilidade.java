@@ -23,7 +23,7 @@ public class DAO_Habilidade {
     
     public static void gravarHabilidade(Habilidade habilidade)
     throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+habilidade.getTipo()+"\\";
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_HABILIDADE+"\\"+habilidade.getTipo()+"\\";        
         DAO_Funcao.criarArquivoOpera(diretorio, habilidade.getNome(), habilidade);
     }
     

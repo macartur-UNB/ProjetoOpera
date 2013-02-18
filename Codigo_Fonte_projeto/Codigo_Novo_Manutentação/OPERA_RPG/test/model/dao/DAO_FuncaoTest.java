@@ -144,8 +144,8 @@ public class DAO_FuncaoTest {
     @Test
     public void testCriarArquivoOpera() throws Exception {
         System.out.println("criarArquivoOpera");
-        String endereco = "";
-        String nomeObjeto = "";
+        String endereco = "C:\\";
+        String nomeObjeto = "Teste";
         Object objeto = null;
         DAO_Funcao.criarArquivoOpera(endereco, nomeObjeto, objeto);
         // TODO review the generated test code and remove the default call to fail.

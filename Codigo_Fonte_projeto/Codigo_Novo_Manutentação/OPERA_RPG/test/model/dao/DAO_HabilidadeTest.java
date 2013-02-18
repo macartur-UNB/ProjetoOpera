@@ -34,18 +34,20 @@ public class DAO_HabilidadeTest {
     }
     
     @Before
-    public void setUp() throws Exception {
-        if(Controle_Jogo.jogoExiste("JunitTest")){
+    public void setUp() throws Exception {               
+        if(Controle_Jogo.jogoExiste("JUnitTest")) {
             Controle_Jogo.apagarJogo("JUnitTest");
             Controle_Jogo.criarJogo("JUnitTest");            
         }else {
-            Controle_Jogo.criarJogo("JUnitTesst");
+            Controle_Jogo.criarJogo("JUnitTest");
         }
+            
+        
     }
     
     @After
     public void tearDown() throws Exception {
-        Controle_Jogo.apagarJogo("JUnitTest");
+       // Controle_Jogo.apagarJogo("JUnitTest");
     }
 
     /**
@@ -53,12 +55,14 @@ public class DAO_HabilidadeTest {
      */
     @Test
     public void testGravarHabilidade() throws Exception {
-        System.out.println("gravarHabilidade");
+        System.out.println("gravarHabilidade");        
         boolean expResult = true; 
         Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
         DAO_Habilidade.gravarHabilidade(habilidadeF);
-        File arquivo = new File(diretorio+"\\Habilidades\\Fisica", "Teste.txt");
-        boolean result = arquivo.isFile(); 
+        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
+        DAO_Funcao.criarArquivoOpera(dire, "Testea", habilidadeF);
+        File arquivo = new File(dire, "Testea.opera");
+        boolean result = arquivo.exists(); 
         assertEquals(expResult, result);
         
         arquivo = new File(diretorio+"\\Habilidades\\Psiquica", "Teste");
