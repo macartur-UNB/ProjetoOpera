@@ -63,6 +63,8 @@ public class DAO_HabilidadeTest {
         File arquivo = new File(dire, "TesteFisica.opera");
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);
+        result = arquivo.delete();
+        assertEquals(expResult, result);
                 
         Habilidade habilidadeP = new Habilidade(2,2,2,"TestePsiquica","Psiquica");
         DAO_Habilidade.gravarHabilidade(habilidadeP);
@@ -70,33 +72,37 @@ public class DAO_HabilidadeTest {
         arquivo = new File(dire, "TestePsiquica.opera");
         result = arquivo.exists();
         assertEquals(expResult, result);
+        result = arquivo.delete();
+        assertEquals(expResult, result);
                         
         Habilidade habilidadeB = new Habilidade(2,2,2,"TesteBelica","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
         dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Belica\\";
         arquivo = new File(dire, "TesteBelica.opera");
         result = arquivo.exists();
-        assertEquals(expResult, result);              
+        assertEquals(expResult, result);
+        result = arquivo.delete();
+        assertEquals(expResult, result);
         
     }
 
     /**
      * Test of carregarHabilidade method, of class DAO_Habilidade.
-    */ 
+    */
     @Test
     public void testCarregarHabilidade() throws Exception {
         System.out.println("carregarHabilidade");
         String nome = "TesteFisica";
         String tipo = "Fisica";
-        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\TesteFisica";
+        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
         Habilidade expResult = new Habilidade(2,2,2,"TesteFisica","Fisica");
-        //Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        DAO_Habilidade.gravarHabilidade(expResult);
+        Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
         
-        File arquivo = new File("C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\TesteFisica");
+        File arquivo = new File(dire,"TesteFisica.opera");
         boolean x = arquivo.isFile();
-        System.out.println("LOL:"+x);
-        Habilidade result;
-        result = (Habilidade)DAO_Funcao.carregarArquivoOpera(dire, nome);
+        System.out.println("LOL:"+x);       
+        //result = (Habilidade)DAO_Funcao.carregarArquivoOpera(dire, nome);
         
         assertEquals(expResult, result);
         
