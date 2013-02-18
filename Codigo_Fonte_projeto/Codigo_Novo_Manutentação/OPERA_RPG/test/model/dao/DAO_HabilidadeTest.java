@@ -5,6 +5,7 @@
 package model.dao;
 
 import control.Controle_Jogo;
+import java.io.File;
 import model.classes.Habilidade;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,6 +20,8 @@ import static org.junit.Assert.*;
  */
 public class DAO_HabilidadeTest {
     
+    private String diretorio = "C:\\Opera\\Jogos\\JUnitTest";
+    
     public DAO_HabilidadeTest() {
     }
     
@@ -32,9 +35,11 @@ public class DAO_HabilidadeTest {
     
     @Before
     public void setUp() throws Exception {
-        if(!Controle_Jogo.jogoExiste("JunitTest")){
+        if(Controle_Jogo.jogoExiste("JunitTest")){
             Controle_Jogo.apagarJogo("JUnitTest");
             Controle_Jogo.criarJogo("JUnitTest");            
+        }else {
+            Controle_Jogo.criarJogo("JUnitTesst");
         }
     }
     
@@ -49,16 +54,22 @@ public class DAO_HabilidadeTest {
     @Test
     public void testGravarHabilidade() throws Exception {
         System.out.println("gravarHabilidade");
+        File arquivo = new File(diretorio+"\\Habilidades\\Fisica", "Teste");
+        boolean expResult = true;        
+        boolean result = arquivo.exists();                
         Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
-        DAO_Habilidade.gravarHabilidade(habilidadeF);
+        DAO_Habilidade.gravarHabilidade(habilidadeF);       
+        assertEquals(expResult, result);
+        
+        arquivo = new File(diretorio+"\\Habilidades\\Psiquica", "Teste");
         Habilidade habilidadeP = new Habilidade(2,2,2,"Teste","Psiquica");
         DAO_Habilidade.gravarHabilidade(habilidadeP);
+        assertEquals(expResult, result);
+        
+        arquivo = new File(diretorio+"\\Habilidades\\Belica", "Teste");
         Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
-        //colocar um assert de FileExists aqui
-        //posso remover os que eu cadastrei, mas estou reaproveitando
-        //no testCarregarHabilidade()
-        
+        assertEquals(expResult, result);               
         
     }
 
