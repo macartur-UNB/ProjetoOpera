@@ -56,19 +56,21 @@ public class DAO_HabilidadeTest {
     @Test
     public void testGravarHabilidade() throws Exception {
         System.out.println("gravarHabilidade");        
-        boolean expResult = true; 
+        boolean expResult = true;         
         Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
         DAO_Habilidade.gravarHabilidade(habilidadeF);
         String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
-        DAO_Funcao.criarArquivoOpera(dire, "Testea", habilidadeF);
-        File arquivo = new File(dire, "Testea.opera");
+        File arquivo = new File(dire, "Teste.opera");
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);
-        
-        arquivo = new File(diretorio+"\\Habilidades\\Psiquica", "Teste");
+                
         Habilidade habilidadeP = new Habilidade(2,2,2,"Teste","Psiquica");
         DAO_Habilidade.gravarHabilidade(habilidadeP);
+        dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Psiquica\\";
+        arquivo = new File(dire, "Teste.opera");
+        result = arquivo.exists();
         assertEquals(expResult, result);
+        
         
         arquivo = new File(diretorio+"\\Habilidades\\Belica", "Teste");
         Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
