@@ -57,38 +57,42 @@ public class DAO_HabilidadeTest {
     public void testGravarHabilidade() throws Exception {
         System.out.println("gravarHabilidade");        
         boolean expResult = true;         
-        Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
+        Habilidade habilidadeF = new Habilidade(2,2,2, "TesteFisica","Fisica");
         DAO_Habilidade.gravarHabilidade(habilidadeF);
         String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
-        File arquivo = new File(dire, "Teste.opera");
+        File arquivo = new File(dire, "TesteFisica.opera");
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);
                 
-        Habilidade habilidadeP = new Habilidade(2,2,2,"Teste","Psiquica");
+        Habilidade habilidadeP = new Habilidade(2,2,2,"TestePsiquica","Psiquica");
         DAO_Habilidade.gravarHabilidade(habilidadeP);
         dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Psiquica\\";
-        arquivo = new File(dire, "Teste.opera");
+        arquivo = new File(dire, "TestePsiquica.opera");
         result = arquivo.exists();
         assertEquals(expResult, result);
-        
-        
-        arquivo = new File(diretorio+"\\Habilidades\\Belica", "Teste");
-        Habilidade habilidadeB = new Habilidade(2,2,2,"Teste","Belica");
+                        
+        Habilidade habilidadeB = new Habilidade(2,2,2,"TesteBelica","Belica");
         DAO_Habilidade.gravarHabilidade(habilidadeB);
-        assertEquals(expResult, result);               
+        dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Belica\\";
+        arquivo = new File(dire, "TesteBelica.opera");
+        result = arquivo.exists();
+        assertEquals(expResult, result);              
         
     }
 
     /**
      * Test of carregarHabilidade method, of class DAO_Habilidade.
-     
+    */ 
     @Test
     public void testCarregarHabilidade() throws Exception {
         System.out.println("carregarHabilidade");
-        String nome = "Teste";
+        String nome = "TesteFisica";
         String tipo = "Fisica";
-        Habilidade expResult = new Habilidade(2,2,2,"Teste","Fisica");
-        Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
+        Habilidade expResult = new Habilidade(2,2,2,"TesteFisica","Fisica");
+        //Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        Habilidade result;
+        result = (Habilidade)DAO_Funcao.carregarArquivoOpera(dire, nome);
         assertEquals(expResult, result);
         
         tipo = "Psiquica";
