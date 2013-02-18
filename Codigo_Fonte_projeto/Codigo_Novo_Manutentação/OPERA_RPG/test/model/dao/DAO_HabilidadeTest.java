@@ -88,11 +88,16 @@ public class DAO_HabilidadeTest {
         System.out.println("carregarHabilidade");
         String nome = "TesteFisica";
         String tipo = "Fisica";
-        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\";
+        String dire = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\TesteFisica";
         Habilidade expResult = new Habilidade(2,2,2,"TesteFisica","Fisica");
         //Habilidade result = DAO_Habilidade.carregarHabilidade(nome, tipo);
+        
+        File arquivo = new File("C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica\\TesteFisica");
+        boolean x = arquivo.isFile();
+        System.out.println("LOL:"+x);
         Habilidade result;
         result = (Habilidade)DAO_Funcao.carregarArquivoOpera(dire, nome);
+        
         assertEquals(expResult, result);
         
         tipo = "Psiquica";
