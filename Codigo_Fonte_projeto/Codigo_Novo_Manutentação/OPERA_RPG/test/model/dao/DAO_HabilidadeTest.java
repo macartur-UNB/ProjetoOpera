@@ -103,13 +103,20 @@ public class DAO_HabilidadeTest {
     @Test
     public void testHabilidadeExiste() {
         System.out.println("HabilidadeExiste");
-        String nome = "";
-        String tipo = "";
-        boolean expResult = false;
+        String nome = "Teste";
+        String tipo = "Fisica";
+        boolean expResult = true;
         boolean result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        tipo = "Psiquica";
+        result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
+        assertEquals(expResult, result);
+        
+        tipo = "Belica";
+        result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
+        assertEquals(expResult, result);
+        
     }
 
     /**
