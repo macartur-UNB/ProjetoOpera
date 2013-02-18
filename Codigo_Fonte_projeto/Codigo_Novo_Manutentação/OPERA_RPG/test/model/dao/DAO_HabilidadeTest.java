@@ -54,12 +54,11 @@ public class DAO_HabilidadeTest {
     @Test
     public void testGravarHabilidade() throws Exception {
         System.out.println("gravarHabilidade");
+        boolean expResult = true; 
         Habilidade habilidadeF = new Habilidade(2,2,2, "Teste","Fisica");
-        DAO_Habilidade.gravarHabilidade(habilidadeF); 
+        DAO_Habilidade.gravarHabilidade(habilidadeF);
         File arquivo = new File(diretorio+"\\Habilidades\\Fisica", "Teste.txt");
-        boolean expResult = true;        
-        boolean result = arquivo.isFile();                
-              
+        boolean result = arquivo.isFile(); 
         assertEquals(expResult, result);
         
         arquivo = new File(diretorio+"\\Habilidades\\Psiquica", "Teste");
