@@ -79,7 +79,7 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of carregarHabilidade method, of class DAO_Habilidade.
-     */
+     
     @Test
     public void testCarregarHabilidade() throws Exception {
         System.out.println("carregarHabilidade");
@@ -103,7 +103,7 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of HabilidadeExiste method, of class DAO_Habilidade.
-     */
+     
     @Test
     public void testHabilidadeExiste() {
         System.out.println("HabilidadeExiste");
@@ -125,7 +125,7 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of removerHabilidade method, of class DAO_Habilidade.
-     */
+     
     @Test
     public void testRemoverHabilidade() throws Exception {
         System.out.println("removerHabilidade");
@@ -138,7 +138,7 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of removerTodasHabilidades method, of class DAO_Habilidade.
-     */
+     
     @Test
     public void testRemoverTodasHabilidades() throws Exception {
         System.out.println("removerTodasHabilidades");
@@ -150,7 +150,7 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of listarHabilidades method, of class DAO_Habilidade.
-     */
+     
     @Test
     public void testListarHabilidades() {
         System.out.println("listarHabilidades");
@@ -160,5 +160,5 @@ public class DAO_HabilidadeTest {
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
 }
