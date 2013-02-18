@@ -104,14 +104,10 @@ public class DAO_HabilidadeTest {
         assertEquals(true, arquivo.delete());
         
         tipo = "Psiquica";
-        expResult = new Habilidade(2,2,2,"Teste","Psiquica");
-        result = DAO_Habilidade.carregarHabilidade(nome, tipo);
-        assertEquals(expResult, result);
+        
         
         tipo = "Belica";
-        expResult = new Habilidade(2,2,2,"Teste","Belica");
-        result = DAO_Habilidade.carregarHabilidade(nome, tipo);
-        assertEquals(expResult, result);
+        
         
     }
 
