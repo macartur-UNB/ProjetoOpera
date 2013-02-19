@@ -35,11 +35,12 @@ public class Controle_FichaTest {
         if(!Controle_Jogo.jogoExiste("JunitTest")){
             Controle_Jogo.criarJogo("JUnitTest");
         }
+        DAO_Ficha.removerTodasFichas("NPC");
+        DAO_Ficha.removerTodasFichas("Jogador");
+        DAO_Ficha.removerTodasFichas("Monstro");
     }
     @After
-    public void tearDown()throws Exception{
-        Controle_Jogo.apagarJogo("JUnitTest");
-        
+    public void tearDown() {
     }
     
     String personagem = "Test";

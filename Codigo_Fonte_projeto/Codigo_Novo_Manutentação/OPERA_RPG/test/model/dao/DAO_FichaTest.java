@@ -32,14 +32,15 @@ public class DAO_FichaTest {
     
     @Before
     public void setUp() throws Exception{
-       DAO_Jogo.verificarDiretorioRaiz();
-       DAO_Jogo.deletarTodosJogos();
-       DAO_Jogo.criarJogo("JUnitTest");
+        if(!Controle_Jogo.jogoExiste("JunitTest")){
+            Controle_Jogo.criarJogo("JUnitTest");
+            Controle_Ficha.removeTodasFichas();
+        }
     }
     
     @After
     public void tearDown()throws Exception{
-        DAO_Jogo.deletarTodosJogos();
+        DAO_Jogo.deletarJogo("JUnitTest");
     }
 
     /**

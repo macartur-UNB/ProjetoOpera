@@ -121,7 +121,7 @@ public class DAO_JogoTest {
         System.out.println("criarJogo");
         String nome = "JUnitTest";
         DAO_Jogo.criarJogo(nome);
-        //DAO_Jogo.deletarJogo(nome);
+        DAO_Jogo.deletarJogo(nome);
     }
     
     @Test

@@ -56,6 +56,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         
         btnNovoJogo.setToolTipText("Novo Jogo");
         btnAbrirJogo.setToolTipText("Abrir Jogo");
+        btnAbrirJogo.setName("btnAbrirJogo");
         btnDeletar.setToolTipText("Deletar");
         
         btnNovaFicha.setToolTipText("Nova Ficha");

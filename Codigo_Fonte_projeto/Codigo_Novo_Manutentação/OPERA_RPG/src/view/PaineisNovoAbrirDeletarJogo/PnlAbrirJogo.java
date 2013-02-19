@@ -49,6 +49,7 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
         jLabel1.setText("Selecione o Jogo:");
 
         cmbJogo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbJogo.setName("cmbJogo"); // NOI18N
         cmbJogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cmbJogoMouseEntered(evt);
