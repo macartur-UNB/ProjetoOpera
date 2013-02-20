@@ -271,28 +271,14 @@ public class Controle_Ficha {
         return DAO_Ficha.listarFichas("Monstro");
     }   
     
-    public static boolean atualizarFicha(Ficha ficha) throws ArquivoInvalidoException, DeletarInvalidoException, IOException, FileNotFoundException, FichaInvalidaException{
-        if(ficha == null){
+    public static boolean atualizarFicha(Ficha f) 
+                        throws FileNotFoundException, IOException,
+                               ArquivoInvalidoException, ArquivoInvalidoException{
+        if(!Controle_Ficha.FichaExiste(f.getPersonagem()))
+        {
             return false;
         }
-        if(ficha.getTipo().equals("Jogador")){
-            removerJogador(ficha.getPersonagem());
-            cadJogador(ficha.getPersonagem(), ficha.getJogador(),
-                       ficha.getCampanha(), ficha.getExperiencia(),
-                       ficha.getAtributos(), ficha.getDinheiro());
-        }else
-        if(ficha.getTipo().equals("Monstro")){
-            removerMonstro(ficha.getPersonagem());
-            cadMonstro(ficha.getPersonagem(), ficha.getCampanha(),
-                       ficha.getExperiencia(), ficha.getAtributos(),
-                       ficha.getDinheiro());           
-        }else if(ficha.getTipo().equals("NPC")){
-            removerNPC(ficha.getPersonagem());
-            cadNPC(ficha.getPersonagem(), ficha.getCampanha(),
-                   ficha.getExperiencia(), ficha.getAtributos(),
-                   ficha.getDinheiro());
-        };       
-        return true;
+        return DAO_Ficha.atualizarFicha(f);
     }
     
 }

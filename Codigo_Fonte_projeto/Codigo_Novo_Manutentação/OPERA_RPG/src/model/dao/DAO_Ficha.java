@@ -27,6 +27,16 @@ public class DAO_Ficha {
        return (Ficha) DAO_Funcao.carregarArquivoOpera(diretorio, personagem);
     }
     
+    public static boolean atualizarFicha(Ficha f ) throws FileNotFoundException, IOException, ArquivoInvalidoException{
+            if(f==null){
+                return false;
+            }        
+            String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+f.getTipo()+"\\";
+            DAO_Funcao.sobrescreverArquivoOpera(diretorio, f.getPersonagem(), f);
+            return true;
+    }
+    
+    
     public static boolean fichaExiste(String personagem,String tipo){
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+"\\Fichas\\"+tipo+"\\";
         return DAO_Funcao.arquivoOperaExiste(diretorio, personagem);
