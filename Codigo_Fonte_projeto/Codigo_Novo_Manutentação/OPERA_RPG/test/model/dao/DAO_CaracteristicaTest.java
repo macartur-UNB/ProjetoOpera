@@ -35,9 +35,6 @@ public class DAO_CaracteristicaTest {
     public void setUp() throws Exception{
         if(!Controle_Jogo.jogoExiste("JunitTest")){
             Controle_Jogo.criarJogo("JUnitTest");
-            DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
-            DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
-            DAO_Caracteristica.removerTodasCaracteristicas("Racial");
         }
     }
     
@@ -93,7 +90,6 @@ public class DAO_CaracteristicaTest {
             fail("nao foi possivel carregar caracteristica psiquica");
         }
         DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
-        
     }
 
     /**

@@ -150,7 +150,7 @@ public class Controle_CaracteristicaTest {
     @Test
     public void testCaracteristicaExiste_String() throws Exception{
         System.out.println("CaracteristicaExiste-todas");
-        String tipo = "Fisica";
+        tipo = "Fisica";
         Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
         boolean expResult = true;
         boolean result = Controle_Caracteristica.CaracteristicaExiste(nome);
