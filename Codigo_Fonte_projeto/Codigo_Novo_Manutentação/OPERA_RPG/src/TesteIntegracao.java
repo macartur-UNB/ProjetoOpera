@@ -12,6 +12,7 @@ import model.exception.CaracteristicaInvalidaException;
 import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.FichaInvalidaException;
+import model.exception.HabilidadeInvalidaException;
 import model.exception.JogoInvalidoException;
 /**
  *
@@ -33,26 +34,30 @@ public class TesteIntegracao {
             } catch (ArquivoInvalidoException ex) {
                 Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {            
-                Controle_Integracao_Ficha.selecionarFicha("macartur");
-                Controle_Integracao_Ficha.selecionarFicha("joao");
-                Controle_Integracao_Ficha.selecionarFicha("macartur");
-            } catch (IOException ex) {
+        try {
+            Controle_Integracao_Ficha.selecionarFicha("macartur");
+            Controle_Integracao_Ficha.colocarHabilidade("nadar");
+        } catch (HabilidadeInvalidaException ex) {
             Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ArquivoInvalidoException ex) {
-                Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            
-            
-           String s[] = Controle_Integracao_Ficha.listarCaracteristicas();
-            
-           for(int i=0;i< s.length;i++)
-           {
-               System.out.println(s[i]);
-           }
+        } catch (ArquivoInvalidoException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DeletarInvalidoException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FichaInvalidaException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(TesteIntegracao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+        String s[] =Controle_Integracao_Ficha.listarHabilidades();
+        for(int i=0;i<s.length;i++)
+        {
+            System.out.println(s[i]);
+        }
            
     }
 }

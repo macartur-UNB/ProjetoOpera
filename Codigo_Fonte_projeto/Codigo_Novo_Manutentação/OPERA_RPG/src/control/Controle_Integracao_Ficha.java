@@ -89,32 +89,71 @@ public class Controle_Integracao_Ficha {
         }
         return caracteristicas;
     }
-     /*
-    public static boolean colocarHabilidade(String habilidade) throws HabilidadeInvalidaException, ClassNotFoundException, IOException, FileNotFoundException, ArquivoInvalidoException, ArquivoInvalidoException, DeletarInvalidoException, FichaInvalidaException{
+    
+    public static boolean colocarHabilidade(String habilidade) 
+                     throws HabilidadeInvalidaException, ClassNotFoundException,
+                     IOException, FileNotFoundException, ArquivoInvalidoException,
+                     ArquivoInvalidoException, DeletarInvalidoException,
+                                                         FichaInvalidaException{
             Habilidade h;
-            if(!Controle_Caracteristica.CaracteristicaExiste(habilidade)){       
+            if(!Controle_Habilidade.HabilidadeExiste(habilidade)){ 
                 return false;
             }
-            h = Controle_Habilidade.encontrarHabilidade(habilidade,Controle_Habilidade.getTipoHabildiade(habilidade));
+            h = Controle_Habilidade.encontrarHabilidade(
+                    habilidade,Controle_Habilidade.getTipoHabildiade(habilidade));
             auxiliar = ficha.getHabilidades();
             if(auxiliar == null)
             {
                 auxiliar  = new ArrayList();
             }
             auxiliar.add(h);
-            ficha.setCaracteristicas(auxiliar);
+            ficha.setHabilidades(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
             return true;
     
     }
    
-    public static void removerHabilidade(){}
+    public static boolean removerHabilidade(String habilidade) 
+            throws FileNotFoundException, IOException, ArquivoInvalidoException,
+            ArquivoInvalidoException, HabilidadeInvalidaException,
+            ClassNotFoundException{
+         Habilidade h;
+         
+         if(!Controle_Habilidade.HabilidadeExiste(habilidade)){
+                return false;
+            }
+         h = Controle_Habilidade.encontrarHabilidade(habilidade, Controle_Habilidade.getTipoHabildiade(habilidade));
+         auxiliar = ficha.getHabilidades();
+         if(auxiliar==null){
+             return false;
+         }
+         auxiliar.remove(h);
+         ficha.setHabilidades(auxiliar);
+         Controle_Ficha.atualizarFicha(ficha);
+         return true;
+    }
+    
+    public static String[] listarHabilidades(){
+        String habilidades[] ;
+        int aux=0;
+        auxiliar = ficha.getHabilidades();
+        if(auxiliar == null){
+            return null;
+        }
+        habilidades = new String[auxiliar.size()];
+        Iterator i = auxiliar.iterator();
+        while(i.hasNext()){
+            Habilidade h = (Habilidade)i.next();
+            habilidades[aux] = h.getNome();      
+            aux++;
+        }
+        return habilidades;
+    }
+    
     public static void colocarItem(){}
     public static void removerItem(){}
     public static void equiparItem(){}
     public static void desequiparItem(){}
-    */
-    
     
     
 }
