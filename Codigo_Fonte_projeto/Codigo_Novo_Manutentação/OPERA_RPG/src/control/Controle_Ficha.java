@@ -155,6 +155,20 @@ public class Controle_Ficha {
         return status;
     }
     
+    public static Ficha encontrarFicha(String nome) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+        if(JogadorExiste(nome)){
+            return encontrarJogador(nome);
+        }else
+        if(MonstroExiste(nome)){
+            return encontrarMonstro(nome);
+        }else
+        if(NPCExiste(nome)){
+            return encontrarNPC(nome);
+        }
+        return null;
+    }
+    
+    
     /**
      * Remove uma Ficha do Tipo Jogador
      * @param personagem Nome do Personagem
@@ -256,4 +270,29 @@ public class Controle_Ficha {
     public static String[] listarFichasMonstro(){
         return DAO_Ficha.listarFichas("Monstro");
     }   
+    
+    public static boolean atualizarFicha(Ficha ficha) throws ArquivoInvalidoException, DeletarInvalidoException, IOException, FileNotFoundException, FichaInvalidaException{
+        if(ficha == null){
+            return false;
+        }
+        if(ficha.getTipo().equals("Jogador")){
+            removerJogador(ficha.getPersonagem());
+            cadJogador(ficha.getPersonagem(), ficha.getJogador(),
+                       ficha.getCampanha(), ficha.getExperiencia(),
+                       ficha.getAtributos(), ficha.getDinheiro());
+        }else
+        if(ficha.getTipo().equals("Monstro")){
+            removerMonstro(ficha.getPersonagem());
+            cadMonstro(ficha.getPersonagem(), ficha.getCampanha(),
+                       ficha.getExperiencia(), ficha.getAtributos(),
+                       ficha.getDinheiro());           
+        }else if(ficha.getTipo().equals("NPC")){
+            removerNPC(ficha.getPersonagem());
+            cadNPC(ficha.getPersonagem(), ficha.getCampanha(),
+                   ficha.getExperiencia(), ficha.getAtributos(),
+                   ficha.getDinheiro());
+        };       
+        return true;
+    }
+    
 }

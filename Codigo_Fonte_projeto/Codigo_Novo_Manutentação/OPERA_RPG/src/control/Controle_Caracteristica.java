@@ -65,8 +65,24 @@ public class Controle_Caracteristica {
     throws FileNotFoundException, FileNotFoundException, IOException,
     IOException, ClassNotFoundException,
     ArquivoInvalidoException{
-        return DAO_Caracteristica.carregarCaracteristica_Especifica(nome, tipo);
+        return (Caracteristica_Especifica)DAO_Caracteristica.carregarCaracteristica(nome, tipo);
     }
+    
+    public static Caracteristica encontrarCaracteristica(String nome) 
+    throws FileNotFoundException, ClassNotFoundException, IOException,
+                                          IOException, ArquivoInvalidoException{
+        if(Controle_Caracteristica.CaracteristicaExiste(nome, "Fisica")){
+            return Controle_Caracteristica.encontrarCaracteristica(nome,"Fisica");
+        }else
+        if(Controle_Caracteristica.CaracteristicaExiste(nome, "Racial")){
+            return Controle_Caracteristica.encontrarCaracteristica(nome,"Racial");
+        }else
+        if(Controle_Caracteristica.CaracteristicaExiste(nome, "Psiquica")){
+            return Controle_Caracteristica.encontrarCaracteristica(nome,"Psiquica");
+        }
+        return null;
+    }
+    
     
     public static boolean CaracteristicaExiste(String nome,String tipo){
         return DAO_Caracteristica.CaracteristicaExiste(nome, tipo);

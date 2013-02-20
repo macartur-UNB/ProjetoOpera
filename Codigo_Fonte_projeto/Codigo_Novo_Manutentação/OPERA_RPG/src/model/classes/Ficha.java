@@ -5,6 +5,7 @@
 package model.classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import model.exception.FichaInvalidaException;
@@ -22,8 +23,12 @@ public class Ficha implements Serializable{
     private int experiencia;
     private int atributos[];
     private int dinheiro;
+    private ArrayList itens_equipados,itens_desequipados,habilidades,caracteristicas;
     
- 
+    
+    
+    
+    
     /**
      * Metodo Construtor para criar Fichas
      * @param personagem Nome do personagem. Deve conter apenas caracteres
@@ -229,6 +234,39 @@ public class Ficha implements Serializable{
         return experiencia;
     }
 
+    /*get e set para integracao*/
+
+    public void setItens_equipados(ArrayList itens_equipados) {
+        this.itens_equipados = itens_equipados;
+    }
+
+    public ArrayList getItens_equipados() {
+        return itens_equipados;
+    }
+
+    public void setItens_desequipados(ArrayList itens_desequipados) {
+        this.itens_desequipados = itens_desequipados;
+    }
+
+    public ArrayList getItens_desequipados() {
+        return itens_desequipados;
+    }
+
+    public void setCaracteristicas(ArrayList caracteristicas) {
+        this.caracteristicas = caracteristicas;
+    }
+
+    public ArrayList getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public void setHabilidades(ArrayList habilidades) {
+        this.habilidades = habilidades;
+    }
+
+    public ArrayList getHabilidades() {
+        return habilidades;
+    }
     /**
      * Retorna os Dados do Personagem
      * @return Dados do Personagem

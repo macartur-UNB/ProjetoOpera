@@ -5,25 +5,34 @@
 package control;
 
 
+import model.classes.Caracteristica;
+import model.classes.Ficha;
+
+
 public class Controle_Integracao_Ficha {
-    
-    private static Controle_Integracao_Ficha instancia;
-    private String endereco;
-
-    public Controle_Integracao_Ficha() {
-    }
-
-    public static Controle_Integracao_Ficha getInstancia() {
-        if(instancia == null){
-            instancia = new Controle_Integracao_Ficha();
-        }
-        return instancia;
+        
+    public static boolean colocarCaracteristica(String ficha,String tipoFicha,
+                             String caracteristica,String tipoCaracteristica){    
+        
+        
+        
+        
+        
+        return true;
     }
     
-      
-    /**
-     * colocar codigo de controle integracao aqui
-     */
+    public static void removerCaracteristica(){
+    
+    }
+    
+    public static void colocarHabilidade(){}
+    public static void removerHabilidade(){}
+    public static void colocarItem(){}
+    public static void removerItem(){}
+    public static void equiparItem(){}
+    public static void desequiparItem(){}
+    
+    
     
     
 }
