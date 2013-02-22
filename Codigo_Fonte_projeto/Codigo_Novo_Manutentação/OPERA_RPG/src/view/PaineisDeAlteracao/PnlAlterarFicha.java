@@ -8,7 +8,9 @@ import control.Controle_Ficha;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import model.classes.Constante_Atributo;
 import model.classes.Ficha;
 import model.exception.ArquivoInvalidoException;
@@ -16,6 +18,7 @@ import model.exception.DeletarInvalidoException;
 import model.exception.FichaInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
+import view.PaineisDeCadastro.PnlCadastrarFicha;
 import view.validacao.ValidarCampos;
 
 /**
@@ -24,6 +27,8 @@ import view.validacao.ValidarCampos;
  */
 public class PnlAlterarFicha extends javax.swing.JPanel {
 
+    private boolean podeHabilitarCampos;
+    
     /**
      * Creates new form PnlAlterarFicha
      */
@@ -36,6 +41,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
         pnlCadastrarFicha.setPodeCadastrar(false);
         pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
         iniciarBtnAlterar();
+        podeHabilitarCampos = true;
     }
 
     /**
@@ -211,6 +217,10 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             if(!cmbFicha.getSelectedItem().toString().equals("Nenhuma")){
                 PainelFuncoes.habilitarCampos(pnlCadastrarFicha, true);
                 PainelFuncoes.habilitarCampos(pnlCadastrarFicha.getPnlTipoFicha(), false);
+                if(!podeHabilitarCampos){
+                    PainelFuncoes.habilitarCampos(pnlCadastrarFicha.getPnlTipoFicha(), true);
+                    PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarFicha, false);
+                }
                 pnlCadastrarFicha.getBtnCadastrar().setEnabled(true);
                 
                 Ficha ficha = null;
@@ -218,6 +228,9 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                     ficha = Controle_Ficha.encontrarJogador(cmbFicha.getSelectedItem().toString());
                     pnlCadastrarFicha.getTxtJogador().setText(ficha.getJogador());
                     pnlCadastrarFicha.getTxtJogador().setEnabled(true);
+                    if(!podeHabilitarCampos){
+                        pnlCadastrarFicha.getTxtJogador().setEditable(false);
+                    }
                     pnlCadastrarFicha.getRdbJogador().setSelected(true);
                 }
                 if(rdbNpc.isSelected()){
@@ -244,6 +257,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                 pnlCadastrarFicha.getTxtMente().setText(""+atributos[Constante_Atributo.MENTE]);
                 pnlCadastrarFicha.getTxtMana().setText(""+atributos[Constante_Atributo.MANA]);
                 pnlCadastrarFicha.getTxtSorte().setText(""+atributos[Constante_Atributo.SORTE]);
+                                                
             }
             
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
@@ -430,4 +444,39 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public JComboBox getCmbFicha() {
+        return cmbFicha;
+    }
+
+    public void setCmbFicha(JComboBox cmbFicha) {
+        this.cmbFicha = cmbFicha;
+    }
+
+    public PnlCadastrarFicha getPnlCadastrarFicha() {
+        return pnlCadastrarFicha;
+    }
+
+    public void setPnlCadastrarFicha(PnlCadastrarFicha pnlCadastrarFicha) {
+        this.pnlCadastrarFicha = pnlCadastrarFicha;
+    }
+
+    public JPanel getPnlTipoFicha() {
+        return pnlTipoFicha;
+    }
+
+    public void setPnlTipoFicha(JPanel pnlTipoFicha) {
+        this.pnlTipoFicha = pnlTipoFicha;
+    }
+
+    public boolean isPodeHabilitarCampos() {
+        return podeHabilitarCampos;
+    }
+
+    public void setPodeHabilitarCampos(boolean podeHabilitarCampos) {
+        this.podeHabilitarCampos = podeHabilitarCampos;
+    }
+    
+      
+    
 }

@@ -9,6 +9,7 @@ import view.PaineisDeAlteracao.*;
 import view.PaineisDeCadastro.*;
 import view.PaineisDeDeletacao.PnlDeletar;
 import view.PaineisDeIntegracao.PnlIntegracaoFicha;
+import view.PaineisDeVisualizacao.PnlVisualizarFicha;
 import view.PaineisNovoAbrirDeletarJogo.*;
 
 /**
@@ -133,6 +134,16 @@ public class NovaAba {
             PnlIntegracaoFicha painel = new PnlIntegracaoFicha();
             tabbedPane.adicionarPainel(painel, "Integrar Ficha", icone);
             index = tabbedPane.indexOfTab("Integrar Ficha");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
+    
+    public static void abaVisualizarFicha(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Visualizar Ficha");
+        if(index == -1){
+            PnlVisualizarFicha painel = new PnlVisualizarFicha();
+            tabbedPane.adicionarPainel(painel, "Visualizar Ficha", icone);
+            index = tabbedPane.indexOfTab("Visualizar Ficha");
         }
         tabbedPane.setSelectedIndex(index);
     }

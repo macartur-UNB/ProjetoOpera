@@ -158,4 +158,33 @@ public class PainelFuncoes {
             }
         }
     }
+    
+    public static void habilitarEdicaoDeCampos(JComponent componente, boolean habilitar){
+        Object objeto[] = componente.getComponents();
+        
+                for(int i = 0; i < objeto.length; i++){
+            
+            if(objeto[i] instanceof JComponent){
+                habilitarEdicaoDeCampos((JComponent)objeto[i], habilitar);
+            }
+            if(objeto[i] instanceof JCheckBox){
+                ((JCheckBox)objeto[i]).setEnabled(habilitar);
+                if(!habilitar){
+                    ((JCheckBox)objeto[i]).setEnabled(false);
+                }
+            }
+            if(objeto[i] instanceof JComboBox){
+                ((JComboBox)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JTextField){
+                ((JTextField)objeto[i]).setEditable(habilitar);
+            }
+            if(objeto[i] instanceof JRadioButton){
+                ((JRadioButton)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JTextArea){
+                ((JTextArea)objeto[i]).setEditable(habilitar);
+            }
+        }
+    }
 }
