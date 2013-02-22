@@ -17,13 +17,18 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaPrincipal extends JFrame{
     
-    public static PanelTab tabbedPane;
+    private static PanelTab tabbedPane;
     private BarraDeFerramentas toolBar;
     private BarraDeMenus menuBar;
+    private static TelaPrincipal telaPrincipal;
+    private static boolean existe = false;
     
     public TelaPrincipal(){
         
+        existe = true;
+        
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("Gerenciador de Fichas OPERA RPG");
         
         tabbedPane = new PanelTab();
         
@@ -57,11 +62,40 @@ public class TelaPrincipal extends JFrame{
         }
         
         
-        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        telaPrincipal = new TelaPrincipal();
         telaPrincipal.setMinimumSize(new Dimension(800, 700));
         telaPrincipal.setMaximumSize(new Dimension(800, 700));
         telaPrincipal.setVisible(true);
     }
 
+    public static void alterarTitulo(String titulo){
+        telaPrincipal.setTitle(titulo);
+    }
+    
+    public static PanelTab getTabbedPane() {
+        return tabbedPane;
+    }
 
+    public static void setTabbedPane(PanelTab tabbedPane) {
+        TelaPrincipal.tabbedPane = tabbedPane;
+    }
+
+    public static TelaPrincipal getTelaPrincipal() {
+        return telaPrincipal;
+    }
+
+    public static void setTelaPrincipal(TelaPrincipal telaPrincipal) {
+        TelaPrincipal.telaPrincipal = telaPrincipal;
+    }
+
+    public static boolean isExiste() {
+        return existe;
+    }
+
+    public static void setExiste(boolean existe) {
+        TelaPrincipal.existe = existe;
+    }
+    
+    
+    
 }

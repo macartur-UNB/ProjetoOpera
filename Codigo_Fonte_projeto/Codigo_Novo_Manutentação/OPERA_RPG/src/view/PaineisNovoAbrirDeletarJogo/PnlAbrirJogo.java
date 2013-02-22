@@ -137,9 +137,14 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
                     BarraDeMenus.habilitarMenus(true);
                 }
             if(PanelTab.existe()){
-                int index = TelaPrincipal.tabbedPane.indexOfTab("Abrir Jogo");
-                TelaPrincipal.tabbedPane.remove(index);
+                int index = TelaPrincipal.getTabbedPane().indexOfTab("Abrir Jogo");
+                TelaPrincipal.getTabbedPane().remove(index);
             }
+            if(TelaPrincipal.isExiste()){
+                TelaPrincipal.alterarTitulo(cmbJogo.getSelectedItem().toString());
+            }
+            
+            
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
             } catch (IOException e) {

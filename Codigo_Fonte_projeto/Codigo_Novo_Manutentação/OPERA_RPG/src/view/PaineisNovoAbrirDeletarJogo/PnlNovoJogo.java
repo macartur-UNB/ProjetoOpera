@@ -130,9 +130,13 @@ public class PnlNovoJogo extends javax.swing.JPanel {
                 BarraDeMenus.habilitarMenus(true);
             }
             if(PanelTab.existe()){
-                int index = TelaPrincipal.tabbedPane.indexOfTab("Novo Jogo");
-                TelaPrincipal.tabbedPane.remove(index);
+                int index = TelaPrincipal.getTabbedPane().indexOfTab("Novo Jogo");
+                TelaPrincipal.getTabbedPane().remove(index);
             }
+            if(TelaPrincipal.isExiste()){
+                TelaPrincipal.alterarTitulo(nome);
+            }
+            
         } catch (JTextFieldInvalidoException e) {
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (DiretorioInvalidoException e) {
