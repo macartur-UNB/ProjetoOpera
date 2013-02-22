@@ -11,7 +11,6 @@ import view.PaineisDeDeletacao.PnlDeletar;
 import view.PaineisDeIntegracao.PnlIntegracaoFicha;
 import view.PaineisNovoAbrirDeletarJogo.*;
 
-
 /**
  *
  * @author Luciano
@@ -21,7 +20,7 @@ public class NovaAba {
     public static void abaNovoJogo(PanelTab tabbedPane, ImageIcon icone){
         int index = tabbedPane.indexOfTab("Novo Jogo");
         if(index == -1){
-            view.PaineisNovoAbrirDeletarJogo.PnlNovoJogo painel = new view.PaineisNovoAbrirDeletarJogo.PnlNovoJogo();
+            PnlNovoJogo painel = new PnlNovoJogo();
             tabbedPane.adicionarPainel(painel, "Novo Jogo", icone);
             index = tabbedPane.indexOfTab("Novo Jogo");
         }

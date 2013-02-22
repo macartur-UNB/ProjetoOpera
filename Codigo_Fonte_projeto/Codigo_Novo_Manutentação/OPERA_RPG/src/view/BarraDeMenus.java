@@ -37,7 +37,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
     private static JMenuItem itemAlterarFicha;
     
     private static JMenu menuFicha;
-    private static JMenuItem itemIntegracaoFicha;
+    private static JMenuItem itemIntegrarFicha;
     private static JMenuItem itemVizualizarFicha;
     
     
@@ -103,19 +103,19 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
          */
         menuFicha = new JMenu("Ficha");
         //Itens dentro de menuFicha
-        itemIntegracaoFicha = new JMenuItem("Integrar Ficha");
+        itemIntegrarFicha = new JMenuItem("Integrar Ficha");
         itemVizualizarFicha = new JMenuItem("Vizualizar Ficha");
         
         //Adicionando todos os menus e itens de menuFicha ao menuFicha
         menuFicha.add(itemVizualizarFicha);
-        menuFicha.add(itemIntegracaoFicha);
+        menuFicha.add(itemIntegrarFicha);
         
         
         this.add(menuArquivo);
         this.add(menuAlterar);
         this.add(menuFicha);
         
-        ativarItens();
+        ativarIcones();
         iniciarEventos();
         habilitarMenus(false);
     }
@@ -142,11 +142,11 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarEquipamento.setEnabled(habilitar);
         itemAlterarFicha.setEnabled(habilitar);
         
-        itemIntegracaoFicha.setEnabled(habilitar);
+        itemIntegrarFicha.setEnabled(habilitar);
         itemVizualizarFicha.setEnabled(habilitar);
     }
     
-    private void ativarItens(){
+    private void ativarIcones(){
             itemNovoJogo.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Novo Jogo.png")));
             itemAbrirJogo.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Abrir Jogo.png")));
             itemDeletar.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Deletar Jogo.png")));
@@ -160,6 +160,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
             itemAlterarCaracteristica.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Caracteristica.png")));
             itemAlterarEquipamento.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Equipamento.png")));
        
+            itemIntegrarFicha.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Integrar Ficha.png")));
     }
     
     
@@ -180,7 +181,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarEquipamento.addActionListener(this);
         itemAlterarFicha.addActionListener(this);
         
-        itemIntegracaoFicha.addActionListener(this);
+        itemIntegrarFicha.addActionListener(this);
         itemVizualizarFicha.addActionListener(this);
     }
 
@@ -236,8 +237,8 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
             NovaAba.abaAlterarFicha(tabbedPane, (ImageIcon)itemAlterarFicha.getIcon());
         }
         
-        if(origem.equals(itemIntegracaoFicha)){
-            NovaAba.abaIntegrarFicha(tabbedPane, (ImageIcon)itemIntegracaoFicha.getIcon());
+        if(origem.equals(itemIntegrarFicha)){
+            NovaAba.abaIntegrarFicha(tabbedPane, (ImageIcon)itemIntegrarFicha.getIcon());
         }
         
         //throw new UnsupportedOperationException("Not supported yet.");
