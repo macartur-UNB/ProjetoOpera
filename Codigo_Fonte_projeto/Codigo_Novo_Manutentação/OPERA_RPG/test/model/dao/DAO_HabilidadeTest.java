@@ -125,37 +125,77 @@ public class DAO_HabilidadeTest {
 
     /**
      * Test of HabilidadeExiste method, of class DAO_Habilidade.
-     
+    */ 
     @Test
-    public void testHabilidadeExiste() {
+    public void testHabilidadeExiste() throws Exception {
         System.out.println("HabilidadeExiste");
-        String nome = "Teste";
-        String tipo = "Fisica";
-        boolean expResult = true;
-        boolean result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
+        Habilidade habilidade = new Habilidade(2,2,2,"TesteFisica","Fisica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        File arquivo = new File(diretorio+"Fisica", "TesteFisica.opera");
+        boolean expResult;
+        boolean result;
+        expResult = arquivo.exists();        
+        result = DAO_Habilidade.HabilidadeExiste("TesteFisica","Fisica");
         assertEquals(expResult, result);
+        assertEquals(true, arquivo.delete());
+        result = DAO_Habilidade.HabilidadeExiste("TesteFisica","Fisica");
+        assertEquals(false,result);
         
-        tipo = "Psiquica";
-        result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
+        habilidade = new Habilidade(2,2,2,"TestePsiquica", "Psiquica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        arquivo = new File(diretorio+"Psiquica", "TestePsiquica.opera");
+        expResult = arquivo.exists();
+        result = DAO_Habilidade.HabilidadeExiste("TestePsiquica","Psiquica");
         assertEquals(expResult, result);
+        assertEquals(true, arquivo.delete());
+        result = DAO_Habilidade.HabilidadeExiste("TestePsiquica","Psiquica");
+        assertEquals(false,result);
         
-        tipo = "Belica";
-        result = DAO_Habilidade.HabilidadeExiste(nome, tipo);
+        habilidade = new Habilidade(2,2,2,"TesteBelica", "Belica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        arquivo = new File(diretorio+"Belica", "TesteBelica.opera");
+        expResult = arquivo.exists();
+        result = DAO_Habilidade.HabilidadeExiste("TesteBelica","Belica");
         assertEquals(expResult, result);
+        assertEquals(true, arquivo.delete());
+        result = DAO_Habilidade.HabilidadeExiste("TesteBelica","Belica");
+        assertEquals(false,result);
         
     }
 
     /**
      * Test of removerHabilidade method, of class DAO_Habilidade.
-     
+    */ 
     @Test
     public void testRemoverHabilidade() throws Exception {
         System.out.println("removerHabilidade");
-        String nome = "";
-        String tipo = "";
-        DAO_Habilidade.removerHabilidade(nome, tipo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expResult;
+        boolean result;
+        Habilidade habilidade = new Habilidade(2,2,2,"TesteFisica","Fisica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        File arquivo = new File(diretorio+"Fisica", "TesteFisica.opera");        
+        assertEquals(true,arquivo.exists());
+        DAO_Habilidade.removerHabilidade("TesteFisica", "Fisica");
+        expResult = false;
+        result = arquivo.exists();
+        assertEquals(expResult,result);        
+       
+        habilidade = new Habilidade(2,2,2,"TestePsiquica","Psiquica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        arquivo = new File(diretorio+"Psiquica", "TestePsiquica.opera");
+        assertEquals(true,arquivo.exists());
+        DAO_Habilidade.removerHabilidade("TestePsiquica", "Psiquica");        
+        result = arquivo.exists();
+        assertEquals(expResult,result);
+        
+        habilidade = new Habilidade(2,2,2,"TesteBelica","Belica");
+        DAO_Habilidade.gravarHabilidade(habilidade);
+        arquivo = new File(diretorio+"Belica", "TesteBelica.opera");
+        assertEquals(true,arquivo.exists());
+        DAO_Habilidade.removerHabilidade("TesteBelica", "Belica");        
+        result = arquivo.exists();
+        assertEquals(expResult,result);
+        
     }
 
     /**
