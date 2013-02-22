@@ -6,10 +6,12 @@ package view.PaineisDeCadastro;
 
 import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -72,12 +74,17 @@ public class PainelFuncoes {
             }
             if(objeto[i] instanceof JTextField){
                 ((JTextField)objeto[i]).setText(null);
+                ((JTextField)objeto[i]).setToolTipText(null);
             }
             if(objeto[i] instanceof JTextArea){
                 ((JTextArea)objeto[i]).setText(null);
+                ((JTextArea)objeto[i]).setToolTipText(null);
             }
             if(objeto[i] instanceof ButtonGroup){
                 ((ButtonGroup)objeto[i]).clearSelection();
+            }
+            if(objeto[i] instanceof JRadioButton){
+                ((JRadioButton)objeto[i]).setSelected(false);
             }
         }
     }
@@ -126,6 +133,8 @@ public class PainelFuncoes {
             if(objeto[i] instanceof JRadioButton){
                 ((JRadioButton)objeto[i]).setEnabled(habilitar);
                 if(!habilitar){
+                    ((JRadioButton)objeto[i]).setForeground(Color.GRAY);
+                }else{
                     ((JRadioButton)objeto[i]).setForeground(Color.BLACK);
                 }
             }
@@ -140,6 +149,12 @@ public class PainelFuncoes {
             }
             if(objeto[i] instanceof JScrollPane){
                 ((JScrollPane)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JButton){
+                ((JButton)objeto[i]).setEnabled(habilitar);
+            }
+            if(objeto[i] instanceof JList){
+                ((JList)objeto[i]).setEnabled(habilitar);
             }
         }
     }

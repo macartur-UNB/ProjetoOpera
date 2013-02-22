@@ -202,7 +202,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                         .addComponent(pnlTipoDeArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +214,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlCadastrarItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -446,7 +446,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Arma_Branca());
                     pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_Arma_De_Fogo());
                     pnlCadastrarItem.getTxtPenalidade().setText(""+armadura.getPenalidade());
-                    pnlCadastrarItem.getTxtRegiaoDoCorpo().setText(""+armadura.getRegiao_Do_Corpo());
+                    pnlCadastrarItem.getCmbRegiaoDoCorpo().setSelectedItem(""+armadura.getRegiao_Do_Corpo());
                 }
                 
                 

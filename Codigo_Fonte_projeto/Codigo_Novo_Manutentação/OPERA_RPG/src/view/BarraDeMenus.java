@@ -36,6 +36,10 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
     private static JMenuItem itemAlterarEquipamento;
     private static JMenuItem itemAlterarFicha;
     
+    private static JMenu menuFicha;
+    private static JMenuItem itemIntegracaoFicha;
+    private static JMenuItem itemVizualizarFicha;
+    
     
     public BarraDeMenus(PanelTab tabbedPane){
         this.tabbedPane = tabbedPane;
@@ -94,8 +98,22 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         menuAlterar.add(itemAlterarEquipamento);
         
         
+        /**
+         * Menu Ficha
+         */
+        menuFicha = new JMenu("Ficha");
+        //Itens dentro de menuFicha
+        itemIntegracaoFicha = new JMenuItem("Integrar Ficha");
+        itemVizualizarFicha = new JMenuItem("Vizualizar Ficha");
+        
+        //Adicionando todos os menus e itens de menuFicha ao menuFicha
+        menuFicha.add(itemVizualizarFicha);
+        menuFicha.add(itemIntegracaoFicha);
+        
+        
         this.add(menuArquivo);
         this.add(menuAlterar);
+        this.add(menuFicha);
         
         ativarItens();
         iniciarEventos();
@@ -123,6 +141,9 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarCaracteristica.setEnabled(habilitar);
         itemAlterarEquipamento.setEnabled(habilitar);
         itemAlterarFicha.setEnabled(habilitar);
+        
+        itemIntegracaoFicha.setEnabled(habilitar);
+        itemVizualizarFicha.setEnabled(habilitar);
     }
     
     private void ativarItens(){
@@ -158,6 +179,9 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarCaracteristica.addActionListener(this);
         itemAlterarEquipamento.addActionListener(this);
         itemAlterarFicha.addActionListener(this);
+        
+        itemIntegracaoFicha.addActionListener(this);
+        itemVizualizarFicha.addActionListener(this);
     }
 
     @Override
@@ -210,6 +234,10 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         
         if(origem.equals(itemAlterarFicha)){
             NovaAba.abaAlterarFicha(tabbedPane, (ImageIcon)itemAlterarFicha.getIcon());
+        }
+        
+        if(origem.equals(itemIntegracaoFicha)){
+            NovaAba.abaIntegrarFicha(tabbedPane, (ImageIcon)itemIntegracaoFicha.getIcon());
         }
         
         //throw new UnsupportedOperationException("Not supported yet.");

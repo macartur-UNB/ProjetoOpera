@@ -128,7 +128,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         txtPenalidade = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtRegiaoDoCorpo = new javax.swing.JTextField();
+        cmbRegiaoDoCorpo = new javax.swing.JComboBox();
         pnlTipo = new javax.swing.JPanel();
         rdbItem = new javax.swing.JRadioButton();
         rdbArma = new javax.swing.JRadioButton();
@@ -165,6 +165,11 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Habilidade Necessaria"));
 
         cmbHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbHabilidadeActionPerformed(evt);
+            }
+        });
         cmbHabilidade.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cmbHabilidadeFocusGained(evt);
@@ -739,7 +744,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel15)
                 .addGap(2, 2, 2)
-                .addComponent(txtAbsorcaoArmaBranca, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(txtAbsorcaoArmaBranca)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -768,11 +773,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
 
         jLabel18.setText("Regiao do Corpo:");
 
-        txtRegiaoDoCorpo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtRegiaoDoCorpoFocusLost(evt);
-            }
-        });
+        cmbRegiaoDoCorpo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "A", "B", "C", "D", "E", "F", "G", "H" }));
 
         javax.swing.GroupLayout pnlArmaduraLayout = new javax.swing.GroupLayout(pnlArmadura);
         pnlArmadura.setLayout(pnlArmaduraLayout);
@@ -788,8 +789,9 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         .addComponent(txtPenalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRegiaoDoCorpo)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbRegiaoDoCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlArmaduraLayout.setVerticalGroup(
@@ -802,7 +804,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     .addComponent(jLabel17)
                     .addComponent(txtPenalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(txtRegiaoDoCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbRegiaoDoCorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -889,10 +891,10 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         .addComponent(btnLimpar))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlArmadura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pnlArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlArma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1212,14 +1214,6 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtAbsorcaoArmaDeFogoFocusLost
 
-    private void txtRegiaoDoCorpoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRegiaoDoCorpoFocusLost
-        // TODO add your handling code here:
-        try{
-            ValidarCampos.validarCampoCaractere((JTextField)evt.getSource());
-        } catch(JTextFieldInvalidoException e){
-        }
-    }//GEN-LAST:event_txtRegiaoDoCorpoFocusLost
-
     private void txtPenalidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPenalidadeFocusLost
         // TODO add your handling code here:
         try{
@@ -1278,6 +1272,10 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         rdbArmaCorpoACorpo.setForeground(Color.BLACK);
     }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
 
+    private void cmbHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbHabilidadeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
@@ -1290,6 +1288,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkSorte;
     private javax.swing.JCheckBox chkVontade;
     private javax.swing.JComboBox cmbHabilidade;
+    private javax.swing.JComboBox cmbRegiaoDoCorpo;
     private javax.swing.ButtonGroup grpTipoDeArma;
     private javax.swing.ButtonGroup grpTipoEquipamento;
     private javax.swing.ButtonGroup grpTipoHabilidade;
@@ -1347,7 +1346,6 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     private javax.swing.JTextField txtPenalidade;
     private javax.swing.JTextField txtPercepcao;
     private javax.swing.JTextField txtPreco;
-    private javax.swing.JTextField txtRegiaoDoCorpo;
     private javax.swing.JTextField txtRolagem;
     private javax.swing.JTextField txtSorte;
     private javax.swing.JTextField txtTiroMirado;
@@ -1519,21 +1517,23 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     int absorcaoArmaBranca = ValidarCampos.validarCampoInteiro(txtAbsorcaoArmaBranca);
                     int absorcaoArmaDeFogo = ValidarCampos.validarCampoInteiro(txtAbsorcaoArmaDeFogo);
                     int penalidade = ValidarCampos.validarCampoInteiro(txtPenalidade);
-                    char regiaoDoCorpo = ValidarCampos.validarCampoCaractere(txtRegiaoDoCorpo);
+                    char regiaoDoCorpo = cmbRegiaoDoCorpo.getSelectedItem().toString().charAt(0);
                     
                     if(possui_modificador){
                         item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, modificador, preco, habilidade_Necessaria);
                     }else{
                         item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
-                        Controle_Item.cadArmadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
+                        //Controle_Item.cadArmadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
                     }
                     
                 }
                 
                 return item;
             }
-        } catch(ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HeadlessException | ItemInvalidoException | DadoInvalidoException e){
+        } catch(JTextFieldInvalidoException | HeadlessException | ItemInvalidoException | DadoInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(StringIndexOutOfBoundsException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Selecione a Regiao do Corpo para a Armadura","Erro",JOptionPane.ERROR_MESSAGE);
         }
         return null;
     }
@@ -1545,6 +1545,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             if(rdbItem.isSelected()){
                 Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(), item.isUsando(), item.getBonus_atributo(), item.getPreco(), item.getHabilidade_Necessaria());
                 JOptionPane.showMessageDialog(null,"Cadastro Item: " + item.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                limparCampos();
             }
             
             if(rdbArma.isSelected()){
@@ -1552,11 +1553,13 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     Arma_A_Distancia arma = (Arma_A_Distancia)item;
                     Controle_Item.cadArma_A_Distancia(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getTiro_Rapido(), arma.getTiro_Mirado(), arma.getCadencia(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
                     JOptionPane.showMessageDialog(null,"Cadastro Arma a Distancia: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    limparCampos();
                 }
                 if(rdbArmaCorpoACorpo.isSelected()){
                     Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
                     Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getTipo(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
                     JOptionPane.showMessageDialog(null,"Cadastro Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    limparCampos();
                 }
             }
             
@@ -1564,9 +1567,9 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 Armadura armadura = (Armadura)item;
                 Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Arma_Branca(), armadura.getAbsorcao_Arma_De_Fogo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
                 JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                limparCampos();
             }
             
-            limparCampos();
             
         } catch(NullPointerException e){
             JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
@@ -1978,13 +1981,15 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         this.txtPreco = txtPreco;
     }
 
-    public JTextField getTxtRegiaoDoCorpo() {
-        return txtRegiaoDoCorpo;
+    public JComboBox getCmbRegiaoDoCorpo() {
+        return cmbRegiaoDoCorpo;
     }
 
-    public void setTxtRegiaoDoCorpo(JTextField txtRegiaoDoCorpo) {
-        this.txtRegiaoDoCorpo = txtRegiaoDoCorpo;
+    public void setCmbRegiaoDoCorpo(JComboBox cmbRegiaoDoCorpo) {
+        this.cmbRegiaoDoCorpo = cmbRegiaoDoCorpo;
     }
+
+    
 
     public JTextField getTxtRolagem() {
         return txtRolagem;

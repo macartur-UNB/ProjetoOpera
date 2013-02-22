@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 import view.PaineisDeAlteracao.*;
 import view.PaineisDeCadastro.*;
 import view.PaineisDeDeletacao.PnlDeletar;
+import view.PaineisDeIntegracao.PnlIntegracaoFicha;
 import view.PaineisNovoAbrirDeletarJogo.*;
+
 
 /**
  *
@@ -19,7 +21,7 @@ public class NovaAba {
     public static void abaNovoJogo(PanelTab tabbedPane, ImageIcon icone){
         int index = tabbedPane.indexOfTab("Novo Jogo");
         if(index == -1){
-            PnlNovoJogo painel = new PnlNovoJogo();
+            view.PaineisNovoAbrirDeletarJogo.PnlNovoJogo painel = new view.PaineisNovoAbrirDeletarJogo.PnlNovoJogo();
             tabbedPane.adicionarPainel(painel, "Novo Jogo", icone);
             index = tabbedPane.indexOfTab("Novo Jogo");
         }
@@ -122,6 +124,16 @@ public class NovaAba {
             PnlAlterarEquipamento painel = new PnlAlterarEquipamento();
             tabbedPane.adicionarPainel(painel, "Alterar Equipamento", icone);
             index = tabbedPane.indexOfTab("Alterar Equipamento");
+        }
+        tabbedPane.setSelectedIndex(index);
+    }
+    
+    public static void abaIntegrarFicha(PanelTab tabbedPane, ImageIcon icone){
+        int index = tabbedPane.indexOfTab("Integrar Ficha");
+        if(index == -1){
+            PnlIntegracaoFicha painel = new PnlIntegracaoFicha();
+            tabbedPane.adicionarPainel(painel, "Integrar Ficha", icone);
+            index = tabbedPane.indexOfTab("Integrar Ficha");
         }
         tabbedPane.setSelectedIndex(index);
     }

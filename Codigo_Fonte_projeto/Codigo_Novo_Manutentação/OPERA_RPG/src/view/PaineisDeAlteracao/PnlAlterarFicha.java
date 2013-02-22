@@ -210,7 +210,9 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             
             if(!cmbFicha.getSelectedItem().toString().equals("Nenhuma")){
                 PainelFuncoes.habilitarCampos(pnlCadastrarFicha, true);
+                PainelFuncoes.habilitarCampos(pnlCadastrarFicha.getPnlTipoFicha(), false);
                 pnlCadastrarFicha.getBtnCadastrar().setEnabled(true);
+                
                 Ficha ficha = null;
                 if(rdbJogador.isSelected()){
                     ficha = Controle_Ficha.encontrarJogador(cmbFicha.getSelectedItem().toString());
@@ -407,16 +409,13 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             }else{
                 switch (tipo) {
                     case "NPC":
-                        Controle_Ficha.removerNPC(cmbFicha.getSelectedItem().toString());
-                        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarNPC(cmbFicha.getSelectedItem().toString(), personagem, campanha, experiencia, atributo, dinheiro);
                         break;
                     case "Monstro":
-                        Controle_Ficha.removerMonstro(cmbFicha.getSelectedItem().toString());
-                        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarMonstro(cmbFicha.getSelectedItem().toString(), personagem, campanha, experiencia, atributo, dinheiro);
                         break;
                     case "Jogador":
-                        Controle_Ficha.removerJogador(cmbFicha.getSelectedItem().toString());
-                        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarJogador(cmbFicha.getSelectedItem().toString(), personagem, jogador, campanha, experiencia, atributo, dinheiro);
                         break;
                     default:
                         break;
@@ -427,7 +426,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
                 pnlCadastrarFicha.getGrpTipoFicha().clearSelection();
                 pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
             }
-        } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | JTextFieldInvalidoException | DeletarInvalidoException | HeadlessException e){
+        } catch(FichaInvalidaException | HeadlessException | JTextFieldInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }

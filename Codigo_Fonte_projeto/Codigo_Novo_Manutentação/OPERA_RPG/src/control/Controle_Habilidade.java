@@ -25,6 +25,10 @@ public class Controle_Habilidade {
     int teste, int nivel, int custo, String nome,String tipo)
     throws FileNotFoundException, IOException, ArquivoInvalidoException, HabilidadeInvalidaException{
        
+        if(HabilidadeExiste(nome)){
+            throw new HabilidadeInvalidaException("A Habilidade {"+nome+"} ja Existe");
+        }
+        
         Habilidade h = new Habilidade(teste, nivel, custo, nome, tipo);
         DAO_Habilidade.gravarHabilidade(h);        
     }    

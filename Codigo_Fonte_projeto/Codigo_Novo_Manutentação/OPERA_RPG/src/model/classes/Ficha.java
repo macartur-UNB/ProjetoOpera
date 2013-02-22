@@ -7,7 +7,6 @@ package model.classes;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import model.exception.FichaInvalidaException;
 import model.exception.PalavraInvalidaException;
 import model.validacao.ValidarPalavra;
@@ -23,7 +22,8 @@ public class Ficha implements Serializable{
     private int experiencia;
     private int atributos[];
     private int dinheiro;
-    private ArrayList itens_equipados,itens_desequipados,habilidades,caracteristicas;
+    private ArrayList itens_equipados=null,itens_desequipados=null,habilidades=null,caracteristicas=null,
+            itensGenericos=null, armasADistancia=null, armasCorpoACorpo=null, armaduras=null;
     
     
     
@@ -267,6 +267,41 @@ public class Ficha implements Serializable{
     public ArrayList getHabilidades() {
         return habilidades;
     }
+
+    public ArrayList getItensGenericos() {
+        return itensGenericos;
+    }
+
+    public void setItensGenericos(ArrayList itensGenericos) {
+        this.itensGenericos = itensGenericos;
+    }
+
+    public ArrayList getArmasADistancia() {
+        return armasADistancia;
+    }
+
+    public void setArmasADistancia(ArrayList armasADistancia) {
+        this.armasADistancia = armasADistancia;
+    }
+
+    public ArrayList getArmasCorpoACorpo() {
+        return armasCorpoACorpo;
+    }
+
+    public void setArmasCorpoACorpo(ArrayList armasCorpoACorpo) {
+        this.armasCorpoACorpo = armasCorpoACorpo;
+    }
+
+    public ArrayList getArmaduras() {
+        return armaduras;
+    }
+
+    public void setArmaduras(ArrayList armaduras) {
+        this.armaduras = armaduras;
+    }
+    
+    
+    
     /**
      * Retorna os Dados do Personagem
      * @return Dados do Personagem

@@ -21,6 +21,10 @@ public class Controle_Caracteristica {
     String nome,String descricao,String tipo,int custo)
     throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
        
+        if(CaracteristicaExiste(nome)){
+            throw new CaracteristicaInvalidaException("A Caracteristica {"+nome+" ja Existe");
+        }
+        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
         DAO_Caracteristica.gravarCaracteristica(c);        
     }
@@ -29,6 +33,10 @@ public class Controle_Caracteristica {
     String nome,String descricao,String tipo,int custo,int modificador[])
     throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
     
+        if(CaracteristicaExiste(nome)){
+            throw new CaracteristicaInvalidaException("A Caracteristica {"+nome+" ja Existe");
+        }
+        
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
         DAO_Caracteristica.gravarCaracteristica(c);  
     }

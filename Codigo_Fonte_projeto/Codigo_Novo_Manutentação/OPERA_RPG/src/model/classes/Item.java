@@ -199,13 +199,14 @@ public class Item implements Serializable {
 
     /**
      * Altera a o nome da Habilidade Necessaria para Usar o item
-     * @param habilidade_Necessaria Habilidade Necessaria para se usar o Item
+     * @param habilidade_Necessaria Habilidade Necessaria para se usar o Item, 
+     * se nao estver usando Item deve receber "Nenhuma" como parametro
      * @throws ItemInvalidoException
      */
     public void setHabilidade_Necessaria(String habilidade_Necessaria) throws ItemInvalidoException {
-        
+                
         if(habilidade_Necessaria != null){
-            if(Controle_Habilidade.HabilidadeExiste(habilidade_Necessaria)){
+            if( (Controle_Habilidade.HabilidadeExiste(habilidade_Necessaria)) || (habilidade_Necessaria.equals("Nenhuma"))){
                 this.habilidade_Necessaria = habilidade_Necessaria;
             }else{
                 throw new ItemInvalidoException("habilidade_Necessaria para o Item Invalida."
