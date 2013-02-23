@@ -10,7 +10,7 @@ import model.exception.PalavraInvalidaException;
  *
  * @author Luciano
  */
-public class ValidarPalavra {
+public class Validar {
     
     public static void validarPalavra(String palavra, boolean numeros) throws PalavraInvalidaException{
         
@@ -98,4 +98,7 @@ public class ValidarPalavra {
                     + "} eh Invalido");
         }
     }
+    
+    
+    
 }

@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import model.exception.ItemInvalidoException;
 import model.exception.PalavraInvalidaException;
-import model.validacao.ValidarPalavra;
+import model.validacao.Validar;
 
 public class Item implements Serializable {
 
@@ -84,7 +84,7 @@ public class Item implements Serializable {
      */
     public void setNome(String nome) throws ItemInvalidoException {
         try{
-            ValidarPalavra.validarPalavra(nome, true);
+            Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
             throw new ItemInvalidoException("Nome do Item Invalido."
@@ -109,7 +109,7 @@ public class Item implements Serializable {
      */
     public void setDescricao(String descricao) throws ItemInvalidoException {
         try{
-            ValidarPalavra.validarPalavra(descricao, true);
+            Validar.validarPalavra(descricao, true);
             this.descricao = descricao;
         } catch(PalavraInvalidaException e){
             throw new ItemInvalidoException("Descricao do Item Invalida."

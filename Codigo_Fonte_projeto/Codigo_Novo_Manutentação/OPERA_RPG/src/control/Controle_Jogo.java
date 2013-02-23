@@ -11,7 +11,8 @@ import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JogoInvalidoException;
-import model.exception.Validacao;
+import model.exception.PalavraInvalidaException;
+import model.validacao.Validar;
 
 public class Controle_Jogo {
     
@@ -24,8 +25,8 @@ public class Controle_Jogo {
      */
     public static void criarJogo(String nome) throws DiretorioInvalidoException,
             IOException, FileNotFoundException, ClassNotFoundException,
-                                ArquivoInvalidoException, JogoInvalidoException {
-       Validacao.validarCaracteresNome(nome, true);
+                                ArquivoInvalidoException, JogoInvalidoException, PalavraInvalidaException {
+       Validar.validarPalavra(nome, true);
        DAO_Jogo.criarJogo(nome);
     }
  

@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import model.exception.CaracteristicaInvalidaException;
 import model.exception.PalavraInvalidaException;
-import model.validacao.ValidarPalavra;
+import model.validacao.Validar;
 
 
 public class Caracteristica  implements Serializable{
@@ -62,7 +62,7 @@ public class Caracteristica  implements Serializable{
      */
     public void setNome(String nome) throws CaracteristicaInvalidaException{
     	try{
-            ValidarPalavra.validarPalavra(nome, true);
+            Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
             throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
@@ -88,7 +88,7 @@ public class Caracteristica  implements Serializable{
      */
     public void setDescricao(String descricao) throws CaracteristicaInvalidaException {
     	try{
-            ValidarPalavra.validarPalavra(descricao, true);
+            Validar.validarPalavra(descricao, true);
             this.descricao = descricao;
         } catch(PalavraInvalidaException e){
             throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
@@ -113,7 +113,7 @@ public class Caracteristica  implements Serializable{
     public void setTipo(String tipo) throws CaracteristicaInvalidaException {
     	try{
             String tiposValidos[] = {"Fisica", "Psiquica", "Racial"};
-            ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
+            Validar.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
             throw new CaracteristicaInvalidaException("Tipo de Ficha"

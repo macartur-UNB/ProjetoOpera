@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import model.exception.FichaInvalidaException;
 import model.exception.PalavraInvalidaException;
-import model.validacao.ValidarPalavra;
+import model.validacao.Validar;
 
 
 public class Ficha implements Serializable{
@@ -64,7 +64,7 @@ public class Ficha implements Serializable{
      */
     public void setPersonagem(String personagem) throws FichaInvalidaException{
         try{
-            ValidarPalavra.validarPalavra(personagem, true);
+            Validar.validarPalavra(personagem, true);
             this.personagem = personagem;
         } catch(PalavraInvalidaException e){
             throw new FichaInvalidaException("Nome de Personagem Invalido."
@@ -89,7 +89,7 @@ public class Ficha implements Serializable{
     public void setTipo(String tipo) throws FichaInvalidaException{
         try{
             String tiposValidos[] = {"Jogador", "NPC", "Monstro"};
-            ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
+            Validar.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
             throw new FichaInvalidaException("Tipo de Ficha"
@@ -114,7 +114,7 @@ public class Ficha implements Serializable{
      */
     public void setJogador(String jogador) throws FichaInvalidaException{
         try{
-            ValidarPalavra.validarPalavra(jogador, false);
+            Validar.validarPalavra(jogador, false);
             this.jogador = jogador;
         } catch(PalavraInvalidaException e){
             throw new FichaInvalidaException("Nome de Jogador Invalido."
@@ -139,7 +139,7 @@ public class Ficha implements Serializable{
      */
     public void setCampanha(String campanha) throws FichaInvalidaException {
         try{
-            ValidarPalavra.validarPalavra(campanha, true);
+            Validar.validarPalavra(campanha, true);
             this.campanha = campanha;
         } catch(PalavraInvalidaException e){
             throw new FichaInvalidaException("Campanha Invalida."

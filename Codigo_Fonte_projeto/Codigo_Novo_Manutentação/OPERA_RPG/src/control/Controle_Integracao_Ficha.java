@@ -545,12 +545,4 @@ public class Controle_Integracao_Ficha {
         return armaduras;
     }
     
-    public static void equiparArma_A_Distancia(){
-    
-    }
-    
-    public static void desequiparItem(){
-    
-    }
-    
 }

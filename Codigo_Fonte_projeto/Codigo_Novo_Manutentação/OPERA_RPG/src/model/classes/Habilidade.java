@@ -7,7 +7,7 @@ package model.classes;
 import java.io.Serializable;
 import model.exception.HabilidadeInvalidaException;
 import model.exception.PalavraInvalidaException;
-import model.validacao.ValidarPalavra;
+import model.validacao.Validar;
 
 
 
@@ -94,7 +94,7 @@ public class Habilidade implements Serializable{
      */
     public void setNome(String nome) throws HabilidadeInvalidaException{
     	try{
-            ValidarPalavra.validarPalavra(nome, true);
+            Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
             throw new HabilidadeInvalidaException("Nome de Habilidade Invalido."
@@ -141,7 +141,7 @@ public class Habilidade implements Serializable{
     public void setTipo(String tipo) throws HabilidadeInvalidaException {
         try{
             String tiposValidos[] = {"Fisica", "Psiquica", "Belica"};
-            ValidarPalavra.validarPalavra(tipo, tiposValidos, true);
+            Validar.validarPalavra(tipo, tiposValidos, true);
             this.tipo = tipo;
         } catch(PalavraInvalidaException e){
             throw new HabilidadeInvalidaException("Tipo de Habilidade"

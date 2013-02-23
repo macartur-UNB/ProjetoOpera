@@ -6,7 +6,7 @@ package model.classes;
 
 import model.exception.ItemInvalidoException;
 import model.exception.PalavraInvalidaException;
-import model.validacao.ValidarPalavra;
+import model.validacao.Validar;
 
 
 public class Armadura extends Item{
@@ -134,7 +134,7 @@ public class Armadura extends Item{
     public void setRegiao_Do_Corpo(char regiao_Do_Corpo) throws ItemInvalidoException {
         try{
             char caracteresValidos[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-            ValidarPalavra.validarCaractere(regiao_Do_Corpo, caracteresValidos);
+            Validar.validarCaractere(regiao_Do_Corpo, caracteresValidos);
             this.regiao_Do_Corpo = regiao_Do_Corpo;
         } catch(PalavraInvalidaException e){
             throw new ItemInvalidoException("Regiao do Corpo"

@@ -21,32 +21,32 @@ public class ValidarPalavraTest {
 
 
     /**
-     * Test of validarPalavra method, of class ValidarPalavra.
+     * Test of validarPalavra method, of class Validar.
      */
     @Test
     public void testValidarPalavra_String_boolean() throws Exception {
         System.out.println("validarPalavra");
         String palavra = "Luciano";
         boolean numeros = false;
-        ValidarPalavra.validarPalavra(palavra, numeros);
+        Validar.validarPalavra(palavra, numeros);
         palavra = "Luciano 123";
         numeros = true;
-        ValidarPalavra.validarPalavra(palavra, numeros);
+        Validar.validarPalavra(palavra, numeros);
         
         try{
-        	ValidarPalavra.validarPalavra(null, true);
+        	Validar.validarPalavra(null, true);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
-        	ValidarPalavra.validarPalavra("", true);
+        	Validar.validarPalavra("", true);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
-        	ValidarPalavra.validarPalavra("Invalido ##", true);
+        	Validar.validarPalavra("Invalido ##", true);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
@@ -56,7 +56,7 @@ public class ValidarPalavraTest {
     }
 
     /**
-     * Test of validarPalavra method, of class ValidarPalavra.
+     * Test of validarPalavra method, of class Validar.
      */
     @Test
     public void testValidarPalavra_3args() throws Exception {
@@ -67,37 +67,37 @@ public class ValidarPalavraTest {
         String[] palavrasValidas = {"Jogador", "NPC", "Monstro"};
         boolean caseSensitive = false;
         
-        ValidarPalavra.validarPalavra(palavra01, palavrasValidas, caseSensitive);
-        ValidarPalavra.validarPalavra(palavra02, palavrasValidas, caseSensitive);
-        ValidarPalavra.validarPalavra(palavra03, palavrasValidas, !caseSensitive);
+        Validar.validarPalavra(palavra01, palavrasValidas, caseSensitive);
+        Validar.validarPalavra(palavra02, palavrasValidas, caseSensitive);
+        Validar.validarPalavra(palavra03, palavrasValidas, !caseSensitive);
         
         try{
-        	ValidarPalavra.validarPalavra("Invalido **", palavrasValidas, caseSensitive);
+        	Validar.validarPalavra("Invalido **", palavrasValidas, caseSensitive);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
-        	ValidarPalavra.validarPalavra(null, palavrasValidas, caseSensitive);
+        	Validar.validarPalavra(null, palavrasValidas, caseSensitive);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
-        	ValidarPalavra.validarPalavra("", palavrasValidas, caseSensitive);
+        	Validar.validarPalavra("", palavrasValidas, caseSensitive);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
-        	ValidarPalavra.validarPalavra(palavra01, null, caseSensitive);
+        	Validar.validarPalavra(palavra01, null, caseSensitive);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
         
         try{
         	String palavrasValidasVazio[] = null;
-        	ValidarPalavra.validarPalavra(palavra01, palavrasValidasVazio, caseSensitive);
+        	Validar.validarPalavra(palavra01, palavrasValidasVazio, caseSensitive);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
@@ -107,33 +107,33 @@ public class ValidarPalavraTest {
     
     
     /**
-     * Test of validarCaractere method, of class ValidarPalavra.
+     * Test of validarCaractere method, of class Validar.
      */
     @Test
     public void testvalidarCaractere() throws Exception {
         char caracteresValidos[] = {'A', 'B', 'C'};
         
-        ValidarPalavra.validarCaractere('A', caracteresValidos);
-        ValidarPalavra.validarCaractere('B', caracteresValidos);
-        ValidarPalavra.validarCaractere('C', caracteresValidos);
+        Validar.validarCaractere('A', caracteresValidos);
+        Validar.validarCaractere('B', caracteresValidos);
+        Validar.validarCaractere('C', caracteresValidos);
         
         try{
-            ValidarPalavra.validarCaractere(' ', caracteresValidos);
+            Validar.validarCaractere(' ', caracteresValidos);
             fail("validarCaractere invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
         }
         try{
-            ValidarPalavra.validarCaractere('a', caracteresValidos);
+            Validar.validarCaractere('a', caracteresValidos);
             fail("validarCaractere invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
         }
         try{
-            ValidarPalavra.validarCaractere('D', caracteresValidos);
+            Validar.validarCaractere('D', caracteresValidos);
             fail("validarCaractere invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
         }
         try{
-            ValidarPalavra.validarCaractere('a', caracteresValidos);
+            Validar.validarCaractere('a', caracteresValidos);
             fail("validarCaractere invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
         }
