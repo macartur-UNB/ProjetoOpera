@@ -6,12 +6,16 @@ package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
 import java.awt.Color;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JTextFieldInvalidoException;
 import model.exception.JogoInvalidoException;
+import model.exception.PalavraInvalidaException;
 import view.BarraDeFerramentas;
 import view.BarraDeMenus;
 import view.PaineisDeCadastro.PainelFuncoes;
@@ -137,6 +141,10 @@ public class PnlNovoJogo extends javax.swing.JPanel {
                 TelaPrincipal.alterarTitulo(nome);
             }
             
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PnlNovoJogo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PalavraInvalidaException ex) {
+            Logger.getLogger(PnlNovoJogo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JTextFieldInvalidoException e) {
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (DiretorioInvalidoException e) {
