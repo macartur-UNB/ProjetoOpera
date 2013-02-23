@@ -127,10 +127,27 @@ public class Controle_Item {
                                           preco, habilidade_Necessaria);
          DAO_Item.gravarArmadura(armadura);
      }
+       
+     public static boolean ItemGenericoExiste(String item){
+         return DAO_Item.ItemGenericoExiste(item);
+     }  
+     public static boolean Arma_A_DistanciaExiste(String arma){
+         return DAO_Item.Arma_A_DistanciaExiste(arma);
+     }
+     public static boolean ArmaCorpo_A_CorpoExiste(String arma){
+         return DAO_Item.ArmaCorpo_A_CorpoExiste(arma);
+     }
+     public static boolean ArmaCorpo_A_CorpoExiste(String arma,String tipo){
+         return DAO_Item.ArmaCorpo_A_CorpoExiste(arma, tipo);
+     }
+     public static boolean ArmaduraExiste(String armadura){
+         return DAO_Item.ArmaduraExiste(armadura);
+     }
      
+     public static String tipoArmaCorpo_A_Corpo(String arma){
+         return DAO_Item.tipoArmaCorpo_A_Corpo(arma);
+     } 
      
-    
-    
     public static Item encontrarItemGenerico(String nome)
             throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
           return DAO_Item.encontrarItemGenerico(nome);

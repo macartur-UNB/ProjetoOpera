@@ -514,15 +514,14 @@ public class Controle_Integracao_Ficha {
             while(i.hasNext()){
                 tempArmadura = (Armadura)i.next();
             }
-
-            if(tempArmadura != null){
-                if(tempArmadura.getNome().equals(armadura.getNome())){
-                    auxiliar.remove(tempArmadura);
+                if(tempArmadura != null){
+                    if(tempArmadura.getNome().equals(armadura.getNome())){
+                        auxiliar.remove(tempArmadura);
+                    }
+                }else{
+                    throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Invalida");
                 }
-            }else{
-                throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Invalida");
-            }
-
+            
             ficha.setArmaduras(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
@@ -546,8 +545,12 @@ public class Controle_Integracao_Ficha {
         return armaduras;
     }
     
+    public static void equiparArma_A_Distancia(){
     
-    public static void equiparItem(){}
-    public static void desequiparItem(){}
+    }
+    
+    public static void desequiparItem(){
+    
+    }
     
 }

@@ -22,7 +22,7 @@ public class Ficha implements Serializable{
     private int experiencia;
     private int atributos[];
     private int dinheiro;
-    private ArrayList itens_equipados=null,itens_desequipados=null,habilidades=null,caracteristicas=null,
+    private ArrayList habilidades=null,caracteristicas=null,
             itensGenericos=null, armasADistancia=null, armasCorpoACorpo=null, armaduras=null;
     
     
@@ -235,23 +235,6 @@ public class Ficha implements Serializable{
     }
 
     /*get e set para integracao*/
-
-    public void setItens_equipados(ArrayList itens_equipados) {
-        this.itens_equipados = itens_equipados;
-    }
-
-    public ArrayList getItens_equipados() {
-        return itens_equipados;
-    }
-
-    public void setItens_desequipados(ArrayList itens_desequipados) {
-        this.itens_desequipados = itens_desequipados;
-    }
-
-    public ArrayList getItens_desequipados() {
-        return itens_desequipados;
-    }
-
     public void setCaracteristicas(ArrayList caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
