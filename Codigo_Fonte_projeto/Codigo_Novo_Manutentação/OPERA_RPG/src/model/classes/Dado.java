@@ -55,11 +55,11 @@ public class Dado implements Serializable {
      * de Lados deve ser um numero inteiro e maior que zero(0)
      */
     public void setLados(int lados) throws DadoInvalidoException {
-        if(lados > 0){
+        if(lados > 1){
     		this.lados = lados;
     	}else{
             throw new DadoInvalidoException("Lados do Dado Invalido, valor Abaixo "
-                    + "de Zero(0)");
+                    + "de Zero(1)");
         }
     }
 

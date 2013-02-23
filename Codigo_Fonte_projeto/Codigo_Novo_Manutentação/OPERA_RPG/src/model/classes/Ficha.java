@@ -26,9 +26,6 @@ public class Ficha implements Serializable{
             itensGenericos=null, armasADistancia=null, armasCorpoACorpo=null, armaduras=null;
     
     
-    
-    
-    
     /**
      * Metodo Construtor para criar Fichas
      * @param personagem Nome do personagem. Deve conter apenas caracteres

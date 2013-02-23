@@ -46,10 +46,5 @@ public class Caracteristica_Especifica extends Caracteristica{
         return "Nome Especifico = "+this.getNome_Especifico()+
                "Descricao Especifica = "+this.getDescricao_Especifica()+
                 super.toString();
-    }
-    
-    
-    
-    
-    
+    }   
 }

@@ -33,10 +33,7 @@ public class Jogo implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    
-
+   
     @Override
     public String toString() {
         return " Jogo = "+this.getNome()+

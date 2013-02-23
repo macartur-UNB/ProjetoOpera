@@ -54,7 +54,8 @@ public class Controle_Caracteristica {
     public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException,FileNotFoundException, IOException,IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
+    throws FileNotFoundException,FileNotFoundException, IOException,IOException,
+                      ArquivoInvalidoException, CaracteristicaInvalidaException{
         
         Caracteristica_Especifica ce;
         ce = new Caracteristica_Especifica(nome_Especifico, descricao_Especifica,
@@ -64,7 +65,8 @@ public class Controle_Caracteristica {
     
     
     public static Caracteristica encontrarCaracteristica(String nome,String tipo) 
-            throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+            throws FileNotFoundException, ClassNotFoundException, IOException,
+                                                       ArquivoInvalidoException{
             return DAO_Caracteristica.carregarCaracteristica(nome, tipo);
     }   
     

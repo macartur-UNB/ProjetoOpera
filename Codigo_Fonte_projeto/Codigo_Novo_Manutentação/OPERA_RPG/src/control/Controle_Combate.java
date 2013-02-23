@@ -240,4 +240,30 @@ public class Controle_Combate {
         }
         return false;
     }
+    
+    public static String[] listarItensEquipados(ArrayList colecao){
+        Iterator i = colecao.iterator();
+        String s[] = new String[colecao.size()];
+        int aux=0;
+        while(i.hasNext()){
+            Item item = (Item) i.next();
+            if(item.isUsando()){
+                s[aux] = item.getNome();
+            }
+        }
+        return s;
+    }
+    public static String[] listarItensDesequipados(ArrayList colecao){
+        Iterator i = colecao.iterator();
+        String s[] = new String[colecao.size()];
+        int aux=0;
+        while(i.hasNext()){
+            Item item = (Item) i.next();
+            if(!item.isUsando()){
+                s[aux] = item.getNome();
+            }
+        }
+        return s;
+    }
+    
 }

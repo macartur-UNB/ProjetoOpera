@@ -117,7 +117,7 @@ public class Habilidade implements Serializable{
      * e maior ou igual a zero(0)
      */
     public void setTeste(int teste) throws HabilidadeInvalidaException {
-        if(teste >= 0){
+        if(teste>=0){
     		this.teste = teste;
     	}else{
             throw new HabilidadeInvalidaException("Teste Invalido, valor Abaixo "

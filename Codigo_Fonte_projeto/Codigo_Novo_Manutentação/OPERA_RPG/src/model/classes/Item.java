@@ -150,7 +150,7 @@ public class Item implements Serializable {
      * @throws ItemInvalidoException
      */
     public void setPreco(int preco) throws ItemInvalidoException {
-        if(preco >= 0){
+        if(preco >=0){
     		this.preco = preco;
     	}else{
             throw new ItemInvalidoException("Preco Invalido, valor Abaixo "

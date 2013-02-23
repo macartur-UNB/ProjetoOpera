@@ -49,7 +49,9 @@ public class Caracteristica  implements Serializable{
      * @param custo Custo necessario para ter a Caracteristica
      * @throws CaracteristicaInvalidaException 
      */
-    public Caracteristica(String nome, String descricao, String tipo, int[] modificador, int custo) throws CaracteristicaInvalidaException {
+    public Caracteristica(String nome, String descricao, String tipo,
+                                                   int[] modificador, int custo)
+                                        throws CaracteristicaInvalidaException {
         this(nome,descricao,tipo,custo);
         setModificador(modificador);
      }
@@ -168,12 +170,7 @@ public class Caracteristica  implements Serializable{
      * @throws CaracteristicaInvalidaException
      */
     public void setCusto(int custo) throws CaracteristicaInvalidaException {
-    	if(custo >= 0){
-    		this.custo = custo;
-    	}else{
-            throw new CaracteristicaInvalidaException("Custo Invalido, valor Abaixo "
-                    + "de Zero(0)");
-        }
+        	this.custo = custo;
     }
 
     /**

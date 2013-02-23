@@ -7,7 +7,6 @@ package model.validacao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import model.classes.Armadura;
-import model.classes.Item;
 import model.exception.PalavraInvalidaException;
 
 /**
@@ -115,10 +114,6 @@ public class Validar {
            }
        }
         return false;
-    }
-    
-   
-    
-    
+    }  
     
 }
