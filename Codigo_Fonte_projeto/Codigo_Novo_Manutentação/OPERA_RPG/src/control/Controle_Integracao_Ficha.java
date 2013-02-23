@@ -338,7 +338,7 @@ public class Controle_Integracao_Ficha {
     
     public static void colocarArma_Corpo_A_Corpo(String nomeArma) throws ItemInvalidoException{
         try{
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, null);
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, Controle_Item.tipoArmaCorpo_A_Corpo(nomeArma));
             if(arma == null){ 
                 throw new ItemInvalidoException("Arma {"+nomeArma+"} Invalida");
             }
@@ -348,15 +348,10 @@ public class Controle_Integracao_Ficha {
             {
                 auxiliar  = new ArrayList();
             }
-
-            Iterator i = auxiliar.iterator();
-            Arma_Corpo_A_Corpo tempArma = null;
-            while(i.hasNext()){
-                tempArma = (Arma_Corpo_A_Corpo)i.next();
+            if(contemItem(auxiliar, nomeArma)){
+                throw new ItemInvalidoException("Ja contem a arma={"+nomeArma+"}");
             }
-
             auxiliar.add(arma);
-
             ficha.setArmasCorpoACorpo(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
         
@@ -364,9 +359,10 @@ public class Controle_Integracao_Ficha {
             throw new ItemInvalidoException("A Arma {"+nomeArma+"} Nao pode ser Integrada");
         }
     }
+    
     public static void removerArma_Corpo_A_Corpo(String nomeArma) throws ItemInvalidoException{
         try{
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, null);
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, Controle_Item.tipoArmaCorpo_A_Corpo(nomeArma));
             if(arma == null){ 
                 throw new ItemInvalidoException("Arma {"+nomeArma+"} Invalida");
             }

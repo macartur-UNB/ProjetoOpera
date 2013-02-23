@@ -261,9 +261,9 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichas() throws Exception {
         System.out.println("removeTodasHabilidades");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);  
+        Controle_Ficha.cadJogador("Teste2", jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadNPC("Teste1", campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadMonstro("Teste4", campanha, experiencia, atributos, dinheiro);  
         Controle_Ficha.removeTodasFichas();
         if(Controle_Ficha.MonstroExiste(personagem) ||
            Controle_Ficha.NPCExiste(personagem) ||
