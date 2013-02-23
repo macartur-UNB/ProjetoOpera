@@ -32,6 +32,10 @@ public class Controle_Combate {
         }
         ficha = Controle_Ficha.encontrarFicha(personagem);
     }
+    public static Ficha pegarFicha(){
+        return ficha;
+    }
+    
     
     public static boolean usandoAlgumaArma(){
         return usandoArma(ficha.getArmasADistancia())|| usandoArma(ficha.getArmasCorpoACorpo());           
@@ -266,4 +270,14 @@ public class Controle_Combate {
         return s;
     }
     
+    public static Armadura encontrarArmadura(char regiao){
+        Iterator i = auxiliar.iterator();
+        while(i.hasNext()){
+            Armadura armadura = (Armadura) i.next();
+            if(armadura.isUsando() && armadura.getRegiao_Do_Corpo()==regiao){
+                return armadura;
+            }
+        }
+        return null;
+    }  
 }
