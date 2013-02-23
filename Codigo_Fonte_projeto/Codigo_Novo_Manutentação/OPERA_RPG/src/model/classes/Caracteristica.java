@@ -170,7 +170,12 @@ public class Caracteristica  implements Serializable{
      * @throws CaracteristicaInvalidaException
      */
     public void setCusto(int custo) throws CaracteristicaInvalidaException {
-        	this.custo = custo;
+        if(custo >=0){
+            this.custo = custo;
+        }else{
+            throw new CaracteristicaInvalidaException("Custo de caracteristica deve ser maior que ou igual a 0");
+        }	       
+        
     }
 
     /**
