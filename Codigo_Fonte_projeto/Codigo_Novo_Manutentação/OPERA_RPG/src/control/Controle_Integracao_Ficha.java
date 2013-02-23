@@ -188,7 +188,6 @@ public class Controle_Integracao_Ficha {
          Habilidade hab = null;
          while(i.hasNext()){
              hab = (Habilidade)i.next();
-         }
         
          if(hab != null){
              if(hab.getNome().equals(h.getNome())){
@@ -197,7 +196,7 @@ public class Controle_Integracao_Ficha {
          }else{
              throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Invalida");
          }
-         
+         }
          ficha.setHabilidades(auxiliar);
          Controle_Ficha.atualizarFicha(ficha);
     }

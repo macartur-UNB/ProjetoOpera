@@ -300,7 +300,7 @@ public class Controle_Ficha {
      * @throws IOException 
      */
     public static void removeTodasFichasNPC() throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
-        DAO_Ficha.removerTodasFichas("Monstro");
+        DAO_Ficha.removerTodasFichas("NPC");
     }
     
     /**

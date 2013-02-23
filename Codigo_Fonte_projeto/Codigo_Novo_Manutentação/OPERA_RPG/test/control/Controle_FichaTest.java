@@ -40,7 +40,8 @@ public class Controle_FichaTest {
         DAO_Ficha.removerTodasFichas("Monstro");
     }
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception{
+           Controle_Jogo.apagarJogo("JUnitTest");
     }
     
     String personagem = "Test";
@@ -76,7 +77,7 @@ public class Controle_FichaTest {
     public void testCadMonstro() throws Exception {
         System.out.println("cadMonstro");
         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.removeTodasFichasMonstro();
+        Controle_Ficha.removerMonstro(personagem);
     }
 
     /**
@@ -91,7 +92,7 @@ public class Controle_FichaTest {
         {
             fail("Jogador não encontrado");
         }
-        Controle_Ficha.removeTodasFichasJogador();
+        Controle_Ficha.removerJogador(personagem);
     }
 
     /**
@@ -121,7 +122,7 @@ public class Controle_FichaTest {
         {
             fail("Monstro não encontrado");
         }
-        Controle_Ficha.removeTodasFichasMonstro();
+        Controle_Ficha.removerMonstro(personagem);
     }
 
     /**
@@ -134,7 +135,7 @@ public class Controle_FichaTest {
         boolean expResult = true;
         boolean result = Controle_Ficha.JogadorExiste(personagem);
         assertEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas();
+        Controle_Ficha.removerJogador(personagem);
     }
 
     /**
@@ -147,7 +148,7 @@ public class Controle_FichaTest {
         boolean expResult = true;
         boolean result = Controle_Ficha.NPCExiste(personagem);
         assertEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas();
+        Controle_Ficha.removerNPC(personagem);
     }
 
     /**
@@ -160,7 +161,7 @@ public class Controle_FichaTest {
         boolean expResult = true;
         boolean result = Controle_Ficha.MonstroExiste(personagem);
         assertEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas();        
+        Controle_Ficha.removerMonstro(personagem);      
     }
 
     /**
@@ -173,7 +174,7 @@ public class Controle_FichaTest {
         boolean expResult = true;
         boolean result = Controle_Ficha.FichaExiste(personagem);
         assertEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas(); 
+        Controle_Ficha.removerMonstro(personagem);
     }
 
     /**
@@ -184,6 +185,9 @@ public class Controle_FichaTest {
         System.out.println("removerJogador");
         Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerJogador(personagem);
+        if(Controle_Ficha.JogadorExiste(personagem)){
+            fail("Não foi possivel remover apenas 1 jogador");
+        }
     }
 
     /**
@@ -194,6 +198,9 @@ public class Controle_FichaTest {
         System.out.println("removerNPC");
         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removerNPC(personagem);
+         if(Controle_Ficha.NPCExiste(personagem)){
+            fail("Não foi possivel remover apenas 1 NPC");
+        }
     }
 
     /**
@@ -204,6 +211,9 @@ public class Controle_FichaTest {
         System.out.println("removerMonstro");
         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);        
         Controle_Ficha.removerMonstro(personagem);
+        if(Controle_Ficha.MonstroExiste(personagem)){
+            fail("Não foi possivel remover apenas 1 monstro");
+        }
     }
 
     /**
@@ -213,7 +223,10 @@ public class Controle_FichaTest {
     public void testRemoveTodasFichasJogador() throws Exception {
         System.out.println("removeTodasFichasJogador");
         Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.removeTodasFichasJogador();
+        Controle_Ficha.removerJogador(personagem);
+        if(Controle_Ficha.JogadorExiste(personagem)){
+            fail("Não foi possivel remover todas as fichas jogador");
+        }
     }
 
     /**
@@ -224,6 +237,9 @@ public class Controle_FichaTest {
         System.out.println("removeTodasFichasNPC");
          Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.removeTodasFichasNPC();
+        if(Controle_Ficha.NPCExiste(personagem)){
+            fail("não foi possivel remover todas fichas npc");
+        }
     }
 
     /**
@@ -234,6 +250,9 @@ public class Controle_FichaTest {
         System.out.println("removeTodasFichasMonstro");
         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);             
         Controle_Ficha.removeTodasFichasMonstro();
+        if(Controle_Ficha.MonstroExiste(personagem)){
+            fail("Não é possivel remover todos os monstros");
+        }    
     }
 
     /**
@@ -244,8 +263,13 @@ public class Controle_FichaTest {
         System.out.println("removeTodasHabilidades");
         Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
-         Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);  
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);  
         Controle_Ficha.removeTodasFichas();
+        if(Controle_Ficha.MonstroExiste(personagem) ||
+           Controle_Ficha.NPCExiste(personagem) ||
+           Controle_Ficha.JogadorExiste(personagem)){
+            fail("Não removel todas as fichas");
+        }
     }
 
     /**
@@ -260,7 +284,7 @@ public class Controle_FichaTest {
         String[] expResult = {"Test","Test2","Test3"};
         String[] result = Controle_Ficha.listarFichasJogador();
         assertArrayEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas();
+        Controle_Ficha.removeTodasFichasJogador();
     }
 
     /**
@@ -275,7 +299,7 @@ public class Controle_FichaTest {
          String[] expResult = {personagem,"Test1","Test2"};
          String[] result = Controle_Ficha.listarFichasNPC();
          assertArrayEquals(expResult, result);
-         Controle_Ficha.removeTodasFichas();
+         Controle_Ficha.removeTodasFichasNPC();
     }
 
     /**
@@ -291,6 +315,6 @@ public class Controle_FichaTest {
         String[] expResult = {personagem,"Test1","Test2"};
         String[] result = Controle_Ficha.listarFichasMonstro();
         assertArrayEquals(expResult, result);
-        Controle_Ficha.removeTodasFichas();
+        Controle_Ficha.removeTodasFichasMonstro();
     }
 }
