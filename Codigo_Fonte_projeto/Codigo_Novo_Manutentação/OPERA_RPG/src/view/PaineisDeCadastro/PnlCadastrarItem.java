@@ -1585,7 +1585,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
         
         switch(tipoDeHabilidade){
             case "Fisica":
-                diretorios = Controle_Habilidade.listarHabilidadeFisicas();
+                diretorios = Controle_Habilidade.listarHabilidadesFisicas();
                 break;
             
             case "Psiquica":

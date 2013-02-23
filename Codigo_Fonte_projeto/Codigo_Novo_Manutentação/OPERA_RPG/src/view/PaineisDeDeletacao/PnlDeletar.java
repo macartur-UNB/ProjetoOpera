@@ -763,7 +763,7 @@ public class PnlDeletar extends javax.swing.JPanel {
             lista = Controle_Ficha.listarFichasMonstro();
         
         if(carregar.equals("Habilidade Fisica"))
-            lista = Controle_Habilidade.listarHabilidadeFisicas();
+            lista = Controle_Habilidade.listarHabilidadesFisicas();
         if(carregar.equals("Habilidade Psiquica"))
             lista = Controle_Habilidade.listarHabilidadesPsiquicas();
         if(carregar.equals("Habilidade Belica"))
