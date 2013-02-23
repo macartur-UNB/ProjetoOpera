@@ -4,6 +4,10 @@
  */
 package model.validacao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import model.classes.Armadura;
+import model.classes.Item;
 import model.exception.PalavraInvalidaException;
 
 /**
@@ -98,6 +102,22 @@ public class Validar {
                     + "} eh Invalido");
         }
     }
+    
+    public static boolean RegiaoUtilizada(ArrayList armaduras, char regiao){
+       Iterator i = armaduras.iterator();
+       Armadura armadura;
+       while(i.hasNext()){
+           armadura = (Armadura) i.next();           
+           if(armadura.isUsando() == true){
+               if(armadura.getRegiao_Do_Corpo() == regiao){
+                   return true;
+               }
+           }
+       }
+        return false;
+    }
+    
+   
     
     
     

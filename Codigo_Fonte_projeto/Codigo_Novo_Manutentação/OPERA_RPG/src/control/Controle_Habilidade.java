@@ -101,7 +101,7 @@ public class Controle_Habilidade {
         removeTodasHabilidadesPsiquicas();
     }
     
-    public  static String[] listarHabilidadeFisicas(){
+    public  static String[] listarHabilidadesFisicas(){
        return DAO_Habilidade.listarHabilidades("Fisica"); 
     }
     

@@ -1001,23 +1001,23 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         Controle_Integracao_Ficha.selecionarFicha(ficha);
         switch(carregar){
             case "Habilidade Fisica":
-                lista = Controle_Integracao_Ficha.listarHabilidadesFisicas();
+                lista = Controle_Habilidade.listarHabilidadesFisicas();
                 break;
             case "Habilidade Psiquica":
-                lista = Controle_Integracao_Ficha.listarHabilidadesPsiquicas();
+                lista = Controle_Habilidade.listarHabilidadesPsiquicas();
                 break;
             case "Habilidade Belica":
-                lista = Controle_Integracao_Ficha.listarHabilidadesBelicas();
+                lista = Controle_Habilidade.listarHabilidadesBelicas();
                 break;
                 
             case "Caracteristica Fisica":
-                lista = Controle_Integracao_Ficha.listarCaracteristicasFisicas();
+                lista = Controle_Caracteristica.listarCaracteristicasFisicas();
                 break;
             case "Caracteristica Psiquica":
-                lista = Controle_Integracao_Ficha.listarCaracteristicasPsiquicas();
+                lista = Controle_Caracteristica.listarCaracteristicasPsiquicas();
                 break;
             case "Caracteristica Racial":
-                lista = Controle_Integracao_Ficha.listarCaracteristicasRaciais();
+                lista = Controle_Caracteristica.listarCaracteristicasRaciais();
                 break;
                 
             case "Item Generico":
@@ -1056,7 +1056,7 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         
         switch(carregar){
             case "Habilidade Fisica":
-                lista = Controle_Habilidade.listarHabilidadeFisicas();
+                lista = Controle_Habilidade.listarHabilidadesFisicas();
                 break;
             case "Habilidade Psiquica":
                 lista = Controle_Habilidade.listarHabilidadesPsiquicas();

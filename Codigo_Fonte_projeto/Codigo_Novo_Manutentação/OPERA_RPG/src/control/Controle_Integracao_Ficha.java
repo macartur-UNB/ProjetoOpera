@@ -52,19 +52,9 @@ public class Controle_Integracao_Ficha {
             {
                 auxiliar  = new ArrayList();
             }
-            
-            Iterator i = auxiliar.iterator();
-            Caracteristica car = null;
-            while(i.hasNext()){
-                car = (Caracteristica)i.next();
+            if(contemCaracteristica(auxiliar, caracteristica)){
+                throw new CaracteristicaInvalidaException("Ja contem a caracteristica = {"+caracteristica+"}");
             }
-
-            if(car != null){
-                if(car.getNome().equals(c.getNome())){
-                    throw new CaracteristicaInvalidaException("A Ficha ja possui a Caracteristica {"+caracteristica+"}");
-                }
-            }
-            
             auxiliar.add(c);
             ficha.setCaracteristicas(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
@@ -84,35 +74,22 @@ public class Controle_Integracao_Ficha {
          if(auxiliar==null){
              return false;
          }
-         
+         if(!contemCaracteristica(auxiliar, caracteristica)){
+             throw  new CaracteristicaInvalidaException("A caracteristica = "+caracteristica+"e invalida");
+         }
          Iterator i = auxiliar.iterator();
          Caracteristica car = null;
          while(i.hasNext()){
              car = (Caracteristica)i.next();
          }
-        
          if(car != null){
              if(car.getNome().equals(c.getNome())){
                  auxiliar.remove(car);
              }
-         }else{
-             throw new CaracteristicaInvalidaException("Caracteristica {"+caracteristica+"} Invalida");
          }
-         
          ficha.setCaracteristicas(auxiliar);
          Controle_Ficha.atualizarFicha(ficha);
          return true;
-    }
-    
-    
-     public static String[] listarCaracteristicasFisicas(){
-        return listarCaracteristicas("Fisica");
-    }
-    public static String[] listarCaracteristicasPsiquicas(){
-        return listarCaracteristicas("Psiquica");
-    }
-    public static String[] listarCaracteristicasRaciais(){
-        return listarCaracteristicas("Racial");
     }
     
     public static String[] listarCaracteristicas(String tipo){
@@ -151,20 +128,10 @@ public class Controle_Integracao_Ficha {
                 auxiliar  = new ArrayList();
             }
             
-            Iterator i = auxiliar.iterator();
-            Habilidade hab = null;
-            while(i.hasNext()){
-                hab = (Habilidade)i.next();
+            if(contemHabilidade(auxiliar, habilidade)){
+                throw  new HabilidadeInvalidaException("Ja contem a habilidade {"+habilidade+"} na ficha");
             }
-
-            if(hab != null){
-                if(hab.getNome().equals(h.getNome())){
-                    throw new HabilidadeInvalidaException("A Ficha ja possui a Habilidade {"+habilidade+"}");
-                }
-            }
-            
-            auxiliar.add(h);
-                        
+            auxiliar.add(h);           
             ficha.setHabilidades(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
     }
@@ -183,34 +150,23 @@ public class Controle_Integracao_Ficha {
          if(auxiliar==null){
              throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Nao pode ser Removida");
          }         
-         
+         if(!contemHabilidade(auxiliar, habilidade)){
+             throw new HabilidadeInvalidaException("Não contem a habilidade{"+habilidade+"}");
+         }
          Iterator i = auxiliar.iterator();
          Habilidade hab = null;
          while(i.hasNext()){
              hab = (Habilidade)i.next();
-        
+         }
          if(hab != null){
              if(hab.getNome().equals(h.getNome())){
                  auxiliar.remove(hab);
-             }
-         }else{
-             throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Invalida");
-         }
+            }
          }
          ficha.setHabilidades(auxiliar);
          Controle_Ficha.atualizarFicha(ficha);
     }
-    
-    public static String[] listarHabilidadesFisicas(){
-        return listarHabilidades("Fisica");
-    }
-    public static String[] listarHabilidadesPsiquicas(){
-        return listarHabilidades("Psiquica");
-    }
-    public static String[] listarHabilidadesBelicas(){
-        return listarHabilidades("Belica");
-    }
-    
+        
     public static String[] listarHabilidades(String tipo){
         String habilidades[] ;
         int aux=0;
@@ -236,29 +192,15 @@ public class Controle_Integracao_Ficha {
             if(item == null){ 
                 throw new ItemInvalidoException("Item {"+nomeItem+"} Invalido");
             }
-            
             auxiliar = ficha.getItensGenericos();
             if(auxiliar == null)
             {
                 auxiliar  = new ArrayList();
             }
-
-            Iterator i = auxiliar.iterator();
-            Item tempItem = null;
-            while(i.hasNext()){
-                tempItem = (Item)i.next();
+            if(contemItem(auxiliar, nomeItem)){
+                throw  new ItemInvalidoException("O Item {"+nomeItem+"} Já existe");
             }
-
-            /*
-            if(tempItem != null){
-                if(tempItem.getNome().equals(item.getNome())){
-                    throw new ItemInvalidoException("A Ficha ja possui o item {"+nomeItem+"}");
-                }
-            }
-            */
-
             auxiliar.add(item);
-
             ficha.setItensGenericos(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
         
@@ -272,26 +214,28 @@ public class Controle_Integracao_Ficha {
             if(item == null){ 
                 throw new ItemInvalidoException("Item {"+nomeItem+"} Invalido");
             }
-            
-            auxiliar = ficha.getItensGenericos();
+            auxiliar = ficha.getItensGenericos();       
             if(auxiliar==null){
                 throw new ItemInvalidoException("Item {"+nomeItem+"} Nao pode ser Removido");
             }         
-            
+            if(!contemItem(auxiliar, nomeItem)){
+                throw  new ItemInvalidoException("Não contem o item ={"+nomeItem+"} na ficha");
+            }
+            if(ItemUsando(auxiliar, nomeItem)){
+                throw new ItemInvalidoException("O item={"+nomeItem+"} esta sendo usado");
+            }
             Iterator i = auxiliar.iterator();
             Item tempItem = null;
             while(i.hasNext()){
                 tempItem = (Item)i.next();
             }
-
             if(tempItem != null){
                 if(tempItem.getNome().equals(item.getNome())){
-                    auxiliar.remove(tempItem);
+                    if(!ItemUsando(auxiliar,nomeItem)){
+                        auxiliar.remove(tempItem);
+                    }
                 }
-            }else{
-                throw new ItemInvalidoException("Item {"+nomeItem+"} Invalido");
             }
-
             ficha.setItensGenericos(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
@@ -300,18 +244,11 @@ public class Controle_Integracao_Ficha {
     }    
     public static String[] listarItensGenericos(){
         String itens[] ;
-        int aux=0;
         auxiliar = ficha.getItensGenericos();
         if(auxiliar == null){
             return null;
         }
-        itens = new String[auxiliar.size()];
-        Iterator i = auxiliar.iterator();
-        while(i.hasNext()){
-            Item tempItem = (Item)i.next();
-            itens[aux] = tempItem.getNome();      
-            aux++;
-        }
+        itens = listarItem(auxiliar);
         return itens;
     }
     
@@ -321,7 +258,6 @@ public class Controle_Integracao_Ficha {
             if(arma == null){ 
                 throw new ItemInvalidoException("Arma {"+nomeArma+"} Invalida");
             }
-            
             auxiliar = ficha.getArmasADistancia();
             if(auxiliar == null)
             {
@@ -330,12 +266,10 @@ public class Controle_Integracao_Ficha {
 
             Iterator i = auxiliar.iterator();
             Arma_A_Distancia tempArma = null;
-            while(i.hasNext()){
-                tempArma = (Arma_A_Distancia)i.next();
+            if(contemItem(auxiliar, nomeArma)){
+                throw  new ItemInvalidoException("Ja contem o item {"+nomeArma+"}");
             }
-
             auxiliar.add(arma);
-
             ficha.setArmasADistancia(auxiliar);
             Controle_Ficha.atualizarFicha(ficha);
         
@@ -377,18 +311,11 @@ public class Controle_Integracao_Ficha {
     }
     public static String[] listarArma_A_Distancia(){
         String armas[] ;
-        int aux=0;
         auxiliar = ficha.getArmasADistancia();
         if(auxiliar == null){
             return null;
         }
-        armas = new String[auxiliar.size()];
-        Iterator i = auxiliar.iterator();
-        while(i.hasNext()){
-            Arma_A_Distancia tempArma = (Arma_A_Distancia)i.next();
-            armas[aux] = tempArma.getNome();      
-            aux++;
-        }
+        armas = listarItem(auxiliar);
         return armas;
     }
     
@@ -454,18 +381,11 @@ public class Controle_Integracao_Ficha {
     }
     public static String[] listarArma_Corpo_A_Corpo(){
         String armas[] ;
-        int aux=0;
         auxiliar = ficha.getArmasCorpoACorpo();
         if(auxiliar == null){
             return null;
         }
-        armas = new String[auxiliar.size()];
-        Iterator i = auxiliar.iterator();
-        while(i.hasNext()){
-            Arma_Corpo_A_Corpo tempArma = (Arma_Corpo_A_Corpo)i.next();
-            armas[aux] = tempArma.getNome();      
-            aux++;
-        }
+        armas = listarItem(auxiliar);
         return armas;
     }
     
@@ -482,10 +402,8 @@ public class Controle_Integracao_Ficha {
                 auxiliar  = new ArrayList();
             }
 
-            Iterator i = auxiliar.iterator();
-            Armadura tempArmadura = null;
-            while(i.hasNext()){
-                tempArmadura = (Armadura)i.next();
+            if(contemItem(auxiliar, nomeArmadura)){
+                throw  new ItemInvalidoException("Item {"+nomeArmadura+"} ja existe.");
             }
 
             auxiliar.add(armadura);
@@ -530,19 +448,66 @@ public class Controle_Integracao_Ficha {
     }
     public static String[] listarArmadura(){
         String armaduras[] ;
-        int aux=0;
         auxiliar = ficha.getArmaduras();
         if(auxiliar == null){
             return null;
         }
-        armaduras = new String[auxiliar.size()];
-        Iterator i = auxiliar.iterator();
-        while(i.hasNext()){
-            Armadura tempArmadura = (Armadura)i.next();
-            armaduras[aux] = tempArmadura.getNome();      
-            aux++;
-        }
+        armaduras = listarItem(auxiliar);
         return armaduras;
     }
+    private static String[] listarItem(ArrayList colecao){
+        if(colecao.isEmpty()){
+            return null;
+        }
+        String s[] = new String[colecao.size()];
+        int aux = 0;
+        Iterator i = colecao.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            s[aux] = item.getNome();
+            aux++;
+        }
+        return s;
+    }
     
+     public static boolean ItemUsando(ArrayList colecao,String nomeItem){
+        Iterator i = colecao.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            if(item.getNome().equals(nomeItem)){
+                   return item.isUsando();
+            }
+        }
+        return false;
+    }
+    public static boolean contemItem(ArrayList colecao,String nomeItem){
+        Iterator i = colecao.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            if(item.getNome().equals(nomeItem)){
+                   return true;
+            }
+        }
+        return false;
+    }
+    public static boolean contemCaracteristica(ArrayList caracteristicas,String caracteristica){
+        Iterator i = caracteristicas.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            if(item.getNome().equals(caracteristica)){
+                   return true;
+            }
+        }
+        return false;
+    }
+    public static boolean contemHabilidade(ArrayList habilidades, String habilidade){
+        Iterator i = habilidades.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            if(item.getNome().equals(habilidade)){
+                   return item.isUsando();
+            }
+        }
+        return false;
+    }
 }
