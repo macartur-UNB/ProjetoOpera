@@ -33,7 +33,7 @@ public class Controle_Jogo {
    public static void abrirJogo(String nome) throws FileNotFoundException,
     IOException, ClassNotFoundException, JogoInvalidoException, ArquivoInvalidoException{
        DAO_Jogo.carregarJogo(nome);
-    }     
+    }    
     
     public static void apagarJogo(String nome) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Jogo.deletarJogo(nome);

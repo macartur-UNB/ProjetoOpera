@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.classes.FichaTest" tests="8" time="0.085" timestamp="2013-02-23T17:08:41">
+<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.classes.FichaTest" tests="8" time="0.094" timestamp="2013-02-23T17:26:12">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.classes.FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.classes.FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher8716637758681965257.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit5876138765210955247.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.classes.FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.classes.FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher3958742056422148509.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit7773771469840873648.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -443,22 +443,22 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="model.classes.FichaTest" name="testSetCampanha" time="0.003" />
-  <testcase classname="model.classes.FichaTest" name="testSetAtributos" time="0.0" />
-  <testcase classname="model.classes.FichaTest" name="testSetDinheiro" time="0.001" />
-  <testcase classname="model.classes.FichaTest" name="testSetJogador" time="0.0" />
-  <testcase classname="model.classes.FichaTest" name="testSetPersonagem" time="0.001" />
-  <testcase classname="model.classes.FichaTest" name="testSetExperiencia" time="0.0" />
-  <testcase classname="model.classes.FichaTest" name="testSetTipo" time="0.0" />
+  <testcase classname="model.classes.FichaTest" name="testSetTipo" time="0.003" />
   <testcase classname="model.classes.FichaTest" name="testToString" time="0.0" />
-  <system-out><![CDATA[setCampanha
+  <testcase classname="model.classes.FichaTest" name="testSetCampanha" time="0.0" />
+  <testcase classname="model.classes.FichaTest" name="testSetAtributos" time="0.001" />
+  <testcase classname="model.classes.FichaTest" name="testSetDinheiro" time="0.0" />
+  <testcase classname="model.classes.FichaTest" name="testSetJogador" time="0.0" />
+  <testcase classname="model.classes.FichaTest" name="testSetPersonagem" time="0.0" />
+  <testcase classname="model.classes.FichaTest" name="testSetExperiencia" time="0.0" />
+  <system-out><![CDATA[setTipo
+toString
+setCampanha
 setAtributos
 setDinheiro
 setJogador
 setPersonagem
 setExperiencia
-setTipo
-toString
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

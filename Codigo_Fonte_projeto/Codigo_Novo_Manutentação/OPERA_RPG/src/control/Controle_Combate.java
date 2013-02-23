@@ -32,10 +32,7 @@ public class Controle_Combate {
         }
         ficha = Controle_Ficha.encontrarFicha(personagem);
     }
-    /**
-     * verifica se está usando pelo menos 1 arma
-     * @return true or false
-     */
+    
     public static boolean usandoAlgumaArma(){
         return usandoArma(ficha.getArmasADistancia())|| usandoArma(ficha.getArmasCorpoACorpo());           
     }
@@ -54,8 +51,7 @@ public class Controle_Combate {
     public static boolean equiparArmaCorpoACorpo(String nomeArma) 
                                       throws FileNotFoundException, IOException,
                                              ArquivoInvalidoException,
-                                                          ItemInvalidoException{
-        
+                                                          ItemInvalidoException, ItemInvalidoException, ItemInvalidoException{
         if(usandoAlgumaArma()){
               return false;
         }
@@ -66,13 +62,25 @@ public class Controle_Combate {
         if(!Controle_Integracao_Ficha.contemItem(auxiliar, nomeArma)){
            throw  new ItemInvalidoException("Não contem o item = {"+nomeArma+"} na ficha");
         }
-        auxiliar = usarItem(auxiliar, nomeArma);
+        auxiliar = equiparItem(auxiliar, nomeArma);
         ficha.setArmasCorpoACorpo(auxiliar);
         Controle_Ficha.atualizarFicha(ficha);
         return true;
     }
-    
-    public static boolean usarArmaADistancia(String nomeArma) 
+    public static boolean desequiparArmaCorpoACorpo(String nomeArma) throws ItemInvalidoException, FileNotFoundException, IOException, ArquivoInvalidoException {
+        auxiliar = ficha.getArmasCorpoACorpo();  
+        if( auxiliar == null||auxiliar.isEmpty()){
+            return false;
+        }
+        if(!Controle_Integracao_Ficha.contemItem(auxiliar, nomeArma)){
+           throw  new ItemInvalidoException("Não contem o item = {"+nomeArma+"} na ficha");
+        }
+        auxiliar = desequiparItem(auxiliar, nomeArma);
+        ficha.setArmasCorpoACorpo(auxiliar);
+        Controle_Ficha.atualizarFicha(ficha);
+        return true;
+    }
+    public static boolean equiparArmaADistancia(String nomeArma) 
                         throws FileNotFoundException, ArquivoInvalidoException,
                                              IOException, ItemInvalidoException{
           if(usandoAlgumaArma()){
@@ -85,12 +93,30 @@ public class Controle_Combate {
           if(!Controle_Integracao_Ficha.contemItem(auxiliar, nomeArma)){
               throw  new ItemInvalidoException("Não contem o item = {"+nomeArma+"} na ficha");
           }
-          auxiliar = usarItem(auxiliar,nomeArma);
+          auxiliar = equiparItem(auxiliar,nomeArma);
           ficha.setArmasADistancia(auxiliar);
           Controle_Ficha.atualizarFicha(ficha);
           return true;
     }
-    public static boolean usarItemGenerico(String item) 
+    
+     public static boolean desequiparArmaADistancia(String nomeArma) 
+                        throws FileNotFoundException, ArquivoInvalidoException,
+                                             IOException, ItemInvalidoException{
+          auxiliar = ficha.getArmasADistancia();
+          if( auxiliar == null||auxiliar.isEmpty()){
+            return false;
+          }
+          if(!Controle_Integracao_Ficha.contemItem(auxiliar, nomeArma)){
+              throw  new ItemInvalidoException("Não contem o item = {"+nomeArma+"} na ficha");
+          }
+          auxiliar = desequiparItem(auxiliar,nomeArma);
+          ficha.setArmasADistancia(auxiliar);
+          Controle_Ficha.atualizarFicha(ficha);
+          return true;
+    }
+    
+    
+    public static boolean equiparItemGenerico(String item) 
                                       throws FileNotFoundException, IOException,
                                              ArquivoInvalidoException,
                                                           ItemInvalidoException{
@@ -101,34 +127,60 @@ public class Controle_Combate {
         if(!Controle_Integracao_Ficha.contemItem(auxiliar, item)){
             throw  new ItemInvalidoException("Não contem o item = {"+item+"} na ficha");
         }
-        if(!Controle_Integracao_Ficha.contemItem(auxiliar, item)){
-            throw  new ItemInvalidoException("Não contem o item = {"+item+"} na ficha");
-        }
-        auxiliar = usarItem(auxiliar,item);
+        auxiliar = equiparItem(auxiliar,item);
         ficha.setArmasADistancia(auxiliar);
         Controle_Ficha.atualizarFicha(ficha);
         return true;
     }
     
-    public static ArrayList usarItem(ArrayList colecao, String nomeItem){
+    public static boolean desequiparItemGenerico(String item) 
+                                      throws FileNotFoundException, IOException,
+                                             ArquivoInvalidoException,
+                                                          ItemInvalidoException{
+        auxiliar = ficha.getItensGenericos();
+        if( auxiliar == null||auxiliar.isEmpty()){
+            return false;
+        }
+        if(!Controle_Integracao_Ficha.contemItem(auxiliar, item)){
+            throw  new ItemInvalidoException("Não contem o item = {"+item+"} na ficha");
+        }
+        auxiliar = desequiparItem(auxiliar,item);
+        ficha.setArmasADistancia(auxiliar);
+        Controle_Ficha.atualizarFicha(ficha);
+        return true;
+    }
+    
+    public static ArrayList equiparItem(ArrayList colecao, String nomeItem){
         Iterator i = colecao.iterator();
         while(i.hasNext()){
             Item item = (Item) i.next();
             if(item.getNome().equals(nomeItem)){
-                item.setUsando(true);
+                if(item.getHabilidade_Necessaria()==null){
+                    item.setUsando(true);
+                }else                
+                if(Controle_Integracao_Ficha.contemHabilidade(ficha.getHabilidades(),
+                                                   item.getHabilidade_Necessaria())){
+                    item.setUsando(true);
+                }
             }
         }
         return colecao;
     }
-    /**
-     * coloca para utilizar uma armadura
-     * @param nomeArmadura
-     * @return true or false
-     * @throws FileNotFoundException
-     * @throws ArquivoInvalidoException
-     * @throws IOException 
-     */
-    public static boolean usarArmadura(String nomeArmadura) 
+   
+    public static ArrayList desequiparItem(ArrayList colecao,String nomeItem){
+        Iterator i = colecao.iterator();
+        while(i.hasNext()){
+            Item item = (Item)i.next();
+            if(item.getNome().equals(nomeItem)){
+                item.setUsando(false);
+            }
+        }
+        return colecao;
+    }
+    
+    
+    
+    public static boolean equiparArmadura(String nomeArmadura) 
                          throws FileNotFoundException, ArquivoInvalidoException,
                                                                     IOException{
         auxiliar = ficha.getArmaduras(); 
@@ -142,20 +194,28 @@ public class Controle_Combate {
         while(i.hasNext()){
             Armadura armadura= (Armadura) i.next();
             if(armadura.getNome().equals(nomeArmadura) &&
-               verificarUsandoNaRegicao_Do_Corpo(auxiliar,armadura.getRegiao_Do_Corpo())){
-                armadura.setUsando(true);
+               !verificarUsandoNaRegicao_Do_Corpo(auxiliar,armadura.getRegiao_Do_Corpo())){
+                    armadura.setUsando(true);
             }
         }
         ficha.setArmaduras(auxiliar);
         Controle_Ficha.atualizarFicha(ficha);
         return true;
     }
-    /**
-     * verifica se esta usando um determinado item
-     * @param colecao
-     * @param nomeItem
-     * @return true or false
-     */
+    public static boolean desequiparArmadura(String nomeArmadura) throws ItemInvalidoException, FileNotFoundException, IOException, ArquivoInvalidoException {
+        auxiliar = ficha.getArmaduras(); 
+        if(auxiliar == null){
+            return false;
+        }
+        if(!Controle_Integracao_Ficha.contemItem(auxiliar, nomeArmadura)){
+            throw  new ItemInvalidoException("Não contem o item = {"+nomeArmadura+"} na ficha");
+        }
+        auxiliar = desequiparItem(auxiliar,nomeArmadura);
+        ficha.setArmasADistancia(auxiliar);
+        Controle_Ficha.atualizarFicha(ficha);
+        return true;
+    }
+    
     public static boolean ItemUsando(ArrayList colecao,String nomeItem){
         Iterator i = colecao.iterator();
         while(i.hasNext()){
@@ -166,11 +226,7 @@ public class Controle_Combate {
         }
         return false;
     }
-    /**
-     * verifica se está utilizando a regiao do corpo em com uma armadura
-     * @param regiao
-     * @return true or false;
-     */
+    
     public static boolean verificarUsandoNaRegicao_Do_Corpo(ArrayList armaduras , char regiao){
         Iterator i = armaduras.iterator();
         while(i.hasNext()){

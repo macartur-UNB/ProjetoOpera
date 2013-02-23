@@ -137,8 +137,5 @@ public class ValidarPalavraTest {
             fail("validarCaractere invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
         }
-        
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 }

@@ -6,7 +6,6 @@ package model.classes;
 
 import control.Controle_Habilidade;
 import control.Controle_Jogo;
-import model.exception.DadoInvalidoException;
 import model.exception.ItemInvalidoException;
 
 import org.junit.After;

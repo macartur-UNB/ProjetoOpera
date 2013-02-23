@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="control.Controle_CaracteristicaTest" tests="15" time="0.616" timestamp="2013-02-23T17:08:33">
+<testsuite errors="0" failures="0" hostname="Macartur-PC" name="control.Controle_CaracteristicaTest" tests="15" time="1.665" timestamp="2013-02-23T17:26:03">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner control.Controle_CaracteristicaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-control.Controle_CaracteristicaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher2786712394923024182.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit3451401665281789035.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner control.Controle_CaracteristicaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-control.Controle_CaracteristicaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher4903722090991662283.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit207975372381309652.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -443,36 +443,36 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristicaEspecifica_6args" time="0.065" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristicaEspecifica_7args" time="0.035" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testEncontrarCaracteristica_Especifica" time="0.037" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasFisicas" time="0.037" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasPsiquicas" time="0.039" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCaracteristicaExiste_String" time="0.034" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasRacial" time="0.034" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicas" time="0.034" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testListarCaracteristicasFisicas" time="0.034" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testListarCaracteristicasPsiquicas" time="0.032" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristica_4args" time="0.105" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristica_5args" time="0.055" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testEncontrarCaracteristica" time="0.093" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCaracteristicaExiste" time="0.054" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCaracteristicaExiste_String" time="0.031" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasRacial" time="0.042" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicas" time="0.035" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testListarCaracteristicasFisicas" time="0.033" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testListarCaracteristicasPsiquicas" time="0.031" />
   <testcase classname="control.Controle_CaracteristicaTest" name="testListarCaracteristicasRaciais" time="0.032" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristica_4args" time="0.029" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristica_5args" time="0.029" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testEncontrarCaracteristica" time="0.028" />
-  <testcase classname="control.Controle_CaracteristicaTest" name="testCaracteristicaExiste" time="0.027" />
-  <system-out><![CDATA[cadCaracteristicaEspecifica
-cadCaracteristicaEspecifica
-encontrarCaracteristica_Especifica
-removeTodasCaracteristicasFisicas
-removeTodasCaracteristicasPsiquicas
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristicaEspecifica_6args" time="0.229" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testCadCaracteristicaEspecifica_7args" time="0.173" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testEncontrarCaracteristica_Especifica" time="0.232" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasFisicas" time="0.033" />
+  <testcase classname="control.Controle_CaracteristicaTest" name="testRemoveTodasCaracteristicasPsiquicas" time="0.035" />
+  <system-out><![CDATA[cadCaracteristica
+cadCaracteristica
+encontrarCaracteristica
+CaracteristicaExiste-tipo
 CaracteristicaExiste-todas
 removeTodasCaracteristicasRacial
 removeTodasCaracteristicas
 listarCaracteristicasFisicas
 listarCaracteristicasPsiquicas
 listarCaracteristicasRaciais
-cadCaracteristica
-cadCaracteristica
-encontrarCaracteristica
-CaracteristicaExiste-tipo
+cadCaracteristicaEspecifica
+cadCaracteristicaEspecifica
+encontrarCaracteristica_Especifica
+removeTodasCaracteristicasFisicas
+removeTodasCaracteristicasPsiquicas
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

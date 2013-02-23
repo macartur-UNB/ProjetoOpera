@@ -56,8 +56,6 @@ public class DAO_HabilidadeTest {
         }else {
             Controle_Jogo.criarJogo(jogo);
         }
-            
-        
     }
     
     @After

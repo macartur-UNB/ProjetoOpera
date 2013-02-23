@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="control.Controle_FichaTest" tests="20" time="0.803" timestamp="2013-02-23T17:08:35">
+<testsuite errors="0" failures="0" hostname="Macartur-PC" name="control.Controle_FichaTest" tests="20" time="1.445" timestamp="2013-02-23T17:26:05">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner control.Controle_FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-control.Controle_FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher4018163914140012719.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit8122555065251345521.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner control.Controle_FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-control.Controle_FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher834710145816845924.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit7922990753360587388.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -443,27 +443,28 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasJogador" time="0.076" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasNPC" time="0.029" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasMonstro" time="0.056" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichas" time="0.036" />
-  <testcase classname="control.Controle_FichaTest" name="testListarFichasJogador" time="0.034" />
-  <testcase classname="control.Controle_FichaTest" name="testListarFichasMonstro" time="0.033" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasJogador" time="0.224" />
+  <testcase classname="control.Controle_FichaTest" name="testCadNPC" time="0.031" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasNPC" time="0.028" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichasMonstro" time="0.037" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoveTodasFichas" time="0.07" />
+  <testcase classname="control.Controle_FichaTest" name="testListarFichasJogador" time="0.066" />
+  <testcase classname="control.Controle_FichaTest" name="testListarFichasMonstro" time="0.04" />
   <testcase classname="control.Controle_FichaTest" name="testCadMonstro" time="0.03" />
-  <testcase classname="control.Controle_FichaTest" name="testEncontrarJogador" time="0.03" />
-  <testcase classname="control.Controle_FichaTest" name="testCadJogador" time="0.028" />
+  <testcase classname="control.Controle_FichaTest" name="testEncontrarJogador" time="0.031" />
+  <testcase classname="control.Controle_FichaTest" name="testCadJogador" time="0.03" />
   <testcase classname="control.Controle_FichaTest" name="testEncontrarNPC" time="0.031" />
-  <testcase classname="control.Controle_FichaTest" name="testEncontrarMonstro" time="0.032" />
-  <testcase classname="control.Controle_FichaTest" name="testJogadorExiste" time="0.028" />
-  <testcase classname="control.Controle_FichaTest" name="testNPCExiste" time="0.029" />
-  <testcase classname="control.Controle_FichaTest" name="testMonstroExiste" time="0.03" />
-  <testcase classname="control.Controle_FichaTest" name="testFichaExiste" time="0.029" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoverJogador" time="0.032" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoverNPC" time="0.03" />
-  <testcase classname="control.Controle_FichaTest" name="testRemoverMonstro" time="0.03" />
-  <testcase classname="control.Controle_FichaTest" name="testCadNPC" time="0.033" />
-  <testcase classname="control.Controle_FichaTest" name="testListarFichasNPC" time="0.046" />
+  <testcase classname="control.Controle_FichaTest" name="testEncontrarMonstro" time="0.03" />
+  <testcase classname="control.Controle_FichaTest" name="testJogadorExiste" time="0.029" />
+  <testcase classname="control.Controle_FichaTest" name="testNPCExiste" time="0.03" />
+  <testcase classname="control.Controle_FichaTest" name="testMonstroExiste" time="0.028" />
+  <testcase classname="control.Controle_FichaTest" name="testFichaExiste" time="0.075" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoverJogador" time="0.112" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoverNPC" time="0.121" />
+  <testcase classname="control.Controle_FichaTest" name="testRemoverMonstro" time="0.055" />
+  <testcase classname="control.Controle_FichaTest" name="testListarFichasNPC" time="0.076" />
   <system-out><![CDATA[removeTodasFichasJogador
+cadNPC
 removeTodasFichasNPC
 removeTodasFichasMonstro
 removeTodasHabilidades
@@ -481,7 +482,6 @@ FichaExiste
 removerJogador
 removerNPC
 removerMonstro
-cadNPC
 listarFichasNPC
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

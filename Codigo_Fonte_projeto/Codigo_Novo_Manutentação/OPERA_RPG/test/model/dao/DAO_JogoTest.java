@@ -4,11 +4,8 @@
  */
 package model.dao;
 
-import java.io.IOException;
+
 import model.classes.Jogo;
-import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
-import model.exception.DiretorioInvalidoException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,7 +39,9 @@ public class DAO_JogoTest {
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception{
+        DAO_Jogo.deletarJogo("JUnitTest");
+        DAO_Jogo.deletarJogo("JUnitTest1");
     }
 
     
