@@ -238,7 +238,7 @@ public class Controle_Integracao_Ficha {
             if(!contemItem(auxiliar, nomeItem)){
                 throw  new ItemInvalidoException("Não contem o item ={"+nomeItem+"} na ficha");
             }
-            if(ItemUsando(auxiliar, nomeItem)){
+            if(Controle_Combate.ItemUsando(auxiliar, nomeItem)){
                 throw new ItemInvalidoException("O item={"+nomeItem+"} esta sendo usado");
             }
             Iterator i = auxiliar.iterator();
@@ -248,7 +248,7 @@ public class Controle_Integracao_Ficha {
             }
             if(tempItem != null){
                 if(tempItem.getNome().equals(item.getNome())){
-                    if(!ItemUsando(auxiliar,nomeItem)){
+                    if(!Controle_Combate.ItemUsando(auxiliar,nomeItem)){
                         auxiliar.remove(tempItem);
                     }
                 }
@@ -485,17 +485,6 @@ public class Controle_Integracao_Ficha {
             aux++;
         }
         return s;
-    }
-    
-     public static boolean ItemUsando(ArrayList colecao,String nomeItem){
-        Iterator i = colecao.iterator();
-        while(i.hasNext()){
-            Item item = (Item)i.next();
-            if(item.getNome().equals(nomeItem)){
-                   return item.isUsando();
-            }
-        }
-        return false;
     }
     public static boolean contemItem(ArrayList colecao,String nomeItem){
         Iterator i = colecao.iterator();
