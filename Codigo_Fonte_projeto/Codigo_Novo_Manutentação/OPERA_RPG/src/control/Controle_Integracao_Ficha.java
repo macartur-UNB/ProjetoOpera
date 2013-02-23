@@ -92,7 +92,16 @@ public class Controle_Integracao_Ficha {
          return true;
     }
     
-    public static String[] listarCaracteristicas(String tipo){
+    public static String[] listarIntegracaoCaracteristicasFisicas(){
+        return listarCaracteristicas("Fisica");
+    }
+    public static String[] listarIntegracaoCaracteristicasPsiquicas(){
+        return listarCaracteristicas("Psiquica");
+    }
+    public static String[] listarIntegracaoCaracteristicasRaciais(){
+        return listarCaracteristicas("Racial");
+    }
+    private static String[] listarCaracteristicas(String tipo){
         String caracteristicas[] ;
         int aux=0;
         auxiliar = ficha.getCaracteristicas();
@@ -127,7 +136,6 @@ public class Controle_Integracao_Ficha {
             {
                 auxiliar  = new ArrayList();
             }
-            
             if(contemHabilidade(auxiliar, habilidade)){
                 throw  new HabilidadeInvalidaException("Ja contem a habilidade {"+habilidade+"} na ficha");
             }
@@ -167,7 +175,16 @@ public class Controle_Integracao_Ficha {
          Controle_Ficha.atualizarFicha(ficha);
     }
         
-    public static String[] listarHabilidades(String tipo){
+    public static String[] listarIntegracaoHabilidadesFisicas(){
+        return listarHabilidades("Fisica");
+    }
+    public static String[] listarIntegracaoHabilidadesPsiquicas(){
+        return listarHabilidades("Psiquica");
+    }
+    public static String[] listarIntegracaoHabilidadesBelicas(){
+        return listarHabilidades("Belica");
+    }
+    private static String[] listarHabilidades(String tipo){
         String habilidades[] ;
         int aux=0;
         auxiliar = ficha.getHabilidades();
@@ -446,7 +463,7 @@ public class Controle_Integracao_Ficha {
             throw new ItemInvalidoException("A Armadura nao pode ser removida");
         }
     }
-    public static String[] listarArmadura(){
+    public static String[] listarArmaduras(){
         String armaduras[] ;
         auxiliar = ficha.getArmaduras();
         if(auxiliar == null){
@@ -490,22 +507,22 @@ public class Controle_Integracao_Ficha {
         }
         return false;
     }
-    public static boolean contemCaracteristica(ArrayList caracteristicas,String caracteristica){
+    public static boolean contemCaracteristica(ArrayList caracteristicas,String nomeCaracteristica){
         Iterator i = caracteristicas.iterator();
         while(i.hasNext()){
-            Item item = (Item)i.next();
-            if(item.getNome().equals(caracteristica)){
+            Caracteristica caracteristica = (Caracteristica)i.next();
+            if(caracteristica.getNome().equals(nomeCaracteristica)){
                    return true;
             }
         }
         return false;
     }
-    public static boolean contemHabilidade(ArrayList habilidades, String habilidade){
+    public static boolean contemHabilidade(ArrayList habilidades, String nomeHabilidade){
         Iterator i = habilidades.iterator();
         while(i.hasNext()){
-            Item item = (Item)i.next();
-            if(item.getNome().equals(habilidade)){
-                   return item.isUsando();
+            Habilidade habilidade = (Habilidade)i.next();
+            if(habilidade.getNome().equals(nomeHabilidade)){
+                   return true;
             }
         }
         return false;

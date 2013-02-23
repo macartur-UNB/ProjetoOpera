@@ -1001,23 +1001,23 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         Controle_Integracao_Ficha.selecionarFicha(ficha);
         switch(carregar){
             case "Habilidade Fisica":
-                lista = Controle_Habilidade.listarHabilidadesFisicas();
+                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesFisicas();
                 break;
             case "Habilidade Psiquica":
-                lista = Controle_Habilidade.listarHabilidadesPsiquicas();
+                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesPsiquicas();
                 break;
             case "Habilidade Belica":
-                lista = Controle_Habilidade.listarHabilidadesBelicas();
+                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesBelicas();
                 break;
                 
             case "Caracteristica Fisica":
-                lista = Controle_Caracteristica.listarCaracteristicasFisicas();
+                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasFisicas();
                 break;
             case "Caracteristica Psiquica":
-                lista = Controle_Caracteristica.listarCaracteristicasPsiquicas();
+                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasPsiquicas();
                 break;
             case "Caracteristica Racial":
-                lista = Controle_Caracteristica.listarCaracteristicasRaciais();
+                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasRaciais();
                 break;
                 
             case "Item Generico":
@@ -1030,7 +1030,7 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
                 lista = Controle_Integracao_Ficha.listarArma_Corpo_A_Corpo();
                 break;
             case "Armadura":
-                lista = Controle_Integracao_Ficha.listarArmadura();
+                lista = Controle_Integracao_Ficha.listarArmaduras();
                 break;
         }
         
