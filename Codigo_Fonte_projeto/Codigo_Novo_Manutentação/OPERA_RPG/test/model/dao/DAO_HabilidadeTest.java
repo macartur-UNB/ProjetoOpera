@@ -56,6 +56,8 @@ public class DAO_HabilidadeTest {
         }else {
             Controle_Jogo.criarJogo(jogo);
         }
+            
+        
     }
     
     @After
@@ -208,7 +210,7 @@ public class DAO_HabilidadeTest {
     @Test    
     public void testRemoverTodasHabilidades() throws Exception {
         System.out.println("removerTodasHabilidades");
-        Habilidade habilidade1 = new Habilidade(2,2,2,testeFisica,fisica);
+        Habilidade habilidade1 = new Habilidade(2,2,2,testeFisica+"1",fisica);
         Habilidade habilidade2 = new Habilidade(3,3,3,testeFisica+"2",fisica);
         DAO_Habilidade.gravarHabilidade(habilidade1);
         DAO_Habilidade.gravarHabilidade(habilidade2);
@@ -219,7 +221,7 @@ public class DAO_HabilidadeTest {
         list = arquivo.list();
         assertEquals(0,list.length);
         
-        habilidade1 = new Habilidade(2,2,2,testePsiquica,psiquica);
+        habilidade1 = new Habilidade(2,2,2,testePsiquica+"1",psiquica);
         habilidade2 = new Habilidade(3,3,3,testePsiquica+"2",psiquica);
         DAO_Habilidade.gravarHabilidade(habilidade1);
         DAO_Habilidade.gravarHabilidade(habilidade2);
@@ -230,7 +232,7 @@ public class DAO_HabilidadeTest {
         list = arquivo.list();
         assertEquals(0,list.length);
         
-        habilidade1 = new Habilidade(2,2,2,testeBelica,belica);
+        habilidade1 = new Habilidade(2,2,2,testeBelica+"1",belica);
         habilidade2 = new Habilidade(3,3,3,testeBelica+"2",belica);
         DAO_Habilidade.gravarHabilidade(habilidade1);
         DAO_Habilidade.gravarHabilidade(habilidade2);
