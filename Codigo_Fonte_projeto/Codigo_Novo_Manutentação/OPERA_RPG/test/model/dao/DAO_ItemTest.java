@@ -4,9 +4,11 @@
  */
 package model.dao;
 
+import java.io.File;
 import model.classes.Arma_A_Distancia;
 import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
+import model.classes.Habilidade;
 import model.classes.Item;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,6 +23,20 @@ import static org.junit.Assert.*;
  */
 public class DAO_ItemTest {
     
+    private String diretorio = "C:\\Opera\\Jogos\\JUnitTest\\Itens\\";
+    private String jogo = "JUnitTest";
+    private String armaduras = "Armaduras";   
+    private String generico = "Generico";
+    private String armas = "Armas\\";
+    private String armasDistancia = "Armas_A_Distancia";
+    private String armasCorpo = "Armas_Corpo_A_Corpo\\";
+    private String armasBranca = "Branca";
+    private String armasFogo = "De_Fogo"; 
+    private String testeItem = "TesteItem";
+    private int[] testeAtributos = {2,2,2,2,2,2,2,2};
+    private int preco = 2;
+    
+    
     public DAO_ItemTest() {
     }
     
@@ -33,23 +49,40 @@ public class DAO_ItemTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+         if(DAO_Jogo.jogoExiste(jogo)) {
+            DAO_Jogo.deletarJogo(jogo);
+            DAO_Jogo.criarJogo(jogo);            
+        }else {
+            DAO_Jogo.criarJogo(jogo);
+        }
+         
+         Habilidade habilidade = new Habilidade(2, 2, 2, "TesteFisica", "Fisica");
+         DAO_Habilidade.gravarHabilidade(habilidade);
+         File arquivo = new File("C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica"
+                                ,"TesteFisica.opera");
+         assertEquals(true,arquivo.exists());
+         
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
+        DAO_Jogo.deletarJogo(jogo);
     }
 
     /**
      * Test of gravarItem method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testGravarItem() throws Exception {
-        System.out.println("gravarItem");
-        Item item = null;
-        DAO_Item.gravarItem(item);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("gravarItem");        
+        Item item = new Item(testeItem, testeItem, true, testeAtributos,preco, "TesteFisica");
+        DAO_Item.gravarItem(item);        
+        File arquivo = new File(diretorio+generico, testeItem+".opera");
+        boolean expResult = true;
+        boolean result = arquivo.exists(); 
+        assertEquals(expResult, result);         
+        assertEquals(expResult, arquivo.delete());
     }
 
     /**

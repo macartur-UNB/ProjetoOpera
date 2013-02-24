@@ -50,11 +50,11 @@ public class DAO_HabilidadeTest {
     
     @Before
     public void setUp() throws Exception {               
-        if(Controle_Jogo.jogoExiste(jogo)) {
-            Controle_Jogo.apagarJogo(jogo);
-            Controle_Jogo.criarJogo(jogo);            
+        if(DAO_Jogo.jogoExiste(jogo)) {
+            DAO_Jogo.deletarJogo(jogo);
+            DAO_Jogo.criarJogo(jogo);            
         }else {
-            Controle_Jogo.criarJogo(jogo);
+            DAO_Jogo.criarJogo(jogo);
         }
             
         
@@ -62,7 +62,7 @@ public class DAO_HabilidadeTest {
     
     @After
     public void tearDown() throws Exception {
-       Controle_Jogo.apagarJogo(jogo);
+       DAO_Jogo.deletarJogo(jogo);
     }
 
     /**
