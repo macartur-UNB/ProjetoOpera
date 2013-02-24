@@ -4,18 +4,44 @@
  */
 package view.PaineisDeVisualizacao;
 
+import control.Controle_Caracteristica;
+import control.Controle_Ficha;
+import control.Controle_Habilidade;
+import control.Controle_Integracao_Ficha;
+import control.Controle_Item;
+import java.awt.Dimension;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import model.classes.Arma;
+import model.classes.Arma_A_Distancia;
+import model.classes.Arma_Corpo_A_Corpo;
+import model.classes.Armadura;
+import model.classes.Caracteristica;
+import model.classes.Constante_Atributo;
+import model.classes.Habilidade;
+import model.classes.Item;
+import model.exception.ArquivoInvalidoException;
+import model.exception.FichaInvalidaException;
+import model.exception.HabilidadeInvalidaException;
 import view.PaineisDeCadastro.PainelFuncoes;
+import view.PaineisDeCadastro.PnlCadastrarCaracteristica;
+import view.PaineisDeCadastro.PnlCadastrarHabilidade;
+import view.PaineisDeCadastro.PnlCadastrarItem;
 
 /**
  *
  * @author Luciano
  */
 public class PnlVisualizarFicha extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form PnlVisualizarFicha
      */
@@ -28,6 +54,11 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
         pnlAlterarFicha.getPnlCadastrarFicha().getBtnLimpar().setVisible(false);
         
         pnlAlterarFicha.setPodeHabilitarCampos(false);
+        
+        iniciarCmbFicha();
+        
+        limparListas();
+                
     }
 
     /**
@@ -40,6 +71,270 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlAlterarFicha = new view.PaineisDeAlteracao.PnlAlterarFicha();
+        pnlHabilidades = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listHabilidades = new javax.swing.JList();
+        btnVisualizarHabilidade = new javax.swing.JButton();
+        pnlCaracteristicas = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listCaracteristicas = new javax.swing.JList();
+        btnVisualizarCaracteristica = new javax.swing.JButton();
+        pnlItens = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listItens = new javax.swing.JList();
+        btnVisualizarItens = new javax.swing.JButton();
+        pnlArmasADistancia = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        listArmasADistancia = new javax.swing.JList();
+        btnVisualizarArmaADistancia = new javax.swing.JButton();
+        pnlArmasCorpoACorpo = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        listArmasCorpoACorpo = new javax.swing.JList();
+        btnVisualizarArmaCorpoACorpo = new javax.swing.JButton();
+        pnlArmaduras = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        listArmaduras = new javax.swing.JList();
+        btnVisualizarArmaduras = new javax.swing.JButton();
+
+        pnlHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder("Habilidades"));
+
+        listHabilidades.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listHabilidades.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(listHabilidades);
+
+        btnVisualizarHabilidade.setText("Visualizar");
+        btnVisualizarHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarHabilidadeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlHabilidadesLayout = new javax.swing.GroupLayout(pnlHabilidades);
+        pnlHabilidades.setLayout(pnlHabilidadesLayout);
+        pnlHabilidadesLayout.setHorizontalGroup(
+            pnlHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHabilidadesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHabilidadesLayout.createSequentialGroup()
+                        .addGap(0, 272, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarHabilidade)))
+                .addContainerGap())
+        );
+        pnlHabilidadesLayout.setVerticalGroup(
+            pnlHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHabilidadesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarHabilidade)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlCaracteristicas.setBorder(javax.swing.BorderFactory.createTitledBorder("Caracteristicas"));
+
+        listCaracteristicas.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listCaracteristicas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.setViewportView(listCaracteristicas);
+
+        btnVisualizarCaracteristica.setText("Visualizar");
+        btnVisualizarCaracteristica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarCaracteristicaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCaracteristicasLayout = new javax.swing.GroupLayout(pnlCaracteristicas);
+        pnlCaracteristicas.setLayout(pnlCaracteristicasLayout);
+        pnlCaracteristicasLayout.setHorizontalGroup(
+            pnlCaracteristicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCaracteristicasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCaracteristicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCaracteristicasLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarCaracteristica)))
+                .addContainerGap())
+        );
+        pnlCaracteristicasLayout.setVerticalGroup(
+            pnlCaracteristicasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCaracteristicasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarCaracteristica)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlItens.setBorder(javax.swing.BorderFactory.createTitledBorder("Itens"));
+
+        listItens.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listItens.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane3.setViewportView(listItens);
+
+        btnVisualizarItens.setText("Visualizar");
+        btnVisualizarItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarItensActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlItensLayout = new javax.swing.GroupLayout(pnlItens);
+        pnlItens.setLayout(pnlItensLayout);
+        pnlItensLayout.setHorizontalGroup(
+            pnlItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlItensLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlItensLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarItens)))
+                .addContainerGap())
+        );
+        pnlItensLayout.setVerticalGroup(
+            pnlItensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlItensLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarItens)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlArmasADistancia.setBorder(javax.swing.BorderFactory.createTitledBorder("Armas a Distancia"));
+
+        listArmasADistancia.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listArmasADistancia.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane4.setViewportView(listArmasADistancia);
+
+        btnVisualizarArmaADistancia.setText("Visualizar");
+        btnVisualizarArmaADistancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarArmaADistanciaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlArmasADistanciaLayout = new javax.swing.GroupLayout(pnlArmasADistancia);
+        pnlArmasADistancia.setLayout(pnlArmasADistanciaLayout);
+        pnlArmasADistanciaLayout.setHorizontalGroup(
+            pnlArmasADistanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmasADistanciaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlArmasADistanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlArmasADistanciaLayout.createSequentialGroup()
+                        .addGap(0, 259, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarArmaADistancia)))
+                .addContainerGap())
+        );
+        pnlArmasADistanciaLayout.setVerticalGroup(
+            pnlArmasADistanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmasADistanciaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarArmaADistancia)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlArmasCorpoACorpo.setBorder(javax.swing.BorderFactory.createTitledBorder("Armas Corpo a Corpo"));
+
+        listArmasCorpoACorpo.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listArmasCorpoACorpo.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane5.setViewportView(listArmasCorpoACorpo);
+
+        btnVisualizarArmaCorpoACorpo.setText("Visualizar");
+        btnVisualizarArmaCorpoACorpo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarArmaCorpoACorpoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlArmasCorpoACorpoLayout = new javax.swing.GroupLayout(pnlArmasCorpoACorpo);
+        pnlArmasCorpoACorpo.setLayout(pnlArmasCorpoACorpoLayout);
+        pnlArmasCorpoACorpoLayout.setHorizontalGroup(
+            pnlArmasCorpoACorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmasCorpoACorpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlArmasCorpoACorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlArmasCorpoACorpoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarArmaCorpoACorpo)))
+                .addContainerGap())
+        );
+        pnlArmasCorpoACorpoLayout.setVerticalGroup(
+            pnlArmasCorpoACorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmasCorpoACorpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarArmaCorpoACorpo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pnlArmaduras.setBorder(javax.swing.BorderFactory.createTitledBorder("Armaduras"));
+
+        listArmaduras.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listArmaduras.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane6.setViewportView(listArmaduras);
+
+        btnVisualizarArmaduras.setText("Visualizar");
+        btnVisualizarArmaduras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarArmadurasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlArmadurasLayout = new javax.swing.GroupLayout(pnlArmaduras);
+        pnlArmaduras.setLayout(pnlArmadurasLayout);
+        pnlArmadurasLayout.setHorizontalGroup(
+            pnlArmadurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmadurasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlArmadurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlArmadurasLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVisualizarArmaduras)))
+                .addContainerGap())
+        );
+        pnlArmadurasLayout.setVerticalGroup(
+            pnlArmadurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmadurasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisualizarArmaduras)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,17 +342,554 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlAlterarFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 202, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlHabilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlCaracteristicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlArmasADistancia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlArmasCorpoACorpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlArmaduras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlAlterarFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlArmasADistancia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlHabilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlArmasCorpoACorpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlItens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlArmaduras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private view.PaineisDeAlteracao.PnlAlterarFicha pnlAlterarFicha;
-    // End of variables declaration//GEN-END:variables
 
+    private void btnVisualizarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarHabilidadeActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmHabilidade = new JFrame();
+            PnlCadastrarHabilidade pnlCadastrarHabilidade = new PnlCadastrarHabilidade();
+
+            String nomeHabilidade = listHabilidades.getSelectedValue().toString();
+            Habilidade habilidade = Controle_Habilidade.encontrarHabilidade(nomeHabilidade, Controle_Habilidade.getTipoHabildiade(nomeHabilidade));
+
+            pnlCadastrarHabilidade.getBtnCadastrar().setVisible(false);
+            pnlCadastrarHabilidade.getBtnLimpar().setVisible(false);
+            
+            pnlCadastrarHabilidade.getTxtNome().setText(habilidade.getNome());
+            pnlCadastrarHabilidade.getTxtCusto().setText(""+habilidade.getCusto());
+                        
+            if(habilidade.getTipo().equals("Fisica")){
+                pnlCadastrarHabilidade.getRdbFisica().setSelected(true);
+            }
+            if(habilidade.getTipo().equals("Psiquica")){
+                pnlCadastrarHabilidade.getRdbPsiquica().setSelected(true);
+            }
+            if(habilidade.getTipo().equals("Belica")){
+                pnlCadastrarHabilidade.getRdbBelica().setSelected(true);
+            }
+            
+            pnlCadastrarHabilidade.getTxtTeste().setText(""+habilidade.getTeste());
+                        
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarHabilidade, false);
+            
+            frmHabilidade.add(pnlCadastrarHabilidade);
+            
+            frmHabilidade.setMinimumSize(new Dimension(pnlCadastrarHabilidade.getMinimumSize().width + 25, pnlCadastrarHabilidade.getMinimumSize().height + 50));
+            
+            frmHabilidade.setVisible(true);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | HabilidadeInvalidaException | HeadlessException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Habilidade selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarHabilidadeActionPerformed
+
+    private void btnVisualizarItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarItensActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmItem = new JFrame();
+            PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
+                                    
+            Item item = Controle_Item.encontrarItemGenerico(listItens.getSelectedValue().toString());
+            
+            carregarDadosDoItemNoPainel(pnlCadastrarItem, item);
+            
+            pnlCadastrarItem.getBtnCadastrar().setVisible(false);
+            pnlCadastrarItem.getBtnLimpar().setVisible(false);
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
+            frmItem.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmItem.setVisible(true);
+            frmItem.add(pnlCadastrarItem);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Item selecionado eh Invalido","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarItensActionPerformed
+
+    private void btnVisualizarCaracteristicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarCaracteristicaActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmCaracteristica = new JFrame();
+            PnlCadastrarCaracteristica pnlCadastrarCaracteristica = new PnlCadastrarCaracteristica();
+            
+            Caracteristica caracteristica = Controle_Caracteristica.encontrarCaracteristica(listCaracteristicas.getSelectedValue().toString());
+            
+            pnlCadastrarCaracteristica.getTxtNome().setText(caracteristica.getNome());
+            pnlCadastrarCaracteristica.getTxtCusto().setText(""+caracteristica.getCusto());
+            pnlCadastrarCaracteristica.getTxtDescricao().setText(caracteristica.getDescricao());
+            
+            if(caracteristica.getTipo().equals("Fisica")){
+                pnlCadastrarCaracteristica.getRdbFisica().setSelected(true);
+            }
+            if(caracteristica.getTipo().equals("Psiquica")){
+                pnlCadastrarCaracteristica.getRdbPsiquica().setSelected(true);
+            }
+            if(caracteristica.getTipo().equals("Racial")){
+                pnlCadastrarCaracteristica.getRdbRacial().setSelected(true);
+            }
+            
+            final int FISICO = Constante_Atributo.FISICO;
+            final int DESTREZA = Constante_Atributo.DESTREZA;
+            final int INTELIGENCIA = Constante_Atributo.INTELIGENCIA;
+            final int VONTADE = Constante_Atributo.VONTADE;
+            final int PERCEPCAO = Constante_Atributo.PERCEPCAO;
+            final int MENTE = Constante_Atributo.MENTE;
+            final int MANA = Constante_Atributo.MANA;
+            final int SORTE = Constante_Atributo.SORTE;
+
+            if(caracteristica.getModificador() != null){
+                if(caracteristica.getModificador()[FISICO] > 0){
+                    pnlCadastrarCaracteristica.getChkFisico().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtFisico().setText(""+caracteristica.getModificador()[FISICO]);
+                }
+                if(caracteristica.getModificador()[DESTREZA] > 0){
+                    pnlCadastrarCaracteristica.getChkDestreza().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtDestreza().setText(""+caracteristica.getModificador()[DESTREZA]);
+                }
+                if(caracteristica.getModificador()[INTELIGENCIA] > 0){
+                    pnlCadastrarCaracteristica.getChkInteligencia().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtInteligencia().setText(""+caracteristica.getModificador()[INTELIGENCIA]);
+                }
+                if(caracteristica.getModificador()[VONTADE] > 0){
+                    pnlCadastrarCaracteristica.getChkVontade().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtVontade().setText(""+caracteristica.getModificador()[VONTADE]);
+                }
+                if(caracteristica.getModificador()[PERCEPCAO] > 0){
+                    pnlCadastrarCaracteristica.getChkPercepcao().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtPercepcao().setText(""+caracteristica.getModificador()[PERCEPCAO]);
+                }
+                if(caracteristica.getModificador()[MENTE] > 0){
+                    pnlCadastrarCaracteristica.getChkMente().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtMente().setText(""+caracteristica.getModificador()[MENTE]);
+                }
+                if(caracteristica.getModificador()[MANA] > 0){
+                    pnlCadastrarCaracteristica.getChkMana().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtMana().setText(""+caracteristica.getModificador()[MANA]);
+                }
+                if(caracteristica.getModificador()[SORTE] > 0){
+                    pnlCadastrarCaracteristica.getChkSorte().setSelected(true);
+                    pnlCadastrarCaracteristica.getTxtSorte().setText(""+caracteristica.getModificador()[SORTE]);
+                }
+            }
+
+            pnlCadastrarCaracteristica.getBtnCadastrar().setVisible(false);
+            pnlCadastrarCaracteristica.getBtnLimpar().setVisible(false);
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarCaracteristica, false);
+            
+            frmCaracteristica.setMinimumSize(new Dimension(pnlCadastrarCaracteristica.getMinimumSize().width + 25, pnlCadastrarCaracteristica.getMinimumSize().height + 50));
+            frmCaracteristica.setVisible(true);
+            frmCaracteristica.add(pnlCadastrarCaracteristica);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Caracteristica selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarCaracteristicaActionPerformed
+
+    private void btnVisualizarArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmaADistanciaActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmArmaADistancia = new JFrame();
+            PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
+                                    
+            Arma_A_Distancia arma = Controle_Item.encontrarArma_A_Distancia(listArmasADistancia.getSelectedValue().toString());
+            
+            carregarDadosDoItemNoPainel(pnlCadastrarItem, arma);
+            carregarDadosDaArmaNoPainel(pnlCadastrarItem, arma);
+            
+            pnlCadastrarItem.getTxtTiroRapido().setText(""+arma.getTiro_Rapido());
+            pnlCadastrarItem.getTxtTiroMirado().setText(""+arma.getTiro_Mirado());
+            
+            pnlCadastrarItem.getRdbArma().setSelected(true);
+            pnlCadastrarItem.getRdbArmaADistancia().setSelected(true);
+            
+            pnlCadastrarItem.getBtnCadastrar().setVisible(false);
+            pnlCadastrarItem.getBtnLimpar().setVisible(false);
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
+            frmArmaADistancia.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmArmaADistancia.setVisible(true);
+            frmArmaADistancia.add(pnlCadastrarItem);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Arma a Distancia selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarArmaADistanciaActionPerformed
+
+    private void btnVisualizarArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmaCorpoACorpoActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmArmaCorpoACorpo = new JFrame();
+            PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
+                                    
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(listArmasCorpoACorpo.getSelectedValue().toString(), null);
+            
+            carregarDadosDoItemNoPainel(pnlCadastrarItem, arma);
+            carregarDadosDaArmaNoPainel(pnlCadastrarItem, arma);
+            
+            pnlCadastrarItem.getTxtGolpe().setText(""+arma.getGolpe());
+            pnlCadastrarItem.getTxtAparo().setText(""+arma.getAparo());
+            pnlCadastrarItem.getTxtEsquiva().setText(""+arma.getEsquiva());
+            
+            pnlCadastrarItem.getRdbArma().setSelected(true);
+            pnlCadastrarItem.getRdbArmaCorpoACorpo().setSelected(true);
+            
+            pnlCadastrarItem.getBtnCadastrar().setVisible(false);
+            pnlCadastrarItem.getBtnLimpar().setVisible(false);
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
+            frmArmaCorpoACorpo.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmArmaCorpoACorpo.setVisible(true);
+            frmArmaCorpoACorpo.add(pnlCadastrarItem);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Arma Corpo a Corpo selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarArmaCorpoACorpoActionPerformed
+
+    private void btnVisualizarArmadurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmadurasActionPerformed
+        // TODO add your handling code here:
+        try{
+            JFrame frmArmadura = new JFrame();
+            PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
+                                    
+            Armadura armadura = Controle_Item.encontrarArmadura(listArmaduras.getSelectedValue().toString());
+            
+            carregarDadosDoItemNoPainel(pnlCadastrarItem, armadura);
+            
+            pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Arma_Branca());
+            pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_Arma_De_Fogo());
+            pnlCadastrarItem.getTxtPenalidade().setText(""+armadura.getPenalidade());
+            pnlCadastrarItem.getCmbRegiaoDoCorpo().setSelectedItem(""+armadura.getRegiao_Do_Corpo());
+            
+            pnlCadastrarItem.getRdbArmadura().setSelected(true);
+            
+            pnlCadastrarItem.getBtnCadastrar().setVisible(false);
+            pnlCadastrarItem.getBtnLimpar().setVisible(false);
+            PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
+            frmArmadura.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmArmadura.setVisible(true);
+            frmArmadura.add(pnlCadastrarItem);
+            
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + "Armadura selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVisualizarArmadurasActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVisualizarArmaADistancia;
+    private javax.swing.JButton btnVisualizarArmaCorpoACorpo;
+    private javax.swing.JButton btnVisualizarArmaduras;
+    private javax.swing.JButton btnVisualizarCaracteristica;
+    private javax.swing.JButton btnVisualizarHabilidade;
+    private javax.swing.JButton btnVisualizarItens;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JList listArmaduras;
+    private javax.swing.JList listArmasADistancia;
+    private javax.swing.JList listArmasCorpoACorpo;
+    private javax.swing.JList listCaracteristicas;
+    private javax.swing.JList listHabilidades;
+    private javax.swing.JList listItens;
+    private view.PaineisDeAlteracao.PnlAlterarFicha pnlAlterarFicha;
+    private javax.swing.JPanel pnlArmaduras;
+    private javax.swing.JPanel pnlArmasADistancia;
+    private javax.swing.JPanel pnlArmasCorpoACorpo;
+    private javax.swing.JPanel pnlCaracteristicas;
+    private javax.swing.JPanel pnlHabilidades;
+    private javax.swing.JPanel pnlItens;
+    // End of variables declaration//GEN-END:variables
+    
+    private void carregarDadosDaArmaNoPainel(PnlCadastrarItem pnlCadastrarItem, Arma arma){
+        pnlCadastrarItem.getTxtLados().setText(""+((Arma)arma).getDano().getLados());
+        pnlCadastrarItem.getTxtRolagem().setText(""+((Arma)arma).getDano().getRolagem());
+        pnlCadastrarItem.getTxtDanoAdicional().setText(""+((Arma)arma).getDanoAdicional());
+    }
+    
+    private void carregarDadosDoItemNoPainel(PnlCadastrarItem pnlCadastrarItem, Item item) throws HabilidadeInvalidaException{
+        pnlCadastrarItem.getRdbItem().setSelected(true);
+
+        pnlCadastrarItem.getTxtNome().setText(item.getNome());
+        pnlCadastrarItem.getTxtDescricao().setText(item.getDescricao());
+        pnlCadastrarItem.getTxtPreco().setText(""+item.getPreco());
+
+        if(item.getHabilidade_Necessaria().equals("Nenhuma")){
+            pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+            pnlCadastrarItem.getCmbHabilidade().setEnabled(false);
+        }else{                    
+            String tipoDeHabilidade = Controle_Habilidade.getTipoHabildiade(item.getHabilidade_Necessaria());
+            switch(tipoDeHabilidade){
+                case "Fisica":
+                    pnlCadastrarItem.getRdbFisica().setSelected(true);
+                    pnlCadastrarItem.carregarJComboBox("Fisica");
+                    break;
+                case "Psiquica":
+                    pnlCadastrarItem.getRdbPsiquica().setSelected(true);
+                    pnlCadastrarItem.carregarJComboBox("Psiquica");
+                    break;
+                case "Belica":
+                    pnlCadastrarItem.getRdbBelica().setSelected(true);
+                    pnlCadastrarItem.carregarJComboBox("Belica");
+                    break;
+            }
+            pnlCadastrarItem.getCmbHabilidade().setSelectedItem(tipoDeHabilidade);
+        }
+
+        final int FISICO = Constante_Atributo.FISICO;
+        final int DESTREZA = Constante_Atributo.DESTREZA;
+        final int INTELIGENCIA = Constante_Atributo.INTELIGENCIA;
+        final int VONTADE = Constante_Atributo.VONTADE;
+        final int PERCEPCAO = Constante_Atributo.PERCEPCAO;
+        final int MENTE = Constante_Atributo.MENTE;
+        final int MANA = Constante_Atributo.MANA;
+        final int SORTE = Constante_Atributo.SORTE;
+
+        if(item.getBonus_atributo() != null){
+            if(item.getBonus_atributo()[FISICO] > 0){
+                pnlCadastrarItem.getChkFisico().setSelected(true);
+                pnlCadastrarItem.getTxtFisico().setText(""+item.getBonus_atributo()[FISICO]);
+            }
+            if(item.getBonus_atributo()[DESTREZA] > 0){
+                pnlCadastrarItem.getChkDestreza().setSelected(true);
+                pnlCadastrarItem.getTxtDestreza().setText(""+item.getBonus_atributo()[DESTREZA]);
+            }
+            if(item.getBonus_atributo()[INTELIGENCIA] > 0){
+                pnlCadastrarItem.getChkInteligencia().setSelected(true);
+                pnlCadastrarItem.getTxtInteligencia().setText(""+item.getBonus_atributo()[INTELIGENCIA]);
+            }
+            if(item.getBonus_atributo()[VONTADE] > 0){
+                pnlCadastrarItem.getChkVontade().setSelected(true);
+                pnlCadastrarItem.getTxtVontade().setText(""+item.getBonus_atributo()[VONTADE]);
+            }
+            if(item.getBonus_atributo()[PERCEPCAO] > 0){
+                pnlCadastrarItem.getChkPercepcao().setSelected(true);
+                pnlCadastrarItem.getTxtPercepcao().setText(""+item.getBonus_atributo()[PERCEPCAO]);
+            }
+            if(item.getBonus_atributo()[MENTE] > 0){
+                pnlCadastrarItem.getChkMente().setSelected(true);
+                pnlCadastrarItem.getTxtMente().setText(""+item.getBonus_atributo()[MENTE]);
+            }
+            if(item.getBonus_atributo()[MANA] > 0){
+                pnlCadastrarItem.getChkMana().setSelected(true);
+                pnlCadastrarItem.getTxtMana().setText(""+item.getBonus_atributo()[MANA]);
+            }
+            if(item.getBonus_atributo()[SORTE] > 0){
+                pnlCadastrarItem.getChkSorte().setSelected(true);
+                pnlCadastrarItem.getTxtSorte().setText(""+item.getBonus_atributo()[SORTE]);
+            }
+        }
+    }
+    
+    private void iniciarCmbFicha(){
+        pnlAlterarFicha.getCmbFicha().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                cmbFichaActionPerformed(event);
+                //throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+    }
+    
+    private void cmbFichaActionPerformed(ActionEvent event){
+        carregarListas();
+    }
+    
+    private void carregarListas(){
+        try{
+            if(!pnlAlterarFicha.getCmbFicha().getSelectedItem().toString().equals("Nenhuma")){
+                carregarHabilidades();
+                carregarCaracteristicas();
+                carregarItens();
+                carregarArmasADistancia();
+                carregarArmasCorpoACorpo();
+                carregarArmaduras();
+            }else{
+                limparListas();
+            }
+        } catch(FichaInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void carregarArmaduras() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----ARMADURAS----");
+        elementos = Controle_Integracao_Ficha.listarArmadura(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        listArmaduras.setModel(modelList);
+    }
+    
+    private void carregarArmasCorpoACorpo() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----ARMAS CORPO A CORPO----");
+        elementos = Controle_Integracao_Ficha.listarArma_Corpo_A_Corpo(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        listArmasCorpoACorpo.setModel(modelList);
+    }
+    
+    private void carregarArmasADistancia() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----ARMAS A DISTANCIA----");
+        elementos = Controle_Integracao_Ficha.listarArma_A_Distancia(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        listArmasADistancia.setModel(modelList);
+    }
+    
+    private void carregarItens() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----ITENS----");
+        elementos = Controle_Integracao_Ficha.listarItensGenericos(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        listItens.setModel(modelList);
+    }
+    
+    private void carregarCaracteristicas() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----CARACTERISTICAS FISICAS----");
+        elementos = Controle_Integracao_Ficha.listarCaracteristicasFisicas(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        modelList.addElement("----CARACTERISTICAS PSIQUICAS----");
+        elementos = Controle_Integracao_Ficha.listarCaracteristicasPsiquicas(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        modelList.addElement("----CARACTERISTICAS RACIAIS----");
+        elementos = Controle_Integracao_Ficha.listarCaracteristicasRaciais(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        listCaracteristicas.setModel(modelList);
+    }
+    
+    private void carregarHabilidades() throws FichaInvalidaException{
+        DefaultListModel modelList = new DefaultListModel();
+        String elementos[] = null;
+        String personagem = pnlAlterarFicha.getCmbFicha().getSelectedItem().toString();
+        modelList.addElement("----HABILIDADES FISICAS----");
+        elementos = Controle_Integracao_Ficha.listarHabilidadesFisicas(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        modelList.addElement("----HABILIDADES PSIQUICAS----");
+        elementos = Controle_Integracao_Ficha.listarHabilidadesPsiquicas(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        modelList.addElement("----HABILIDADES BELICAS----");
+        elementos = Controle_Integracao_Ficha.listarHabilidadesBelicas(personagem);
+        if(elementos != null){
+            for(int i = 0; i < elementos.length; i++){
+                modelList.addElement(elementos[i]);
+            }
+        }
+        
+        listHabilidades.setModel(modelList);
+    }
+    
+    private void limparListas(){
+        listHabilidades.setModel(new DefaultListModel());
+        listCaracteristicas.setModel(new DefaultListModel());
+        listItens.setModel(new DefaultListModel());
+        listArmasADistancia.setModel(new DefaultListModel());
+        listArmasCorpoACorpo.setModel(new DefaultListModel());
+        listArmaduras.setModel(new DefaultListModel());
+    }
+    
+    private void limparListas(JList lista){
+        if(!listHabilidades.equals(lista)){
+            listHabilidades.clearSelection();
+        }
+        if(!listCaracteristicas.equals(lista)){
+            listCaracteristicas.clearSelection();
+        }
+        if(!listItens.equals(lista)){
+            listItens.clearSelection();
+        }
+        if(!listArmasADistancia.equals(lista)){
+            listArmasADistancia.clearSelection();
+        }
+        if(!listArmasCorpoACorpo.equals(lista)){
+            listArmasCorpoACorpo.clearSelection();
+        }
+        if(!listArmaduras.equals(lista)){
+            listArmaduras.clearSelection();
+        }
+    }
 }

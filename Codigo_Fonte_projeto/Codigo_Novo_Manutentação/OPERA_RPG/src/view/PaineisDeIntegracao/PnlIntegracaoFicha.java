@@ -468,6 +468,7 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        listDesintegrar.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(listDesintegrar);
 
         btnDesintegrar.setText("Desintegrar");
@@ -494,7 +495,7 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             pnlDesintegrarAFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDesintegrarAFichaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDesintegrar)
                 .addContainerGap())
@@ -523,7 +524,7 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlSelecionarTipoDeFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -533,13 +534,13 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlSelecionarTipoHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlSelecionarTipoCaracteristica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlSelecionarTipoEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlSelecionarTipoCaracteristica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlIntegrarAFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlDesintegrarAFicha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlDesintegrarAFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlSelecionarTipoEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -804,50 +805,49 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         // TODO add your handling code here:
         try{
             String personagem = cmbSelecionarFicha.getSelectedItem().toString();
-            Controle_Integracao_Ficha.selecionarFicha(personagem);
             
             String itemSelecionado = cmbSelecionarIntegracao.getSelectedItem().toString();
             
             if(rdbHabilidadeFisica.isSelected()){
-                Controle_Integracao_Ficha.colocarHabilidade(itemSelecionado);
+                Controle_Integracao_Ficha.colocarHabilidade(personagem, itemSelecionado);
                 carregarListDesintegrar("Habilidade Fisica");
             }
             if(rdbHabilidadePsiquica.isSelected()){
-                Controle_Integracao_Ficha.colocarHabilidade(itemSelecionado);
+                Controle_Integracao_Ficha.colocarHabilidade(personagem, itemSelecionado);
                 carregarListDesintegrar("Habilidade Psiquica");
             }
             if(rdbHabilidadeBelica.isSelected()){
-                Controle_Integracao_Ficha.colocarHabilidade(itemSelecionado);
+                Controle_Integracao_Ficha.colocarHabilidade(personagem, itemSelecionado);
                 carregarListDesintegrar("Habilidade Belica");
             }
             
             if(rdbCaracteristicaFisica.isSelected()){
-                Controle_Integracao_Ficha.colocarCaracteristica(itemSelecionado);
+                Controle_Integracao_Ficha.colocarCaracteristica(personagem, itemSelecionado);
                 carregarListDesintegrar("Caracteristica Fisica");
             }
             if(rdbCaracteristicaPsiquica.isSelected()){
-                Controle_Integracao_Ficha.colocarCaracteristica(itemSelecionado);
+                Controle_Integracao_Ficha.colocarCaracteristica(personagem, itemSelecionado);
                 carregarListDesintegrar("Caracteristica Psiquica");
             }
             if(rdbCaracteristicaRacial.isSelected()){
-                Controle_Integracao_Ficha.colocarCaracteristica(itemSelecionado);
+                Controle_Integracao_Ficha.colocarCaracteristica(personagem, itemSelecionado);
                 carregarListDesintegrar("Caracteristica Racial");
             }
             
             if(rdbEquipamentoItem.isSelected()){
-                Controle_Integracao_Ficha.colocarItemGenerico(itemSelecionado);
+                Controle_Integracao_Ficha.colocarItemGenerico(personagem, itemSelecionado);
                 carregarListDesintegrar("Item Generico");
             }
             if(rdbArmaADistancia.isSelected()){
-                Controle_Integracao_Ficha.colocarArma_A_Distancia(itemSelecionado);
+                Controle_Integracao_Ficha.colocarArma_A_Distancia(personagem, itemSelecionado);
                 carregarListDesintegrar("Arma A Distancia");
             }
             if(rdbArmaCorpoACorpo.isSelected()){
-                Controle_Integracao_Ficha.colocarArma_Corpo_A_Corpo(itemSelecionado);
+                Controle_Integracao_Ficha.colocarArma_Corpo_A_Corpo(personagem, itemSelecionado);
                 carregarListDesintegrar("Arma Corpo A Corpo");
             }
             if(rdbEquipamentoArmadura.isSelected()){
-                Controle_Integracao_Ficha.colocarArmadura(itemSelecionado);
+                Controle_Integracao_Ficha.colocarArmadura(personagem, itemSelecionado);
                 carregarListDesintegrar("Armadura");
             }
             
@@ -862,52 +862,50 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     private void btnDesintegrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesintegrarActionPerformed
         // TODO add your handling code here:
         try{
-            String personagem = cmbSelecionarFicha.getSelectedItem().toString();
-            Controle_Integracao_Ficha.selecionarFicha(personagem);
-            
+            String personagem = cmbSelecionarFicha.getSelectedItem().toString();            
 
             String itemSelecionado = listDesintegrar.getSelectedValue().toString();
             if(!itemSelecionado.equals("Nenhum(a)")){
                 if(rdbHabilidadeFisica.isSelected()){
-                    Controle_Integracao_Ficha.removerHabilidade(itemSelecionado);
+                    Controle_Integracao_Ficha.removerHabilidade(personagem, itemSelecionado);
                     carregarListDesintegrar("Habilidade Fisica");
                 }
                 if(rdbHabilidadePsiquica.isSelected()){
-                    Controle_Integracao_Ficha.removerHabilidade(itemSelecionado);
+                    Controle_Integracao_Ficha.removerHabilidade(personagem, itemSelecionado);
                     carregarListDesintegrar("Habilidade Psiquica");
                 }
                 if(rdbHabilidadeBelica.isSelected()){
-                    Controle_Integracao_Ficha.removerHabilidade(itemSelecionado);
+                    Controle_Integracao_Ficha.removerHabilidade(personagem, itemSelecionado);
                     carregarListDesintegrar("Habilidade Belica");
                 }
                 
                 if(rdbCaracteristicaFisica.isSelected()){
-                    Controle_Integracao_Ficha.removerCaracteristica(itemSelecionado);
+                    Controle_Integracao_Ficha.removerCaracteristica(personagem, itemSelecionado);
                     carregarListDesintegrar("Caracteristica Fisica");
                 }
                 if(rdbCaracteristicaPsiquica.isSelected()){
-                    Controle_Integracao_Ficha.removerCaracteristica(itemSelecionado);
+                    Controle_Integracao_Ficha.removerCaracteristica(personagem, itemSelecionado);
                     carregarListDesintegrar("Caracteristica Psiquica");
                 }
                 if(rdbCaracteristicaRacial.isSelected()){
-                    Controle_Integracao_Ficha.removerCaracteristica(itemSelecionado);
+                    Controle_Integracao_Ficha.removerCaracteristica(personagem, itemSelecionado);
                     carregarListDesintegrar("Caracteristica Racial");
                 }
                 
                 if(rdbEquipamentoItem.isSelected()){
-                    Controle_Integracao_Ficha.removerItemGenerico(itemSelecionado);
+                    Controle_Integracao_Ficha.removerItemGenerico(personagem, itemSelecionado);
                     carregarListDesintegrar("Item Generico");
                 }
                 if(rdbArmaADistancia.isSelected()){
-                    Controle_Integracao_Ficha.removerArma_A_Distancia(itemSelecionado);
+                    Controle_Integracao_Ficha.removerArma_A_Distancia(personagem, itemSelecionado);
                     carregarListDesintegrar("Arma A Distancia");
                 }
                 if(rdbArmaCorpoACorpo.isSelected()){
-                    Controle_Integracao_Ficha.removerArma_Corpo_A_Corpo(itemSelecionado);
+                    Controle_Integracao_Ficha.removerArma_Corpo_A_Corpo(personagem, itemSelecionado);
                     carregarListDesintegrar("Arma Corpo A Corpo");
                 }
                 if(rdbEquipamentoArmadura.isSelected()){
-                    Controle_Integracao_Ficha.removerArmadura(itemSelecionado);
+                    Controle_Integracao_Ficha.removerArmadura(personagem, itemSelecionado);
                     carregarListDesintegrar("Armadura");
                 }
                 
@@ -992,45 +990,43 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         listDesintegrar.setModel(new DefaultListModel());
         String lista[] = null;
         
-        String ficha = cmbSelecionarFicha.getSelectedItem().toString();
+        String personagem = cmbSelecionarFicha.getSelectedItem().toString();
         
         DefaultListModel modelList = new DefaultListModel();
         modelList.addElement("Nenhum(a)");
         listDesintegrar.setModel(modelList);
-        
-        Controle_Integracao_Ficha.selecionarFicha(ficha);
         switch(carregar){
             case "Habilidade Fisica":
-                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesFisicas();
+                lista = Controle_Integracao_Ficha.listarHabilidadesFisicas(personagem);
                 break;
             case "Habilidade Psiquica":
-                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesPsiquicas();
+                lista = Controle_Integracao_Ficha.listarHabilidadesPsiquicas(personagem);
                 break;
             case "Habilidade Belica":
-                lista = Controle_Integracao_Ficha.listarIntegracaoHabilidadesBelicas();
+                lista = Controle_Integracao_Ficha.listarHabilidadesBelicas(personagem);
                 break;
                 
             case "Caracteristica Fisica":
-                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasFisicas();
+                lista = Controle_Integracao_Ficha.listarCaracteristicasFisicas(personagem);
                 break;
             case "Caracteristica Psiquica":
-                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasPsiquicas();
+                lista = Controle_Integracao_Ficha.listarCaracteristicasPsiquicas(personagem);
                 break;
             case "Caracteristica Racial":
-                lista = Controle_Integracao_Ficha.listarIntegracaoCaracteristicasRaciais();
+                lista = Controle_Integracao_Ficha.listarCaracteristicasRaciais(personagem);
                 break;
                 
             case "Item Generico":
-                lista = Controle_Integracao_Ficha.listarItensGenericos();
+                lista = Controle_Integracao_Ficha.listarItensGenericos(personagem);
                 break;
             case "Arma A Distancia":
-                lista = Controle_Integracao_Ficha.listarArma_A_Distancia();
+                lista = Controle_Integracao_Ficha.listarArma_A_Distancia(personagem);
                 break;
             case "Arma Corpo A Corpo":
-                lista = Controle_Integracao_Ficha.listarArma_Corpo_A_Corpo();
+                lista = Controle_Integracao_Ficha.listarArma_Corpo_A_Corpo(personagem);
                 break;
             case "Armadura":
-                lista = Controle_Integracao_Ficha.listarArmaduras();
+                lista = Controle_Integracao_Ficha.listarArmadura(personagem);
                 break;
         }
         
