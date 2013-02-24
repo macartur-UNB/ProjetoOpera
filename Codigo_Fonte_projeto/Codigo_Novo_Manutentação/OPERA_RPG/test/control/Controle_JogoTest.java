@@ -72,7 +72,7 @@ public class Controle_JogoTest {
         DAO_Jogo.criarJogo(nome);
         Controle_Jogo.apagarJogo(nome);
         if(DAO_Jogo.jogoExiste(nome)){
-            fail("Jogo não apagado");
+            fail("Jogo nÃ£o apagado");
             DAO_Jogo.deletarJogo(nome);
         }
     }
@@ -103,5 +103,26 @@ public class Controle_JogoTest {
         String[] result = Controle_Jogo.jogosExistentes();
         assertArrayEquals(expResult, result);
         DAO_Jogo.deletarTodosJogos();
+    }
+    
+    /**
+     * Test of apagarTodosJogos method, of class Controle_Jogo.
+     */
+    @Test
+    public void testApagarTodosJogos() throws Exception{
+    	System.out.println("apagarTodosJogos");
+    	Controle_Jogo.apagarTodosJogos();
+    }
+    
+    /**
+     * Test of jogoRodando method, of class Controle_Jogo.
+     */
+    @Test
+    public void testJogoRodando() throws Exception{
+    	System.out.println("testJogoRodando");
+    	DAO_Jogo.criarJogo("JUnitTest");
+    	String expResult = "JUnitTest";
+    	String result = Controle_Jogo.jogoRodando();
+    	assertEquals(expResult, result);
     }
 }

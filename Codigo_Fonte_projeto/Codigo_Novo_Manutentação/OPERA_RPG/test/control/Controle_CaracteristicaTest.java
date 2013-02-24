@@ -4,8 +4,14 @@
  */
 package control;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
+import model.exception.ArquivoInvalidoException;
+import model.exception.CaracteristicaInvalidaException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -58,6 +64,11 @@ public class Controle_CaracteristicaTest {
     public void testCadCaracteristica_4args() throws Exception {
         System.out.println("cadCaracteristica");
         Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        try{
+        	Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        	fail("cadCaracteristica deveria ter falhado");
+        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e) {
+		}
         Controle_Caracteristica.removeCaracteristicaFisica(nome);
     }
 
@@ -70,6 +81,12 @@ public class Controle_CaracteristicaTest {
         tipo= "Racial";
         Controle_Caracteristica.cadCaracteristica(
                                      nome, descricao, tipo, custo, modificador);
+        try{
+        	Controle_Caracteristica.cadCaracteristica(
+                    				 nome, descricao, tipo, custo, modificador);
+        	fail("cadCaracteristica deveria ter falhado");
+        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e) {
+		}
         Controle_Caracteristica.removeCaracteristicaRacial(nome);
     }
 
@@ -101,14 +118,49 @@ public class Controle_CaracteristicaTest {
      * Test of encontrarCaracteristica method, of class Controle_Caracteristica.
      */
     @Test
-    public void testEncontrarCaracteristica() throws Exception {
+    public void testEncontrarCaracteristica_1args() throws Exception {
+        System.out.println("encontrarCaracteristica");
+        tipo = "Fisica";
+        Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
+        Caracteristica result = Controle_Caracteristica.encontrarCaracteristica(nome);
+        if(result == null){
+            fail("nÃ£o encontrou caracteristica especifica");
+        }
+        
+        Controle_Caracteristica.cadCaracteristica(nome+"a", descricao, "Psiquica", custo);
+        result = Controle_Caracteristica.encontrarCaracteristica(nome+"a");
+        if(result == null){
+            fail("nÃ£o encontrou caracteristica especifica");
+        }
+        
+        Controle_Caracteristica.cadCaracteristica(nome+"b", descricao, "Racial", custo);
+        result = Controle_Caracteristica.encontrarCaracteristica(nome+"b");
+        if(result == null){
+            fail("nÃ£o encontrou caracteristica especifica");
+        }
+        
+        String expResult = null;
+        result = Controle_Caracteristica.encontrarCaracteristica("Caracteristica Inexistente");
+        
+        assertEquals(expResult, result);
+                
+        Controle_Caracteristica.removeCaracteristicaFisica(nome);
+        Controle_Caracteristica.removeCaracteristicaFisica(nome+"a");
+        Controle_Caracteristica.removeCaracteristicaFisica(nome+"b");
+    }
+    
+    /**
+     * Test of encontrarCaracteristica method, of class Controle_Caracteristica.
+     */
+    @Test
+    public void testEncontrarCaracteristica_2args() throws Exception {
         System.out.println("encontrarCaracteristica");
         tipo = "Fisica";
         Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
         Caracteristica result = Controle_Caracteristica.encontrarCaracteristica(nome, tipo);
         if(result == null)
         {
-            fail("não encontrou caracteristica especifica");
+            fail("nÃ£o encontrou caracteristica especifica");
         }
         Controle_Caracteristica.removeCaracteristicaFisica(nome);
     }
@@ -126,7 +178,7 @@ public class Controle_CaracteristicaTest {
         Controle_Caracteristica.encontrarCaracteristica_Especifica(nome_Especifico, tipo);
         if(result == null)
         {
-            fail("Não pode encontrar caracteristica especifica");
+            fail("NÃ£o pode encontrar caracteristica especifica");
         }
         Controle_Caracteristica.removeCaracteristicaPsiquica(nome_Especifico);
     }
@@ -177,7 +229,7 @@ public class Controle_CaracteristicaTest {
         Caracteristica c = Controle_Caracteristica.encontrarCaracteristica("JUnit", tipo);
         Caracteristica ce = Controle_Caracteristica.encontrarCaracteristica("JUnit2", tipo);
         if(c!=null || ce!= null){
-            fail("Não foi possivel remover todas as caracteristicas fisicas");
+            fail("NÃ£o foi possivel remover todas as caracteristicas fisicas");
         }
         
     }
@@ -202,7 +254,7 @@ public class Controle_CaracteristicaTest {
         Caracteristica c = Controle_Caracteristica.encontrarCaracteristica("JUnit", tipo);
         Caracteristica ce = Controle_Caracteristica.encontrarCaracteristica("JUnit2", tipo);
         if(c!=null || ce!= null){
-            fail("Não foi possivel remover todas as caracteristicas fisicas");
+            fail("NÃ£o foi possivel remover todas as caracteristicas fisicas");
         }
     }
 
@@ -226,7 +278,7 @@ public class Controle_CaracteristicaTest {
         Caracteristica c = Controle_Caracteristica.encontrarCaracteristica("JUnit", tipo);
         Caracteristica ce = Controle_Caracteristica.encontrarCaracteristica("JUnit2", tipo);
         if(c!=null || ce!= null){
-            fail("Não foi possivel remover todas as caracteristicas fisicas");
+            fail("NÃ£o foi possivel remover todas as caracteristicas fisicas");
         }
     }
 
@@ -251,7 +303,7 @@ public class Controle_CaracteristicaTest {
         Caracteristica c = Controle_Caracteristica.encontrarCaracteristica("JUnit", tipo);
         Caracteristica ce = Controle_Caracteristica.encontrarCaracteristica("JUnit2", tipo);
         if(c!=null || ce!= null){
-            fail("Não foi possivel remover todas as caracteristicas fisicas");
+            fail("NÃ£o foi possivel remover todas as caracteristicas fisicas");
         }
         Controle_Caracteristica.removeTodasCaracteristicas();
     }
