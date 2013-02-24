@@ -93,9 +93,9 @@ public class DAO_ItemTest {
     public void testGravarArma_Corpo_A_Corpo() throws Exception {
         System.out.println("gravarArma_Corpo_A_Corpo");
         Dado dado = new Dado(6, 1);
-        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Tipo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
         DAO_Item.gravarArma_Corpo_A_Corpo(arma);       
-        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
         boolean expResult = true;
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);         
@@ -125,6 +125,7 @@ public class DAO_ItemTest {
     */ 
     @Test
     public void testGravarArmadura() throws Exception {
+        System.out.println("gravarArmadura");
         Dado dado = new Dado(6, 1);
         Armadura arma = new Armadura("NomeArmadura","Descricao",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
         DAO_Item.gravarArmadura(arma);      
@@ -137,51 +138,63 @@ public class DAO_ItemTest {
 
     /**
      * Test of removerItemGenerico method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testRemoverItemGenerico() throws Exception {
         System.out.println("removerItemGenerico");
-        String nome = "";
-        DAO_Item.removerItemGenerico(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Item item = new Item("NomeItemGenerico", "Descricao", true, testeAtributos,preco, "TesteFisica");
+        DAO_Item.gravarItem(item);        
+        File arquivo = new File(diretorio+generico, "NomeItemGenerico.opera");        
+        assertEquals(true, arquivo.exists());
+        DAO_Item.removerItemGenerico("NomeItemGenerico");
+        assertEquals(false, arquivo.exists());
     }
 
     /**
      * Test of removerArma_A_Distancia method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testRemoverArma_A_Distancia() throws Exception {
         System.out.println("removerArma_A_Distancia");
-        String nome = "";
-        DAO_Item.removerArma_A_Distancia(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_A_Distancia arma = new Arma_A_Distancia("NomeArmaDistancia", "Descricao",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_A_Distancia(arma);      
+        File arquivo = new File(diretorio+armas+"\\"+armasDistancia, "NomeArmaDistancia.opera");
+        assertEquals(true, arquivo.exists());
+        DAO_Item.removerArma_A_Distancia("NomeArmaDistancia");
+        assertEquals(false, arquivo.exists());
     }
 
     /**
      * Test of removerArma_Corpo_A_Corpo method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testRemoverArma_Corpo_A_Corpo() throws Exception {
         System.out.println("removerArma_Corpo_A_Corpo");
-        String nome = "";
-        String tipo = "";
-        DAO_Item.removerArma_Corpo_A_Corpo(nome, tipo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_Corpo_A_Corpo(arma);       
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");        
+        assertEquals(true, arquivo.exists());
+        DAO_Item.removerArma_Corpo_A_Corpo("NomeArmaCorpo", "Branca");
+        assertEquals(false, arquivo.exists());
     }
 
     /**
      * Test of removerArmadura method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testRemoverArmadura() throws Exception {
         System.out.println("removerArmadura");
-        String nome = "";
-        DAO_Item.removerArmadura(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Armadura arma = new Armadura("NomeArmadura","Descricao",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        DAO_Item.gravarArmadura(arma);      
+        File arquivo = new File(diretorio+armaduras, "NomeArmadura.opera");
+        assertEquals(true, arquivo.exists());
+        DAO_Item.removerArmadura("NomeArmadura");
+        assertEquals(false, arquivo.exists());
     }
 
     /**
