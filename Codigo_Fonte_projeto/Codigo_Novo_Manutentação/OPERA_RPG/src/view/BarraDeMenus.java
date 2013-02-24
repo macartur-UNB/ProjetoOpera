@@ -38,7 +38,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
     
     private static JMenu menuFicha;
     private static JMenuItem itemIntegrarFicha;
-    private static JMenuItem itemVizualizarFicha;
+    private static JMenuItem itemVisualizarFicha;
     
     
     public BarraDeMenus(PanelTab tabbedPane){
@@ -104,10 +104,10 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         menuFicha = new JMenu("Ficha");
         //Itens dentro de menuFicha
         itemIntegrarFicha = new JMenuItem("Integrar Ficha");
-        itemVizualizarFicha = new JMenuItem("Vizualizar Ficha");
+        itemVisualizarFicha = new JMenuItem("Visualizar Ficha");
         
         //Adicionando todos os menus e itens de menuFicha ao menuFicha
-        menuFicha.add(itemVizualizarFicha);
+        menuFicha.add(itemVisualizarFicha);
         menuFicha.add(itemIntegrarFicha);
         
         
@@ -143,7 +143,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarFicha.setEnabled(habilitar);
         
         itemIntegrarFicha.setEnabled(habilitar);
-        itemVizualizarFicha.setEnabled(habilitar);
+        itemVisualizarFicha.setEnabled(habilitar);
     }
     
     private void ativarIcones(){
@@ -160,6 +160,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
             itemAlterarCaracteristica.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Caracteristica.png")));
             itemAlterarEquipamento.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Equipamento.png")));
        
+            itemVisualizarFicha.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Visualizar Ficha.png")));
             itemIntegrarFicha.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Integrar Ficha.png")));
     }
     
@@ -182,7 +183,7 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
         itemAlterarFicha.addActionListener(this);
         
         itemIntegrarFicha.addActionListener(this);
-        itemVizualizarFicha.addActionListener(this);
+        itemVisualizarFicha.addActionListener(this);
     }
 
     @Override
@@ -241,8 +242,8 @@ public class BarraDeMenus extends JMenuBar implements ActionListener{
             NovaAba.abaIntegrarFicha(tabbedPane, (ImageIcon)itemIntegrarFicha.getIcon());
         }
         
-        if(origem.equals(itemVizualizarFicha)){
-            NovaAba.abaVisualizarFicha(tabbedPane, (ImageIcon)itemVizualizarFicha.getIcon());
+        if(origem.equals(itemVisualizarFicha)){
+            NovaAba.abaVisualizarFicha(tabbedPane, (ImageIcon)itemVisualizarFicha.getIcon());
         }
         
         //throw new UnsupportedOperationException("Not supported yet.");

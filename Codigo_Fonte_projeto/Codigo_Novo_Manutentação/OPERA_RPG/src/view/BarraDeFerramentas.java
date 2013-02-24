@@ -32,6 +32,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
     private static JButton btnAlterarCaracteristica;
     private static JButton btnAlterarEquipamento;
     
+    private static JButton btnVisualizarFicha;
     private static JButton btnIntegrarFicha;
     
         
@@ -54,6 +55,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         btnAlterarCaracteristica = new JButton();
         btnAlterarEquipamento = new JButton();
         
+        btnVisualizarFicha = new JButton();
         btnIntegrarFicha = new JButton();
         
         
@@ -72,6 +74,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         btnAlterarCaracteristica.setToolTipText("Alterar Caracteristica");
         btnAlterarEquipamento.setToolTipText("Alterar Equipamento");
         
+        btnVisualizarFicha.setToolTipText("Visualizar Ficha");
         btnIntegrarFicha.setToolTipText("Integrar Ficha");
         
         btnNovoJogo.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Novo Jogo.png")));
@@ -87,6 +90,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         btnAlterarCaracteristica.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Caracteristica.png")));
         btnAlterarEquipamento.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Alterar Equipamento.png")));
 
+        btnVisualizarFicha.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Visualizar Ficha.png")));
         btnIntegrarFicha.setIcon(new ImageIcon(getClass().getResource("/view/Icones/Integrar Ficha.png")));
         
         this.add(btnNovoJogo);
@@ -109,6 +113,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         
         this.addSeparator();
         
+        this.add(btnVisualizarFicha);
         this.add(btnIntegrarFicha);
         
         this.iniciarEventos();
@@ -131,6 +136,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         btnAlterarCaracteristica.setEnabled(habilitar);
         btnAlterarEquipamento.setEnabled(habilitar);
         
+        btnVisualizarFicha.setEnabled(habilitar);
         btnIntegrarFicha.setEnabled(habilitar);
     }
     
@@ -157,6 +163,7 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         btnAlterarCaracteristica.addActionListener(this);
         btnAlterarEquipamento.addActionListener(this);
         
+        btnVisualizarFicha.addActionListener(this);
         btnIntegrarFicha.addActionListener(this);
     }
 
@@ -201,7 +208,9 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         if(origem.equals(btnIntegrarFicha)){
             NovaAba.abaIntegrarFicha(tabbedPane, (ImageIcon)btnIntegrarFicha.getIcon());
         }
-        
+        if(origem.equals(btnVisualizarFicha)){
+            NovaAba.abaVisualizarFicha(tabbedPane, (ImageIcon)btnVisualizarFicha.getIcon());
+        }
         
         //throw new UnsupportedOperationException("Not supported yet.");
     }
