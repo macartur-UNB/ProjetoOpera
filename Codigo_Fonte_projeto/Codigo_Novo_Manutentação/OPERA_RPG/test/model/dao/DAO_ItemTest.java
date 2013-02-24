@@ -346,9 +346,17 @@ public class DAO_ItemTest {
 
     /**
      * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
-    */ 
+    *
     @Test
     public void testArmaCorpo_A_CorpoExiste_String() throws Exception{
+        System.out.println("ArmaCorpo_A_CorpoExiste");
+    }
+
+    /**
+     * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
+    */ 
+    @Test
+    public void testArmaCorpo_A_CorpoExiste_String_String() throws Exception {        
         System.out.println("ArmaCorpo_A_CorpoExiste");
         Dado dado = new Dado(6, 1);
         Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado
@@ -359,21 +367,6 @@ public class DAO_ItemTest {
         assertEquals(true,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo", "Branca"));
         File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
         arquivo.delete();
-    }
-
-    /**
-     * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
-     
-    @Test
-    public void testArmaCorpo_A_CorpoExiste_String_String() {
-        System.out.println("ArmaCorpo_A_CorpoExiste");
-        String arma = "";
-        String tipo = "";
-        boolean expResult = false;
-        boolean result = DAO_Item.ArmaCorpo_A_CorpoExiste(arma, tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -392,29 +385,63 @@ public class DAO_ItemTest {
 
     /**
      * Test of Arma_A_DistanciaExiste method, of class DAO_Item.
-     
+    */ 
     @Test
-    public void testArma_A_DistanciaExiste() {
+    public void testArma_A_DistanciaExiste() throws Exception{
         System.out.println("Arma_A_DistanciaExiste");
-        String arma = "";
-        boolean expResult = false;
-        boolean result = DAO_Item.Arma_A_DistanciaExiste(arma);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_A_Distancia expResult = new Arma_A_Distancia("NomeArmaDistancia", "Descricao",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        assertEquals(false,DAO_Item.Arma_A_DistanciaExiste("NomeArmaDistancia"));
+        DAO_Item.gravarArma_A_Distancia(expResult);
+        assertEquals(true,DAO_Item.Arma_A_DistanciaExiste("NomeArmaDistancia"));
+        File arquivo = new File(diretorio+armas+"\\"+armasDistancia, "NomeArmaDistancia.opera");
+        arquivo.delete();
     }
 
     /**
      * Test of listarItem method, of class DAO_Item.
-     
+    */ 
     @Test
-    public void testListarItem() {
+    public void testListarItem() throws Exception {
         System.out.println("listarItem");
-        String tipo = "";
-        String[] expResult = null;
-        String[] result = DAO_Item.listarItem(tipo);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        Dado dado = new Dado(6, 1);
+        
+        Item item1 = new Item("NomeItemGenerico1", "Descricao1", true, testeAtributos,preco, "TesteFisica");
+        Item item2 = new Item("NomeItemGenerico2", "Descricao2", true, testeAtributos,preco, "TesteFisica");
+        File arquivo = new File(diretorio+generico);
+        String list[] = DAO_Item.listarItem("Generico");
+        assertEquals(0,list.length);
+        DAO_Item.gravarItem(item1);
+        DAO_Item.gravarItem(item2);        
+        list = DAO_Item.listarItem("Generico");
+        assertEquals(2,list.length);
+        assertTrue(list[0].equalsIgnoreCase("NomeItemGenerico1")
+                   || list[1].equalsIgnoreCase("NomeItemGenerico1"));        
+        assertTrue(list[0].equalsIgnoreCase("NomeItemGenerico2")
+                   || list[1].equalsIgnoreCase("NomeItemGenerico2"));
+                
+        Arma_A_Distancia armaDistancia1 = new Arma_A_Distancia("NomeArmaDistancia1", "Descricao1",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        Arma_A_Distancia armaDistancia2 = new Arma_A_Distancia("NomeArmaDistancia2", "Descricao2",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        arquivo = new File(diretorio+armas+"\\"+armasDistancia);
+        list = DAO_Item.listarItem("Arma a Distancia");
+        assertEquals(0,list.length);
+        DAO_Item.gravarArma_A_Distancia(armaDistancia1);
+        DAO_Item.gravarArma_A_Distancia(armaDistancia2);
+        list = DAO_Item.listarItem("Arma a Distancia");
+        assertEquals(2,list.length);
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaDistancia1")
+                   || list[1].equalsIgnoreCase("NomeArmaDistancia1"));        
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaDistancia2")
+                   || list[1].equalsIgnoreCase("NomeArmaDistancia2"));
+        
+        
+        
+        
+    }
 }

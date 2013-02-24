@@ -134,9 +134,9 @@ public class Controle_Item {
      public static boolean Arma_A_DistanciaExiste(String arma){
          return DAO_Item.Arma_A_DistanciaExiste(arma);
      }
-     public static boolean ArmaCorpo_A_CorpoExiste(String arma){
+    /* public static boolean ArmaCorpo_A_CorpoExiste(String arma){
          return DAO_Item.ArmaCorpo_A_CorpoExiste(arma);
-     }
+     }*/
      public static boolean ArmaCorpo_A_CorpoExiste(String arma,String tipo){
          return DAO_Item.ArmaCorpo_A_CorpoExiste(arma, tipo);
      }
@@ -144,9 +144,9 @@ public class Controle_Item {
          return DAO_Item.ArmaduraExiste(armadura);
      }
      
-     public static String tipoArmaCorpo_A_Corpo(String arma){
+     /*public static String tipoArmaCorpo_A_Corpo(String arma){
          return DAO_Item.tipoArmaCorpo_A_Corpo(arma);
-     } 
+     }*/ 
      
     public static Item encontrarItemGenerico(String nome)
             throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{

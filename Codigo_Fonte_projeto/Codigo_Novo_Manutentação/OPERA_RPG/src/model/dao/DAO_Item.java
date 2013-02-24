@@ -137,14 +137,14 @@ public class DAO_Item {
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMADURA;
         return DAO_Funcao.arquivoOperaExiste(diretorio, armadura);
     }
-    public static boolean ArmaCorpo_A_CorpoExiste(String arma){
+    /*public static boolean ArmaCorpo_A_CorpoExiste(String arma){
         return ArmaCorpo_A_CorpoExiste(arma, "De_Fogo") || ArmaCorpo_A_CorpoExiste(arma, "Branca");
-    }
+    }*/
     public static boolean ArmaCorpo_A_CorpoExiste(String arma, String tipo){
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMA_CORPO_A_CORPO+"\\"+tipo;
         return DAO_Funcao.arquivoOperaExiste(diretorio, arma);
     }
-    public static String tipoArmaCorpo_A_Corpo(String arma){
+    /*public static String tipoArmaCorpo_A_Corpo(String arma){
         if(ArmaCorpo_A_CorpoExiste(arma, "Branca")){
             return "Branca";
         }
@@ -152,7 +152,7 @@ public class DAO_Item {
             return "De_Fogo";
         }
         return "";
-    }
+    }*/
     public static boolean Arma_A_DistanciaExiste(String arma){
         String diretorio= DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMA_A_DISTANCIA;
         return DAO_Funcao.arquivoOperaExiste(diretorio, arma);
