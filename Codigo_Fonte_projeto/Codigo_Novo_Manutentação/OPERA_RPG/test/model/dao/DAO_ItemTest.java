@@ -42,6 +42,62 @@ public class DAO_ItemTest {
     public DAO_ItemTest() {
     }
     
+    public void comparaItemGenerico(Item expResult, Item result) {
+        assertArrayEquals(expResult.getBonus_atributo(), result.getBonus_atributo());
+        assertEquals(expResult.getDescricao(), result.getDescricao());
+        assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
+        assertEquals(expResult.getNome(), result.getNome());
+        assertEquals(expResult.getPreco(), result.getPreco());        
+    }
+    
+    public void comparaItemCorpo(Arma_Corpo_A_Corpo expResult, Arma_Corpo_A_Corpo result) {
+        Dado expDado = expResult.getDano();
+        Dado resultDado = result.getDano();
+        
+        assertEquals(expResult.getAparo(), result.getAparo());
+        assertArrayEquals(expResult.getBonus_atributo(), result.getBonus_atributo());
+        assertEquals(expDado.getLados(), resultDado.getLados());
+        assertEquals(expDado.getRolagem(), resultDado.getRolagem());
+        assertEquals(expResult.getDanoAdicional(), result.getDanoAdicional());
+        assertEquals(expResult.getDescricao(), result.getDescricao());
+        assertEquals(expResult.getEsquiva(), result.getEsquiva());
+        assertEquals(expResult.getGolpe(), result.getGolpe());
+        assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
+        assertEquals(expResult.getNome(), result.getNome());
+        assertEquals(expResult.getPreco(), result.getPreco());
+        assertEquals(expResult.getTipo(), result.getTipo());
+    }
+    
+    public void comparaItemDistancia(Arma_A_Distancia expResult, Arma_A_Distancia result) {
+        Dado expDado = expResult.getDano();
+        Dado resultDado = result.getDano(); 
+        
+        assertArrayEquals(expResult.getBonus_atributo(), result.getBonus_atributo());
+        assertEquals(expResult.getCadencia(), result.getCadencia());
+        assertEquals(expDado.getLados(), resultDado.getLados());
+        assertEquals(expDado.getRolagem(), resultDado.getRolagem());
+        assertEquals(expResult.getDanoAdicional(), result.getDanoAdicional());
+        assertEquals(expResult.getDescricao(), result.getDescricao());
+        assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
+        assertEquals(expResult.getNome(), result.getNome());
+        assertEquals(expResult.getPreco(), result.getPreco());
+        assertEquals(expResult.getTiro_Mirado(), result.getTiro_Mirado());
+        assertEquals(expResult.getTiro_Rapido(), result.getTiro_Rapido());
+    }
+    
+    public void comparaArmadura(Armadura expResult, Armadura result) {
+        assertEquals(expResult.getAbsorcao_Arma_Branca(), result.getAbsorcao_Arma_Branca());
+        assertEquals(expResult.getAbsorcao_Arma_De_Fogo(), result.getAbsorcao_Arma_De_Fogo());
+        assertArrayEquals(expResult.getBonus_atributo(), result.getBonus_atributo());
+        assertEquals(expResult.getDescricao(), result.getDescricao());
+        assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
+        assertEquals(expResult.getNome(), result.getNome());
+        assertEquals(expResult.getPenalidade(), result.getPenalidade());
+        assertEquals(expResult.getPreco(), result.getPreco());
+        assertEquals(expResult.getRegiao_Do_Corpo(), result.getRegiao_Do_Corpo());
+    }
+            
+    
     @BeforeClass
     public static void setUpClass() {
     }
@@ -199,101 +255,110 @@ public class DAO_ItemTest {
 
     /**
      * Test of encontrarItemGenerico method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testEncontrarItemGenerico() throws Exception {
-        System.out.println("encontrarItemGenerico");
-        String nome = "";
-        Item expResult = null;
-        Item result = DAO_Item.encontrarItemGenerico(nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("encontrarItemGenerico");       
+        Item expResult = new Item("NomeItemGenerico", "Descricao", true, testeAtributos,preco, "TesteFisica");
+        DAO_Item.gravarItem(expResult);        
+        Item result = DAO_Item.encontrarItemGenerico("NomeItemGenerico");
+        this.comparaItemGenerico(expResult, result);
+        File arquivo = new File(diretorio+generico, "NomeItemGenerico.opera");
+        arquivo.delete();
+        
     }
 
     /**
      * Test of encontrarArma_Corpo_A_Corpo method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testEncontrarArma_Corpo_A_Corpo() throws Exception {
         System.out.println("encontrarArma_Corpo_A_Corpo");
-        String nome = "";
-        String tipo = "";
-        Arma_Corpo_A_Corpo expResult = null;
-        Arma_Corpo_A_Corpo result = DAO_Item.encontrarArma_Corpo_A_Corpo(nome, tipo);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_Corpo_A_Corpo(expResult);
+        Arma_Corpo_A_Corpo result = DAO_Item.encontrarArma_Corpo_A_Corpo("NomeArmaCorpo", "Branca");
+        this.comparaItemCorpo(expResult, result);        
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
+        arquivo.delete();
     }
 
     /**
      * Test of encontrarArma_A_Distancia method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testEncontrarArma_A_Distancia() throws Exception {
         System.out.println("encontrarArma_A_Distancia");
-        String nome = "";
-        Arma_A_Distancia expResult = null;
-        Arma_A_Distancia result = DAO_Item.encontrarArma_A_Distancia(nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_A_Distancia expResult = new Arma_A_Distancia("NomeArmaDistancia", "Descricao",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_A_Distancia(expResult);
+        Arma_A_Distancia result = DAO_Item.encontrarArma_A_Distancia("NomeArmaDistancia");
+        this.comparaItemDistancia(expResult, result);
+        File arquivo = new File(diretorio+armas+"\\"+armasDistancia, "NomeArmaDistancia.opera");
+        arquivo.delete();
     }
 
     /**
      * Test of encontrarArmadura method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testEncontrarArmadura() throws Exception {
         System.out.println("encontrarArmadura");
-        String nome = "";
-        Armadura expResult = null;
-        Armadura result = DAO_Item.encontrarArmadura(nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Armadura expResult = new Armadura("NomeArmadura","Descricao",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        DAO_Item.gravarArmadura(expResult);      
+        Armadura result = DAO_Item.encontrarArmadura("NomeArmadura");
+        this.comparaArmadura(expResult, result);
+        File arquivo = new File(diretorio+armaduras, "NomeArmadura.opera");
+        arquivo.delete();
     }
 
     /**
      * Test of ItemGenericoExiste method, of class DAO_Item.
-     
+    */ 
     @Test
-    public void testItemGenericoExiste() {
+    public void testItemGenericoExiste() throws Exception {
         System.out.println("ItemGenericoExiste");
-        String item = "";
-        boolean expResult = false;
-        boolean result = DAO_Item.ItemGenericoExiste(item);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Item item = new Item("NomeItemGenerico", "Descricao", true, testeAtributos,preco, "TesteFisica");
+        assertEquals(false,DAO_Item.ItemGenericoExiste("NomeItemGenerico"));
+        DAO_Item.gravarItem(item);        
+        assertEquals(true, DAO_Item.ItemGenericoExiste("NomeItemGenerico"));
+        File arquivo = new File(diretorio+generico, "NomeItemGenerico.opera");
+        assertEquals(true,arquivo.delete());
     }
 
     /**
      * Test of ArmaduraExiste method, of class DAO_Item.
-     
+    */ 
     @Test
-    public void testArmaduraExiste() {
+    public void testArmaduraExiste() throws Exception {
         System.out.println("ArmaduraExiste");
-        String armadura = "";
-        boolean expResult = false;
-        boolean result = DAO_Item.ArmaduraExiste(armadura);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Armadura expResult = new Armadura("NomeArmadura","Descricao",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        assertEquals(false,DAO_Item.ArmaduraExiste("NomeArmadura"));        
+        DAO_Item.gravarArmadura(expResult);       
+        assertEquals(true, DAO_Item.ArmaduraExiste("NomeArmadura"));
+        File arquivo = new File(diretorio+armaduras, "NomeArmadura.opera");
+        assertEquals(true,arquivo.delete());
     }
 
     /**
      * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
-     
+    */ 
     @Test
-    public void testArmaCorpo_A_CorpoExiste_String() {
+    public void testArmaCorpo_A_CorpoExiste_String() throws Exception{
         System.out.println("ArmaCorpo_A_CorpoExiste");
-        String arma = "";
-        boolean expResult = false;
-        boolean result = DAO_Item.ArmaCorpo_A_CorpoExiste(arma);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado
+                                                                , 2, 2, 2, 2, true, testeAtributos
+                                                                , preco, "TesteFisica");
+        assertEquals(false,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo", "Branca"));
+        DAO_Item.gravarArma_Corpo_A_Corpo(expResult);
+        assertEquals(true,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo", "Branca"));
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
+        arquivo.delete();
     }
 
     /**
