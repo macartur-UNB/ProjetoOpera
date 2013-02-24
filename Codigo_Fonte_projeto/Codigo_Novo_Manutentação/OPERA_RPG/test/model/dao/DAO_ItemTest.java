@@ -5,9 +5,11 @@
 package model.dao;
 
 import java.io.File;
+import model.classes.Arma;
 import model.classes.Arma_A_Distancia;
 import model.classes.Arma_Corpo_A_Corpo;
 import model.classes.Armadura;
+import model.classes.Dado;
 import model.classes.Habilidade;
 import model.classes.Item;
 import org.junit.After;
@@ -27,9 +29,9 @@ public class DAO_ItemTest {
     private String jogo = "JUnitTest";
     private String armaduras = "Armaduras";   
     private String generico = "Generico";
-    private String armas = "Armas\\";
-    private String armasDistancia = "Armas_A_Distancia";
-    private String armasCorpo = "Armas_Corpo_A_Corpo\\";
+    private String armas = "Armas";
+    private String armasDistancia = "Arma_A_Distancia";
+    private String armasCorpo = "Arma_Corpo_A_Corpo";
     private String armasBranca = "Branca";
     private String armasFogo = "De_Fogo"; 
     private String testeItem = "TesteItem";
@@ -61,13 +63,12 @@ public class DAO_ItemTest {
          DAO_Habilidade.gravarHabilidade(habilidade);
          File arquivo = new File("C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\Fisica"
                                 ,"TesteFisica.opera");
-         assertEquals(true,arquivo.exists());
-         
+         assertEquals(true,arquivo.exists());  
     }
     
     @After
     public void tearDown() throws Exception {
-        DAO_Jogo.deletarJogo(jogo);
+        //DAO_Jogo.deletarJogo(jogo);
     }
 
     /**
@@ -76,9 +77,9 @@ public class DAO_ItemTest {
     @Test
     public void testGravarItem() throws Exception {
         System.out.println("gravarItem");        
-        Item item = new Item(testeItem, testeItem, true, testeAtributos,preco, "TesteFisica");
+        Item item = new Item("NomeItemGenerico", "Descricao", true, testeAtributos,preco, "TesteFisica");
         DAO_Item.gravarItem(item);        
-        File arquivo = new File(diretorio+generico, testeItem+".opera");
+        File arquivo = new File(diretorio+generico, "NomeItemGenerico.opera");
         boolean expResult = true;
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);         
@@ -87,38 +88,51 @@ public class DAO_ItemTest {
 
     /**
      * Test of gravarArma_Corpo_A_Corpo method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testGravarArma_Corpo_A_Corpo() throws Exception {
         System.out.println("gravarArma_Corpo_A_Corpo");
-        Arma_Corpo_A_Corpo arma = null;
-        DAO_Item.gravarArma_Corpo_A_Corpo(arma);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Tipo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_Corpo_A_Corpo(arma);       
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
+        boolean expResult = true;
+        boolean result = arquivo.exists(); 
+        assertEquals(expResult, result);         
+        assertEquals(expResult, arquivo.delete());
     }
 
     /**
      * Test of gravarArma_A_Distancia method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testGravarArma_A_Distancia() throws Exception {
         System.out.println("gravarArma_A_Distancia");
-        Arma_A_Distancia arma = null;
-        DAO_Item.gravarArma_A_Distancia(arma);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Arma_A_Distancia arma = new Arma_A_Distancia("NomeArmaDistancia", "Descricao",
+                                                     dado, 2, 2, 2, 2, true, 
+                                                     testeAtributos, preco, "TesteFisica");
+        DAO_Item.gravarArma_A_Distancia(arma);      
+        File arquivo = new File(diretorio+armas+"\\"+armasDistancia, "NomeArmaDistancia.opera");
+        boolean expResult = true;
+        boolean result = arquivo.exists(); 
+        assertEquals(expResult, result);         
+        assertEquals(expResult, arquivo.delete());
     }
 
     /**
      * Test of gravarArmadura method, of class DAO_Item.
-     
+    */ 
     @Test
     public void testGravarArmadura() throws Exception {
-        System.out.println("gravarArmadura");
-        Armadura armadura = null;
-        DAO_Item.gravarArmadura(armadura);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Dado dado = new Dado(6, 1);
+        Armadura arma = new Armadura("NomeArmadura","Descricao",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        DAO_Item.gravarArmadura(arma);      
+        File arquivo = new File(diretorio+armaduras, "NomeArmadura.opera");
+        boolean expResult = true;
+        boolean result = arquivo.exists(); 
+        assertEquals(expResult, result);         
+        assertEquals(expResult, arquivo.delete());
     }
 
     /**
