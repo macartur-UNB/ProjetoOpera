@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
 import java.io.FileNotFoundException;
@@ -19,10 +15,12 @@ public class Controle_Caracteristica {
     
     public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo)
-    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
+                                      throws FileNotFoundException, IOException,
+                                                       ArquivoInvalidoException,
+                                                CaracteristicaInvalidaException{
        
         if(CaracteristicaExiste(nome)){
-            throw new CaracteristicaInvalidaException("A Caracteristica {"+nome+" ja Existe");
+            throw new CaracteristicaInvalidaException("A Caracteristica { "+nome+" } ja Existe");
         }
         
         Caracteristica c = new Caracteristica(nome, descricao, tipo, custo);
@@ -31,10 +29,12 @@ public class Controle_Caracteristica {
     
     public static void cadCaracteristica(
     String nome,String descricao,String tipo,int custo,int modificador[])
-    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
+                                      throws FileNotFoundException, IOException,
+                                                        ArquivoInvalidoException,
+                                                CaracteristicaInvalidaException{
     
         if(CaracteristicaExiste(nome)){
-            throw new CaracteristicaInvalidaException("A Caracteristica {"+nome+" ja Existe");
+            throw new CaracteristicaInvalidaException("A Caracteristica { "+nome+" } ja Existe");
         }
         
         Caracteristica c = new Caracteristica(nome, descricao, tipo, modificador,custo);
@@ -44,7 +44,8 @@ public class Controle_Caracteristica {
     public static void cadCaracteristicaEspecifica(
     String nome_Especifico,String descricao_Especifica,
     String nome,String descricao,String tipo,int custo) 
-    throws FileNotFoundException, IOException, ArquivoInvalidoException, CaracteristicaInvalidaException{
+    throws FileNotFoundException, IOException, ArquivoInvalidoException,
+                                                CaracteristicaInvalidaException{
     
         Caracteristica ce = new Caracteristica_Especifica(
         nome_Especifico,descricao_Especifica,nome, descricao, tipo,custo);
@@ -108,31 +109,45 @@ public class Controle_Caracteristica {
         return status;      
     }
        
-    public static void removeCaracteristicaFisica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeCaracteristicaFisica(String nome) 
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         DAO_Caracteristica.removerCaracteristica(nome, "Fisica");
     }
     
-    public static void removeCaracteristicaRacial(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeCaracteristicaRacial(String nome) 
+                                    throws DeletarInvalidoException, IOException,
+                                                        ArquivoInvalidoException{
         DAO_Caracteristica.removerCaracteristica(nome, "Racial");
     }
     
-    public static void removeCaracteristicaPsiquica(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeCaracteristicaPsiquica(String nome)
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         DAO_Caracteristica.removerCaracteristica(nome, "Psiquica");
     }
     
-    public static void removeTodasCaracteristicasFisicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeTodasCaracteristicasFisicas() 
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         DAO_Caracteristica.removerTodasCaracteristicas("Fisica");
     }
     
-    public static void removeTodasCaracteristicasPsiquicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeTodasCaracteristicasPsiquicas() 
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         DAO_Caracteristica.removerTodasCaracteristicas("Psiquica");
     }
     
-    public static void removeTodasCaracteristicasRacial() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeTodasCaracteristicasRacial() 
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         DAO_Caracteristica.removerTodasCaracteristicas("Racial");
     }   
     
-    public static void removeTodasCaracteristicas() throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removeTodasCaracteristicas() 
+                                   throws DeletarInvalidoException, IOException,
+                                                       ArquivoInvalidoException{
         removeTodasCaracteristicasFisicas();
         removeTodasCaracteristicasRacial();
         removeTodasCaracteristicasPsiquicas();

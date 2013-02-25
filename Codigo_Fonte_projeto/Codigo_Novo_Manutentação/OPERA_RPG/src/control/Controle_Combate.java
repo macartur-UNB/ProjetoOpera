@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
 import java.io.FileNotFoundException;
@@ -52,10 +48,11 @@ public class Controle_Combate {
     
     /**
      * retorna se tem alguma arma sendo utilizada
-     * @return 
+     * @return boolean
      */
     public static boolean usandoAlgumaArma(){
-        return usandoArma(ficha.getArmasADistancia())|| usandoArma(ficha.getArmasCorpoACorpo());           
+        return usandoArma(ficha.getArmasADistancia())||
+               usandoArma(ficha.getArmasCorpoACorpo());           
     }
     /**
      * retorna se esta utilizando alguma arma da colecao
@@ -86,7 +83,7 @@ public class Controle_Combate {
     public static boolean equiparArmaCorpoACorpo(String nomeArma) 
                                       throws FileNotFoundException, IOException,
                                              ArquivoInvalidoException,
-                                                          ItemInvalidoException, ItemInvalidoException, ItemInvalidoException{
+                                                          ItemInvalidoException{
         if(usandoAlgumaArma()){
               return false;
         }
@@ -102,7 +99,11 @@ public class Controle_Combate {
         Controle_Ficha.atualizarFicha(ficha);
         return true;
     }
-    public static boolean desequiparArmaCorpoACorpo(String nomeArma) throws ItemInvalidoException, FileNotFoundException, IOException, ArquivoInvalidoException {
+    public static boolean desequiparArmaCorpoACorpo(String nomeArma) 
+                                                   throws ItemInvalidoException,
+                                                          FileNotFoundException,
+                                                                    IOException,
+                                                      ArquivoInvalidoException {
         auxiliar = ficha.getArmasCorpoACorpo();  
         if( auxiliar == null||auxiliar.isEmpty()){
             return false;
@@ -125,8 +126,10 @@ public class Controle_Combate {
      * @throws ItemInvalidoException 
      */
     public static boolean equiparArmaADistancia(String nomeArma) 
-                        throws FileNotFoundException, ArquivoInvalidoException,
-                                             IOException, ItemInvalidoException{
+                                                   throws FileNotFoundException,
+                                                        ArquivoInvalidoException,
+                                                                    IOException,
+                                                          ItemInvalidoException{
           if(usandoAlgumaArma()){
               return false;
           }
@@ -152,8 +155,10 @@ public class Controle_Combate {
      * @throws ItemInvalidoException 
      */
      public static boolean desequiparArmaADistancia(String nomeArma) 
-                        throws FileNotFoundException, ArquivoInvalidoException,
-                                             IOException, ItemInvalidoException{
+                                                  throws FileNotFoundException, 
+                                                        ArquivoInvalidoException,
+                                                                    IOException, 
+                                                          ItemInvalidoException{
           auxiliar = ficha.getArmasADistancia();
           if( auxiliar == null||auxiliar.isEmpty()){
             return false;
@@ -297,7 +302,11 @@ public class Controle_Combate {
      * @throws IOException
      * @throws ArquivoInvalidoException 
      */
-    public static boolean desequiparArmadura(String nomeArmadura) throws ItemInvalidoException, FileNotFoundException, IOException, ArquivoInvalidoException {
+    public static boolean desequiparArmadura(String nomeArmadura) 
+                                                    throws ItemInvalidoException,
+                                                           FileNotFoundException,
+                                                           IOException, 
+                                                      ArquivoInvalidoException {
         auxiliar = ficha.getArmaduras(); 
         if(auxiliar == null){
             return false;
@@ -332,7 +341,8 @@ public class Controle_Combate {
      * @param regiao
      * @return 
      */
-    public static boolean verificarUsandoNaRegicao_Do_Corpo(ArrayList armaduras , char regiao){
+    public static boolean verificarUsandoNaRegicao_Do_Corpo(ArrayList armaduras,
+                                                                   char regiao){
         Iterator i = armaduras.iterator();
         while(i.hasNext()){
             Armadura armadura = (Armadura) i.next();
@@ -406,7 +416,8 @@ public class Controle_Combate {
         int bonusArmadura[] = calcularBonusArmadura();
         int bonusItemGenerico[] = calcularBonusItensGenerico();
         for(int i=0;i<7;i++){
-           mod[i] += bonusArmaCAC[i] + bonusArmaAD[i]+bonusArmadura[i]+bonusItemGenerico[i];
+           mod[i] += bonusArmaCAC[i] + bonusArmaAD[i]+
+                     bonusArmadura[i]+bonusItemGenerico[i];
         }
         return mod;
     }
