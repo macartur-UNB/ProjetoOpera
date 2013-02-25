@@ -123,6 +123,9 @@ public class DAO_JogoTest {
         DAO_Jogo.deletarJogo(nome);
     }
     
+    /**
+     * Test of deletarTodosJogos method, of class DAO_Jogo.
+     */
     @Test
     public void testDeletarTodosJogos() throws Exception{
         System.out.println("deletar todos jogos");
@@ -131,5 +134,136 @@ public class DAO_JogoTest {
         DAO_Jogo.deletarTodosJogos();
     }
     
+    /**
+     * Test of removerArquivosJogo method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosJogo() throws Exception{
+        System.out.println("removerArquivosJogo");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosJogo(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioJogo method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioJogo() throws Exception{
+        System.out.println("removerDiretorioJogo");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretorioJogo(jogo);
+    }
+    
+    /**
+     * Test of removerArquivosFichas method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosFichas() throws Exception{
+        System.out.println("removerArquivosFichas");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosFichas(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioFichas method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioFichas() throws Exception{
+        System.out.println("removerDiretorioFichas");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretorioFichas(jogo);
+    }
+    
+    /**
+     * Test of removerArquivosHabilidades method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosHabilidades() throws Exception{
+        System.out.println("removerArquivosHabilidades");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosHabilidades(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioHabilidades method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioHabilidades() throws Exception{
+        System.out.println("removerDiretorioHabilidades");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretorioHabilidades(jogo);
+    }
+    
+    /**
+     * Test of removerArquivosCaracteristicas method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosCaracteristicas() throws Exception{
+        System.out.println("removerArquivosCaracteristicas");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosCaracteristicas(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioCaracteristicas method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioCaracteristicas() throws Exception{
+        System.out.println("removerDiretorioCaracteristicas");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretorioCaracteristicas(jogo);
+    }
+    
+    /**
+     * Test of removerArquivosItens method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosItens() throws Exception{
+        System.out.println("removerArquivosItens");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosItens(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioItens method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioItens() throws Exception{
+        System.out.println("removerDiretorioItens");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretoriosItens(jogo);
+    }
+    
+    /**
+     * Test of removerArquivosItens method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverArquivosDados() throws Exception{
+        System.out.println("removerArquivosDados");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerArquivosDados(jogo);
+    }
+    
+    /**
+     * Test of removerDiretorioItens method, of class DAO_Jogo.
+     */
+    @Test
+    public void testRemoverDiretorioDados() throws Exception{
+        System.out.println("removerDiretorioDados");
+        DAO_Jogo.criarJogo("JUnitTest");
+        Jogo jogo = DAO_Jogo.getJogoRodando();
+        DAO_Jogo.removerDiretorioDados(jogo);
+    }
     
 }

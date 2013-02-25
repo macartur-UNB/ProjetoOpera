@@ -232,6 +232,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
         pnlCadastrarItem.getGrpTipoDeArma().clearSelection();
         pnlCadastrarItem.getGrpTipoEquipamento().clearSelection();
         pnlCadastrarItem.getGrpTipoHabilidade().clearSelection();
+        
+        pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
     }//GEN-LAST:event_rdbItemActionPerformed
 
     private void rdbArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaActionPerformed
@@ -248,6 +250,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
         pnlCadastrarItem.getGrpTipoDeArma().clearSelection();
         pnlCadastrarItem.getGrpTipoEquipamento().clearSelection();
         pnlCadastrarItem.getGrpTipoHabilidade().clearSelection();
+        
+        pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
     }//GEN-LAST:event_rdbArmaActionPerformed
 
     private void rdbArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaduraActionPerformed
@@ -264,6 +268,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
         pnlCadastrarItem.getGrpTipoDeArma().clearSelection();
         pnlCadastrarItem.getGrpTipoEquipamento().clearSelection();
         pnlCadastrarItem.getGrpTipoHabilidade().clearSelection();
+        
+        pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
     }//GEN-LAST:event_rdbArmaduraActionPerformed
 
     private void rdbArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaCorpoACorpoActionPerformed
@@ -278,6 +284,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
         pnlCadastrarItem.getGrpTipoDeArma().clearSelection();
         pnlCadastrarItem.getGrpTipoEquipamento().clearSelection();
         pnlCadastrarItem.getGrpTipoHabilidade().clearSelection();
+        
+        pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
     }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
 
     private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
@@ -292,6 +300,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
         pnlCadastrarItem.getGrpTipoDeArma().clearSelection();
         pnlCadastrarItem.getGrpTipoEquipamento().clearSelection();
         pnlCadastrarItem.getGrpTipoHabilidade().clearSelection();
+        
+        pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
     }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
 
     private void cmbEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEquipamentoActionPerformed
@@ -356,7 +366,13 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                             pnlCadastrarItem.carregarJComboBox("Belica");
                             break;
                     }
-                    pnlCadastrarItem.getCmbHabilidade().setSelectedItem(tipoDeHabilidade);
+                    System.out.println(item.getHabilidade_Necessaria());
+                    for(int i = 0; i < pnlCadastrarItem.getCmbHabilidade().getItemCount(); i++){
+                        System.out.println(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString());
+                        if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString().equals(item.getHabilidade_Necessaria())){
+                            pnlCadastrarItem.getCmbHabilidade().setSelectedIndex(i);
+                        }
+                    }
                 }
                 
                 final int FISICO = Constante_Atributo.FISICO;
@@ -449,10 +465,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     pnlCadastrarItem.getCmbRegiaoDoCorpo().setSelectedItem(""+armadura.getRegiao_Do_Corpo());
                 }
                 
-                
-                
-                
-                
+            }else{
+                pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
             }
             
         } catch(IOException | ArquivoInvalidoException | ClassNotFoundException | HabilidadeInvalidaException e){

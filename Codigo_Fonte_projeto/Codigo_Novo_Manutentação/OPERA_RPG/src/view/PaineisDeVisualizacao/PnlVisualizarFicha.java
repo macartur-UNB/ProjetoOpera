@@ -656,7 +656,11 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
                     pnlCadastrarItem.carregarJComboBox("Belica");
                     break;
             }
-            pnlCadastrarItem.getCmbHabilidade().setSelectedItem(tipoDeHabilidade);
+            for(int i = 0; i < pnlCadastrarItem.getCmbHabilidade().getItemCount(); i++){
+                if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString().equals(item.getHabilidade_Necessaria())){
+                    pnlCadastrarItem.getCmbHabilidade().setSelectedIndex(i);
+                }
+            }
         }
 
         final int FISICO = Constante_Atributo.FISICO;
