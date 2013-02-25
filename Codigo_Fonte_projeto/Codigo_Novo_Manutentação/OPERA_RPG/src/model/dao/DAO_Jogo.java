@@ -42,8 +42,6 @@ public class DAO_Jogo {
     private static final String ENDERECO_ITEM_GENERICO = Constante_Endereco.ITEM_GENERICO;
     private static final String ENDERECO_ITEM_ARMA = Constante_Endereco.ITEM_ARMA;
     private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_BRANCA = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO_BRANCA;
-    private static final String ENDERECO_ITEM_ARMA_CORPO_A_CORPO_DE_FOGO = Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO_DE_FOGO;
     private static final String ENDERECO_ITEM_ARMA_A_DISTANCIA = Constante_Endereco.ITEM_ARMA_A_DISTANCIA;
     private static final String ENDERECO_ITEM_ARMADURA = Constante_Endereco.ITEM_ARMADURA;
     
@@ -120,8 +118,6 @@ public class DAO_Jogo {
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_GENERICO);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMA_CORPO_A_CORPO);
-        DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMA_CORPO_A_CORPO_BRANCA);
-        DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMA_CORPO_A_CORPO_DE_FOGO);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMA_A_DISTANCIA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMADURA);
     }
@@ -129,8 +125,6 @@ public class DAO_Jogo {
     public static void removerArquivosItens(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_GENERICO);
-        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMA_CORPO_A_CORPO_BRANCA);
-        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMA_CORPO_A_CORPO_DE_FOGO);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMA_A_DISTANCIA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMADURA);
     }
