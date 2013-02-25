@@ -37,7 +37,8 @@ public class Controle_Integracao_Ficha {
      * @throws FichaInvalidaException
      * @throws CaracteristicaInvalidaException 
      */
-    public static boolean colocarCaracteristica(String personagem, String caracteristica) 
+    public static boolean colocarCaracteristica(String personagem, 
+                                                          String caracteristica) 
                         throws FileNotFoundException, IOException,
                                ArquivoInvalidoException, ClassNotFoundException,
                                DeletarInvalidoException, FichaInvalidaException,
@@ -200,7 +201,8 @@ public class Controle_Integracao_Ficha {
                                                          FichaInvalidaException{
             Habilidade h;
             if(!Controle_Habilidade.HabilidadeExiste(habilidade)){ 
-                throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Invalida");
+                throw new HabilidadeInvalidaException(
+                                        "Habilidade {"+habilidade+"} Invalida");
             }
             h = Controle_Habilidade.encontrarHabilidade(
                     habilidade,Controle_Habilidade.getTipoHabildiade(habilidade));
@@ -363,7 +365,8 @@ public class Controle_Integracao_Ficha {
             Controle_Ficha.atualizarFicha(ficha);
         
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            throw new ItemInvalidoException("O Item {"+nomeItem+"} Nao pode ser Integrado");
+            throw new ItemInvalidoException(
+                                "O Item {"+nomeItem+"} Nao pode ser Integrado");
         }
     }
     
@@ -463,7 +466,8 @@ public class Controle_Integracao_Ficha {
             Controle_Ficha.atualizarFicha(ficha);
         
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            throw new ItemInvalidoException("A Arma {"+nomeArma+"} Nao pode ser Integrada");
+            throw new ItemInvalidoException(
+                                "A Arma {"+nomeArma+"} Nao pode ser Integrada");
         }
     }
     
@@ -485,7 +489,8 @@ public class Controle_Integracao_Ficha {
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getArmasADistancia();
             if(auxiliar==null){
-                throw new ItemInvalidoException("Arma {"+nomeArma+"} Nao pode ser Removida");
+                throw new ItemInvalidoException(
+                                   "Arma {"+nomeArma+"} Nao pode ser Removida");
             }         
             
             Iterator i = auxiliar.iterator();
@@ -567,7 +572,8 @@ public class Controle_Integracao_Ficha {
             Controle_Ficha.atualizarFicha(ficha);
         
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            throw new ItemInvalidoException("A Arma {"+nomeArma+"} Nao pode ser Integrada");
+            throw new ItemInvalidoException(
+                                "A Arma {"+nomeArma+"} Nao pode ser Integrada");
         }
     }
     
@@ -586,7 +592,8 @@ public class Controle_Integracao_Ficha {
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getArmasCorpoACorpo();
             if(auxiliar==null){
-                throw new ItemInvalidoException("Arma {"+nomeArma+"} Nao pode ser Removida");
+                throw new ItemInvalidoException(
+                                   "Arma {"+nomeArma+"} Nao pode ser Removida");
             }         
             
             Iterator i = auxiliar.iterator();
@@ -670,7 +677,8 @@ public class Controle_Integracao_Ficha {
     /**
      *  remove uma armadura da ficha de selecionada
      */
-    public static void removerArmadura(String personagem, String nomeArmadura) throws ItemInvalidoException{
+    public static void removerArmadura(String personagem, String nomeArmadura) 
+                                                   throws ItemInvalidoException{
         try{
             Armadura armadura = Controle_Item.encontrarArmadura(nomeArmadura);
             if(armadura == null){ 
