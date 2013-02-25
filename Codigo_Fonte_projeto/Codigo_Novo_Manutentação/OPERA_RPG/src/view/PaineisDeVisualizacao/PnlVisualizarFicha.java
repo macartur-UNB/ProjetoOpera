@@ -544,7 +544,7 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             JFrame frmArmaCorpoACorpo = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
                                     
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(listArmasCorpoACorpo.getSelectedValue().toString(), null);
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(listArmasCorpoACorpo.getSelectedValue().toString());
             
             carregarDadosDoItemNoPainel(pnlCadastrarItem, arma);
             carregarDadosDaArmaNoPainel(pnlCadastrarItem, arma);
@@ -577,8 +577,8 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             
             carregarDadosDoItemNoPainel(pnlCadastrarItem, armadura);
             
-            pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Arma_Branca());
-            pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_Arma_De_Fogo());
+            pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Distancia());
+            pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_CorpoACorpo());
             pnlCadastrarItem.getTxtPenalidade().setText(""+armadura.getPenalidade());
             pnlCadastrarItem.getCmbRegiaoDoCorpo().setSelectedItem(""+armadura.getRegiao_Do_Corpo());
             

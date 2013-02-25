@@ -720,9 +720,9 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Absorcao"));
 
-        jLabel15.setText("Arma Branca:");
+        jLabel15.setText("Distancia:");
 
-        jLabel16.setText("Arma de Fogo:");
+        jLabel16.setText("Corpo a Corpo");
 
         txtAbsorcaoArmaBranca.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1501,9 +1501,9 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                             int esquiva = ValidarCampos.validarCampoInteiro(txtEsquiva);
                             
                             if(possui_modificador){
-                                item = new Arma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, modificador, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, dado, danoAdicional, golpe, aparo, esquiva, false, modificador, preco, habilidade_Necessaria);
                             }else{
-                                item = new Arma_Corpo_A_Corpo(nome, descricao, null, dado, danoAdicional, golpe, aparo, esquiva, false, null, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, dado, danoAdicional, golpe, aparo, esquiva, false, null, preco, habilidade_Necessaria);
                             }
                             
                         }
@@ -1553,7 +1553,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 }
                 if(rdbArmaCorpoACorpo.isSelected()){
                     Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
-                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getTipo(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
+                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
                     JOptionPane.showMessageDialog(null,"Cadastro Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                     limparCampos();
                 }
@@ -1561,7 +1561,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             
             if(rdbArmadura.isSelected()){
                 Armadura armadura = (Armadura)item;
-                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Arma_Branca(), armadura.getAbsorcao_Arma_De_Fogo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
+                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Distancia(), armadura.getAbsorcao_CorpoACorpo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
                 JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 limparCampos();
             }

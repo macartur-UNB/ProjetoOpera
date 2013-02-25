@@ -48,31 +48,31 @@ public class Controle_Item {
     }
     
     public static void removerArmaCorpoACorpo(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        DAO_Item.removerArma_Corpo_A_Corpo(nome, "");
+        DAO_Item.removerArma_Corpo_A_Corpo(nome);
     }
     
     public static void removerArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
         DAO_Item.removerArmadura(nome);
     }
     
-    public static void cadArma_Corpo_A_Corpo(String nome, String descricao,String tipo,
+    public static void cadArma_Corpo_A_Corpo(String nome, String descricao,
                 Dado dano,int danoAdicional,int golpe,int aparo,int esquiva,
                 boolean usando,int preco)
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
         
-        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, 
                 dano, danoAdicional, golpe, aparo, esquiva, usando, preco);
         DAO_Item.gravarArma_Corpo_A_Corpo(arma);
     }
     
     
-     public static void cadArma_Corpo_A_Corpo(String nome, String descricao,String tipo,
+     public static void cadArma_Corpo_A_Corpo(String nome, String descricao,
                 Dado dano,int danoAdicional,int golpe,int aparo,int esquiva,
                 boolean usando,int bonus_atributo[],int preco,
                 String habilidade_Necessaria)
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
       
-         Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao, tipo,
+         Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo(nome, descricao,
                                    dano, danoAdicional, golpe, aparo, esquiva,
                                    usando, bonus_atributo, preco,
                                    habilidade_Necessaria);
@@ -104,25 +104,25 @@ public class Controle_Item {
          DAO_Item.gravarArma_A_Distancia(arma);
      }
      
-     public static void cadArmadura(String nome,String descricao,int absorcao_Arma_Branca,
-             int absorcao_Arma_De_Fogo,int penalidade,char regiao_Do_Corpo,
+     public static void cadArmadura(String nome,String descricao,int absorcao_Distancia,
+             int absorcao_CorpoACorpo,int penalidade,char regiao_Do_Corpo,
              boolean usando,int preco) 
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
-         Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
-                                          absorcao_Arma_De_Fogo, penalidade,
+         Armadura armadura = new Armadura(nome, descricao, absorcao_Distancia,
+                                          absorcao_CorpoACorpo, penalidade,
                                           regiao_Do_Corpo, usando, preco);
          DAO_Item.gravarArmadura(armadura);
      }
      
    
        public static void cadArmadura(String nome,String descricao,
-                               int absorcao_Arma_Branca,int absorcao_Arma_De_Fogo,
+                               int absorcao_Distancia,int absorcao_CorpoACorpo,
                                int penalidade,char regiao_Do_Corpo,boolean usando,
                                int bonus_atributo[],int preco,
                                String habilidade_Necessaria) 
                                       throws FileNotFoundException, IOException, ArquivoInvalidoException, ItemInvalidoException{
-         Armadura armadura = new Armadura(nome, descricao, absorcao_Arma_Branca,
-                                          absorcao_Arma_De_Fogo, penalidade,
+         Armadura armadura = new Armadura(nome, descricao, absorcao_Distancia,
+                                          absorcao_CorpoACorpo, penalidade,
                                           regiao_Do_Corpo, usando, bonus_atributo,
                                           preco, habilidade_Necessaria);
          DAO_Item.gravarArmadura(armadura);
@@ -137,8 +137,8 @@ public class Controle_Item {
     /* public static boolean ArmaCorpo_A_CorpoExiste(String arma){
          return DAO_Item.ArmaCorpo_A_CorpoExiste(arma);
      }*/
-     public static boolean ArmaCorpo_A_CorpoExiste(String arma,String tipo){
-         return DAO_Item.ArmaCorpo_A_CorpoExiste(arma, tipo);
+     public static boolean ArmaCorpo_A_CorpoExiste(String arma){
+         return DAO_Item.ArmaCorpo_A_CorpoExiste(arma);
      }
      public static boolean ArmaduraExiste(String armadura){
          return DAO_Item.ArmaduraExiste(armadura);
@@ -153,9 +153,9 @@ public class Controle_Item {
           return DAO_Item.encontrarItemGenerico(nome);
     }
     
-    public static Arma_Corpo_A_Corpo encontrarArma_Corpo_A_Corpo(String nome,String tipo)
+    public static Arma_Corpo_A_Corpo encontrarArma_Corpo_A_Corpo(String nome)
                throws FileNotFoundException,IOException, ClassNotFoundException, ArquivoInvalidoException{
-            return DAO_Item.encontrarArma_Corpo_A_Corpo(nome, tipo);
+            return DAO_Item.encontrarArma_Corpo_A_Corpo(nome);
     }
     
     public static Arma_A_Distancia encontrarArma_A_Distancia(String nome) 

@@ -329,7 +329,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     pnlCadastrarItem.getRdbArma().setSelected(true);
                 }
                 if(rdbArmaCorpoACorpo.isSelected()) {
-                    item = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeSelecionado, "");
+                    item = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeSelecionado);
                     pnlCadastrarItem.getRdbArma().setSelected(true);
                 }
                                 
@@ -427,7 +427,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     
                     pnlCadastrarItem.getRdbArmaCorpoACorpo().setSelected(true);
                     
-                    Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeSelecionado, "");
+                    Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeSelecionado);
                     pnlCadastrarItem.getTxtLados().setText(""+((Arma)arma).getDano().getLados());
                     pnlCadastrarItem.getTxtRolagem().setText(""+((Arma)arma).getDano().getRolagem());
                     pnlCadastrarItem.getTxtDanoAdicional().setText(""+((Arma)arma).getDanoAdicional());
@@ -443,8 +443,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                     
                     Armadura armadura = Controle_Item.encontrarArmadura(nomeSelecionado);
                     
-                    pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Arma_Branca());
-                    pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_Arma_De_Fogo());
+                    pnlCadastrarItem.getTxtAbsorcaoArmaBranca().setText(""+armadura.getAbsorcao_Distancia());
+                    pnlCadastrarItem.getTxtAbsorcaoArmaDeFogo().setText(""+armadura.getAbsorcao_CorpoACorpo());
                     pnlCadastrarItem.getTxtPenalidade().setText(""+armadura.getPenalidade());
                     pnlCadastrarItem.getCmbRegiaoDoCorpo().setSelectedItem(""+armadura.getRegiao_Do_Corpo());
                 }
@@ -520,7 +520,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                 if(rdbArmaCorpoACorpo.isSelected()){
                     Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
                     Controle_Item.removerArmaCorpoACorpo(nomeSelecionado);
-                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getTipo(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
+                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
                     JOptionPane.showMessageDialog(null,"Alterar Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
@@ -528,7 +528,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
             if(rdbArmadura.isSelected()){
                 Armadura armadura = (Armadura)item;
                 Controle_Item.removerArmadura(nomeSelecionado);
-                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Arma_Branca(), armadura.getAbsorcao_Arma_De_Fogo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
+                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Distancia(), armadura.getAbsorcao_CorpoACorpo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
                 JOptionPane.showMessageDialog(null,"Alterar Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
             }
             

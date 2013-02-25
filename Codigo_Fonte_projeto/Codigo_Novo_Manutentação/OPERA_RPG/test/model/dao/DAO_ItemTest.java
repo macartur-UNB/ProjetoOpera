@@ -32,8 +32,6 @@ public class DAO_ItemTest {
     private String armas = "Armas";
     private String armasDistancia = "Arma_A_Distancia";
     private String armasCorpo = "Arma_Corpo_A_Corpo";
-    private String armasBranca = "Branca";
-    private String armasFogo = "De_Fogo"; 
     private String testeItem = "TesteItem";
     private int[] testeAtributos = {2,2,2,2,2,2,2,2};
     private int preco = 2;
@@ -65,7 +63,6 @@ public class DAO_ItemTest {
         assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
         assertEquals(expResult.getNome(), result.getNome());
         assertEquals(expResult.getPreco(), result.getPreco());
-        assertEquals(expResult.getTipo(), result.getTipo());
     }
     
     public void comparaItemDistancia(Arma_A_Distancia expResult, Arma_A_Distancia result) {
@@ -86,8 +83,8 @@ public class DAO_ItemTest {
     }
     
     public void comparaArmadura(Armadura expResult, Armadura result) {
-        assertEquals(expResult.getAbsorcao_Arma_Branca(), result.getAbsorcao_Arma_Branca());
-        assertEquals(expResult.getAbsorcao_Arma_De_Fogo(), result.getAbsorcao_Arma_De_Fogo());
+        assertEquals(expResult.getAbsorcao_Distancia(), result.getAbsorcao_Distancia());
+        assertEquals(expResult.getAbsorcao_CorpoACorpo(), result.getAbsorcao_CorpoACorpo());
         assertArrayEquals(expResult.getBonus_atributo(), result.getBonus_atributo());
         assertEquals(expResult.getDescricao(), result.getDescricao());
         assertEquals(expResult.getHabilidade_Necessaria(), result.getHabilidade_Necessaria());
@@ -149,9 +146,9 @@ public class DAO_ItemTest {
     public void testGravarArma_Corpo_A_Corpo() throws Exception {
         System.out.println("gravarArma_Corpo_A_Corpo");
         Dado dado = new Dado(6, 1);
-        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao",dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
         DAO_Item.gravarArma_Corpo_A_Corpo(arma);       
-        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
         boolean expResult = true;
         boolean result = arquivo.exists(); 
         assertEquals(expResult, result);         
@@ -230,11 +227,11 @@ public class DAO_ItemTest {
     public void testRemoverArma_Corpo_A_Corpo() throws Exception {
         System.out.println("removerArma_Corpo_A_Corpo");
         Dado dado = new Dado(6, 1);
-        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo arma = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
         DAO_Item.gravarArma_Corpo_A_Corpo(arma);       
-        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");        
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");        
         assertEquals(true, arquivo.exists());
-        DAO_Item.removerArma_Corpo_A_Corpo("NomeArmaCorpo", "Branca");
+        DAO_Item.removerArma_Corpo_A_Corpo("NomeArmaCorpo");
         assertEquals(false, arquivo.exists());
     }
 
@@ -275,11 +272,11 @@ public class DAO_ItemTest {
     public void testEncontrarArma_Corpo_A_Corpo() throws Exception {
         System.out.println("encontrarArma_Corpo_A_Corpo");
         Dado dado = new Dado(6, 1);
-        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
         DAO_Item.gravarArma_Corpo_A_Corpo(expResult);
-        Arma_Corpo_A_Corpo result = DAO_Item.encontrarArma_Corpo_A_Corpo("NomeArmaCorpo", "Branca");
+        Arma_Corpo_A_Corpo result = DAO_Item.encontrarArma_Corpo_A_Corpo("NomeArmaCorpo");
         this.comparaItemCorpo(expResult, result);        
-        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
         arquivo.delete();
     }
 
@@ -359,13 +356,13 @@ public class DAO_ItemTest {
     public void testArmaCorpo_A_CorpoExiste_String_String() throws Exception {        
         System.out.println("ArmaCorpo_A_CorpoExiste");
         Dado dado = new Dado(6, 1);
-        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", "Branca", dado
+        Arma_Corpo_A_Corpo expResult = new Arma_Corpo_A_Corpo("NomeArmaCorpo", "Descricao", dado
                                                                 , 2, 2, 2, 2, true, testeAtributos
                                                                 , preco, "TesteFisica");
-        assertEquals(false,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo", "Branca"));
+        assertEquals(false,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo"));
         DAO_Item.gravarArma_Corpo_A_Corpo(expResult);
-        assertEquals(true,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo", "Branca"));
-        File arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, "NomeArmaCorpo.opera");
+        assertEquals(true,DAO_Item.ArmaCorpo_A_CorpoExiste("NomeArmaCorpo"));
+        File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
         arquivo.delete();
     }
 
@@ -407,7 +404,9 @@ public class DAO_ItemTest {
     public void testListarItem() throws Exception {
         System.out.println("listarItem");
         Dado dado = new Dado(6, 1);
-        
+        /**
+         * Aqui tem que alterar o teste de listar itens , retirar o teste de arma corpo a corpo com os tipos
+         */
         Item item1 = new Item("NomeItemGenerico1", "Descricao1", true, testeAtributos,preco, "TesteFisica");
         Item item2 = new Item("NomeItemGenerico2", "Descricao2", true, testeAtributos,preco, "TesteFisica");
         String list[] = DAO_Item.listarItem("Generico");
@@ -444,39 +443,23 @@ public class DAO_ItemTest {
         arquivo = new File(diretorio+armas+"\\"+armasDistancia, list[1]+".opera");
         assertTrue(arquivo.delete());
         
-        Arma_Corpo_A_Corpo armaCorpo1 = new Arma_Corpo_A_Corpo("NomeArmaCorpo1", "Descricao1", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
-        Arma_Corpo_A_Corpo armaCorpo2 = new Arma_Corpo_A_Corpo("NomeArmaCorpo2", "Descricao2", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");        
-        list = DAO_Item.listarItem("Arma Corpo a Corpo Branca");
+        Arma_Corpo_A_Corpo armaCorpo1 = new Arma_Corpo_A_Corpo("NomeArmaCorpo1", "Descricao1",dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo armaCorpo2 = new Arma_Corpo_A_Corpo("NomeArmaCorpo2", "Descricao2",dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");        
+        list = DAO_Item.listarItem("Arma Corpo a Corpo");
         assertEquals(0,list.length);
         DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo1);
         DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo2);
-        list = DAO_Item.listarItem("Arma Corpo a Corpo Branca");
+        list = DAO_Item.listarItem("Arma Corpo a Corpo");
         assertEquals(2,list.length);
         assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo1")
                    || list[1].equalsIgnoreCase("NomeArmaCorpo1"));        
         assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo2")
                    || list[1].equalsIgnoreCase("NomeArmaCorpo2"));
-        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, list[0]+".opera");
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo, list[0]+".opera");
         assertTrue(arquivo.delete());
-        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, list[1]+".opera");
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo, list[1]+".opera");
         assertTrue(arquivo.delete());
         
-        armaCorpo1 = new Arma_Corpo_A_Corpo("NomeArmaCorpo1", "Descricao1", "De_Fogo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
-        armaCorpo2 = new Arma_Corpo_A_Corpo("NomeArmaCorpo2", "Descricao2", "De_Fogo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
-        list = DAO_Item.listarItem("Arma Corpo a Corpo de Fogo");
-        assertEquals(0,list.length);
-        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo1);
-        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo2);
-        list = DAO_Item.listarItem("Arma Corpo a Corpo de Fogo");
-        assertEquals(2,list.length);
-        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo1")
-                   || list[1].equalsIgnoreCase("NomeArmaCorpo1"));        
-        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo2")
-                   || list[1].equalsIgnoreCase("NomeArmaCorpo2"));
-        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasFogo, list[0]+".opera");
-        assertTrue(arquivo.delete());
-        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasFogo, list[1]+".opera");
-        assertTrue(arquivo.delete());
         
         Armadura armadura1 = new Armadura("NomeArmadura1","Descricao1",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
         Armadura armadura2 = new Armadura("NomeArmadura2","Descricao2",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");

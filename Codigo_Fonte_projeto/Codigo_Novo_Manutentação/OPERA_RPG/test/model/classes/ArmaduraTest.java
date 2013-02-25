@@ -60,8 +60,8 @@ public class ArmaduraTest {
     public void setUp() {
         String nome = "Armadura";
         String descricao = "Descricao da Armadura";
-        int absorcao_Arma_Branca = 0;
-        int absorcao_Arma_De_Fogo = 0;
+        int absorcao_Distancia = 0;
+        int absorcao_CorpoACorpo = 0;
         int penalidade = 0;
         char regiao_Do_Corpo = 'A';
         boolean usando = false;
@@ -70,7 +70,7 @@ public class ArmaduraTest {
         String habilidade_Necessaria = null;
         
         try{
-            instance = new Armadura(nome, descricao, absorcao_Arma_Branca, absorcao_Arma_De_Fogo, penalidade, regiao_Do_Corpo, usando, bonus_atributo, preco, habilidade_Necessaria);
+            instance = new Armadura(nome, descricao, absorcao_Distancia, absorcao_CorpoACorpo, penalidade, regiao_Do_Corpo, usando, bonus_atributo, preco, habilidade_Necessaria);
         } catch(ItemInvalidoException e){
             fail(e.getMessage());
         }
@@ -90,8 +90,8 @@ public class ArmaduraTest {
     	
     	String nome = "Armadura";
         String descricao = "Descricao da Armadura";
-        int absorcao_Arma_Branca = 0;
-        int absorcao_Arma_De_Fogo = 0;
+        int absorcao_Distancia = 0;
+        int absorcao_CorpoACorpo = 0;
         int penalidade = 0;
         char regiao_Do_Corpo = 'A';
         boolean usando = false;
@@ -100,8 +100,8 @@ public class ArmaduraTest {
         String habilidade_Necessaria = null;
         
         try{
-            instance = new Armadura(nome, descricao, absorcao_Arma_Branca, absorcao_Arma_De_Fogo, penalidade, regiao_Do_Corpo, usando, bonus_atributo, preco, habilidade_Necessaria);
-            instance = new Armadura(nome, descricao, absorcao_Arma_Branca, absorcao_Arma_De_Fogo, penalidade, regiao_Do_Corpo, usando, preco);
+            instance = new Armadura(nome, descricao, absorcao_Distancia, absorcao_CorpoACorpo, penalidade, regiao_Do_Corpo, usando, bonus_atributo, preco, habilidade_Necessaria);
+            instance = new Armadura(nome, descricao, absorcao_Distancia, absorcao_CorpoACorpo, penalidade, regiao_Do_Corpo, usando, preco);
         } catch(ItemInvalidoException e){
             fail(e.getMessage());
         }
@@ -111,16 +111,16 @@ public class ArmaduraTest {
     
 
     /**
-     * Test of setAbsorcao_Arma_Branca method, of class Armadura.
+     * Test of setAbsorcao_Distancia method, of class Armadura.
      */
     @Test
-    public void testSetAbsorcao_Arma_Branca() throws Exception {
-        System.out.println("setAbsorcao_Arma_Branca");
-        instance.setAbsorcao_Arma_Branca(1);
+    public void testSetAbsorcao_Distancia() throws Exception {
+        System.out.println("setAbsorcao_Distancia");
+        instance.setAbsorcao_Distancia(1);
         
         try{
-        	instance.setAbsorcao_Arma_Branca(-1);
-        	fail("setAbsorcao_Arma_Branca esta invalido, a excecao deveria ter pegado");
+        	instance.setAbsorcao_Distancia(-1);
+        	fail("setAbsorcao_Distancia esta invalido, a excecao deveria ter pegado");
         } catch (ItemInvalidoException e) {
 		}
         // TODO review the generated test code and remove the default call to fail.
@@ -129,13 +129,13 @@ public class ArmaduraTest {
     
     
     /**
-     * Test of getAbsorcao_Arma_Branca method, of class Armadura.
+     * Test of getAbsorcao_Arma_Distancia method, of class Armadura.
      */
     @Test
-    public void testGetAbsorcao_Arma_Branca() {
-        System.out.println("getAbsorcao_Arma_Branca");
+    public void testGetAbsorcao_Distancia() {
+        System.out.println("getAbsorcao_Distancia");
         int expResult = 0;
-        int result = instance.getAbsorcao_Arma_Branca();
+        int result = instance.getAbsorcao_Distancia();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -143,16 +143,16 @@ public class ArmaduraTest {
     
     
     /**
-     * Test of setAbsorcao_Arma_De_Fogo method, of class Armadura.
+     * Test of setAbsorcao_Arma_De_Corpo_A_Corpo method, of class Armadura.
      */
     @Test
-    public void testSetAbsorcao_Arma_De_Fogo() throws Exception {
-        System.out.println("setAbsorcao_Arma_De_Fogo");
-        instance.setAbsorcao_Arma_De_Fogo(1);
+    public void testSetAbsorcao_CorpoACorpo() throws Exception {
+        System.out.println("setAbsorcao_Corpo a Corpo");
+        instance.setAbsorcao_CorpoACorpo(1);
         
         try{
-        	instance.setAbsorcao_Arma_De_Fogo(-1);
-        	fail("setAbsorcao_Arma_De_Fogo esta invalido, a excecao deveria ter pegado");
+        	instance.setAbsorcao_CorpoACorpo(-1);
+        	fail("setAbsorcao_CorpoACorpo esta invalido, a excecao deveria ter pegado");
         } catch (ItemInvalidoException e) {
 		}
         // TODO review the generated test code and remove the default call to fail.
@@ -161,13 +161,13 @@ public class ArmaduraTest {
     
     
     /**
-     * Test of getAbsorcao_Arma_De_Fogo method, of class Armadura.
+     * Test of getAbsorcao_CorpoACorpo method, of class Armadura.
      */
     @Test
-    public void testGetAbsorcao_Arma_De_Fogo() {
-        System.out.println("getAbsorcao_Arma_De_Fogo");
+    public void testGetAbsorcao_CorpoACorpo() {
+        System.out.println("getAbsorcao_CorpoACorpo");
         int expResult = 0;
-        int result = instance.getAbsorcao_Arma_De_Fogo();
+        int result = instance.getAbsorcao_CorpoACorpo();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -266,11 +266,9 @@ public class ArmaduraTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        String expResult = "Nome = Armadura; Descricao = Descricao da Armadura; Preco = 0; Usando = false; Bonus de Atributo = [1, 2, 3, 4, 5, 6, 7, 8]; Habilidade Necessaria = null; Absorcao Arma Branca = 0; Absorcao Arma de Fogo = 0; Penalidade = 0; Regiao do Corpo = A";
+        String expResult = "Nome = Armadura; Descricao = Descricao da Armadura; Preco = 0; Usando = false; Bonus de Atributo = [1, 2, 3, 4, 5, 6, 7, 8]; Habilidade Necessaria = null; Absorcao Arma Distancia = 0; Absorcao Arma de Corpo a Corpo = 0; Penalidade = 0; Regiao do Corpo = A";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
    

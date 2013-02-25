@@ -525,7 +525,7 @@ public class Controle_Integracao_Ficha {
     
     public static void colocarArma_Corpo_A_Corpo(String personagem, String nomeArma) throws ItemInvalidoException{
         try{
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, null);
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma);
             if(arma == null){ 
                 throw new ItemInvalidoException("Arma {"+nomeArma+"} Invalida");
             }
@@ -553,7 +553,7 @@ public class Controle_Integracao_Ficha {
      */
     public static void removerArma_Corpo_A_Corpo(String personagem, String nomeArma) throws ItemInvalidoException{
         try{
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma, null);
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma);
             if(arma == null){ 
                 throw new ItemInvalidoException("Arma {"+nomeArma+"} Invalida");
             }

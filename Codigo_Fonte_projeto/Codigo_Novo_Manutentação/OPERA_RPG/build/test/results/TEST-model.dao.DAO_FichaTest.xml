@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.dao.DAO_FichaTest" tests="6" time="0.457" timestamp="2013-02-23T21:52:58">
+<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.dao.DAO_FichaTest" tests="6" time="0.359" timestamp="2013-02-25T20:47:16">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.dao.DAO_FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.dao.DAO_FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher5716537540836667984.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit8728078925343505730.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.dao.DAO_FichaTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.dao.DAO_FichaTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher5687253166263886301.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit4467078342091567599.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -134,7 +134,7 @@
     <property name="libs.testng.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\platform\modules\ext\testng-6.5.1-dist.jar" />
     <property name="libs.absolutelayout.maven-pom" value="" />
     <property name="ant.java.version" value="1.7" />
-    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_06\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;%PROGRAMFILES%\Internet Explorer;C:\Program Files (x86)\Java\jdk1.7.0_06\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;." />
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_06\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Java\jdk1.7.0_06\bin;C:\Program Files\Internet Explorer;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;." />
     <property name="javadoc.author" value="false" />
     <property name="platforms.Oracle_Java_TM__Platform_Micro_Edition_SDK_3_2.home" value="C:\Program Files (x86)\NetBeans 7.2.1\mobility\Java_ME_platform_SDK_3.2" />
     <property name="libs.metro.maven-pom" value="" />
@@ -442,12 +442,12 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="model.dao.DAO_FichaTest" name="testCarregarFicha" time="0.207" />
-  <testcase classname="model.dao.DAO_FichaTest" name="testFichaExiste" time="0.035" />
-  <testcase classname="model.dao.DAO_FichaTest" name="testGravarFicha" time="0.034" />
-  <testcase classname="model.dao.DAO_FichaTest" name="testRemoverFicha" time="0.039" />
-  <testcase classname="model.dao.DAO_FichaTest" name="testListarFichas" time="0.041" />
-  <testcase classname="model.dao.DAO_FichaTest" name="testRemoverTodasFichas" time="0.028" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testCarregarFicha" time="0.141" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testFichaExiste" time="0.031" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testGravarFicha" time="0.031" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testRemoverFicha" time="0.016" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testListarFichas" time="0.031" />
+  <testcase classname="model.dao.DAO_FichaTest" name="testRemoverTodasFichas" time="0.031" />
   <system-out><![CDATA[carregarFicha
 fichaExiste
 gravarFicha

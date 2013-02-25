@@ -964,12 +964,12 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Arma Branca:"/>
+                <Property name="text" type="java.lang.String" value="Distancia:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Arma de Fogo:"/>
+                <Property name="text" type="java.lang.String" value="Corpo a Corpo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtAbsorcaoArmaBranca">

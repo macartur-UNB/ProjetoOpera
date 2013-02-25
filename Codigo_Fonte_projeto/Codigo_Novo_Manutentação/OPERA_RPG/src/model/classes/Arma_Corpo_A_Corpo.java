@@ -8,23 +8,21 @@ import model.exception.ItemInvalidoException;
 
 
 public class Arma_Corpo_A_Corpo extends Arma {
-    private String tipo;
     private int golpe;
     private int aparo;
     private int esquiva;
     
-    public Arma_Corpo_A_Corpo(String nome, String descricao, String tipo, 
+    public Arma_Corpo_A_Corpo(String nome, String descricao, 
                               Dado dano, int danoAdicional,
                               int golpe,int aparo,int esquiva,
                               boolean usando, int preco) throws ItemInvalidoException {
         super(nome, descricao, dano, danoAdicional, usando, preco);
-        this.tipo = tipo;
         this.aparo = aparo;
         this.esquiva = esquiva;
         this.golpe = golpe;        
     }
 
-    public Arma_Corpo_A_Corpo(String nome, String descricao, String tipo,
+    public Arma_Corpo_A_Corpo(String nome, String descricao,
                               Dado dano, int danoAdicional,
                               int golpe,int aparo,int esquiva,                              
                               boolean usando,
@@ -36,7 +34,6 @@ public class Arma_Corpo_A_Corpo extends Arma {
         this.aparo = aparo;
         this.esquiva = esquiva;
         this.golpe = golpe;
-        this.tipo = tipo;
     }
 
     public void setAparo(int aparo) {
@@ -63,18 +60,9 @@ public class Arma_Corpo_A_Corpo extends Arma {
         return esquiva;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-    
     @Override
     public String toString() {
         return super.toString()+
-               " Tipo = "+this.getTipo()+
                " Golpe = "+this.getGolpe()+
                " Aparo = "+this.getAparo()+
                " Esquiva = "+this.getEsquiva();
