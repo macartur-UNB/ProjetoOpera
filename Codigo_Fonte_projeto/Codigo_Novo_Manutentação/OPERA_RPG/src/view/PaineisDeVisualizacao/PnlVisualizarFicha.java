@@ -5,7 +5,6 @@
 package view.PaineisDeVisualizacao;
 
 import control.Controle_Caracteristica;
-import control.Controle_Ficha;
 import control.Controle_Habilidade;
 import control.Controle_Integracao_Ficha;
 import control.Controle_Item;
@@ -14,8 +13,6 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -377,7 +374,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVisualizarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarHabilidadeActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmHabilidade = new JFrame();
             PnlCadastrarHabilidade pnlCadastrarHabilidade = new PnlCadastrarHabilidade();
@@ -417,7 +413,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualizarHabilidadeActionPerformed
 
     private void btnVisualizarItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarItensActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmItem = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
@@ -439,7 +434,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualizarItensActionPerformed
 
     private void btnVisualizarCaracteristicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarCaracteristicaActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmCaracteristica = new JFrame();
             PnlCadastrarCaracteristica pnlCadastrarCaracteristica = new PnlCadastrarCaracteristica();
@@ -518,7 +512,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualizarCaracteristicaActionPerformed
 
     private void btnVisualizarArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmaADistanciaActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmArmaADistancia = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
@@ -547,7 +540,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualizarArmaADistanciaActionPerformed
 
     private void btnVisualizarArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmaCorpoACorpoActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmArmaCorpoACorpo = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
@@ -577,7 +569,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnVisualizarArmaCorpoACorpoActionPerformed
 
     private void btnVisualizarArmadurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarArmadurasActionPerformed
-        // TODO add your handling code here:
         try{
             JFrame frmArmadura = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
@@ -719,7 +710,6 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent event) {
                 cmbFichaActionPerformed(event);
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

@@ -165,7 +165,7 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
-        // TODO add your handling code here:
+       
         carregarJComboBox("Fisica");
         
         cmbHabilidade.setEnabled(true);
@@ -175,7 +175,7 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbFisicaActionPerformed
 
     private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
-        // TODO add your handling code here:
+       
         carregarJComboBox("Psiquica");
         
         cmbHabilidade.setEnabled(true);
@@ -185,7 +185,7 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbPsiquicaActionPerformed
 
     private void rdbBelicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbBelicaActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("Belica");
         
         cmbHabilidade.setEnabled(true);
@@ -195,7 +195,7 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbBelicaActionPerformed
 
     private void cmbHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHabilidadeActionPerformed
-        // TODO add your handling code here:
+        
         try{
             PainelFuncoes.habilitarCampos(pnlCadastrarHabilidade, false);
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarHabilidade);
@@ -250,7 +250,6 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 btnLimparActionPerfomed();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -262,7 +261,6 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 btnAlterarActionPerformed();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

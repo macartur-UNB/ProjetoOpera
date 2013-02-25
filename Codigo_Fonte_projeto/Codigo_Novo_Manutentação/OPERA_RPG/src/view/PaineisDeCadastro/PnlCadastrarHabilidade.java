@@ -235,7 +235,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
-        // TODO add your handling code here:
         try {
             ValidarCampos.validarCampoTexto((JTextField) evt.getSource(), true);
         } catch (JTextFieldInvalidoException e) {
@@ -243,7 +242,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNomeFocusLost
 
     private void txtCustoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustoFocusLost
-        // TODO add your handling code here:
         try {
             ValidarCampos.validarCampoInteiro((JTextField) evt.getSource());
         } catch (JTextFieldInvalidoException e) {
@@ -251,7 +249,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCustoFocusLost
 
     private void txtTesteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTesteFocusLost
-        // TODO add your handling code here:
         try {
             ValidarCampos.validarCampoInteiro((JTextField) evt.getSource());
         } catch (JTextFieldInvalidoException e) {
@@ -259,21 +256,18 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTesteFocusLost
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.limparTodosOsCampos(this);
         PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
         grpTipoHabilidade.clearSelection();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
         if(podeCadastrar){
             cadastrarHabilidade();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
-        // TODO add your handling code here:
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
@@ -284,7 +278,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbFisicaActionPerformed
 
     private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
-        // TODO add your handling code here:
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
@@ -295,7 +288,6 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbPsiquicaActionPerformed
 
     private void rdbBelicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbBelicaActionPerformed
-        // TODO add your handling code here:
         rdbFisica.setForeground(Color.BLACK);
         rdbPsiquica.setForeground(Color.BLACK);
         rdbBelica.setForeground(Color.BLACK);
@@ -447,8 +439,4 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
     public void setPodeCadastrar(boolean podeCadastrar) {
         this.podeCadastrar = podeCadastrar;
     }
-    
-    
-    
-    
 }

@@ -6,7 +6,6 @@ package model.classes;
 
 import control.Controle_Habilidade;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import model.exception.ItemInvalidoException;

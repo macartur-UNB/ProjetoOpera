@@ -4,11 +4,7 @@
  */
 package model.classes;
 
-import model.dao.DAO_Jogo;
-import model.exception.CaracteristicaInvalidaException;
-import model.exception.HabilidadeInvalidaException;
 import model.exception.ItemInvalidoException;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -98,9 +94,6 @@ public class ItemTest {
         } catch(ItemInvalidoException e){
             fail(e.getMessage());
         }
-        
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -115,9 +108,7 @@ public class ItemTest {
         	instance.setNome("Invalido ##&&(!");
         	fail("setNome esta invalido, a excecao deveria ter pegado");
         } catch (ItemInvalidoException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        }
     }
 
     
@@ -130,8 +121,6 @@ public class ItemTest {
         String expResult = "Item";
         String result = instance.getNome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -147,9 +136,7 @@ public class ItemTest {
         	instance.setDescricao("Invalido @#*(&");
         	fail("setDescricao esta invalido, a excecao deveria ter pegado");
         } catch (ItemInvalidoException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
     
     
@@ -162,8 +149,6 @@ public class ItemTest {
         String expResult = "Descricao do Item";
         String result = instance.getDescricao();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -175,8 +160,6 @@ public class ItemTest {
         System.out.println("setUsando");
         instance.setUsando(true);
         instance.setUsando(false);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -189,8 +172,6 @@ public class ItemTest {
         boolean expResult = false;
         boolean result = instance.isUsando();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -206,9 +187,7 @@ public class ItemTest {
         	instance.setPreco(-1);
         	fail("setPreco esta invalido, a excecao deveria ter pegado");
         } catch (ItemInvalidoException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
     
     
@@ -221,8 +200,6 @@ public class ItemTest {
         int expResult = 0;
         int result = instance.getPreco();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -247,8 +224,6 @@ public class ItemTest {
             fail("setBonus_atributo esta invalido, a excecao deveria ter pegado");
         } catch(ItemInvalidoException e){
         }
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -261,8 +236,6 @@ public class ItemTest {
         int[] expResult = {1, 2, 3, 4, 5, 6, 7, 8};
         int[] result = instance.getBonus_atributo();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -280,8 +253,6 @@ public class ItemTest {
         	fail("setHabilidade_Necessaria esta invalido, a excecao deveria ter pegado");
         } catch(ItemInvalidoException e){
         }
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -294,8 +265,6 @@ public class ItemTest {
         String expResult = null;
         String result = instance.getHabilidade_Necessaria();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -308,7 +277,5 @@ public class ItemTest {
         String expResult = "Nome = Item; Descricao = Descricao do Item; Preco = 0; Usando = false; Bonus de Atributo = [1, 2, 3, 4, 5, 6, 7, 8]; Habilidade Necessaria = null";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 }

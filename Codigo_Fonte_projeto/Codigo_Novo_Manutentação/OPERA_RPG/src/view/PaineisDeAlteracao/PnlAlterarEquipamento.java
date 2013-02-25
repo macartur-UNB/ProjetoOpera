@@ -219,7 +219,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdbItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbItemActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("Generico");
         
         grpTipoDeArma.clearSelection();
@@ -235,7 +235,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbItemActionPerformed
 
     private void rdbArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaActionPerformed
-        // TODO add your handling code here:
+    
         cmbEquipamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
         cmbEquipamento.setEnabled(false);
         
@@ -251,7 +251,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaActionPerformed
 
     private void rdbArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaduraActionPerformed
-        // TODO add your handling code here:
+     
         carregarJComboBox("Armadura");
         
         grpTipoDeArma.clearSelection();
@@ -267,7 +267,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaduraActionPerformed
 
     private void rdbArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaCorpoACorpoActionPerformed
-        // TODO add your handling code here:
+     
         carregarJComboBox("Arma Corpo a Corpo");
         
         pnlCadastrarItem.getBtnCadastrar().setEnabled(false);
@@ -281,7 +281,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
 
     private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
-        // TODO add your handling code here:
+      
         carregarJComboBox("Arma a Distancia");
         
         pnlCadastrarItem.getBtnCadastrar().setEnabled(false);
@@ -295,7 +295,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
 
     private void cmbEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEquipamentoActionPerformed
-        // TODO add your handling code here:
+   
         try{
             PainelFuncoes.habilitarCampos(pnlCadastrarItem, false);
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarItem);
@@ -483,7 +483,6 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 limparCampos();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -496,7 +495,6 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 btnAlterarActionPerfomed();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import model.classes.Constante_Atributo;
 import model.classes.Ficha;
 import model.exception.ArquivoInvalidoException;
-import model.exception.DeletarInvalidoException;
 import model.exception.FichaInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
@@ -188,7 +187,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbJogadorActionPerformed
 
     private void rdbNpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNpcActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("NPC");
         cmbFicha.setEnabled(true);
         PainelFuncoes.habilitarCampos(pnlCadastrarFicha, false);
@@ -197,7 +196,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbNpcActionPerformed
 
     private void rdbMonstroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMonstroActionPerformed
-        // TODO add your handling code here:
+       
         carregarJComboBox("Monstro");
         cmbFicha.setEnabled(true);
         PainelFuncoes.habilitarCampos(pnlCadastrarFicha, false);
@@ -206,7 +205,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbMonstroActionPerformed
 
     private void cmbFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFichaActionPerformed
-        // TODO add your handling code here:
+       
         try{
             PainelFuncoes.habilitarCampos(pnlCadastrarFicha, false);
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarFicha);
@@ -271,7 +270,7 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbFichaFocusLost
 
     private void cmbFichaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbFichaFocusGained
-        // TODO add your handling code here:
+        
         Object itemSelecionado = cmbFicha.getSelectedItem();
         if(rdbJogador.isSelected()){
             carregarJComboBox("Jogador");
@@ -476,7 +475,4 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
     public void setPodeHabilitarCampos(boolean podeHabilitarCampos) {
         this.podeHabilitarCampos = podeHabilitarCampos;
     }
-    
-      
-    
 }

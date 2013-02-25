@@ -112,7 +112,6 @@ public class PnlNovoJogo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoTexto(txtNome, true);
         } catch(JTextFieldInvalidoException e){
@@ -121,7 +120,6 @@ public class PnlNovoJogo extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNomeFocusLost
 
     private void btnCriarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarJogoActionPerformed
-        // TODO add your handling code here:
         try{
             String nome = ValidarCampos.validarCampoTexto(txtNome, true);
             Controle_Jogo.criarJogo(nome);

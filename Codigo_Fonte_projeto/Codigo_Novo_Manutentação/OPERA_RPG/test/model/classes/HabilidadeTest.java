@@ -5,10 +5,7 @@
 package model.classes;
 
 import model.exception.HabilidadeInvalidaException;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -52,9 +49,7 @@ public class HabilidadeTest {
         	instance.setCusto(-1);
         	fail("setCusto esta invalido, a excecao deveria ter pegado");
         } catch (HabilidadeInvalidaException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
     
     
@@ -67,8 +62,6 @@ public class HabilidadeTest {
         int expResult = 0;
         int result = instance.getCusto();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -84,9 +77,7 @@ public class HabilidadeTest {
         	instance.setNivel(-1);
         	fail("setNivel esta invalido, a excecao deveria ter pegado");
         } catch (HabilidadeInvalidaException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
 
     
@@ -99,8 +90,6 @@ public class HabilidadeTest {
         int expResult = 0;
         int result = instance.getNivel();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -116,9 +105,7 @@ public class HabilidadeTest {
         	instance.setNome("Habilidade Invalida ##");
         	fail("setNome esta invalido, a excecao deveria ter pegado");
         } catch (HabilidadeInvalidaException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
     
     
@@ -131,8 +118,6 @@ public class HabilidadeTest {
         String expResult = "Habilidade";
         String result = instance.getNome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     
@@ -147,9 +132,7 @@ public class HabilidadeTest {
         	instance.setTeste(-1);
         	fail("setTeste esta invalido, a excecao deveria ter pegado");
         } catch (HabilidadeInvalidaException e) {
-		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+	}
     }
     
     
@@ -162,8 +145,6 @@ public class HabilidadeTest {
         int expResult = 0;
         int result = instance.getTeste();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     
@@ -182,8 +163,6 @@ public class HabilidadeTest {
         	fail("setTeste esta invalido, a excecao deveria ter pegado");
         } catch (HabilidadeInvalidaException e) {
 		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     

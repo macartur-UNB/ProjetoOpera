@@ -125,7 +125,6 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbJogoFocusGained
 
     private void btnAbrirJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirJogoActionPerformed
-        // TODO add your handling code here:
         if(cmbJogo.getSelectedItem().toString().length() > 0){
             try{
                 Controle_Jogo.abrirJogo(cmbJogo.getSelectedItem().toString());
@@ -162,7 +161,6 @@ public class PnlAbrirJogo extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAbrirJogoActionPerformed
 
     private void cmbJogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbJogoMouseEntered
-        // TODO add your handling code here:
         carregarJComboBox();
     }//GEN-LAST:event_cmbJogoMouseEntered
 

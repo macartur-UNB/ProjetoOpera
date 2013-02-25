@@ -921,7 +921,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void chkFisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkFisicoActionPerformed
-        // TODO add your handling code here:
+   
         txtFisico.setEnabled(chkFisico.isSelected());
         if(!chkFisico.isSelected()){
             txtFisico.setText(null);
@@ -931,7 +931,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkFisicoActionPerformed
 
     private void chkDestrezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDestrezaActionPerformed
-        // TODO add your handling code here:
+      
         txtDestreza.setEnabled(chkDestreza.isSelected());
         if(!chkDestreza.isSelected()){
             txtDestreza.setText(null);
@@ -941,7 +941,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkDestrezaActionPerformed
 
     private void chkInteligenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkInteligenciaActionPerformed
-        // TODO add your handling code here:
+      
         txtInteligencia.setEnabled(chkInteligencia.isSelected());
         if(!chkInteligencia.isSelected()){
             txtInteligencia.setText(null);
@@ -951,7 +951,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkInteligenciaActionPerformed
 
     private void chkVontadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVontadeActionPerformed
-        // TODO add your handling code here:
+       
         txtVontade.setEnabled(chkVontade.isSelected());
         if(!chkVontade.isSelected()){
             txtVontade.setText(null);
@@ -961,7 +961,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkVontadeActionPerformed
 
     private void txtInteligenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInteligenciaFocusLost
-        // TODO add your handling code here:
+     
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -977,7 +977,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtFisicoFocusLost
 
     private void txtVontadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVontadeFocusLost
-        // TODO add your handling code here:
+    
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -985,7 +985,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtVontadeFocusLost
 
     private void txtDestrezaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDestrezaFocusLost
-        // TODO add your handling code here:
+     
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -993,7 +993,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDestrezaFocusLost
 
     private void chkPercepcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPercepcaoActionPerformed
-        // TODO add your handling code here:
+     
         txtPercepcao.setEnabled(chkPercepcao.isSelected());
         if(!chkPercepcao.isSelected()){
             txtPercepcao.setText(null);
@@ -1003,7 +1003,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkPercepcaoActionPerformed
 
     private void chkMenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMenteActionPerformed
-        // TODO add your handling code here:
+      
         txtMente.setEnabled(chkMente.isSelected());
         if(!chkMente.isSelected()){
             txtMente.setText(null);
@@ -1013,7 +1013,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkMenteActionPerformed
 
     private void chkManaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkManaActionPerformed
-        // TODO add your handling code here:
+     
         txtMana.setEnabled(chkMana.isSelected());
         if(!chkMana.isSelected()){
             txtMana.setText(null);
@@ -1023,7 +1023,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkManaActionPerformed
 
     private void chkSorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSorteActionPerformed
-        // TODO add your handling code here:
+    
         txtSorte.setEnabled(chkSorte.isSelected());
         if(!chkSorte.isSelected()){
             txtSorte.setText(null);
@@ -1033,7 +1033,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_chkSorteActionPerformed
 
     private void txtPercepcaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPercepcaoFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1041,7 +1041,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPercepcaoFocusLost
 
     private void txtMenteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMenteFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1049,7 +1049,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtMenteFocusLost
 
     private void txtManaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManaFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1057,7 +1057,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtManaFocusLost
 
     private void txtSorteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSorteFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1065,7 +1065,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtSorteFocusLost
 
     private void rdbItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbItemActionPerformed
-        // TODO add your handling code here:
+       
         PainelFuncoes.habilitarCampos(pnlArma, false);
         PainelFuncoes.habilitarCampos(pnlArmadura, false);
         grpTipoDeArma.clearSelection();
@@ -1075,7 +1075,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbItemActionPerformed
 
     private void rdbArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaActionPerformed
-        // TODO add your handling code here:
+      
         PainelFuncoes.habilitarCampos(pnlArmadura, false);
         PainelFuncoes.habilitarCampos(pnlArma, true);
         if( (!rdbArmaADistancia.isSelected()) && (!rdbArmaCorpoACorpo.isSelected()) ){
@@ -1088,7 +1088,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaActionPerformed
 
     private void rdbArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaduraActionPerformed
-        // TODO add your handling code here:
+        
         PainelFuncoes.habilitarCampos(pnlArma, false);
         PainelFuncoes.habilitarCampos(pnlArmadura, true);
         grpTipoDeArma.clearSelection();
@@ -1098,7 +1098,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaduraActionPerformed
 
     private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){ 
@@ -1106,7 +1106,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNomeFocusLost
 
     private void txtDescricaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescricaoFocusLost
-        // TODO add your handling code here:
+   
         try{
             ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){ 
@@ -1114,7 +1114,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDescricaoFocusLost
 
     private void txtPrecoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecoFocusLost
-        // TODO add your handling code here:
+    
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1122,12 +1122,12 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPrecoFocusLost
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+       
         limparCampos();        
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtLadosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLadosFocusLost
-        // TODO add your handling code here:
+        
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1135,7 +1135,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtLadosFocusLost
 
     private void txtRolagemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRolagemFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1143,7 +1143,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtRolagemFocusLost
 
     private void txtDanoAdicionalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDanoAdicionalFocusLost
-        // TODO add your handling code here:
+       
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1151,7 +1151,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDanoAdicionalFocusLost
 
     private void txtTiroRapidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTiroRapidoFocusLost
-        // TODO add your handling code here:
+        
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1159,7 +1159,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTiroRapidoFocusLost
 
     private void txtTiroMiradoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTiroMiradoFocusLost
-        // TODO add your handling code here:
+      
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1167,7 +1167,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTiroMiradoFocusLost
 
     private void txtCadenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCadenciaFocusLost
-        // TODO add your handling code here:
+     
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1175,7 +1175,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCadenciaFocusLost
 
     private void txtGolpeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGolpeFocusLost
-        // TODO add your handling code here:
+        
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1183,7 +1183,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtGolpeFocusLost
 
     private void txtAparoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAparoFocusLost
-        // TODO add your handling code here:
+       
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1191,7 +1191,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAparoFocusLost
 
     private void txtEsquivaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEsquivaFocusLost
-        // TODO add your handling code here:
+       
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1199,7 +1199,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEsquivaFocusLost
 
     private void txtAbsorcaoArmaBrancaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAbsorcaoArmaBrancaFocusLost
-        // TODO add your handling code here:
+     
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1207,7 +1207,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAbsorcaoArmaBrancaFocusLost
 
     private void txtAbsorcaoArmaDeFogoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAbsorcaoArmaDeFogoFocusLost
-        // TODO add your handling code here:
+       
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1215,7 +1215,7 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAbsorcaoArmaDeFogoFocusLost
 
     private void txtPenalidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPenalidadeFocusLost
-        // TODO add your handling code here:
+        
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -1223,41 +1223,38 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPenalidadeFocusLost
 
     private void cmbHabilidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbHabilidadeFocusLost
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbHabilidadeFocusLost
 
     private void cmbHabilidadeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbHabilidadeFocusGained
-        // TODO add your handling code here:
+       
         
     }//GEN-LAST:event_cmbHabilidadeFocusGained
 
     private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("Fisica");
         cmbHabilidade.setEnabled(true);
     }//GEN-LAST:event_rdbFisicaActionPerformed
 
     private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
-        // TODO add your handling code here:
+       
         carregarJComboBox("Psiquica");
         cmbHabilidade.setEnabled(true);
     }//GEN-LAST:event_rdbPsiquicaActionPerformed
 
     private void rdbBelicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbBelicaActionPerformed
-        // TODO add your handling code here:
         carregarJComboBox("Belica");
         cmbHabilidade.setEnabled(true);
     }//GEN-LAST:event_rdbBelicaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
         if(podeCadastrar){
             cadastrarItem();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlArmaCorpoACorpo, false);
         PainelFuncoes.habilitarCampos(pnlArmaADistancia, true);
         rdbArmaADistancia.setForeground(Color.BLACK);
@@ -1523,7 +1520,6 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, modificador, preco, habilidade_Necessaria);
                     }else{
                         item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
-                        //Controle_Item.cadArmadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
                     }
                     
                 }
@@ -2030,8 +2026,4 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
     public void setTxtVontade(JTextField txtVontade) {
         this.txtVontade = txtVontade;
     }
-    
-    
-    
-    
 }

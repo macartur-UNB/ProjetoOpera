@@ -32,7 +32,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
     public void adicionarPainel(JPanel painel, String titulo, ImageIcon icone){
         
         JScrollPane scroolPane = new JScrollPane(painel);
-        //this.add(titulo, scroolPane);
         this.addTab(titulo, icone, scroolPane);
         
         
@@ -76,28 +75,22 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 }
             }
         }
-        
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mousePressed(MouseEvent event) {
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseReleased(MouseEvent event) {
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseEntered(MouseEvent event) {
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void mouseExited(MouseEvent event) {
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
     
     
@@ -154,7 +147,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                     }
                 }
             }
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
     }
@@ -194,7 +186,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
         @Override
         public void mouseClicked(MouseEvent event) {
 
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
         @Override
@@ -206,9 +197,7 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 this.setBackground(Color.DARK_GRAY);
                 this.setForeground(Color.red);
                 this.setBorderPainted(true);
-                //System.out.println("Event: " + event);
             }
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
         @Override
@@ -221,7 +210,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 this.setBorderPainted(false);
                 //System.out.println("Event: " + event);
             }
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
         @Override
@@ -232,7 +220,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 this.setBorderPainted(true);                
             }
 
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
         @Override
@@ -243,7 +230,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 this.setBorderPainted(false);
                 this.setBackground(Color.GRAY);
             }
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
         @Override
@@ -254,7 +240,6 @@ public class PanelTab extends JTabbedPane implements MouseListener{
                 int index = tab.indexOfTab(this.tabTitulo);
                 tab.remove(index);
             }
-            //throw new UnsupportedOperationException("Not supported yet.");
         }
 
     }

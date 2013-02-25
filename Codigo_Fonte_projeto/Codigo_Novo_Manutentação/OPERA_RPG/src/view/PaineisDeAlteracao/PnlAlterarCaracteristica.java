@@ -166,7 +166,7 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdbFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbFisicaActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("Fisica");
         
         cmbCaracteristica.setEnabled(true);
@@ -176,7 +176,7 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbFisicaActionPerformed
 
     private void rdbPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPsiquicaActionPerformed
-        // TODO add your handling code here:
+        
         carregarJComboBox("Psiquica");
         
         cmbCaracteristica.setEnabled(true);
@@ -186,7 +186,7 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbPsiquicaActionPerformed
 
     private void rdbRacialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRacialActionPerformed
-        // TODO add your handling code here:
+       
         carregarJComboBox("Racial");
         
         cmbCaracteristica.setEnabled(true);
@@ -196,7 +196,7 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbRacialActionPerformed
 
     private void cmbCaracteristicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCaracteristicaActionPerformed
-        // TODO add your handling code here:
+      
         try{
             PainelFuncoes.habilitarCampos(pnlCadastrarCaracteristica, false);
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarCaracteristica);
@@ -296,7 +296,6 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnLimparActionPerformed();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -308,7 +307,6 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnAlterarActionPerformed();
-                //throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

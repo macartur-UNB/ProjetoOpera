@@ -211,8 +211,6 @@ public class BarraDeFerramentas extends JToolBar implements ActionListener{
         if(origem.equals(btnVisualizarFicha)){
             NovaAba.abaVisualizarFicha(tabbedPane, (ImageIcon)btnVisualizarFicha.getIcon());
         }
-        
-        //throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

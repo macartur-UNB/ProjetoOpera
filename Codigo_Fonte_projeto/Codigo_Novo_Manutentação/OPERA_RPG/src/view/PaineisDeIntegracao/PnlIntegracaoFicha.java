@@ -546,7 +546,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdbJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbJogadorActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(this, false);
         PainelFuncoes.limparTodosOsCampos(this);
         limparGrp();
@@ -556,7 +555,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbJogadorActionPerformed
 
     private void rdbNpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNpcActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(this, false);
         PainelFuncoes.limparTodosOsCampos(this);
         limparGrp();
@@ -566,7 +564,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbNpcActionPerformed
 
     private void rdbMonstroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMonstroActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(this, false);
         PainelFuncoes.limparTodosOsCampos(this);
         limparGrp();
@@ -576,7 +573,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbMonstroActionPerformed
 
     private void cmbSelecionarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSelecionarFichaActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.limparTodosOsCampos(pnlSelecionarIntegracao);
         habilitarPnlIntegracaoDesintegracao(false);
         if(!cmbSelecionarFicha.getSelectedItem().equals("Nenhum(a)")){
@@ -603,7 +599,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbSelecionarFichaActionPerformed
 
     private void rdbHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbHabilidadeActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoHabilidade, true);
 
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoCaracteristica, false);
@@ -624,7 +619,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbHabilidadeActionPerformed
 
     private void rdbCaracteristicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCaracteristicaActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoCaracteristica, true);
         
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoHabilidade, false);
@@ -645,7 +639,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbCaracteristicaActionPerformed
 
     private void rdbEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEquipamentoActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoEquipamento, true);
         
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoHabilidade, false);
@@ -666,7 +659,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbEquipamentoActionPerformed
 
     private void rdbHabilidadeFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbHabilidadeFisicaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Habilidade Fisica");
             carregarListDesintegrar("Habilidade Fisica");
@@ -677,7 +669,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbHabilidadeFisicaActionPerformed
 
     private void rdbHabilidadePsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbHabilidadePsiquicaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Habilidade Psiquica");
             carregarListDesintegrar("Habilidade Psiquica");
@@ -688,7 +679,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbHabilidadePsiquicaActionPerformed
 
     private void rdbHabilidadeBelicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbHabilidadeBelicaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Habilidade Belica");
             carregarListDesintegrar("Habilidade Belica");
@@ -699,7 +689,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbHabilidadeBelicaActionPerformed
 
     private void rdbCaracteristicaFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCaracteristicaFisicaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Caracteristica Fisica");
             carregarListDesintegrar("Caracteristica Fisica");
@@ -710,7 +699,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbCaracteristicaFisicaActionPerformed
 
     private void rdbCaracteristicaPsiquicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCaracteristicaPsiquicaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Caracteristica Psiquica");
             carregarListDesintegrar("Caracteristica Psiquica");
@@ -721,7 +709,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbCaracteristicaPsiquicaActionPerformed
 
     private void rdbCaracteristicaRacialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCaracteristicaRacialActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Caracteristica Racial");
             carregarListDesintegrar("Caracteristica Racial");
@@ -732,7 +719,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbCaracteristicaRacialActionPerformed
 
     private void rdbEquipamentoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEquipamentoItemActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoArma, false);
         PainelFuncoes.limparTodosOsCampos(pnlSelecionarTipoArma);
         grpTipoArma.clearSelection();
@@ -746,7 +732,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbEquipamentoItemActionPerformed
 
     private void rdbEquipamentoArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEquipamentoArmaActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoArma, true);
         PainelFuncoes.limparTodosOsCampos(pnlSelecionarTipoArma);
         
@@ -756,7 +741,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbEquipamentoArmaActionPerformed
 
     private void rdbEquipamentoArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbEquipamentoArmaduraActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.habilitarCampos(pnlSelecionarTipoArma, false);
         PainelFuncoes.limparTodosOsCampos(pnlSelecionarTipoArma);
         grpTipoArma.clearSelection();
@@ -770,7 +754,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbEquipamentoArmaduraActionPerformed
 
     private void rdbArmaADistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaADistanciaActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Arma A Distancia");
             carregarListDesintegrar("Arma A Distancia");
@@ -781,7 +764,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
 
     private void rdbArmaCorpoACorpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbArmaCorpoACorpoActionPerformed
-        // TODO add your handling code here:
         try{
             carregarCmbSelecionarIntegracao("Arma Corpo A Corpo");
             carregarListDesintegrar("Arma Corpo A Corpo");
@@ -792,8 +774,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
 
     private void cmbSelecionarIntegracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSelecionarIntegracaoActionPerformed
-        // TODO add your handling code here:
-        
         if(!cmbSelecionarIntegracao.getSelectedItem().equals("Nenhum(a)")){
             btnIntegrar.setEnabled(true);
         }else{
@@ -802,7 +782,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbSelecionarIntegracaoActionPerformed
 
     private void btnIntegrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntegrarActionPerformed
-        // TODO add your handling code here:
         try{
             String personagem = cmbSelecionarFicha.getSelectedItem().toString();
             
@@ -860,7 +839,6 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_btnIntegrarActionPerformed
 
     private void btnDesintegrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesintegrarActionPerformed
-        // TODO add your handling code here:
         try{
             String personagem = cmbSelecionarFicha.getSelectedItem().toString();            
 

@@ -455,14 +455,12 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
         PainelFuncoes.limparTodosOsCampos(this);
         PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
         grpTipoFicha.clearSelection();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtJogadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJogadorFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), false);
         } catch(JTextFieldInvalidoException e){ 
@@ -470,7 +468,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtJogadorFocusLost
 
     private void txtPersonagemFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPersonagemFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){
@@ -482,7 +479,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCampanhaActionPerformed
 
     private void txtCampanhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCampanhaFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoTexto((JTextField)evt.getSource(), true);
         } catch(JTextFieldInvalidoException e){
@@ -503,7 +499,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtExperienciaFocusLost
 
     private void txtFisicoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFisicoFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -511,7 +506,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtFisicoFocusLost
 
     private void txtDestrezaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDestrezaFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -519,7 +513,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDestrezaFocusLost
 
     private void txtInteligenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInteligenciaFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -527,7 +520,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtInteligenciaFocusLost
 
     private void txtVontadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVontadeFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -535,7 +527,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtVontadeFocusLost
 
     private void txtPercepcaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPercepcaoFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -543,7 +534,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPercepcaoFocusLost
 
     private void txtMenteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMenteFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -551,7 +541,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtMenteFocusLost
 
     private void txtManaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManaFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -559,7 +548,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtManaFocusLost
 
     private void txtSorteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSorteFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -567,14 +555,12 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtSorteFocusLost
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
         if(podeCadastrar){
             cadastrarFicha();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void rdbJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbJogadorActionPerformed
-        // TODO add your handling code here:
         rdbJogador.setForeground(Color.BLACK);
         rdbNpc.setForeground(Color.BLACK);
         rdbMonstro.setForeground(Color.BLACK);
@@ -591,7 +577,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbJogadorActionPerformed
 
     private void rdbNpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNpcActionPerformed
-        // TODO add your handling code here:
         rdbJogador.setForeground(Color.BLACK);
         rdbNpc.setForeground(Color.BLACK);
         rdbMonstro.setForeground(Color.BLACK);
@@ -605,7 +590,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_rdbNpcActionPerformed
 
     private void rdbMonstroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMonstroActionPerformed
-        // TODO add your handling code here:
         rdbJogador.setForeground(Color.BLACK);
         rdbNpc.setForeground(Color.BLACK);
         rdbMonstro.setForeground(Color.BLACK);
@@ -623,7 +607,6 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDinheiroActionPerformed
 
     private void txtDinheiroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDinheiroFocusLost
-        // TODO add your handling code here:
         try{
             ValidarCampos.validarCampoInteiro((JTextField)evt.getSource());
         } catch(JTextFieldInvalidoException e){
@@ -840,7 +823,4 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
     public void setPodeCadastrar(boolean podeCadastrar) {
         this.podeCadastrar = podeCadastrar;
     }
-    
-    
-    
 }
