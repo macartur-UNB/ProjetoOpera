@@ -8,10 +8,7 @@ import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 import model.exception.HabilidadeInvalidaException;
 
-/**
- *
- * @author Macartur
- */
+
 public class Controle_Habilidade {
 
     public static void cadHabilidade(int teste, int nivel, int custo, 

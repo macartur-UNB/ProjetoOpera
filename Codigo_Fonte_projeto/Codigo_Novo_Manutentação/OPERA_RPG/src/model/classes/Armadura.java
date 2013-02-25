@@ -24,7 +24,7 @@ public class Armadura extends Item{
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @param absorcao_Distancia Absorcao de Arma a Distancia deve ser um numero
      * inteiro e maior ou igual a zero(0)
-     * @param absorcao_CorpoACorpo Absorcao de Arma de Fogo deve ser um numero
+     * @param absorcao_CorpoACorpo Absorcao de Arma de Corpo A Corpo deve ser um numero
      * inteiro e maior ou igual a zero(0)
      * @param penalidade Penalidade deve ser um numero inteiro 
      * e maior ou igual a zero(0)
@@ -68,9 +68,10 @@ public class Armadura extends Item{
      * @throws ItemInvalidoException 
      */
     public Armadura(String nome, String descricao,int absorcao_Distancia,
-                    int absorcao_CorpoACorpo,int penalidade , char regiao_Do_Corpo,
-                    boolean usando, int[] bonus_atributo,
-                    int preco, String habilidade_Necessaria) throws ItemInvalidoException {
+                    int absorcao_CorpoACorpo,int penalidade,char regiao_Do_Corpo,
+                    boolean usando, int[] bonus_atributo,int preco, 
+                                                   String habilidade_Necessaria) 
+                                                  throws ItemInvalidoException {
         super(nome, descricao, usando, bonus_atributo, preco, habilidade_Necessaria);
         setAbsorcao_Distancia(absorcao_Distancia);
         setAbsorcao_CorpoACorpo(absorcao_CorpoACorpo);
@@ -80,46 +81,48 @@ public class Armadura extends Item{
     }
 
     /**
-     * Altera a Absorcao de Arma Branca da Armadura
-     * @param absorcao_Distancia Absorcao de Arma Branca deve ser um numero
+     * Altera a Absorcao de Arma Distancia da Armadura
+     * @param absorcao_Distancia Absorcao de Arma Distancia deve ser um numero
      * inteiro e maior ou igual a zero(0)
      * @throws ItemInvalidoException
      */
-    public void setAbsorcao_Distancia(int absorcao_Distancia) throws ItemInvalidoException {
+    public void setAbsorcao_Distancia(int absorcao_Distancia) 
+                                                  throws ItemInvalidoException {
         if(absorcao_Distancia >= 0){
     		this.absorcao_Distancia = absorcao_Distancia;
     	}else{
-            throw new ItemInvalidoException("Absorcao de Arma Distancia Invalida,"
-                    + " valor Abaixo de Zero(0)");
+            throw new ItemInvalidoException(
+                "Absorcao de Arma Distancia Invalida, valor Abaixo de Zero(0)");
         }
     }
 
     /**
-     * Retorna a Absorcao de Arma Branca da Armadura
-     * @return Absorcao de Arma Branca
+     * Retorna a Absorcao de Arma Distancia da Armadura
+     * @return Absorcao de Arma Distancia
      */
     public int getAbsorcao_Distancia() {
         return absorcao_Distancia;
     }
 
     /**
-     * Altera a Absorcao de Arma de Fogo da Armadura
-     * @param aabsorcao_CorpoACorpo Absorcao de Arma de corpo a corpo deve ser um numero
+     * Altera a Absorcao de Arma CorpoACOrpo da Armadura
+     * @param aabsorcao_CorpoACorpo Absorcao de Arma de Corpo a Corpo deve ser um numero
      * inteiro e maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
-    public void setAbsorcao_CorpoACorpo(int absorcao_Arma_De_Fogo) throws ItemInvalidoException {
-        if(absorcao_Arma_De_Fogo >= 0){
-    		this.absorcao_CorpoACorpo = absorcao_Arma_De_Fogo;
+    public void setAbsorcao_CorpoACorpo(int absorcao_CorpoACorpo) 
+                                                  throws ItemInvalidoException {
+        if(absorcao_CorpoACorpo >= 0){
+    		this.absorcao_CorpoACorpo = absorcao_CorpoACorpo;
     	}else{
-            throw new ItemInvalidoException("Absorcao de Arma de  Corpo a Corpo Invalida,"
-                    + " valor Abaixo de Zero(0)");
+            throw new ItemInvalidoException("Absorcao de Arma de  Corpo a Corpo "
+                                            +"Invalida, valor Abaixo de Zero(0)");
         }
     }
 
     /**
-     * Retorna a Absorcao de Arma de Fogo da Armadura
-     * @return Absorcao de Arma de Fogo
+     * Retorna a Absorcao de Arma CorpoACorpo da Armadura
+     * @return Absorcao de Arma  CorpoACorpo
      */
     public int getAbsorcao_CorpoACorpo() {
         return absorcao_CorpoACorpo;
@@ -131,7 +134,8 @@ public class Armadura extends Item{
      * F, G ou H
      * @throws ItemInvalidoException
      */
-    public void setRegiao_Do_Corpo(char regiao_Do_Corpo) throws ItemInvalidoException {
+    public void setRegiao_Do_Corpo(char regiao_Do_Corpo) 
+                                                  throws ItemInvalidoException {
         try{
             char caracteresValidos[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
             Validar.validarCaractere(regiao_Do_Corpo, caracteresValidos);

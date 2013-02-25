@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import model.exception.ItemInvalidoException;
@@ -28,7 +24,8 @@ public class Arma extends Item{
      * @throws ItemInvalidoException 
      */
     public Arma(String nome, String descricao,Dado dano,
-                int danoAdicional, boolean usando, int preco) throws ItemInvalidoException {
+                int danoAdicional, boolean usando, int preco) 
+                                                  throws ItemInvalidoException {
         super(nome, descricao, usando, preco);
         setDano(dano);
         setDanoAdicional(danoAdicional);
@@ -54,8 +51,9 @@ public class Arma extends Item{
      */
     public Arma(String nome, String descricao,Dado dano,
                 int danoAdicional, boolean usando, int[] bonus_atributo,
-                int preco, String habilidade_Necessaria) throws ItemInvalidoException, ItemInvalidoException {
-        super(nome, descricao, usando, bonus_atributo, preco, habilidade_Necessaria);
+                int preco, String habilidade_Necessaria) 
+                           throws ItemInvalidoException, ItemInvalidoException {
+        super(nome,descricao,usando,bonus_atributo,preco,habilidade_Necessaria);
         setDano(dano);
         setDanoAdicional(danoAdicional);
     }
@@ -93,8 +91,8 @@ public class Arma extends Item{
         if(danoAdicional >= 0){
     		this.danoAdicional = danoAdicional;
     	}else{
-            throw new ItemInvalidoException("Dano Adicional Invalido, valor Abaixo "
-                    + "de Zero(0)");
+            throw new ItemInvalidoException(
+                    "Dano Adicional Invalido, valor Abaixo de Zero(0)");
         }
     }
 

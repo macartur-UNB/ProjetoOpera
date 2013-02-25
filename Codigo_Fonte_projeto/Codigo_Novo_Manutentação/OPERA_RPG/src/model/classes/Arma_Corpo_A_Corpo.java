@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import model.exception.ItemInvalidoException;
@@ -15,7 +11,8 @@ public class Arma_Corpo_A_Corpo extends Arma {
     public Arma_Corpo_A_Corpo(String nome, String descricao, 
                               Dado dano, int danoAdicional,
                               int golpe,int aparo,int esquiva,
-                              boolean usando, int preco) throws ItemInvalidoException {
+                              boolean usando, int preco) 
+                                                  throws ItemInvalidoException {
         super(nome, descricao, dano, danoAdicional, usando, preco);
         this.aparo = aparo;
         this.esquiva = esquiva;
@@ -27,7 +24,8 @@ public class Arma_Corpo_A_Corpo extends Arma {
                               int golpe,int aparo,int esquiva,                              
                               boolean usando,
                               int[] bonus_atributo, int preco,
-                              String habilidade_Necessaria) throws ItemInvalidoException {
+                              String habilidade_Necessaria) 
+                                                  throws ItemInvalidoException {
         
         super(nome, descricao, dano, danoAdicional, usando,
               bonus_atributo, preco, habilidade_Necessaria);
