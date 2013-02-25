@@ -410,7 +410,6 @@ public class DAO_ItemTest {
         
         Item item1 = new Item("NomeItemGenerico1", "Descricao1", true, testeAtributos,preco, "TesteFisica");
         Item item2 = new Item("NomeItemGenerico2", "Descricao2", true, testeAtributos,preco, "TesteFisica");
-        File arquivo = new File(diretorio+generico);
         String list[] = DAO_Item.listarItem("Generico");
         assertEquals(0,list.length);
         DAO_Item.gravarItem(item1);
@@ -421,14 +420,15 @@ public class DAO_ItemTest {
                    || list[1].equalsIgnoreCase("NomeItemGenerico1"));        
         assertTrue(list[0].equalsIgnoreCase("NomeItemGenerico2")
                    || list[1].equalsIgnoreCase("NomeItemGenerico2"));
+        System.out.println(list[0]);
+        File arquivo = new File(diretorio+generico, list[0]+".opera");
+        assertTrue(arquivo.delete());
+        arquivo = new File(diretorio+generico, list[1]+".opera");
+        assertTrue(arquivo.delete());
+        
                 
-        Arma_A_Distancia armaDistancia1 = new Arma_A_Distancia("NomeArmaDistancia1", "Descricao1",
-                                                     dado, 2, 2, 2, 2, true, 
-                                                     testeAtributos, preco, "TesteFisica");
-        Arma_A_Distancia armaDistancia2 = new Arma_A_Distancia("NomeArmaDistancia2", "Descricao2",
-                                                     dado, 2, 2, 2, 2, true, 
-                                                     testeAtributos, preco, "TesteFisica");
-        arquivo = new File(diretorio+armas+"\\"+armasDistancia);
+        Arma_A_Distancia armaDistancia1 = new Arma_A_Distancia("NomeArmaDistancia1", "Descricao1",dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_A_Distancia armaDistancia2 = new Arma_A_Distancia("NomeArmaDistancia2", "Descricao2",dado,2,2,2,2,true,testeAtributos,preco,"TesteFisica");
         list = DAO_Item.listarItem("Arma a Distancia");
         assertEquals(0,list.length);
         DAO_Item.gravarArma_A_Distancia(armaDistancia1);
@@ -439,9 +439,61 @@ public class DAO_ItemTest {
                    || list[1].equalsIgnoreCase("NomeArmaDistancia1"));        
         assertTrue(list[0].equalsIgnoreCase("NomeArmaDistancia2")
                    || list[1].equalsIgnoreCase("NomeArmaDistancia2"));
+        arquivo = new File(diretorio+armas+"\\"+armasDistancia, list[0]+".opera");
+        assertTrue(arquivo.delete());
+        arquivo = new File(diretorio+armas+"\\"+armasDistancia, list[1]+".opera");
+        assertTrue(arquivo.delete());
         
+        Arma_Corpo_A_Corpo armaCorpo1 = new Arma_Corpo_A_Corpo("NomeArmaCorpo1", "Descricao1", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        Arma_Corpo_A_Corpo armaCorpo2 = new Arma_Corpo_A_Corpo("NomeArmaCorpo2", "Descricao2", "Branca", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");        
+        list = DAO_Item.listarItem("Arma Corpo a Corpo Branca");
+        assertEquals(0,list.length);
+        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo1);
+        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo2);
+        list = DAO_Item.listarItem("Arma Corpo a Corpo Branca");
+        assertEquals(2,list.length);
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo1")
+                   || list[1].equalsIgnoreCase("NomeArmaCorpo1"));        
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo2")
+                   || list[1].equalsIgnoreCase("NomeArmaCorpo2"));
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, list[0]+".opera");
+        assertTrue(arquivo.delete());
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasBranca, list[1]+".opera");
+        assertTrue(arquivo.delete());
         
+        armaCorpo1 = new Arma_Corpo_A_Corpo("NomeArmaCorpo1", "Descricao1", "De_Fogo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        armaCorpo2 = new Arma_Corpo_A_Corpo("NomeArmaCorpo2", "Descricao2", "De_Fogo", dado, 2, 2, 2, 2, true, testeAtributos, preco, "TesteFisica");
+        list = DAO_Item.listarItem("Arma Corpo a Corpo de Fogo");
+        assertEquals(0,list.length);
+        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo1);
+        DAO_Item.gravarArma_Corpo_A_Corpo(armaCorpo2);
+        list = DAO_Item.listarItem("Arma Corpo a Corpo de Fogo");
+        assertEquals(2,list.length);
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo1")
+                   || list[1].equalsIgnoreCase("NomeArmaCorpo1"));        
+        assertTrue(list[0].equalsIgnoreCase("NomeArmaCorpo2")
+                   || list[1].equalsIgnoreCase("NomeArmaCorpo2"));
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasFogo, list[0]+".opera");
+        assertTrue(arquivo.delete());
+        arquivo = new File(diretorio+armas+"\\"+armasCorpo+"\\"+armasFogo, list[1]+".opera");
+        assertTrue(arquivo.delete());
         
+        Armadura armadura1 = new Armadura("NomeArmadura1","Descricao1",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        Armadura armadura2 = new Armadura("NomeArmadura2","Descricao2",2,2,2,'A', true, testeAtributos, 2, "TesteFisica");
+        list = DAO_Item.listarItem("Armadura");
+        assertEquals(0,list.length);
+        DAO_Item.gravarArmadura(armadura1);
+        DAO_Item.gravarArmadura(armadura2);
+        list = DAO_Item.listarItem("Armadura");
+        assertEquals(2,list.length);
+        assertTrue(list[0].equalsIgnoreCase("NomeArmadura1")
+                   || list[1].equalsIgnoreCase("NomeArmadura1"));        
+        assertTrue(list[0].equalsIgnoreCase("NomeArmadura2")
+                   || list[1].equalsIgnoreCase("NomeArmadura2"));
+        arquivo = new File(diretorio+"\\"+armaduras, list[0]+".opera");
+        assertTrue(arquivo.delete());
+        arquivo = new File(diretorio+"\\"+armaduras, list[1]+".opera");
+        assertTrue(arquivo.delete());
         
     }
 }

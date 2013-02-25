@@ -168,8 +168,11 @@ public class DAO_Item {
             case "Arma a Distancia":
                 diretorio += Constante_Endereco.ITEM_ARMA_A_DISTANCIA;
                 break;
-            case "Arma Corpo a Corpo":
-                diretorio += Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO;
+            case "Arma Corpo a Corpo Branca":
+                diretorio += Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO+"\\Branca";
+                break;
+            case "Arma Corpo a Corpo de Fogo":
+                diretorio += Constante_Endereco.ITEM_ARMA_CORPO_A_CORPO+"\\De_Fogo";
                 break;
             case "Armadura":
                 diretorio += Constante_Endereco.ITEM_ARMADURA;
