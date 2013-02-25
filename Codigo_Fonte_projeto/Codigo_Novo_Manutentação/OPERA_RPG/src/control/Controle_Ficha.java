@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
 import java.io.FileNotFoundException;
@@ -31,13 +27,17 @@ public class Controle_Ficha {
      */
     public static void cadJogador(String personagem,String jogador,
             String campanha,int experiencia,int atributos[],int dinheiro)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
+                                      throws FileNotFoundException, IOException, 
+                                             ArquivoInvalidoException, 
+                                                         FichaInvalidaException{
         
         if(Controle_Ficha.FichaExiste(personagem)){
-            throw new FichaInvalidaException("O Personagem {"+personagem+"} Ja existe");
+            throw new FichaInvalidaException("O Personagem {"+personagem+
+                                                                 "} Ja existe");
         }
         
-        Ficha f = new Ficha(personagem, jogador,"Jogador", campanha, experiencia, atributos, dinheiro);
+        Ficha f = new Ficha(personagem, jogador,"Jogador", campanha,
+                            experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     
@@ -54,13 +54,18 @@ public class Controle_Ficha {
      * @throws FichaInvalidaException 
      */
     public static void cadNPC(String personagem, String campanha,int experiencia,
-            int atributos[],int dinheiro) throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
+            int atributos[],int dinheiro) 
+                                        throws FileNotFoundException,IOException,
+                                               ArquivoInvalidoException, 
+                                                         FichaInvalidaException{
         
         if(Controle_Ficha.FichaExiste(personagem)){
-            throw new FichaInvalidaException("O Personagem {"+personagem+"} Ja existe");
+            throw new FichaInvalidaException("O Personagem {"+personagem+
+                                                                 "} Ja existe");
         }
         
-        Ficha f = new Ficha(personagem,"jogado pelo mestre","NPC", campanha, experiencia, atributos, dinheiro);
+        Ficha f = new Ficha(personagem,"jogado pelo mestre","NPC", 
+                                    campanha, experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     
@@ -78,12 +83,17 @@ public class Controle_Ficha {
      */
     public static void cadMonstro(String personagem,String campanha,
             int experiencia,int atributos[],int dinheiro)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException, FichaInvalidaException{
+                                                throws FileNotFoundException,
+                                                       IOException, 
+                                                       ArquivoInvalidoException,
+                                                         FichaInvalidaException{
         if(Controle_Ficha.FichaExiste(personagem)){
-            throw new FichaInvalidaException("O Personagem {"+personagem+"} Ja existe");
+            throw new FichaInvalidaException("O Personagem {"+personagem+
+                                                                 "} Ja existe");
         }
         
-        Ficha f = new Ficha(personagem,"jogado pelo mestre","Monstro", campanha, experiencia, atributos, dinheiro);
+        Ficha f = new Ficha(personagem,"jogado pelo mestre","Monstro", campanha,
+                            experiencia, atributos, dinheiro);
         DAO_Ficha.gravarFicha(f);
     }
     
@@ -97,7 +107,10 @@ public class Controle_Ficha {
      * @throws ArquivoInvalidoException 
      */
     public static Ficha encontrarJogador(String nome) 
-              throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException,
+                                                          ClassNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
             return DAO_Ficha.carregarFicha(nome, "Jogador");
     }    
     
@@ -111,7 +124,10 @@ public class Controle_Ficha {
      * @throws ArquivoInvalidoException 
      */
     public static Ficha encontrarNPC(String nome) 
-              throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          ClassNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
             return DAO_Ficha.carregarFicha(nome, "NPC");
     } 
     
@@ -125,7 +141,10 @@ public class Controle_Ficha {
      * @throws ArquivoInvalidoException 
      */
     public static Ficha encontrarMonstro(String nome) 
-              throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          ClassNotFoundException,
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
             return DAO_Ficha.carregarFicha(nome, "Monstro");
     } 
     
@@ -169,7 +188,10 @@ public class Controle_Ficha {
         return status;
     }
     
-    public static Ficha encontrarFicha(String nome) throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+    public static Ficha encontrarFicha(String nome)throws FileNotFoundException,
+                                                          ClassNotFoundException,
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         if(JogadorExiste(nome)){
             return encontrarJogador(nome);
         }else
@@ -182,32 +204,44 @@ public class Controle_Ficha {
         return null;
     }
     
-    public static void alterarJogador(String antigoPersonagem, String novoPersonagem, String novoJogador, String novaCampanha,int novaExperiencia,
-            int novosAtributos[],int novoDinheiro) throws FichaInvalidaException{
+    public static void alterarJogador(String antigoPersonagem, 
+                                      String novoPersonagem, String novoJogador,
+                                      String novaCampanha,int novaExperiencia,
+                                      int novosAtributos[],int novoDinheiro) 
+                                                  throws FichaInvalidaException{
         try{
             
-            if( (Controle_Ficha.JogadorExiste(novoPersonagem)) && (!novoPersonagem.equals(antigoPersonagem)) ){
-                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+"} Ja existe");
+            if( (Controle_Ficha.JogadorExiste(novoPersonagem)) && 
+                                   (!novoPersonagem.equals(antigoPersonagem)) ){
+                
+                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+
+                                                                 "} Ja existe");
             }
             
             Ficha antigaFicha = Controle_Ficha.encontrarJogador(antigoPersonagem);
             Controle_Ficha.removerJogador(antigoPersonagem);
-            Controle_Ficha.cadJogador(novoPersonagem, novoJogador, novaCampanha, novaExperiencia, novosAtributos, novoDinheiro);
+            Controle_Ficha.cadJogador(novoPersonagem, novoJogador, novaCampanha,
+                                      novaExperiencia,novosAtributos,novoDinheiro);
             Ficha novaFicha = Controle_Ficha.encontrarJogador(novoPersonagem);
             Controle_Ficha.transferirIntegracao(antigaFicha, novaFicha);
             Controle_Ficha.atualizarFicha(novaFicha);
             
-        } catch (ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | FichaInvalidaException | IOException e){
+        } catch (ArquivoInvalidoException | ClassNotFoundException | 
+                 DeletarInvalidoException | FichaInvalidaException |IOException e){
             throw new FichaInvalidaException(e.getMessage());
         }
     }
     
-    public static void alterarNPC(String antigoPersonagem, String novoPersonagem, String novaCampanha,int novaExperiencia,
-            int novosAtributos[],int novoDinheiro) throws FichaInvalidaException{
+    public static void alterarNPC(String antigoPersonagem, String novoPersonagem,
+                                  String novaCampanha,int novaExperiencia,
+                                  int novosAtributos[],int novoDinheiro) 
+                                                  throws FichaInvalidaException{
         try{
             
-            if( (Controle_Ficha.FichaExiste(novoPersonagem)) && (!novoPersonagem.equals(antigoPersonagem)) ){
-                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+"} Ja existe");
+            if( (Controle_Ficha.FichaExiste(novoPersonagem)) &&
+                                   (!novoPersonagem.equals(antigoPersonagem)) ){
+                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+
+                                                                 "} Ja existe");
             }
             
             Ficha antigaFicha = Controle_Ficha.encontrarNPC(antigoPersonagem);
@@ -217,27 +251,35 @@ public class Controle_Ficha {
             Controle_Ficha.transferirIntegracao(antigaFicha, novaFicha);
             Controle_Ficha.atualizarFicha(novaFicha);
             
-        } catch (ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | FichaInvalidaException | IOException e){
+        } catch (ArquivoInvalidoException | ClassNotFoundException |
+                 DeletarInvalidoException | FichaInvalidaException | IOException e){
             throw new FichaInvalidaException(e.getMessage());
         }
     }
     
-    public static void alterarMonstro(String antigoPersonagem, String novoPersonagem, String novaCampanha,int novaExperiencia,
-            int novosAtributos[],int novoDinheiro) throws FichaInvalidaException{
+    public static void alterarMonstro(String antigoPersonagem,
+                                      String novoPersonagem,String novaCampanha,
+                                      int novaExperiencia,int novosAtributos[],
+                                      int novoDinheiro) 
+                                                  throws FichaInvalidaException{
         try{
             
-            if( (Controle_Ficha.FichaExiste(novoPersonagem)) && (!novoPersonagem.equals(antigoPersonagem)) ){
-                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+"} Ja existe");
+            if( (Controle_Ficha.FichaExiste(novoPersonagem)) &&
+                                   (!novoPersonagem.equals(antigoPersonagem)) ){
+                throw new FichaInvalidaException("O Personagem {"+novoPersonagem+
+                                                                 "} Ja existe");
             }
             
             Ficha antigaFicha = Controle_Ficha.encontrarMonstro(antigoPersonagem);
             Controle_Ficha.removerMonstro(antigoPersonagem);
-            Controle_Ficha.cadMonstro(novoPersonagem, novaCampanha, novaExperiencia, novosAtributos, novoDinheiro);
+            Controle_Ficha.cadMonstro(novoPersonagem, novaCampanha, 
+                                      novaExperiencia,novosAtributos,novoDinheiro);
             Ficha novaFicha = Controle_Ficha.encontrarMonstro(novoPersonagem);
             Controle_Ficha.transferirIntegracao(antigaFicha, novaFicha);
             Controle_Ficha.atualizarFicha(novaFicha);
                         
-        } catch (ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | FichaInvalidaException | IOException e){
+        } catch (ArquivoInvalidoException | ClassNotFoundException | 
+                 DeletarInvalidoException | FichaInvalidaException | IOException e){
             throw new FichaInvalidaException(e.getMessage());
         }
     }
@@ -257,7 +299,10 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removerJogador(String personagem) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removerJogador(String personagem) 
+                                                throws ArquivoInvalidoException, 
+                                                       DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerFicha(personagem, "Jogador");
     }
     
@@ -268,7 +313,10 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removerNPC(String personagem) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removerNPC(String personagem) 
+                                                throws ArquivoInvalidoException, 
+                                                       DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerFicha(personagem, "NPC");
     }
     
@@ -279,7 +327,10 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removerMonstro(String personagem) throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removerMonstro(String personagem) 
+                                                throws ArquivoInvalidoException, 
+                                                       DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerFicha(personagem, "Monstro");
     }
     
@@ -289,7 +340,9 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removeTodasFichasJogador() throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removeTodasFichasJogador()throws ArquivoInvalidoException, 
+                                                        DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerTodasFichas("Jogador");
     }
     
@@ -299,7 +352,9 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removeTodasFichasNPC() throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removeTodasFichasNPC() throws ArquivoInvalidoException, 
+                                                     DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerTodasFichas("NPC");
     }
     
@@ -309,7 +364,10 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removeTodasFichasMonstro() throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removeTodasFichasMonstro() 
+                                                throws ArquivoInvalidoException, 
+                                                       DeletarInvalidoException, 
+                                                                    IOException{
         DAO_Ficha.removerTodasFichas("Monstro");
     }   
     
@@ -319,7 +377,9 @@ public class Controle_Ficha {
      * @throws DeletarInvalidoException
      * @throws IOException 
      */
-    public static void removeTodasFichas() throws ArquivoInvalidoException, DeletarInvalidoException, IOException{
+    public static void removeTodasFichas() throws ArquivoInvalidoException, 
+                                                  DeletarInvalidoException, 
+                                                                    IOException{
         removeTodasFichasJogador();
         removeTodasFichasNPC();
         removeTodasFichasMonstro();
@@ -354,7 +414,7 @@ public class Controle_Ficha {
     
     public static boolean atualizarFicha(Ficha f) 
                         throws FileNotFoundException, IOException,
-                               ArquivoInvalidoException, ArquivoInvalidoException{
+                               ArquivoInvalidoException,ArquivoInvalidoException{
         if(!Controle_Ficha.FichaExiste(f.getPersonagem()))
         {
             return false;

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
 
@@ -42,9 +38,10 @@ public class Controle_Integracao_Ficha {
      * @throws CaracteristicaInvalidaException 
      */
     public static boolean colocarCaracteristica(String personagem, String caracteristica) 
-                        throws FileNotFoundException, IOException, IOException,
+                        throws FileNotFoundException, IOException,
                                ArquivoInvalidoException, ClassNotFoundException,
-                               DeletarInvalidoException, FichaInvalidaException, CaracteristicaInvalidaException{
+                               DeletarInvalidoException, FichaInvalidaException,
+                                                CaracteristicaInvalidaException{
             Caracteristica c;
             if(!Controle_Caracteristica.CaracteristicaExiste(caracteristica)){       
                 return false;
@@ -67,7 +64,8 @@ public class Controle_Integracao_Ficha {
 
             if(car != null){
                 if(car.getNome().equals(c.getNome())){
-                    throw new CaracteristicaInvalidaException("A Ficha ja possui a Caracteristica {"+caracteristica+"}");
+                    throw new CaracteristicaInvalidaException(
+                     "A Ficha ja possui a Caracteristica {"+caracteristica+"}");
                 }
             }
             
@@ -88,10 +86,14 @@ public class Controle_Integracao_Ficha {
      * @throws FichaInvalidaException
      * @throws CaracteristicaInvalidaException 
      */
-    public static boolean removerCaracteristica(String personagem, String caracteristica) 
-                               throws FileNotFoundException, IOException,
-                               ArquivoInvalidoException, ClassNotFoundException,
-                               DeletarInvalidoException, FichaInvalidaException, CaracteristicaInvalidaException{
+    public static boolean removerCaracteristica(String personagem, 
+                                                String caracteristica) 
+                                     throws FileNotFoundException, IOException,
+                                            ArquivoInvalidoException, 
+                                                        ClassNotFoundException,
+                                                       DeletarInvalidoException, 
+                                                        FichaInvalidaException, 
+                                                CaracteristicaInvalidaException{
          Caracteristica c;
          
          if(!Controle_Caracteristica.CaracteristicaExiste(caracteristica)){       
@@ -116,7 +118,8 @@ public class Controle_Integracao_Ficha {
                  auxiliar.remove(car);
              }
          }else{
-             throw new CaracteristicaInvalidaException("Caracteristica {"+caracteristica+"} Invalida");
+             throw new CaracteristicaInvalidaException("Caracteristica {"+
+                                                    caracteristica+"} Invalida");
          }
          
          ficha.setCaracteristicas(auxiliar);
@@ -127,21 +130,24 @@ public class Controle_Integracao_Ficha {
      * Lista caracteristicas fisicas da integracao
      * @return 
      */
-    public static String[] listarCaracteristicasFisicas(String personagem) throws FichaInvalidaException{
+    public static String[] listarCaracteristicasFisicas(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarCaracteristicas(personagem, "Fisica");
     }
     /**
      * lista caracteristicas psiquicas da itegracao
      * @return 
      */
-    public static String[] listarCaracteristicasPsiquicas(String personagem) throws FichaInvalidaException{
+    public static String[] listarCaracteristicasPsiquicas(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarCaracteristicas(personagem, "Psiquica");
     }
     /**
      * lista caracteristicas raciais da intergracao
      * @return 
      */
-    public static String[] listarCaracteristicasRaciais(String personagem) throws FichaInvalidaException{
+    public static String[] listarCaracteristicasRaciais(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarCaracteristicas(personagem, "Racial");
     }
     /**
@@ -149,7 +155,8 @@ public class Controle_Integracao_Ficha {
      * @param tipo
      * @return 
      */
-    public static String[] listarCaracteristicas(String personagem, String tipo) throws FichaInvalidaException{
+    public static String[] listarCaracteristicas(String personagem, String tipo)
+                                                  throws FichaInvalidaException{
         try{
             String caracteristicas[] ;
 
@@ -214,7 +221,8 @@ public class Controle_Integracao_Ficha {
 
             if(hab != null){
                 if(hab.getNome().equals(h.getNome())){
-                    throw new HabilidadeInvalidaException("A Ficha ja possui a Habilidade {"+habilidade+"}");
+                    throw new HabilidadeInvalidaException(
+                             "A Ficha ja possui a Habilidade {"+habilidade+"}");
                 }
             }
             
@@ -240,14 +248,17 @@ public class Controle_Integracao_Ficha {
          Habilidade h;
          
          if(!Controle_Habilidade.HabilidadeExiste(habilidade)){
-                throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Invalida");
+                throw new HabilidadeInvalidaException(
+                                        "Habilidade {"+habilidade+"} Invalida");
             }
-         h = Controle_Habilidade.encontrarHabilidade(habilidade, Controle_Habilidade.getTipoHabildiade(habilidade));
+         h = Controle_Habilidade.encontrarHabilidade(
+                 habilidade, Controle_Habilidade.getTipoHabildiade(habilidade));
          
          Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
          ArrayList auxiliar = ficha.getHabilidades();
          if(auxiliar==null){
-             throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Nao pode ser Removida");
+             throw new HabilidadeInvalidaException(
+                           "Habilidade {"+habilidade+"} Nao pode ser Removida");
          }         
          
          Iterator i = auxiliar.iterator();
@@ -261,7 +272,8 @@ public class Controle_Integracao_Ficha {
                  auxiliar.remove(hab);
              }
          }else{
-             throw new HabilidadeInvalidaException("Habilidade {"+habilidade+"} Invalida");
+             throw new HabilidadeInvalidaException(
+                                        "Habilidade {"+habilidade+"} Invalida");
          }
          
          ficha.setHabilidades(auxiliar);
@@ -271,14 +283,16 @@ public class Controle_Integracao_Ficha {
      * lista habilidades fisicas da integracao;
      * @return 
      */
-    public static String[] listarHabilidadesFisicas(String personagem) throws FichaInvalidaException{
+    public static String[] listarHabilidadesFisicas(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarHabilidades(personagem, "Fisica");
     }
     /**
      * lista habilidades psiquicas da integracao
      * @return 
      */
-    public static String[] listarHabilidadesPsiquicas(String personagem) throws FichaInvalidaException{
+    public static String[] listarHabilidadesPsiquicas(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarHabilidades(personagem, "Psiquica");
     }
     
@@ -286,7 +300,8 @@ public class Controle_Integracao_Ficha {
      * lista habilidades belicas da integracao
      * @return 
      */
-    public static String[] listarHabilidadesBelicas(String personagem) throws FichaInvalidaException{
+    public static String[] listarHabilidadesBelicas(String personagem) 
+                                                  throws FichaInvalidaException{
         return listarHabilidades(personagem, "Belica");
     }
     
@@ -295,7 +310,8 @@ public class Controle_Integracao_Ficha {
      * @param tipo
      * @return 
      */
-    public static String[] listarHabilidades(String personagem, String tipo) throws FichaInvalidaException{
+    public static String[] listarHabilidades(String personagem, String tipo) 
+                                                  throws FichaInvalidaException{
         try{
             String habilidades[] ;
             int aux=0;
@@ -326,7 +342,8 @@ public class Controle_Integracao_Ficha {
      * @param nomeItem
      * @throws ItemInvalidoException 
      */
-    public static void colocarItemGenerico(String personagem, String nomeItem) throws ItemInvalidoException{
+    public static void colocarItemGenerico(String personagem, String nomeItem) 
+                                                   throws ItemInvalidoException{
         try{
             Item item = Controle_Item.encontrarItemGenerico(nomeItem);
             if(item == null){ 
@@ -356,7 +373,8 @@ public class Controle_Integracao_Ficha {
      * @throws ItemInvalidoException 
      */
     
-    public static void removerItemGenerico(String personagem, String nomeItem) throws ItemInvalidoException{
+    public static void removerItemGenerico(String personagem, String nomeItem) 
+                                                   throws ItemInvalidoException{
         try{
             Item item = Controle_Item.encontrarItemGenerico(nomeItem);
             if(item == null){ 
@@ -366,7 +384,8 @@ public class Controle_Integracao_Ficha {
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getItensGenericos();
             if(auxiliar==null){
-                throw new ItemInvalidoException("Item {"+nomeItem+"} Nao pode ser Removido");
+                throw new ItemInvalidoException(
+                                   "Item {"+nomeItem+"} Nao pode ser Removido");
             }         
             
             Iterator i = auxiliar.iterator();
@@ -395,7 +414,8 @@ public class Controle_Integracao_Ficha {
      * @return 
      */
     
-    public static String[] listarItensGenericos(String personagem) throws FichaInvalidaException{
+    public static String[] listarItensGenericos(String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             String itens[] ;
             int aux=0;
@@ -422,7 +442,8 @@ public class Controle_Integracao_Ficha {
      * @param nomeArma
      * @throws ItemInvalidoException 
      */
-    public static void colocarArma_A_Distancia(String personagem, String nomeArma) throws ItemInvalidoException{
+    public static void colocarArma_A_Distancia(String personagem, String nomeArma) 
+                                                   throws ItemInvalidoException{
         try{
             Arma_A_Distancia arma = Controle_Item.encontrarArma_A_Distancia(nomeArma);
             if(arma == null){ 
@@ -453,7 +474,8 @@ public class Controle_Integracao_Ficha {
      */
     
     
-    public static void removerArma_A_Distancia(String personagem, String nomeArma) throws ItemInvalidoException{
+    public static void removerArma_A_Distancia(String personagem, String nomeArma) 
+                                                   throws ItemInvalidoException{
         try{
             Arma_A_Distancia arma = Controle_Item.encontrarArma_A_Distancia(nomeArma);
             if(arma == null){ 
@@ -493,7 +515,8 @@ public class Controle_Integracao_Ficha {
      * @return 
      */
     
-    public static String[] listarArma_A_Distancia(String personagem) throws FichaInvalidaException{
+    public static String[] listarArma_A_Distancia(String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             String armas[] ;
             int aux=0;
@@ -523,7 +546,8 @@ public class Controle_Integracao_Ficha {
      * @throws ItemInvalidoException 
      */
     
-    public static void colocarArma_Corpo_A_Corpo(String personagem, String nomeArma) throws ItemInvalidoException{
+    public static void colocarArma_Corpo_A_Corpo(String personagem, String nomeArma)
+                                                   throws ItemInvalidoException{
         try{
             Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma);
             if(arma == null){ 
@@ -551,7 +575,8 @@ public class Controle_Integracao_Ficha {
     /*
      * remove uma arma  corpo a corpo
      */
-    public static void removerArma_Corpo_A_Corpo(String personagem, String nomeArma) throws ItemInvalidoException{
+    public static void removerArma_Corpo_A_Corpo(String personagem, String nomeArma) 
+                                                   throws ItemInvalidoException{
         try{
             Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(nomeArma);
             if(arma == null){ 
@@ -588,7 +613,8 @@ public class Controle_Integracao_Ficha {
     /**
      *lista as armas corpo a corpo na ficha 
      */
-    public static String[] listarArma_Corpo_A_Corpo(String personagem) throws FichaInvalidaException{
+    public static String[] listarArma_Corpo_A_Corpo(String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             String armas[] ;
             int aux=0;
@@ -615,11 +641,13 @@ public class Controle_Integracao_Ficha {
      * 
      */
     
-    public static void colocarArmadura(String personagem, String nomeArmadura) throws ItemInvalidoException{
+    public static void colocarArmadura(String personagem, String nomeArmadura) 
+                                                   throws ItemInvalidoException{
         try{
             Armadura armadura = Controle_Item.encontrarArmadura(nomeArmadura);
             if(armadura == null){ 
-                throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Invalida");
+                throw new ItemInvalidoException(
+                                        "Armadura {"+nomeArmadura+"} Invalida");
             }
             
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
@@ -635,7 +663,8 @@ public class Controle_Integracao_Ficha {
             Controle_Ficha.atualizarFicha(ficha);
         
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            throw new ItemInvalidoException("A Armadura {"+nomeArmadura+"} Nao pode ser Integrada");
+            throw new ItemInvalidoException(
+                        "A Armadura {"+nomeArmadura+"} Nao pode ser Integrada");
         }
     }
     /**
@@ -645,12 +674,14 @@ public class Controle_Integracao_Ficha {
         try{
             Armadura armadura = Controle_Item.encontrarArmadura(nomeArmadura);
             if(armadura == null){ 
-                throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Invalida");
+                throw new ItemInvalidoException(
+                                        "Armadura {"+nomeArmadura+"} Invalida");
             }
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getArmaduras();
             if(auxiliar==null){
-                throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Nao pode ser Removida");
+                throw new ItemInvalidoException(
+                           "Armadura {"+nomeArmadura+"} Nao pode ser Removida");
             }         
             
             Iterator i = auxiliar.iterator();
@@ -664,7 +695,8 @@ public class Controle_Integracao_Ficha {
                     auxiliar.remove(tempArmadura);
                 }
             }else{
-                throw new ItemInvalidoException("Armadura {"+nomeArmadura+"} Invalida");
+                throw new ItemInvalidoException(
+                                        "Armadura {"+nomeArmadura+"} Invalida");
             }
 
             ficha.setArmaduras(auxiliar);
@@ -677,7 +709,8 @@ public class Controle_Integracao_Ficha {
      lista as armaduras da ficha selecionada
      
      */
-    public static String[] listarArmadura(String personagem) throws FichaInvalidaException{
+    public static String[] listarArmadura(String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             String armaduras[] ;
             int aux=0;
@@ -739,7 +772,8 @@ public class Controle_Integracao_Ficha {
      * @param nomeCaracteristica
      * @return 
      */
-    public static boolean contemCaracteristica(ArrayList caracteristicas,String nomeCaracteristica){
+    public static boolean contemCaracteristica(ArrayList caracteristicas,
+                                                     String nomeCaracteristica){
         Iterator i = caracteristicas.iterator();
         while(i.hasNext()){
             Caracteristica caracteristica = (Caracteristica)i.next();
@@ -755,7 +789,8 @@ public class Controle_Integracao_Ficha {
      * @param nomeHabilidade
      * @return 
      */
-    public static boolean contemHabilidade(ArrayList habilidades, String nomeHabilidade){
+    public static boolean contemHabilidade(ArrayList habilidades, 
+                                                         String nomeHabilidade){
         Iterator i = habilidades.iterator();
         while(i.hasNext()){
             Habilidade habilidade = (Habilidade)i.next();
@@ -769,7 +804,8 @@ public class Controle_Integracao_Ficha {
      * verifica se uma arma corpo a corpo esta equipada
      * @return true or false
      */
-    public static boolean ArmaCorpoACorpoEquipada(String personagem) throws FichaInvalidaException{
+    public static boolean ArmaCorpoACorpoEquipada(String personagem) 
+                                                  throws FichaInvalidaException{
         Arma arma = encontrarArmaCorpoACorpoEquipada(personagem);
         if(arma != null){
             return true;
@@ -780,7 +816,9 @@ public class Controle_Integracao_Ficha {
      * retorna uma arma corpo a corpo equipada
      * @return 
      */
-    public static Arma_Corpo_A_Corpo encontrarArmaCorpoACorpoEquipada(String personagem) throws FichaInvalidaException{
+    public static Arma_Corpo_A_Corpo encontrarArmaCorpoACorpoEquipada(
+                                                              String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getArmasCorpoACorpo();
@@ -801,7 +839,8 @@ public class Controle_Integracao_Ficha {
      * verifica se uma arma a distancia esta equipada
      * @return 
      */     
-    public static boolean ArmaADistanciaEquipada(String personagem) throws FichaInvalidaException{   
+    public static boolean ArmaADistanciaEquipada(String personagem) 
+                                                  throws FichaInvalidaException{   
         Arma arma = encontrarArmaADistanciaEquipada(personagem);
         if(arma!=null){
             return true;
@@ -812,7 +851,9 @@ public class Controle_Integracao_Ficha {
      * retorna uma arma a distancia equipada
      * @return 
      */
-    public static Arma_A_Distancia encontrarArmaADistanciaEquipada(String personagem) throws FichaInvalidaException{
+    public static Arma_A_Distancia encontrarArmaADistanciaEquipada(
+                                                              String personagem) 
+                                                  throws FichaInvalidaException{
         try{
             Ficha ficha = Controle_Ficha.encontrarFicha(personagem);
             ArrayList auxiliar = ficha.getArmasCorpoACorpo();
