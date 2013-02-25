@@ -366,9 +366,7 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                             pnlCadastrarItem.carregarJComboBox("Belica");
                             break;
                     }
-                    System.out.println(item.getHabilidade_Necessaria());
                     for(int i = 0; i < pnlCadastrarItem.getCmbHabilidade().getItemCount(); i++){
-                        System.out.println(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString());
                         if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString().equals(item.getHabilidade_Necessaria())){
                             pnlCadastrarItem.getCmbHabilidade().setSelectedIndex(i);
                         }
