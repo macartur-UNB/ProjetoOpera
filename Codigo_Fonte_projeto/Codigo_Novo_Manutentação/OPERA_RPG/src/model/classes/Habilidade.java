@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import java.io.Serializable;
@@ -32,7 +28,8 @@ public class Habilidade implements Serializable{
      * @param tipo Tipo de Habilidade. Pode ser: Fisica, Psiquica ou Belica.
      * @throws HabilidadeInvalidaException
      */
-    public Habilidade(int teste, int nivel, int custo, String nome, String tipo) throws HabilidadeInvalidaException {
+    public Habilidade(int teste, int nivel, int custo, String nome, String tipo)
+                                            throws HabilidadeInvalidaException {
         setTeste(teste);
         setNivel(nivel);
         setCusto(custo);
@@ -50,8 +47,8 @@ public class Habilidade implements Serializable{
     	if(custo >= 0){
     		this.custo = custo;
     	}else{
-            throw new HabilidadeInvalidaException("Custo Invalido, valor Abaixo "
-                    + "de Zero(0)");
+            throw new HabilidadeInvalidaException(
+                                     "Custo Invalido, valor Abaixo de Zero(0)");
         }
     }
 
@@ -73,8 +70,8 @@ public class Habilidade implements Serializable{
         if(nivel >= 0){
     		this.nivel = nivel;
     	}else{
-            throw new HabilidadeInvalidaException("Custo Invalido, valor Abaixo "
-                    + "de Zero(0)");
+            throw new HabilidadeInvalidaException(
+                                     "Custo Invalido, valor Abaixo de Zero(0)");
         }
     }
 
@@ -97,8 +94,10 @@ public class Habilidade implements Serializable{
             Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
-            throw new HabilidadeInvalidaException("Nome de Habilidade Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new HabilidadeInvalidaException(
+                      "Nome de Habilidade Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import java.io.Serializable;
@@ -23,7 +19,8 @@ public class Ficha implements Serializable{
     private int atributos[];
     private int dinheiro;
     private ArrayList habilidades=null,caracteristicas=null,
-            itensGenericos=null, armasADistancia=null, armasCorpoACorpo=null, armaduras=null;
+                      itensGenericos=null, armasADistancia=null, 
+                      armasCorpoACorpo=null, armaduras=null;
     
     
     /**
@@ -35,14 +32,16 @@ public class Ficha implements Serializable{
      * @param tipo Tipo de personagem, podendo ser: Jogador, NPC ou Monstro.
      * @param campanha Capanha do Personagem. Deve conter apenas caracteres 
      * Alfa-Numericos (A-Z, a-z e 0-9)".
-     * @param experiencia Quantidade de Experiencia do Personagem. O valor deve ser
-     * maior ou igual a zero(0).
+     * @param experiencia Quantidade de Experiencia do Personagem. O valor deve 
+     * ser maior ou igual a zero(0).
      * @param atributos Vetor com os Valores dos Atributos do personagem. Todos
      * os valores devem ser maiores ou iguais a zero(0).
      * @param dinheiro Quantidade de Dinheiro do personagem. O valor deve ser
      * maior ou igual a zero(0).
      */
-    public Ficha(String personagem, String jogador, String tipo, String campanha, int experiencia, int[] atributos, int dinheiro) throws FichaInvalidaException{
+    public Ficha(String personagem, String jogador, String tipo, String campanha,
+                 int experiencia, int[] atributos, int dinheiro) 
+                                                  throws FichaInvalidaException{
         setPersonagem(personagem);
         setJogador(jogador);
         setTipo(tipo);
@@ -64,8 +63,10 @@ public class Ficha implements Serializable{
             Validar.validarPalavra(personagem, true);
             this.personagem = personagem;
         } catch(PalavraInvalidaException e){
-            throw new FichaInvalidaException("Nome de Personagem Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new FichaInvalidaException(
+                      "Nome de Personagem Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -114,8 +115,10 @@ public class Ficha implements Serializable{
             Validar.validarPalavra(jogador, false);
             this.jogador = jogador;
         } catch(PalavraInvalidaException e){
-            throw new FichaInvalidaException("Nome de Jogador Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new FichaInvalidaException(
+                      "Nome de Jogador Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -139,8 +142,10 @@ public class Ficha implements Serializable{
             Validar.validarPalavra(campanha, true);
             this.campanha = campanha;
         } catch(PalavraInvalidaException e){
-            throw new FichaInvalidaException("Campanha Invalida."
-                    + "\nA Campanha deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new FichaInvalidaException(
+                      "Campanha Invalida."
+                    + "\nA Campanha deve receber apenas caracteres Alfa-Numericos"
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -165,13 +170,15 @@ public class Ficha implements Serializable{
         }else if(atributos.length == 8){
             for(int i = 0; i < atributos.length; i++){
                 if(atributos[i] < 0){
-                    throw new FichaInvalidaException("Atributo " + Constante_Atributo.ATRIBUTO[i]
+                    throw new FichaInvalidaException(
+                              "Atributo " + Constante_Atributo.ATRIBUTO[i]
                             + " Invalido, valor Abaixo de Zero(0)");
                 }
             }
             this.atributos = atributos;
         }else{
-            throw new FichaInvalidaException("O campo Atribubos deve receber apenas 8 atributos."
+            throw new FichaInvalidaException(
+                       "O campo Atribubos deve receber apenas 8 atributos."
                     + "\nForam recebidos: " + atributos.length);
         }
     }
@@ -195,8 +202,8 @@ public class Ficha implements Serializable{
         if(dinheiro >= 0){
             this.dinheiro = dinheiro;
         }else{
-            throw new FichaInvalidaException("Dinheiro Invalido, valor Abaixo "
-                    + "de Zero(0)");
+            throw new FichaInvalidaException(
+                                  "Dinheiro Invalido, valor Abaixo de Zero(0)");
         }
     }
 
@@ -218,8 +225,8 @@ public class Ficha implements Serializable{
         if(experiencia >= 0){
             this.experiencia = experiencia;
         }else{
-            throw new FichaInvalidaException("Experiencia Invalida, valor Abaixo "
-                    + "de Zero(0)");
+            throw new FichaInvalidaException(
+                               "Experiencia Invalida, valor Abaixo de Zero(0)");
         }
     }
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import control.Controle_Habilidade;
@@ -48,7 +44,8 @@ public class Item implements Serializable {
      * maior ou igual a zero(0)
      * @throws ItemInvalidoException 
      */
-     public Item(String nome, String descricao, boolean usando, int preco) throws ItemInvalidoException {
+     public Item(String nome, String descricao, boolean usando, int preco) 
+                                                  throws ItemInvalidoException {
         this(nome,descricao,preco);
         setUsando(usando);
     }
@@ -68,7 +65,8 @@ public class Item implements Serializable {
      * @throws ItemInvalidoException 
      */
     public Item(String nome, String descricao, boolean usando, int[] bonus_atributo,
-                int preco, String habilidade_Necessaria) throws ItemInvalidoException {
+                int preco, String habilidade_Necessaria) 
+                                                  throws ItemInvalidoException {
         this(nome,descricao,preco);
         setUsando(usando);
         setBonus_atributo(bonus_atributo);
@@ -86,8 +84,10 @@ public class Item implements Serializable {
             Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
-            throw new ItemInvalidoException("Nome do Item Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new ItemInvalidoException(
+                      "Nome do Item Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -111,8 +111,10 @@ public class Item implements Serializable {
             Validar.validarPalavra(descricao, true);
             this.descricao = descricao;
         } catch(PalavraInvalidaException e){
-            throw new ItemInvalidoException("Descricao do Item Invalida."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new ItemInvalidoException(
+                      "Descricao do Item Invalida."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -171,19 +173,22 @@ public class Item implements Serializable {
      * Todos os valores devem ser maiores ou iguais a zero(0).
      * @throws ItemInvalidoException
      */
-    public void setBonus_atributo(int[] bonus_atributo) throws ItemInvalidoException {
+    public void setBonus_atributo(int[] bonus_atributo) 
+                                                  throws ItemInvalidoException {
         if(bonus_atributo == null){
             this.bonus_atributo = bonus_atributo;
         }else if(bonus_atributo.length == 8){
             for(int i = 0; i < bonus_atributo.length; i++){
                 if(bonus_atributo[i] < 0){
-                    throw new ItemInvalidoException("Atributo " + Constante_Atributo.ATRIBUTO[i]
-                            + " Invalido, valor Abaixo de Zero(0)");
+                    throw new ItemInvalidoException(
+                                    "Atributo " + Constante_Atributo.ATRIBUTO[i]
+                                  + " Invalido, valor Abaixo de Zero(0)");
                 }
             }
             this.bonus_atributo = bonus_atributo;
         }else{
-            throw new ItemInvalidoException("O campo Bonus de Atributo deve receber 8 modificadores."
+            throw new ItemInvalidoException(
+                      "O campo Bonus de Atributo deve receber 8 modificadores."
                     + "\nForam recebidos: " + bonus_atributo.length);
         }
     }
@@ -202,14 +207,18 @@ public class Item implements Serializable {
      * se nao estver usando Item deve receber "Nenhuma" como parametro
      * @throws ItemInvalidoException
      */
-    public void setHabilidade_Necessaria(String habilidade_Necessaria) throws ItemInvalidoException {
+    public void setHabilidade_Necessaria(String habilidade_Necessaria)
+                                                  throws ItemInvalidoException {
                 
         if(habilidade_Necessaria != null){
-            if( (Controle_Habilidade.HabilidadeExiste(habilidade_Necessaria)) || (habilidade_Necessaria.equals("Nenhuma"))){
+            if( (Controle_Habilidade.HabilidadeExiste(habilidade_Necessaria))  
+                                  || (habilidade_Necessaria.equals("Nenhuma"))){
                 this.habilidade_Necessaria = habilidade_Necessaria;
             }else{
-                throw new ItemInvalidoException("habilidade_Necessaria para o Item Invalida."
-                        + "\nA Habilidade {" + habilidade_Necessaria + "} nao existe.");
+                throw new ItemInvalidoException(
+                           "habilidade_Necessaria para o Item Invalida."
+                        + "\nA Habilidade {" + habilidade_Necessaria 
+                        + "} nao existe.");
             }
         }else{
             this.habilidade_Necessaria = habilidade_Necessaria;

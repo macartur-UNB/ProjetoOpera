@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import java.io.Serializable;
@@ -58,8 +54,8 @@ public class Dado implements Serializable {
         if(lados >=1){
     		this.lados = lados;
     	}else{
-            throw new DadoInvalidoException("Lados do Dado Invalido, valor Abaixo "
-                    + "de Zero(1)");
+            throw new DadoInvalidoException(
+                    "Lados do Dado Invalido, valor Abaixo de Zero(1)");
         }
     }
 
