@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeVisualizacao;
 
 import control.Controle_Caracteristica;
@@ -33,10 +29,7 @@ import view.PaineisDeCadastro.PnlCadastrarCaracteristica;
 import view.PaineisDeCadastro.PnlCadastrarHabilidade;
 import view.PaineisDeCadastro.PnlCadastrarItem;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlVisualizarFicha extends javax.swing.JPanel {
     
     /**
@@ -379,7 +372,9 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             PnlCadastrarHabilidade pnlCadastrarHabilidade = new PnlCadastrarHabilidade();
 
             String nomeHabilidade = listHabilidades.getSelectedValue().toString();
-            Habilidade habilidade = Controle_Habilidade.encontrarHabilidade(nomeHabilidade, Controle_Habilidade.getTipoHabildiade(nomeHabilidade));
+            Habilidade habilidade = Controle_Habilidade.encontrarHabilidade(
+                                                                nomeHabilidade, 
+                         Controle_Habilidade.getTipoHabildiade(nomeHabilidade));
 
             pnlCadastrarHabilidade.getBtnCadastrar().setVisible(false);
             pnlCadastrarHabilidade.getBtnLimpar().setVisible(false);
@@ -403,12 +398,17 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             
             frmHabilidade.add(pnlCadastrarHabilidade);
             
-            frmHabilidade.setMinimumSize(new Dimension(pnlCadastrarHabilidade.getMinimumSize().width + 25, pnlCadastrarHabilidade.getMinimumSize().height + 50));
+            frmHabilidade.setMinimumSize(
+                new Dimension(pnlCadastrarHabilidade.getMinimumSize().width + 25, 
+                          pnlCadastrarHabilidade.getMinimumSize().height + 50));
             
             frmHabilidade.setVisible(true);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | HabilidadeInvalidaException | HeadlessException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Habilidade selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | 
+                HabilidadeInvalidaException | HeadlessException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: "
+                                  + "Habilidade selecionada eh Invalida","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarHabilidadeActionPerformed
 
@@ -424,12 +424,18 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             pnlCadastrarItem.getBtnCadastrar().setVisible(false);
             pnlCadastrarItem.getBtnLimpar().setVisible(false);
             PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
-            frmItem.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmItem.setMinimumSize(new Dimension(
+                                   pnlCadastrarItem.getMinimumSize().width + 25, 
+                                pnlCadastrarItem.getMinimumSize().height + 50));
             frmItem.setVisible(true);
             frmItem.add(pnlCadastrarItem);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Item selecionado eh Invalido","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException | 
+                ClassNotFoundException | IOException |
+                                                 HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: "+ 
+                                          "Item selecionado eh Invalido","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarItensActionPerformed
 
@@ -438,7 +444,9 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             JFrame frmCaracteristica = new JFrame();
             PnlCadastrarCaracteristica pnlCadastrarCaracteristica = new PnlCadastrarCaracteristica();
             
-            Caracteristica caracteristica = Controle_Caracteristica.encontrarCaracteristica(listCaracteristicas.getSelectedValue().toString());
+            Caracteristica caracteristica = 
+                           Controle_Caracteristica.encontrarCaracteristica(
+                             listCaracteristicas.getSelectedValue().toString());
             
             pnlCadastrarCaracteristica.getTxtNome().setText(caracteristica.getNome());
             pnlCadastrarCaracteristica.getTxtCusto().setText(""+caracteristica.getCusto());
@@ -466,35 +474,43 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             if(caracteristica.getModificador() != null){
                 if(caracteristica.getModificador()[FISICO] > 0){
                     pnlCadastrarCaracteristica.getChkFisico().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtFisico().setText(""+caracteristica.getModificador()[FISICO]);
+                    pnlCadastrarCaracteristica.getTxtFisico().setText(
+                                    ""+caracteristica.getModificador()[FISICO]);
                 }
                 if(caracteristica.getModificador()[DESTREZA] > 0){
                     pnlCadastrarCaracteristica.getChkDestreza().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtDestreza().setText(""+caracteristica.getModificador()[DESTREZA]);
+                    pnlCadastrarCaracteristica.getTxtDestreza().setText(
+                                  ""+caracteristica.getModificador()[DESTREZA]);
                 }
                 if(caracteristica.getModificador()[INTELIGENCIA] > 0){
                     pnlCadastrarCaracteristica.getChkInteligencia().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtInteligencia().setText(""+caracteristica.getModificador()[INTELIGENCIA]);
+                    pnlCadastrarCaracteristica.getTxtInteligencia().setText(
+                              ""+caracteristica.getModificador()[INTELIGENCIA]);
                 }
                 if(caracteristica.getModificador()[VONTADE] > 0){
                     pnlCadastrarCaracteristica.getChkVontade().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtVontade().setText(""+caracteristica.getModificador()[VONTADE]);
+                    pnlCadastrarCaracteristica.getTxtVontade().setText(
+                                   ""+caracteristica.getModificador()[VONTADE]);
                 }
                 if(caracteristica.getModificador()[PERCEPCAO] > 0){
                     pnlCadastrarCaracteristica.getChkPercepcao().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtPercepcao().setText(""+caracteristica.getModificador()[PERCEPCAO]);
+                    pnlCadastrarCaracteristica.getTxtPercepcao().setText(
+                                 ""+caracteristica.getModificador()[PERCEPCAO]);
                 }
                 if(caracteristica.getModificador()[MENTE] > 0){
                     pnlCadastrarCaracteristica.getChkMente().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtMente().setText(""+caracteristica.getModificador()[MENTE]);
+                    pnlCadastrarCaracteristica.getTxtMente().setText(
+                                     ""+caracteristica.getModificador()[MENTE]);
                 }
                 if(caracteristica.getModificador()[MANA] > 0){
                     pnlCadastrarCaracteristica.getChkMana().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtMana().setText(""+caracteristica.getModificador()[MANA]);
+                    pnlCadastrarCaracteristica.getTxtMana().setText(
+                                      ""+caracteristica.getModificador()[MANA]);
                 }
                 if(caracteristica.getModificador()[SORTE] > 0){
                     pnlCadastrarCaracteristica.getChkSorte().setSelected(true);
-                    pnlCadastrarCaracteristica.getTxtSorte().setText(""+caracteristica.getModificador()[SORTE]);
+                    pnlCadastrarCaracteristica.getTxtSorte().setText(
+                                     ""+caracteristica.getModificador()[SORTE]);
                 }
             }
 
@@ -502,12 +518,17 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             pnlCadastrarCaracteristica.getBtnLimpar().setVisible(false);
             PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarCaracteristica, false);
             
-            frmCaracteristica.setMinimumSize(new Dimension(pnlCadastrarCaracteristica.getMinimumSize().width + 25, pnlCadastrarCaracteristica.getMinimumSize().height + 50));
+            frmCaracteristica.setMinimumSize(new Dimension(
+                         pnlCadastrarCaracteristica.getMinimumSize().width + 25, 
+                     pnlCadastrarCaracteristica.getMinimumSize().height + 50));
             frmCaracteristica.setVisible(true);
             frmCaracteristica.add(pnlCadastrarCaracteristica);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Caracteristica selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException | 
+                                        ClassNotFoundException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                                     + "Caracteristica selecionada eh Invalida",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarCaracteristicaActionPerformed
 
@@ -516,7 +537,8 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             JFrame frmArmaADistancia = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
                                     
-            Arma_A_Distancia arma = Controle_Item.encontrarArma_A_Distancia(listArmasADistancia.getSelectedValue().toString());
+            Arma_A_Distancia arma = Controle_Item.encontrarArma_A_Distancia(
+                             listArmasADistancia.getSelectedValue().toString());
             
             carregarDadosDoItemNoPainel(pnlCadastrarItem, arma);
             carregarDadosDaArmaNoPainel(pnlCadastrarItem, arma);
@@ -534,8 +556,12 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             frmArmaADistancia.setVisible(true);
             frmArmaADistancia.add(pnlCadastrarItem);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Arma a Distancia selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException | 
+                ClassNotFoundException | IOException | 
+                                                 HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: "
+                                   + "Arma a Distancia selecionada eh Invalida",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarArmaADistanciaActionPerformed
 
@@ -544,7 +570,8 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             JFrame frmArmaCorpoACorpo = new JFrame();
             PnlCadastrarItem pnlCadastrarItem = new PnlCadastrarItem();
                                     
-            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(listArmasCorpoACorpo.getSelectedValue().toString());
+            Arma_Corpo_A_Corpo arma = Controle_Item.encontrarArma_Corpo_A_Corpo(
+                            listArmasCorpoACorpo.getSelectedValue().toString());
             
             carregarDadosDoItemNoPainel(pnlCadastrarItem, arma);
             carregarDadosDaArmaNoPainel(pnlCadastrarItem, arma);
@@ -563,8 +590,12 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             frmArmaCorpoACorpo.setVisible(true);
             frmArmaCorpoACorpo.add(pnlCadastrarItem);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Arma Corpo a Corpo selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException | 
+                ClassNotFoundException | IOException | 
+                                                 HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + 
+                                   "Arma Corpo a Corpo selecionada eh Invalida",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarArmaCorpoACorpoActionPerformed
 
@@ -587,12 +618,17 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
             pnlCadastrarItem.getBtnCadastrar().setVisible(false);
             pnlCadastrarItem.getBtnLimpar().setVisible(false);
             PainelFuncoes.habilitarEdicaoDeCampos(pnlCadastrarItem, false);
-            frmArmadura.setMinimumSize(new Dimension(pnlCadastrarItem.getMinimumSize().width + 25, pnlCadastrarItem.getMinimumSize().height + 50));
+            frmArmadura.setMinimumSize(new Dimension(
+                                   pnlCadastrarItem.getMinimumSize().width + 25, 
+                                pnlCadastrarItem.getMinimumSize().height + 50));
             frmArmadura.setVisible(true);
             frmArmadura.add(pnlCadastrarItem);
             
-        } catch(NullPointerException | ArquivoInvalidoException | ClassNotFoundException | IOException | HabilidadeInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Armadura selecionada eh Invalida","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(NullPointerException | ArquivoInvalidoException |
+                ClassNotFoundException | IOException | HabilidadeInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                                            + "Armadura selecionada eh Invalida",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVisualizarArmadurasActionPerformed
 
@@ -630,7 +666,9 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
         pnlCadastrarItem.getTxtDanoAdicional().setText(""+((Arma)arma).getDanoAdicional());
     }
     
-    private void carregarDadosDoItemNoPainel(PnlCadastrarItem pnlCadastrarItem, Item item) throws HabilidadeInvalidaException{
+    private void carregarDadosDoItemNoPainel(PnlCadastrarItem pnlCadastrarItem, 
+                                             Item item) 
+                                             throws HabilidadeInvalidaException{
         pnlCadastrarItem.getRdbItem().setSelected(true);
 
         pnlCadastrarItem.getTxtNome().setText(item.getNome());
@@ -638,10 +676,13 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
         pnlCadastrarItem.getTxtPreco().setText(""+item.getPreco());
 
         if(item.getHabilidade_Necessaria().equals("Nenhuma")){
-            pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+            pnlCadastrarItem.getCmbHabilidade().setModel(
+                                           new javax.swing.DefaultComboBoxModel(
+                                                    new String[] { "Nenhuma"}));
             pnlCadastrarItem.getCmbHabilidade().setEnabled(false);
         }else{                    
-            String tipoDeHabilidade = Controle_Habilidade.getTipoHabildiade(item.getHabilidade_Necessaria());
+            String tipoDeHabilidade = Controle_Habilidade.getTipoHabildiade(
+                                               item.getHabilidade_Necessaria());
             switch(tipoDeHabilidade){
                 case "Fisica":
                     pnlCadastrarItem.getRdbFisica().setSelected(true);
@@ -657,7 +698,8 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
                     break;
             }
             for(int i = 0; i < pnlCadastrarItem.getCmbHabilidade().getItemCount(); i++){
-                if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString().equals(item.getHabilidade_Necessaria())){
+                if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString()
+                                      .equals(item.getHabilidade_Necessaria())){
                     pnlCadastrarItem.getCmbHabilidade().setSelectedIndex(i);
                 }
             }
@@ -735,7 +777,8 @@ public class PnlVisualizarFicha extends javax.swing.JPanel {
                 limparListas();
             }
         } catch(FichaInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",
+                                                        JOptionPane.ERROR_MESSAGE);
         }
     }
     

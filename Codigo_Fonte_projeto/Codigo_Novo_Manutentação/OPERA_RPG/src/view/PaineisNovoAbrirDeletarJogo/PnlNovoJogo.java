@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisNovoAbrirDeletarJogo;
 
 import control.Controle_Jogo;
@@ -23,10 +19,7 @@ import view.PanelTab;
 import view.TelaPrincipal;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlNovoJogo extends javax.swing.JPanel {
 
     /**
@@ -123,7 +116,9 @@ public class PnlNovoJogo extends javax.swing.JPanel {
         try{
             String nome = ValidarCampos.validarCampoTexto(txtNome, true);
             Controle_Jogo.criarJogo(nome);
-            JOptionPane.showMessageDialog(null,"Jogo: " + nome +"\nCriado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Jogo: " + nome 
+                                           +"\nCriado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
             PainelFuncoes.limparCamposJTextField(this);
             if(BarraDeFerramentas.existe()){
                 BarraDeFerramentas.habilitarMenus(true);
@@ -144,17 +139,23 @@ public class PnlNovoJogo extends javax.swing.JPanel {
         } catch (PalavraInvalidaException ex) {
             Logger.getLogger(PnlNovoJogo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JTextFieldInvalidoException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                            + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (DiretorioInvalidoException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                            + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERROR: " 
+                             + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                             + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (ArquivoInvalidoException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                            + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch (JogoInvalidoException e) {
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: "
+                            + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } 
     }//GEN-LAST:event_btnCriarJogoActionPerformed
 

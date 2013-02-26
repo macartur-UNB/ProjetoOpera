@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeIntegracao;
 
 import control.Controle_Caracteristica;
@@ -22,10 +18,7 @@ import model.exception.HabilidadeInvalidaException;
 import model.exception.ItemInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlIntegracaoFicha extends javax.swing.JPanel {
 
     /**
@@ -673,8 +666,10 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarCmbSelecionarIntegracao("Habilidade Psiquica");
             carregarListDesintegrar("Habilidade Psiquica");
             habilitarPnlIntegracaoDesintegracao(true);
-        } catch(ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | ClassNotFoundException |
+                FichaInvalidaException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbHabilidadePsiquicaActionPerformed
 
@@ -683,8 +678,10 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarCmbSelecionarIntegracao("Habilidade Belica");
             carregarListDesintegrar("Habilidade Belica");
             habilitarPnlIntegracaoDesintegracao(true);
-        } catch(ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | ClassNotFoundException |
+                FichaInvalidaException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbHabilidadeBelicaActionPerformed
 
@@ -693,8 +690,10 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarCmbSelecionarIntegracao("Caracteristica Fisica");
             carregarListDesintegrar("Caracteristica Fisica");
             habilitarPnlIntegracaoDesintegracao(true);
-        } catch(ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | ClassNotFoundException |
+                                        FichaInvalidaException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbCaracteristicaFisicaActionPerformed
 
@@ -703,8 +702,10 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarCmbSelecionarIntegracao("Caracteristica Psiquica");
             carregarListDesintegrar("Caracteristica Psiquica");
             habilitarPnlIntegracaoDesintegracao(true);
-        } catch(ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | ClassNotFoundException |
+                FichaInvalidaException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbCaracteristicaPsiquicaActionPerformed
 
@@ -713,8 +714,10 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarCmbSelecionarIntegracao("Caracteristica Racial");
             carregarListDesintegrar("Caracteristica Racial");
             habilitarPnlIntegracaoDesintegracao(true);
-        } catch(ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | ClassNotFoundException |
+                FichaInvalidaException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbCaracteristicaRacialActionPerformed
 
@@ -727,7 +730,8 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarListDesintegrar("Item Generico");
             habilitarPnlIntegracaoDesintegracao(true);
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbEquipamentoItemActionPerformed
 
@@ -749,7 +753,8 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarListDesintegrar("Armadura");
             habilitarPnlIntegracaoDesintegracao(true);
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbEquipamentoArmaduraActionPerformed
 
@@ -759,7 +764,8 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarListDesintegrar("Arma A Distancia");
             habilitarPnlIntegracaoDesintegracao(true);
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbArmaADistanciaActionPerformed
 
@@ -769,7 +775,8 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             carregarListDesintegrar("Arma Corpo A Corpo");
             habilitarPnlIntegracaoDesintegracao(true);
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_rdbArmaCorpoACorpoActionPerformed
 
@@ -831,10 +838,16 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
             }
             
             
-            JOptionPane.showMessageDialog(null,"Integrar: " + itemSelecionado +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Integrar: " + itemSelecionado
+                                        +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
             
-        } catch(CaracteristicaInvalidaException | ArquivoInvalidoException | ClassNotFoundException | FichaInvalidaException | IOException | DeletarInvalidoException | HabilidadeInvalidaException | ItemInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(CaracteristicaInvalidaException | ArquivoInvalidoException | 
+                ClassNotFoundException | FichaInvalidaException | IOException | 
+                DeletarInvalidoException | HabilidadeInvalidaException | 
+                                                       ItemInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + 
+                               e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIntegrarActionPerformed
 
@@ -888,15 +901,24 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
                 }
                 
                 
-                JOptionPane.showMessageDialog(null,"Desintegrar: " + itemSelecionado +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Desintegrar: " + itemSelecionado
+                                              +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
             
             }else{
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Selecione uma Opcao Valida para ser Desintegrada","Erro",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"ERROR: "
+                           + "Selecione uma Opcao Valida para ser Desintegrada",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
             }
-        } catch(CaracteristicaInvalidaException | DeletarInvalidoException | FichaInvalidaException | ArquivoInvalidoException | ClassNotFoundException | HabilidadeInvalidaException | HeadlessException | IOException | ItemInvalidoException e){
+        } catch(CaracteristicaInvalidaException | DeletarInvalidoException | 
+                FichaInvalidaException | ArquivoInvalidoException | 
+                ClassNotFoundException | HabilidadeInvalidaException | 
+                     HeadlessException | IOException | ItemInvalidoException e){
             JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Nao foi Selecionado uma Opcao","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                                      +  "Nao foi Selecionado uma Opcao","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDesintegrarActionPerformed
 
@@ -957,7 +979,8 @@ public class PnlIntegracaoFicha extends javax.swing.JPanel {
         if(!habilitar){
             PainelFuncoes.limparTodosOsCampos(pnlIntegrarAFicha);
             PainelFuncoes.limparTodosOsCampos(pnlDesintegrarAFicha);
-            cmbSelecionarIntegracao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhum(a)"}));
+            cmbSelecionarIntegracao.setModel(
+             new javax.swing.DefaultComboBoxModel(new String[] { "Nenhum(a)"}));
             listDesintegrar.setModel(new DefaultListModel());
         }
         

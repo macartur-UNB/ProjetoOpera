@@ -1,17 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view.validacao;
 
 import model.exception.CaractereInvalidoException;
 import model.exception.NomeInvalidoException;
 import model.exception.TextoInvalidoException;
 
-/**
- *
- * @author Luciano
- */
+
 public class ValidarNome {
     
     /**
@@ -39,7 +33,9 @@ public class ValidarNome {
      * @return retorna o proprio nome
      * @throws NomeInvalidoException 
      */
-    public static String validarNome(String nome, boolean numeros, String maisCaracteresValidos) throws NomeInvalidoException{
+    public static String validarNome(String nome, boolean numeros,
+                                     String maisCaracteresValidos) 
+                                                   throws NomeInvalidoException{
         
         String caracteresValidos = "qwertyuiopasdfghjklzxcvbnm ";
         int numCaracteresValidos = 0;
@@ -69,12 +65,15 @@ public class ValidarNome {
             }
         }
                 
-        if( (nome.length() != numCaracteresValidos) || (nome.isEmpty()) || (!possuiLetra) ){
+        if( (nome.length() != numCaracteresValidos) || 
+                                           (nome.isEmpty()) || (!possuiLetra) ){
             if( (nome.isEmpty()) || (!possuiLetra) ){
                 throw new NomeInvalidoException("O Campo nao pode ser vazio");
             }
-            throw new NomeInvalidoException("{" + nome + "}. Possui caracteres invalidos: {" + 
-                    caracteresInvalidos.substring(0, caracteresInvalidos.length()-2) + "}");
+            throw new NomeInvalidoException("{" 
+                                 + nome + "}. Possui caracteres invalidos: {" + 
+                    caracteresInvalidos.substring(0, 
+                                         caracteresInvalidos.length()-2) + "}");
         }
         
         return nome;
@@ -88,7 +87,8 @@ public class ValidarNome {
      * @return o Proprio Texto
      * @throws TextoInvalidoException 
      */
-    public static String validarTexto(String texto, String maisCaracteresValidos) throws TextoInvalidoException{
+    public static String validarTexto(String texto, String maisCaracteresValidos)
+                                                  throws TextoInvalidoException{
         String caracteresValidos = "qwertyuiopasdfghjklzxcvbnm  ";
         int numCaracteresValidos = 0;
         boolean caractereValido;
@@ -118,8 +118,10 @@ public class ValidarNome {
             if( (texto.isEmpty()) || (!possuiLetra) ){
                 throw new TextoInvalidoException("O Texto nao pode ser vazio");
             }
-            throw new TextoInvalidoException("O Texto. Possui caracteres invalidos: {" + 
-                    caracteresInvalidos.substring(0, caracteresInvalidos.length()-2) + "}");
+            throw new TextoInvalidoException(
+                                    "O Texto. Possui caracteres invalidos: {" + 
+                    caracteresInvalidos.substring(0,
+                                         caracteresInvalidos.length()-2) + "}");
         }
         
         return texto;
@@ -128,7 +130,9 @@ public class ValidarNome {
     
     
     
-    public static char validarCaractere(char caractere, boolean numeros, String maisCaracteresValidos) throws CaractereInvalidoException{
+    public static char validarCaractere(char caractere, boolean numeros,
+                                        String maisCaracteresValidos) 
+                                              throws CaractereInvalidoException{
         
         String caracteresValidos = "qwertyuiopasdfghjklzxcvbnm";
         boolean caractereValido = false;
@@ -141,35 +145,40 @@ public class ValidarNome {
         
         
         for(int i = 0; i < caracteresValidos.length(); i++){
-            if( (caractere == caracteresValidos.charAt(i)) || (caractere == caracteresValidos.toUpperCase().charAt(i)) ){
+            if( (caractere == caracteresValidos.charAt(i)) || 
+                     (caractere == caracteresValidos.toUpperCase().charAt(i)) ){
                 caractereValido = true;
                 break;
             }
         }
         
         if(!caractereValido){
-            throw new CaractereInvalidoException("O Caractere: " + caractere + ", nao eh valido");
+            throw new CaractereInvalidoException(
+                               "O Caractere: " + caractere + ", nao eh valido");
         }
         
         return caractere;
     }
     
     
-    public static char validarCaractere(char caractere, boolean numeros) throws CaractereInvalidoException{
+    public static char validarCaractere(char caractere, boolean numeros) 
+                                              throws CaractereInvalidoException{
         
         validarCaractere(caractere, numeros, null);
         
         return caractere;
     }
     
-    public static char validarCaractere(char caractere, String maisCaracteresValidos) throws CaractereInvalidoException{
+    public static char validarCaractere(char caractere, String maisCaracteresValidos) 
+                                              throws CaractereInvalidoException{
         
         validarCaractere(caractere, false, maisCaracteresValidos);
         
         return caractere;
     }
     
-    public static char validarCaractere(char caractere) throws CaractereInvalidoException{
+    public static char validarCaractere(char caractere)
+                                              throws CaractereInvalidoException{
         
         validarCaractere(caractere, false, null);
         

@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view.PaineisDeDeletacao;
 
 import control.Controle_Caracteristica;
@@ -16,10 +13,7 @@ import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlDeletar extends javax.swing.JPanel {
 
     private String radioButtonSelecionado;
@@ -840,11 +834,17 @@ public class PnlDeletar extends javax.swing.JPanel {
                 Controle_Item.removerArmaCorpoACorpo(itemSelecionado);
             
             if(!erro)
-                JOptionPane.showMessageDialog(null,"Deletar: " + itemSelecionado +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Deletar: " + itemSelecionado +
+                                              "\nRealizado com Sucesso!",
+                                              "Concluido",
+                                              JOptionPane.INFORMATION_MESSAGE);
             limpar();
             grpDeletar.clearSelection();
-        } catch(ArquivoInvalidoException | DeletarInvalidoException | DiretorioInvalidoException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            
+        } catch(ArquivoInvalidoException | DeletarInvalidoException |
+                DiretorioInvalidoException | IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
 }
