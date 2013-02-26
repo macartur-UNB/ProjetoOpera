@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import model.classes.Ficha;
@@ -62,13 +58,16 @@ public class Controle_FichaTest {
     @Test
     public void testCadJogador() throws Exception {
         System.out.println("cadJogador");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(
+               personagem, jogador, campanha, experiencia, atributos, dinheiro);
         
         try{
-        	Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        	Controle_Ficha.cadJogador(
+               personagem, jogador, campanha, experiencia, atributos, dinheiro);
         	fail("cadJogador deveria ter sido pego na Excecao");
-        } catch (ArquivoInvalidoException | FichaInvalidaException | IOException e) {
-		}
+        } catch (ArquivoInvalidoException | FichaInvalidaException |
+                                                                IOException e) {
+	}
         
         Controle_Ficha.removerJogador(personagem);
     }
@@ -84,8 +83,9 @@ public class Controle_FichaTest {
         try{
         	Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
         	fail("cadNPC deveria ter sido pego na Excecao");
-        } catch (ArquivoInvalidoException | FichaInvalidaException | IOException e) {
-		}
+        } catch (ArquivoInvalidoException | FichaInvalidaException | 
+                                                                IOException e) {
+        }
         
         Controle_Ficha.removerNPC(personagem);
     }
@@ -101,9 +101,9 @@ public class Controle_FichaTest {
         try{
         	Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
         	fail("cadMonstro deveria ter sido pego na Excecao");
-        } catch (ArquivoInvalidoException | FichaInvalidaException | IOException e) {
-		}
-        
+        } catch (ArquivoInvalidoException | FichaInvalidaException |
+                                                                IOException e) {
+	}
         Controle_Ficha.removerMonstro(personagem);
     }
 
@@ -113,7 +113,8 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarJogador() throws Exception {
         System.out.println("encontrarJogador");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(
+               personagem, jogador, campanha, experiencia, atributos, dinheiro);
         Ficha result = Controle_Ficha.encontrarJogador(personagem);
         if(result == null)
         {
@@ -128,7 +129,8 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarNPC() throws Exception {
         System.out.println("encontrarNPC");
-        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadNPC(
+                        personagem, campanha, experiencia, atributos, dinheiro);
         Ficha result = Controle_Ficha.encontrarNPC(personagem);
         if(result == null)
         {
@@ -143,7 +145,8 @@ public class Controle_FichaTest {
     @Test
     public void testEncontrarMonstro() throws Exception {
         System.out.println("encontrarMonstro");
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadMonstro(
+                        personagem, campanha, experiencia, atributos, dinheiro);
         Ficha result = Controle_Ficha.encontrarMonstro(personagem);
         if(result == null)
         {
@@ -158,7 +161,8 @@ public class Controle_FichaTest {
     @Test
     public void testJogadorExiste() throws Exception{
         System.out.println("JogadorExiste");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(
+               personagem, jogador, campanha, experiencia, atributos, dinheiro);
         boolean expResult = true;
         boolean result = Controle_Ficha.JogadorExiste(personagem);
         assertEquals(expResult, result);
@@ -171,7 +175,8 @@ public class Controle_FichaTest {
     @Test
     public void testNPCExiste() throws Exception{
         System.out.println("NPCExiste");
-        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadNPC(
+                        personagem, campanha, experiencia, atributos, dinheiro);
         boolean expResult = true;
         boolean result = Controle_Ficha.NPCExiste(personagem);
         assertEquals(expResult, result);
@@ -184,7 +189,8 @@ public class Controle_FichaTest {
     @Test
     public void testMonstroExiste() throws Exception{
         System.out.println("MonstroExiste");
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadMonstro(
+                        personagem, campanha, experiencia, atributos, dinheiro);
         boolean expResult = true;
         boolean result = Controle_Ficha.MonstroExiste(personagem);
         assertEquals(expResult, result);
@@ -197,7 +203,8 @@ public class Controle_FichaTest {
     @Test
     public void testFichaExiste()throws Exception{
         System.out.println("FichaExiste");
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadMonstro(
+                        personagem, campanha, experiencia, atributos, dinheiro);
         boolean expResult = true;
         boolean result = Controle_Ficha.FichaExiste(personagem);
         assertEquals(expResult, result);
@@ -210,13 +217,16 @@ public class Controle_FichaTest {
     @Test
     public void testeEncontrarFicha() throws Exception{
     	System.out.println("encontrarFicha");
-		 Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+		 Controle_Ficha.cadJogador(
+               personagem, jogador, campanha, experiencia, atributos, dinheiro);
 		 Controle_Ficha.encontrarFicha(personagem);
 	 	 Controle_Ficha.removerJogador(personagem);
-		 Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+		 Controle_Ficha.cadNPC(
+                        personagem, campanha, experiencia, atributos, dinheiro);
 		 Controle_Ficha.encontrarFicha(personagem);
 	 	 Controle_Ficha.removerNPC(personagem);
-		 Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
+		 Controle_Ficha.cadMonstro(
+                        personagem, campanha, experiencia, atributos, dinheiro);
 		 Controle_Ficha.encontrarFicha(personagem);
 	 	 Controle_Ficha.removerMonstro(personagem);
 	 	Controle_Ficha.encontrarFicha(personagem);
@@ -230,13 +240,19 @@ public class Controle_FichaTest {
     @Test
     public void testAlterarJogador() throws Exception{
     	System.out.println("alterarJogador");
-    	Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.cadJogador(personagem+"a", jogador, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarJogador(personagem, personagem, jogador+"a", campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarJogador(personagem, personagem+"b", jogador+"a", campanha, experiencia, atributos, dinheiro);
+    	Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, 
+                                                            atributos, dinheiro);
+    	Controle_Ficha.cadJogador(personagem+"a", jogador, campanha, experiencia,
+                                                           atributos, dinheiro);
+    	Controle_Ficha.alterarJogador(personagem, personagem, jogador+"a", 
+                                      campanha, experiencia, atributos,dinheiro);
+    	Controle_Ficha.alterarJogador(personagem, personagem+"b", jogador+"a", 
+                                      campanha, experiencia, atributos, dinheiro);
     	
     	try{
-    		Controle_Ficha.alterarJogador(personagem, personagem+"a", jogador, campanha, experiencia, atributos, dinheiro);
+    		Controle_Ficha.alterarJogador(personagem, personagem+"a", 
+                                              jogador, campanha, experiencia, 
+                                                           atributos, dinheiro);
         	fail("alterarJogador deveria ter sido pego na Excecao");
         } catch (FichaInvalidaException e) {
 		}
@@ -248,13 +264,17 @@ public class Controle_FichaTest {
     @Test
     public void testAlterarNPC() throws Exception{
     	System.out.println("alterarNPC");
-    	Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.cadNPC(personagem+"a", campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarNPC(personagem, personagem, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarNPC(personagem, personagem+"b", campanha, experiencia, atributos, dinheiro);
+    	Controle_Ficha.cadNPC(personagem, campanha,experiencia, atributos,dinheiro);
+    	Controle_Ficha.cadNPC(personagem+"a", campanha, experiencia,
+                                                           atributos, dinheiro);
+    	Controle_Ficha.alterarNPC(personagem, personagem, campanha, experiencia,
+                                                           atributos, dinheiro);
+    	Controle_Ficha.alterarNPC(personagem, personagem+"b", campanha, 
+                                              experiencia, atributos, dinheiro);
     	    	
     	try{
-    		Controle_Ficha.alterarNPC(personagem, personagem+"a", campanha, experiencia, atributos, dinheiro);
+    		Controle_Ficha.alterarNPC(personagem, personagem+"a", 
+                                          campanha,experiencia,atributos,dinheiro);
         	fail("alterarNPC deveria ter sido pego na Excecao");
         } catch (FichaInvalidaException e) {
 		}
@@ -266,13 +286,19 @@ public class Controle_FichaTest {
     @Test
     public void testAlterarMonstro() throws Exception{
     	System.out.println("alterarMonstro");
-    	Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.cadMonstro(personagem+"a", campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarMonstro(personagem, personagem, campanha, experiencia, atributos, dinheiro);
-    	Controle_Ficha.alterarMonstro(personagem, personagem+"b", campanha, experiencia, atributos, dinheiro);
+    	Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos,
+                                                                      dinheiro);
+    	Controle_Ficha.cadMonstro(personagem+"a", campanha, experiencia, atributos,
+                                                                       dinheiro);
+    	Controle_Ficha.alterarMonstro(personagem, personagem, campanha, 
+                                              experiencia, atributos, dinheiro);
+    	Controle_Ficha.alterarMonstro(personagem, personagem+"b", campanha, 
+                                              experiencia, atributos, dinheiro);
     	    	
     	try{
-    		Controle_Ficha.alterarMonstro(personagem, personagem+"a", campanha, experiencia, atributos, dinheiro);
+    		Controle_Ficha.alterarMonstro(personagem, personagem+"a", 
+                                              campanha, experiencia, atributos, 
+                                                                      dinheiro);
         	fail("alterarMonstro deveria ter sido pego na Excecao");
         } catch (FichaInvalidaException e) {
 		}
@@ -284,7 +310,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverJogador() throws Exception {
         System.out.println("removerJogador");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, 
+                                                           atributos, dinheiro);
         Controle_Ficha.removerJogador(personagem);
         if(Controle_Ficha.JogadorExiste(personagem)){
             fail("NÃ£o foi possivel remover apenas 1 jogador");
@@ -297,7 +324,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverNPC() throws Exception {
         System.out.println("removerNPC");
-        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, 
+                                                                      dinheiro);
         Controle_Ficha.removerNPC(personagem);
          if(Controle_Ficha.NPCExiste(personagem)){
             fail("NÃ£o foi possivel remover apenas 1 NPC");
@@ -310,7 +338,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoverMonstro() throws Exception {
         System.out.println("removerMonstro");
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);        
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos,
+                                                                      dinheiro);        
         Controle_Ficha.removerMonstro(personagem);
         if(Controle_Ficha.MonstroExiste(personagem)){
             fail("NÃ£o foi possivel remover apenas 1 monstro");
@@ -323,7 +352,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasJogador() throws Exception {
         System.out.println("removeTodasFichasJogador");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, 
+                                                           atributos, dinheiro);
         Controle_Ficha.removerJogador(personagem);
         if(Controle_Ficha.JogadorExiste(personagem)){
             fail("NÃ£o foi possivel remover todas as fichas jogador");
@@ -336,7 +366,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasNPC() throws Exception {
         System.out.println("removeTodasFichasNPC");
-         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, 
+                                                                      dinheiro);
         Controle_Ficha.removeTodasFichasNPC();
         if(Controle_Ficha.NPCExiste(personagem)){
             fail("nÃ£o foi possivel remover todas fichas npc");
@@ -349,7 +380,8 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichasMonstro() throws Exception {
         System.out.println("removeTodasFichasMonstro");
-        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos, dinheiro);             
+        Controle_Ficha.cadMonstro(personagem, campanha, experiencia, atributos,
+                                                                      dinheiro);             
         Controle_Ficha.removeTodasFichasMonstro();
         if(Controle_Ficha.MonstroExiste(personagem)){
             fail("NÃ£o Ã© possivel remover todos os monstros");
@@ -362,9 +394,12 @@ public class Controle_FichaTest {
     @Test
     public void testRemoveTodasFichas() throws Exception {
         System.out.println("removeTodasHabilidades");
-        Controle_Ficha.cadJogador("Teste2", jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadNPC("Teste1", campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadMonstro("Teste4", campanha, experiencia, atributos, dinheiro);  
+        Controle_Ficha.cadJogador("Teste2", jogador, campanha, experiencia,
+                                                           atributos, dinheiro);
+        Controle_Ficha.cadNPC("Teste1", campanha, experiencia, atributos, 
+                                                                      dinheiro);
+        Controle_Ficha.cadMonstro("Teste4", campanha, experiencia, atributos,
+                                                                      dinheiro);  
         Controle_Ficha.removeTodasFichas();
         if(Controle_Ficha.MonstroExiste(personagem) ||
            Controle_Ficha.NPCExiste(personagem) ||
@@ -379,9 +414,12 @@ public class Controle_FichaTest {
     @Test
     public void testListarFichasJogador()throws Exception{
         System.out.println("listarFichasJogador");
-        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadJogador("Test2", jogador, campanha, experiencia, atributos, dinheiro);
-        Controle_Ficha.cadJogador("Test3", jogador, campanha, experiencia, atributos, dinheiro);
+        Controle_Ficha.cadJogador(personagem, jogador, campanha, experiencia,
+                                                           atributos, dinheiro);
+        Controle_Ficha.cadJogador("Test2", jogador, campanha, experiencia, 
+                                                           atributos, dinheiro);
+        Controle_Ficha.cadJogador("Test3", jogador, campanha, experiencia, 
+                                                           atributos, dinheiro);
         String[] expResult = {"Test","Test2","Test3"};
         String[] result = Controle_Ficha.listarFichasJogador();
         assertArrayEquals(expResult, result);
@@ -394,7 +432,7 @@ public class Controle_FichaTest {
     @Test
     public void testListarFichasNPC()throws Exception{
         System.out.println("listarFichasNPC");
-         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos, dinheiro);
+         Controle_Ficha.cadNPC(personagem, campanha, experiencia, atributos,dinheiro);
          Controle_Ficha.cadNPC("Test1", campanha, experiencia, atributos, dinheiro);
          Controle_Ficha.cadNPC("Test2", campanha, experiencia, atributos, dinheiro);
          String[] expResult = {personagem,"Test1","Test2"};

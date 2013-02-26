@@ -1,13 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package control;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import model.classes.Habilidade;
 import model.exception.ArquivoInvalidoException;
 import model.exception.HabilidadeInvalidaException;
 
@@ -62,8 +56,9 @@ public class Controle_HabilidadeTest {
         try{
         	Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
         	fail("cadHabilidade esta invalido, a excecao deveria ter pegado");
-        } catch (ArquivoInvalidoException | HabilidadeInvalidaException | IOException e) {
-		}
+        } catch (ArquivoInvalidoException | HabilidadeInvalidaException | 
+                 IOException e) {
+        }
     }
     
     /**
@@ -72,7 +67,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testEncontrarHabilidade() throws Exception {
         System.out.println("encontrarHabilidade");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "encontrarHabilidade", "Fisica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                               "encontrarHabilidade", "Fisica");
         String nome = "encontrarHabilidade";
         String tipo = "Fisica";
         String expResult = "encontrarHabilidade";
@@ -103,13 +99,16 @@ public class Controle_HabilidadeTest {
         boolean expResult = false;
         boolean result = Controle_Habilidade.HabilidadeExiste(nome);
         assertEquals(expResult, result);
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "encontrarHabilidadeFisica", "Fisica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                            "encontrarHabilidadeFisica", "Fisica");
         result = Controle_Habilidade.HabilidadeExiste("encontrarHabilidadeFisica");
         assertEquals(true, result);
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "encontrarHabilidadePsiquica", "Psiquica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                        "encontrarHabilidadePsiquica", "Psiquica");
         result = Controle_Habilidade.HabilidadeExiste("encontrarHabilidadePsiquica");
         assertEquals(true, result);
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "encontrarHabilidadeBelica", "Belica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1,
+                                            "encontrarHabilidadeBelica", "Belica");
         result = Controle_Habilidade.HabilidadeExiste("encontrarHabilidadeBelica");
         assertEquals(true, result);
     }
@@ -144,7 +143,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testRemoveHabilidadeFisica() throws Exception {
         System.out.println("removeHabilidadeFisica");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "removeHabilidadeFisica", "Fisica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                         "removeHabilidadeFisica", "Fisica");
         Controle_Habilidade.removeHabilidadeFisica("removeHabilidadeFisica");
     }
     
@@ -154,7 +154,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testRemoveHabilidadeBelica() throws Exception {
         System.out.println("removeHabilidadeBelica");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "removeHabilidadeBelica", "Belica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1,
+                                         "removeHabilidadeBelica", "Belica");
         Controle_Habilidade.removeHabilidadeBelica("removeHabilidadeBelica");
     }
 
@@ -164,7 +165,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testRemoveHabilidadePsiquica() throws Exception {
         System.out.println("removeHabilidadePsiquica");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "removeHabilidadePsiquica", "Psiquica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                         "removeHabilidadePsiquica", "Psiquica");
         Controle_Habilidade.removeHabilidadePsiquica("removeHabilidadePsiquica");
     }
     
@@ -174,7 +176,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testListarHabilidadesFisicas() throws Exception {
         System.out.println("listarHabilidadesFisicas");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "listarHabilidadesFisicas", "Fisica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                          "listarHabilidadesFisicas", "Fisica");
         String[] expResult = {"listarHabilidadesFisicas"};
         String[] result = Controle_Habilidade.listarHabilidadesFisicas();
         assertArrayEquals(expResult, result);
@@ -186,7 +189,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testListarHabilidadesPsiquicas() throws Exception {
         System.out.println("listarHabilidadesPsiquicas");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "listarHabilidadesPsiquicas", "Psiquica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1,
+                                      "listarHabilidadesPsiquicas", "Psiquica");
         String[] expResult = {"listarHabilidadesPsiquicas"};
         String[] result = Controle_Habilidade.listarHabilidadesPsiquicas();
         assertArrayEquals(expResult, result);
@@ -198,7 +202,8 @@ public class Controle_HabilidadeTest {
     @Test
     public void testListarHabilidadesBelicas() throws Exception {
         System.out.println("listarHabilidadesBelicas");
-        Controle_Habilidade.cadHabilidade(1, 1, 1, "listarHabilidadesBelicas", "Belica");
+        Controle_Habilidade.cadHabilidade(1, 1, 1, 
+                                          "listarHabilidadesBelicas", "Belica");
         String[] expResult = {"listarHabilidadesBelicas"};
         String[] result = Controle_Habilidade.listarHabilidadesBelicas();
         assertArrayEquals(expResult, result);

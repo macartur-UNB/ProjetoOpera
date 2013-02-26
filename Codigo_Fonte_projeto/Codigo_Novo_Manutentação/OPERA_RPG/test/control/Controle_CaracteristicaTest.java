@@ -1,12 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
 import model.exception.ArquivoInvalidoException;
@@ -19,10 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Macartur
- */
+
 public class Controle_CaracteristicaTest {
     
     public Controle_CaracteristicaTest() {
@@ -67,8 +59,9 @@ public class Controle_CaracteristicaTest {
         try{
         	Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
         	fail("cadCaracteristica deveria ter falhado");
-        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e) {
-		}
+        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException |
+                                                                IOException e) {
+        }
         Controle_Caracteristica.removeCaracteristicaFisica(nome);
     }
 
@@ -85,8 +78,9 @@ public class Controle_CaracteristicaTest {
         	Controle_Caracteristica.cadCaracteristica(
                     				 nome, descricao, tipo, custo, modificador);
         	fail("cadCaracteristica deveria ter falhado");
-        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e) {
-		}
+        } catch (CaracteristicaInvalidaException | ArquivoInvalidoException | 
+                 IOException e) {
+        }
         Controle_Caracteristica.removeCaracteristicaRacial(nome);
     }
 
@@ -140,7 +134,8 @@ public class Controle_CaracteristicaTest {
         }
         
         String expResult = null;
-        result = Controle_Caracteristica.encontrarCaracteristica("Caracteristica Inexistente");
+        result = Controle_Caracteristica.encontrarCaracteristica(
+                                                  "Caracteristica Inexistente");
         
         assertEquals(expResult, result);
                 
@@ -157,7 +152,8 @@ public class Controle_CaracteristicaTest {
         System.out.println("encontrarCaracteristica");
         tipo = "Fisica";
         Controle_Caracteristica.cadCaracteristica(nome, descricao, tipo, custo);
-        Caracteristica result = Controle_Caracteristica.encontrarCaracteristica(nome, tipo);
+        Caracteristica result = 
+                    Controle_Caracteristica.encontrarCaracteristica(nome, tipo);
         if(result == null)
         {
             fail("nÃ£o encontrou caracteristica especifica");
