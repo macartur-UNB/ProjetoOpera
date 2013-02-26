@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.classes.HabilidadeTest" tests="11" time="0.203" timestamp="2013-02-26T16:24:05">
+<testsuite errors="25" failures="0" hostname="Macartur-PC" name="control.Controle_ItemTest" tests="25" time="0.406" timestamp="2013-02-26T16:23:56">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.classes.HabilidadeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.classes.HabilidadeTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher7764918881111044687.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit1634494850033724062.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner control.Controle_ItemTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-control.Controle_ItemTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher6155344752148567338.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit2728267311187388914.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -249,7 +249,6 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
     <property name="netbeans.user" value="C:\Users\Macartur\AppData\Roaming\NetBeans\7.2.1" />
-    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\Users\Macartur\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -297,8 +296,8 @@
     <property name="libs.javac-api.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\java\modules\ext\nb-javac-api.jar" />
     <property name="java.version" value="1.7.0_06" />
     <property name="libs.nokiaS80-ant-utils.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
-    <property name="javadoc.version" value="false" />
     <property name="run.jvmargs.ide" value="" />
+    <property name="javadoc.version" value="false" />
     <property name="libs.MySQLDriver.javadoc" value="" />
     <property name="org.openide.version" value="deprecated" />
     <property name="source.encoding" value="UTF-8" />
@@ -324,8 +323,8 @@
     <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\java\modules\ext\spring-3.0\spring-webmvc-3.1.1.RELEASE.jar" />
     <property name="libs.swing-layout.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.restlib.src" value="" />
-    <property name="javac.source" value="1.7" />
     <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.7" />
     <property name="line.separator" value="&#xd;&#xa;" />
     <property name="libs.hibernate-persistence.src" value="" />
     <property name="java.specification.version" value="1.7" />
@@ -351,17 +350,17 @@
     <property name="libs.JAVADB_DRIVER_LABEL.maven-pom" value="" />
     <property name="libs.struts.javadoc" value="C:\Program Files (x86)\NetBeans 7.2.1\enterprise\docs\struts-1.3.10-javadoc.zip" />
     <property name="ignore.failing.tests" value="true" />
-    <property name="libs.cdc-ant-utils.maven-pom" value="" />
     <property name="libs.Comet-GlassFish-v3.classpath" value="C:\Program Files (x86)\glassfish-3.1.2.2\glassfish\modules\grizzly-comet.jar" />
+    <property name="libs.cdc-ant-utils.maven-pom" value="" />
     <property name="libs.primefaces.src" value="" />
     <property name="libs.cdc-agui-swing-layout.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\mobility\modules\ext\cdc-agui-swing-layout.jar" />
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="do.archive+manifest.available+main.class" value="true" />
     <property name="testng.debug.mode" value="" />
+    <property name="libs.groovy-all.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\groovy\modules\ext\groovy-all.jar" />
     <property name="javac.fork" value="false" />
     <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
-    <property name="libs.groovy-all.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\groovy\modules\ext\groovy-all.jar" />
     <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\mobility\modules\ext\jmunit4cldc10-1.2.1.jar" />
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.7" />
@@ -371,19 +370,19 @@
     <property name="libs.MySQLDriver.src" value="" />
     <property name="libs.ant-contrib.maven-pom" value="" />
     <property name="libs.nokiadeployment.javadoc" value="" />
-    <property name="java.runtime.version" value="1.7.0_06-b24" />
     <property name="build.test.results.dir" value="build/test/results" />
+    <property name="java.runtime.version" value="1.7.0_06-b24" />
     <property name="libs.ejb3-persistence.javadoc" value="" />
-    <property name="libs.sjmc-ant-utils.javadoc" value="" />
     <property name="manifest.available+main.class+mkdist.available" value="true" />
+    <property name="libs.sjmc-ant-utils.javadoc" value="" />
     <property name="default.javac.target" value="1.7" />
     <property name="libs.Java-EE-GlassFish-v3.src" value="" />
     <property name="libs.junit_4.classpath" value="C:\Users\Macartur\AppData\Roaming\NetBeans\7.2.1\modules\ext\junit-4.10.jar" />
     <property name="user.timezone" value="" />
     <property name="nb.junit.single" value="false" />
     <property name="libs.ant-contrib.src" value="" />
-    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="netbeans.dirs" value="C:\Program Files (x86)\NetBeans 7.2.1\nb;C:\Program Files (x86)\NetBeans 7.2.1\ergonomics;C:\Program Files (x86)\NetBeans 7.2.1\ide;C:\Program Files (x86)\NetBeans 7.2.1\java;C:\Program Files (x86)\NetBeans 7.2.1\apisupport;C:\Program Files (x86)\NetBeans 7.2.1\webcommon;C:\Program Files (x86)\NetBeans 7.2.1\websvccommon;C:\Program Files (x86)\NetBeans 7.2.1\enterprise;C:\Program Files (x86)\NetBeans 7.2.1\mobility;C:\Program Files (x86)\NetBeans 7.2.1\profiler;C:\Program Files (x86)\NetBeans 7.2.1\python;C:\Program Files (x86)\NetBeans 7.2.1\php;C:\Program Files (x86)\NetBeans 7.2.1\identity;C:\Program Files (x86)\NetBeans 7.2.1\harness;C:\Program Files (x86)\NetBeans 7.2.1\cnd;C:\Program Files (x86)\NetBeans 7.2.1\dlight;C:\Program Files (x86)\NetBeans 7.2.1\groovy;C:\Program Files (x86)\NetBeans 7.2.1\extra;C:\Program Files (x86)\NetBeans 7.2.1\javacard;C:\Program Files (x86)\NetBeans 7.2.1\javafx" />
     <property name="libs.jsf20.javadoc" value="C:\Program Files (x86)\NetBeans 7.2.1\enterprise\docs\javaee6-doc-api.zip" />
     <property name="java.ext.dirs" value="C:\Program Files (x86)\Java\jdk1.7.0_06\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
@@ -392,8 +391,8 @@
     <property name="libs.semc-ant-utils.src" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\java\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
-    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.metro.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\ide\modules\ext\jaxb\activation.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
     <property name="java.class.path" value="C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\classes;C:\Users\Macartur\AppData\Roaming\NetBeans\7.2.1\modules\ext\junit-4.10.jar;C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\classes;C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant-launcher.jar;C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant.jar;C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant-junit.jar;C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant-junit4.jar" />
     <property name="do.mkdist" value="true" />
@@ -426,14 +425,14 @@
     <property name="libs.JAXB-ENDORSED.src" value="" />
     <property name="libs.spring-framework.javadoc" value="" />
     <property name="libs.testng.javadoc" value="C:\Program Files (x86)\NetBeans 7.2.1\platform\docs\testng-6.5.1-javadoc.zip" />
-    <property name="user.script" value="" />
     <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\ide\modules\ext\postgresql-9.1-901.jdbc4.jar" />
+    <property name="user.script" value="" />
     <property name="libs.jsf12.maven-pom" value="" />
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
     <property name="main.class" value="view.TelaPrincipal" />
-    <property name="libs.CopyLibs.src" value="" />
     <property name="build.dir" value="build" />
+    <property name="libs.CopyLibs.src" value="" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\servlet3.0-jsp2.2-api.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\glassfish-jspparser-3.0.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\jsf-2_1\jsf-api.jar;C:\Program Files (x86)\NetBeans 7.2.1\enterprise\modules\ext\jstl.jar;C:\Program Files (x86)\NetBeans 7.2.1\java\ant\lib\ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
     <property name="file.encoding" value="Cp1252" />
@@ -443,28 +442,241 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="model.classes.HabilidadeTest" name="testSetTeste" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetNome" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetNome" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetNivel" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetCusto" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetTeste" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetTipo" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetNivel" time="0.015" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetCusto" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetTipo" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testToString" time="0.0" />
-  <system-out><![CDATA[setTeste
-getNome
-setNome
-getNivel
-getCusto
-getTeste
-setTipo
-setNivel
-setCusto
-getTipo
-toString
+  <testcase classname="control.Controle_ItemTest" name="testRemoverArmadura" time="0.046">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.removerArmadura(DAO_Item.java:98)
+	at control.Controle_Item.removerArmadura(Controle_Item.java:70)
+	at control.Controle_ItemTest.testRemoverArmadura(Controle_ItemTest.java:133)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testArmaduraExiste" time="0.016">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.ArmaduraExiste(DAO_Item.java:166)
+	at control.Controle_Item.ArmaduraExiste(Controle_Item.java:172)
+	at control.Controle_ItemTest.testArmaduraExiste(Controle_ItemTest.java:312)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArma_Corpo_A_Corpo_9args" time="0.016">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:49)
+	at model.classes.Arma.&lt;init&gt;(Arma.java:29)
+	at model.classes.Arma_Corpo_A_Corpo.&lt;init&gt;(Arma_Corpo_A_Corpo.java:16)
+	at control.Controle_Item.cadArma_Corpo_A_Corpo(Controle_Item.java:81)
+	at control.Controle_ItemTest.testCadArma_Corpo_A_Corpo_9args(Controle_ItemTest.java:153)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArma_Corpo_A_Corpo_11args" time="0.0">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:70)
+	at model.classes.Arma.&lt;init&gt;(Arma.java:56)
+	at model.classes.Arma_Corpo_A_Corpo.&lt;init&gt;(Arma_Corpo_A_Corpo.java:30)
+	at control.Controle_Item.cadArma_Corpo_A_Corpo(Controle_Item.java:95)
+	at control.Controle_ItemTest.testCadArma_Corpo_A_Corpo_11args(Controle_ItemTest.java:175)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArma_A_Distancia_9args" time="0.015">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:49)
+	at model.classes.Arma.&lt;init&gt;(Arma.java:29)
+	at model.classes.Arma_A_Distancia.&lt;init&gt;(Arma_A_Distancia.java:18)
+	at control.Controle_Item.cadArma_A_Distancia(Controle_Item.java:109)
+	at control.Controle_ItemTest.testCadArma_A_Distancia_9args(Controle_ItemTest.java:195)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArma_A_Distancia_11args" time="0.0">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:70)
+	at model.classes.Arma.&lt;init&gt;(Arma.java:56)
+	at model.classes.Arma_A_Distancia.&lt;init&gt;(Arma_A_Distancia.java:31)
+	at control.Controle_Item.cadArma_A_Distancia(Controle_Item.java:123)
+	at control.Controle_ItemTest.testCadArma_A_Distancia_11args(Controle_ItemTest.java:217)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testEncontrarArma_Corpo_A_Corpo" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.encontrarArma_Corpo_A_Corpo(DAO_Item.java:125)
+	at control.Controle_Item.encontrarArma_Corpo_A_Corpo(Controle_Item.java:191)
+	at control.Controle_ItemTest.testEncontrarArma_Corpo_A_Corpo(Controle_ItemTest.java:340)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testEncontrarArma_A_Distancia" time="0.016">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.encontrarArma_A_Distancia(DAO_Item.java:140)
+	at control.Controle_Item.encontrarArma_A_Distancia(Controle_Item.java:198)
+	at control.Controle_ItemTest.testEncontrarArma_A_Distancia(Controle_ItemTest.java:354)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testListarItemArmaCorpoACorpo" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.listarItem(DAO_Item.java:182)
+	at control.Controle_Item.listarItemArmaCorpoACorpo(Controle_Item.java:216)
+	at control.Controle_ItemTest.testListarItemArmaCorpoACorpo(Controle_ItemTest.java:407)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadItemGenerico_3args" time="0.0">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at control.Controle_Item.cadItemGenerico(Controle_Item.java:23)
+	at control.Controle_ItemTest.testCadItemGenerico_3args(Controle_ItemTest.java:53)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadItemGenerico_4args" time="0.015">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at control.Controle_Item.cadItemGenerico(Controle_Item.java:31)
+	at control.Controle_ItemTest.testCadItemGenerico_4args(Controle_ItemTest.java:68)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadItemGenerico_6args" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at control.Controle_Item.cadItemGenerico(Controle_Item.java:40)
+	at control.Controle_ItemTest.testCadItemGenerico_6args(Controle_ItemTest.java:85)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testRemoverItemGenerico" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.removerItemGenerico(DAO_Item.java:66)
+	at control.Controle_Item.removerItemGenerico(Controle_Item.java:49)
+	at control.Controle_ItemTest.testRemoverItemGenerico(Controle_ItemTest.java:97)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testRemoverArmaADistancia" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.removerArma_A_Distancia(DAO_Item.java:76)
+	at control.Controle_Item.removerArmaADistancia(Controle_Item.java:56)
+	at control.Controle_ItemTest.testRemoverArmaADistancia(Controle_ItemTest.java:109)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testRemoverArmaCorpoACorpo" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.removerArma_Corpo_A_Corpo(DAO_Item.java:87)
+	at control.Controle_Item.removerArmaCorpoACorpo(Controle_Item.java:63)
+	at control.Controle_ItemTest.testRemoverArmaCorpoACorpo(Controle_ItemTest.java:121)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArmadura_8args" time="0.0">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:49)
+	at model.classes.Armadura.&lt;init&gt;(Armadura.java:37)
+	at control.Controle_Item.cadArmadura(Controle_Item.java:137)
+	at control.Controle_ItemTest.testCadArmadura_8args(Controle_ItemTest.java:236)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testCadArmadura_10args" time="0.016">
+    <error message="Nome do Item Invalido.&#xa;O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)&#xa;Nao pode ser Vazio(a)." type="model.exception.ItemInvalidoException">model.exception.ItemInvalidoException: Nome do Item Invalido.
+O Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)
+Nao pode ser Vazio(a).
+	at model.classes.Item.setNome(Item.java:87)
+	at model.classes.Item.&lt;init&gt;(Item.java:31)
+	at model.classes.Item.&lt;init&gt;(Item.java:70)
+	at model.classes.Armadura.&lt;init&gt;(Armadura.java:71)
+	at control.Controle_Item.cadArmadura(Controle_Item.java:152)
+	at control.Controle_ItemTest.testCadArmadura_10args(Controle_ItemTest.java:257)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testItemGenericoExiste" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.ItemGenericoExiste(DAO_Item.java:161)
+	at control.Controle_Item.ItemGenericoExiste(Controle_Item.java:160)
+	at control.Controle_ItemTest.testItemGenericoExiste(Controle_ItemTest.java:270)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testArma_A_DistanciaExiste" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.Arma_A_DistanciaExiste(DAO_Item.java:176)
+	at control.Controle_Item.Arma_A_DistanciaExiste(Controle_Item.java:163)
+	at control.Controle_ItemTest.testArma_A_DistanciaExiste(Controle_ItemTest.java:284)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testArmaCorpo_A_CorpoExiste" time="0.015">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.ArmaCorpo_A_CorpoExiste(DAO_Item.java:171)
+	at control.Controle_Item.ArmaCorpo_A_CorpoExiste(Controle_Item.java:169)
+	at control.Controle_ItemTest.testArmaCorpo_A_CorpoExiste(Controle_ItemTest.java:298)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testEncontrarItemGenerico" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.encontrarItemGenerico(DAO_Item.java:111)
+	at control.Controle_Item.encontrarItemGenerico(Controle_Item.java:184)
+	at control.Controle_ItemTest.testEncontrarItemGenerico(Controle_ItemTest.java:326)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testEncontrarArmadura" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.encontrarArmadura(DAO_Item.java:153)
+	at control.Controle_Item.encontrarArmadura(Controle_Item.java:204)
+	at control.Controle_ItemTest.testEncontrarArmadura(Controle_ItemTest.java:368)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testListarItemGenerico" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.listarItem(DAO_Item.java:182)
+	at control.Controle_Item.listarItemGenerico(Controle_Item.java:208)
+	at control.Controle_ItemTest.testListarItemGenerico(Controle_ItemTest.java:381)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testListarItemArmaADistancia" time="0.0">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.listarItem(DAO_Item.java:182)
+	at control.Controle_Item.listarItemArmaADistancia(Controle_Item.java:212)
+	at control.Controle_ItemTest.testListarItemArmaADistancia(Controle_ItemTest.java:394)
+</error>
+  </testcase>
+  <testcase classname="control.Controle_ItemTest" name="testListarItemArmadura" time="0.016">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at model.dao.DAO_Item.listarItem(DAO_Item.java:182)
+	at control.Controle_Item.listarItemArmadura(Controle_Item.java:220)
+	at control.Controle_ItemTest.testListarItemArmadura(Controle_ItemTest.java:420)
+</error>
+  </testcase>
+  <system-out><![CDATA[removerArmadura
+ArmaduraExiste
+cadArma_Corpo_A_Corpo
+cadArma_Corpo_A_Corpo
+cadArma_A_Distancia
+cadArma_A_Distancia
+encontrarArma_Corpo_A_Corpo
+encontrarArma_A_Distancia
+listarItemArmaCorpoACorpo
+cadItemGenerico
+cadItemGenerico
+cadItemGenerico
+removerItemGenerico
+removerArmaADistancia
+removerArmaCorpoACorpo
+cadArmadura
+cadArmadura
+ItemGenericoExiste
+Arma_A_DistanciaExiste
+ArmaCorpo_A_CorpoExiste
+encontrarItemGenerico
+encontrarArmadura
+listarItemGenerico
+listarItemArmaADistancia
+listarItemArmadura
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

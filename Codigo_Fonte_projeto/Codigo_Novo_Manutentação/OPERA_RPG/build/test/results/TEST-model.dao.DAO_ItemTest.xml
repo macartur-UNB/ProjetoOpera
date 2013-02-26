@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.classes.HabilidadeTest" tests="11" time="0.203" timestamp="2013-02-26T16:24:05">
+<testsuite errors="0" failures="0" hostname="Macartur-PC" name="model.dao.DAO_ItemTest" tests="17" time="1.295" timestamp="2013-02-26T16:24:14">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.classes.HabilidadeTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.classes.HabilidadeTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher7764918881111044687.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit1634494850033724062.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner model.dao.DAO_ItemTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\test\results\TEST-model.dao.DAO_ItemTest.xml crashfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junitvmwatcher192490532795626711.properties propsfile=C:\Users\Macartur\Documents\GitHub\ProjetoOpera\Codigo_Fonte_projeto\Codigo_Novo_Manutentação\OPERA_RPG\build\junit1807295503676866278.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -443,28 +443,41 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="model.classes.HabilidadeTest" name="testSetTeste" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetNome" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetNome" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetNivel" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetCusto" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetTeste" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetTipo" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetNivel" time="0.015" />
-  <testcase classname="model.classes.HabilidadeTest" name="testSetCusto" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testGetTipo" time="0.0" />
-  <testcase classname="model.classes.HabilidadeTest" name="testToString" time="0.0" />
-  <system-out><![CDATA[setTeste
-getNome
-setNome
-getNivel
-getCusto
-getTeste
-setTipo
-setNivel
-setCusto
-getTipo
-toString
+  <testcase classname="model.dao.DAO_ItemTest" name="testGravarArma_Corpo_A_Corpo" time="0.078" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testGravarArma_A_Distancia" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testRemoverItemGenerico" time="0.063" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testRemoverArma_A_Distancia" time="0.063" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testEncontrarItemGenerico" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testEncontrarArmadura" time="0.094" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testItemGenericoExiste" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testArma_A_DistanciaExiste" time="0.063" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testListarItem" time="0.093" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testGravarItem" time="0.063" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testGravarArmadura" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testRemoverArmadura" time="0.047" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testArmaduraExiste" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testRemoverArma_Corpo_A_Corpo" time="0.047" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testEncontrarArma_Corpo_A_Corpo" time="0.062" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testEncontrarArma_A_Distancia" time="0.063" />
+  <testcase classname="model.dao.DAO_ItemTest" name="testArmaCorpo_A_CorpoExiste_String_String" time="0.062" />
+  <system-out><![CDATA[gravarArma_Corpo_A_Corpo
+gravarArma_A_Distancia
+removerItemGenerico
+removerArma_A_Distancia
+encontrarItemGenerico
+encontrarArmadura
+ItemGenericoExiste
+Arma_A_DistanciaExiste
+listarItem
+NomeItemGenerico1
+gravarItem
+gravarArmadura
+removerArmadura
+ArmaduraExiste
+removerArma_Corpo_A_Corpo
+encontrarArma_Corpo_A_Corpo
+encontrarArma_A_Distancia
+ArmaCorpo_A_CorpoExiste
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
