@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model.dao;
 
-import control.Controle_Jogo;
 import java.io.File;
 import model.classes.Caracteristica;
 import model.classes.Caracteristica_Especifica;
@@ -70,7 +66,8 @@ public class DAO_CaracteristicaTest {
     @Test
     public void testGravarCaracteristica() throws Exception {
         System.out.println("gravarCaracteristica");                
-        Caracteristica caracteristica = new Caracteristica(testeFisica, testeFisica, fisica, 2);        
+        Caracteristica caracteristica = new Caracteristica(testeFisica, 
+                                                           testeFisica, fisica,2);        
         DAO_Caracteristica.gravarCaracteristica(caracteristica);        
         File arquivo = new File(diretorio+fisica, testeFisica+".opera");
         boolean expResult = true;
@@ -78,7 +75,10 @@ public class DAO_CaracteristicaTest {
         assertEquals(expResult, result);         
         assertEquals(expResult, arquivo.delete());
                 
-        Caracteristica_Especifica caracteristicaEs = new Caracteristica_Especifica(testeFisica+"Es", "DescricaoEs", testeFisica+"Es", "Descricao", fisica, 2);
+        Caracteristica_Especifica caracteristicaEs = 
+                  new Caracteristica_Especifica(testeFisica+"Es", "DescricaoEs",
+                                                testeFisica+"Es", "Descricao", 
+                                                                     fisica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristicaEs);
         arquivo = new File(diretorio+fisica, testeFisica+"Es.opera");
         expResult = true;
@@ -111,9 +111,11 @@ public class DAO_CaracteristicaTest {
     public void testCarregarCaracteristica() throws Exception {
         System.out.println("carregarCaracteristica");
         
-        Caracteristica expResult = new Caracteristica(testeFisica, testeFisica, fisica, 2);        
+        Caracteristica expResult = new Caracteristica(testeFisica,  
+                                                        testeFisica, fisica, 2);        
         DAO_Caracteristica.gravarCaracteristica(expResult);
-        Caracteristica result = DAO_Caracteristica.carregarCaracteristica(testeFisica, fisica);        
+        Caracteristica result = DAO_Caracteristica.carregarCaracteristica(
+                                                           testeFisica, fisica);        
         this.comparaObjetos(expResult, result);
         File arquivo = new File(diretorio+fisica,testeFisica+".opera");
         assertEquals(true, arquivo.delete());
@@ -140,23 +142,34 @@ public class DAO_CaracteristicaTest {
     public void testCarregarCaracteristica_Especifica() throws Exception {
         System.out.println("carregarCaracteristica_Especifica");
         
-        Caracteristica_Especifica expResult = new Caracteristica_Especifica(testeFisica, "DescricaoEs", testeFisica, "Descricao", fisica, 2);
+        Caracteristica_Especifica expResult = 
+                       new Caracteristica_Especifica(testeFisica, "DescricaoEs", 
+                                                     testeFisica, "Descricao", 
+                                                                     fisica, 2);
         DAO_Caracteristica.gravarCaracteristica(expResult);
-        Caracteristica_Especifica result = DAO_Caracteristica.carregarCaracteristica_Especifica(testeFisica, fisica);
+        Caracteristica_Especifica result = 
+                           DAO_Caracteristica.carregarCaracteristica_Especifica(
+                                                           testeFisica, fisica);
         this.comparaObjetos(expResult, result);
         File arquivo = new File(diretorio+fisica,testeFisica+".opera");
         assertEquals(true, arquivo.delete());
         
-        expResult = new Caracteristica_Especifica(testePsiquica, "DescricaoEs", testePsiquica, "Descricao", psiquica, 2);
+        expResult = new Caracteristica_Especifica(testePsiquica, "DescricaoEs",
+                                                  testePsiquica, "Descricao", 
+                                                                   psiquica, 2);
         DAO_Caracteristica.gravarCaracteristica(expResult);
-        result = DAO_Caracteristica.carregarCaracteristica_Especifica(testePsiquica, psiquica);
+        result = DAO_Caracteristica.carregarCaracteristica_Especifica(
+                                                       testePsiquica, psiquica);
         this.comparaObjetos(expResult, result);
         arquivo = new File(diretorio+psiquica,testePsiquica+".opera");
         assertEquals(true, arquivo.delete());
         
-        expResult = new Caracteristica_Especifica(testeRacial, "DescricaoEs", testeRacial, "Descricao", racial, 2);
+        expResult = new Caracteristica_Especifica(testeRacial, "DescricaoEs", 
+                                                  testeRacial, "Descricao",
+                                                                     racial, 2);
         DAO_Caracteristica.gravarCaracteristica(expResult);
-        result = DAO_Caracteristica.carregarCaracteristica_Especifica(testeRacial, racial);
+        result = DAO_Caracteristica.carregarCaracteristica_Especifica(
+                                                           testeRacial, racial);
         this.comparaObjetos(expResult, result);
         arquivo = new File(diretorio+racial,testeRacial+".opera");
         assertEquals(true, arquivo.delete());
@@ -169,7 +182,8 @@ public class DAO_CaracteristicaTest {
     public void testCaracteristicaExiste()throws Exception{
         System.out.println("CaracteristicaExiste");
         
-        Caracteristica caracteristica = new Caracteristica(testeFisica, testeFisica, fisica, 2);        
+        Caracteristica caracteristica = new Caracteristica(testeFisica, 
+                                                        testeFisica, fisica, 2);        
         DAO_Caracteristica.gravarCaracteristica(caracteristica);
         File arquivo = new File(diretorio+fisica, testeFisica+".opera");
         boolean expResult;
@@ -181,7 +195,10 @@ public class DAO_CaracteristicaTest {
         result = DAO_Caracteristica.CaracteristicaExiste(testeFisica,fisica);
         assertEquals(false,result);
         
-        Caracteristica_Especifica caracteristicaEs = new Caracteristica_Especifica(testeFisica+"Es", "DescricaoEs", testeFisica+"Es", "Descricao", fisica, 2);
+        Caracteristica_Especifica caracteristicaEs = new Caracteristica_Especifica(
+                                                testeFisica+"Es", "DescricaoEs",
+                                                testeFisica+"Es", "Descricao",
+                                                                     fisica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristicaEs);
         arquivo = new File(diretorio+fisica, testeFisica+"Es.opera");
         expResult = arquivo.exists();        
@@ -222,7 +239,8 @@ public class DAO_CaracteristicaTest {
         
         boolean expResult = false;
         boolean result;
-        Caracteristica caracteristica = new Caracteristica(testeFisica, testeFisica, fisica, 2);        
+        Caracteristica caracteristica = new Caracteristica(testeFisica, testeFisica,
+                                                                       fisica, 2);        
         DAO_Caracteristica.gravarCaracteristica(caracteristica);
         File arquivo = new File(diretorio+fisica, testeFisica+".opera");        
         assertEquals(true,arquivo.exists());
@@ -253,8 +271,12 @@ public class DAO_CaracteristicaTest {
     @Test    
     public void testRemoverTodasCaracteristicas() throws Exception {
         System.out.println("removerTodasCaracteristicas");
-        Caracteristica caracteristica1 = new Caracteristica(testeFisica+"1", testeFisica+"1", fisica, 2);
-        Caracteristica caracteristica2 = new Caracteristica(testeFisica+"2", testeFisica+"2", fisica, 2);
+        Caracteristica caracteristica1 = new Caracteristica(testeFisica+"1",
+                                                            testeFisica+"1", 
+                                                                     fisica, 2);
+        Caracteristica caracteristica2 = new Caracteristica(testeFisica+"2", 
+                                                            testeFisica+"2", 
+                                                                     fisica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);
         File arquivo = new File(diretorio+fisica);
@@ -264,8 +286,10 @@ public class DAO_CaracteristicaTest {
         list = arquivo.list();
         assertEquals(0,list.length);
         
-        caracteristica1 = new Caracteristica(testePsiquica+"1", testePsiquica+"1", psiquica, 2);
-        caracteristica2 = new Caracteristica(testePsiquica+"2", testePsiquica+"2", psiquica, 2);
+        caracteristica1 = new Caracteristica(testePsiquica+"1", testePsiquica+"1",
+                                                                    psiquica, 2);
+        caracteristica2 = new Caracteristica(testePsiquica+"2", testePsiquica+"2", 
+                                                                    psiquica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);        
         arquivo = new File(diretorio+psiquica);        
@@ -275,8 +299,10 @@ public class DAO_CaracteristicaTest {
         list = arquivo.list();        
         assertEquals(0,list.length);
         
-        caracteristica1 = new Caracteristica(testeRacial+"1", testeRacial+"1", racial, 2);
-        caracteristica2 = new Caracteristica(testeRacial+"2", testeRacial+"2", racial, 2);
+        caracteristica1 = new Caracteristica(testeRacial+"1", testeRacial+"1", 
+                                                                      racial, 2);
+        caracteristica2 = new Caracteristica(testeRacial+"2", testeRacial+"2",
+                                                                      racial, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);
         arquivo = new File(diretorio+racial);
@@ -293,8 +319,12 @@ public class DAO_CaracteristicaTest {
     @Test
     public void testListarCaracteristicas() throws Exception{
         System.out.println("listarCaracteristicas");
-        Caracteristica caracteristica1 = new Caracteristica(testeFisica+"1", testeFisica+"1", fisica, 2);
-        Caracteristica caracteristica2 = new Caracteristica(testeFisica+"2", testeFisica+"2", fisica, 2);
+        Caracteristica caracteristica1 = new Caracteristica(testeFisica+"1",
+                                                            testeFisica+"1",
+                                                                    fisica, 2);
+        Caracteristica caracteristica2 = new Caracteristica(testeFisica+"2", 
+                                                                testeFisica+"2",
+                                                                     fisica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);
         File arquivo = new File(diretorio+fisica);                
@@ -308,8 +338,10 @@ public class DAO_CaracteristicaTest {
                     result[1].equalsIgnoreCase(testeFisica+"2");
         assertTrue(expResult);
         
-        caracteristica1 = new Caracteristica(testePsiquica+"1", testePsiquica+"1", psiquica, 2);
-        caracteristica2 = new Caracteristica(testePsiquica+"2", testePsiquica+"2", psiquica, 2);
+        caracteristica1 = new Caracteristica(testePsiquica+"1", testePsiquica+"1",
+                                                                     psiquica, 2);
+        caracteristica2 = new Caracteristica(testePsiquica+"2", testePsiquica+"2", 
+                                                                    psiquica, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);
         arquivo = new File(diretorio+psiquica);                
@@ -322,8 +354,10 @@ public class DAO_CaracteristicaTest {
                     result[1].equalsIgnoreCase(testePsiquica+"2");
         assertTrue(expResult);
         
-        caracteristica1 = new Caracteristica(testeRacial+"1", testeRacial+"1", racial, 2);
-        caracteristica2 = new Caracteristica(testeRacial+"2", testeRacial+"2", racial, 2);
+        caracteristica1 = new Caracteristica(testeRacial+"1", testeRacial+"1", 
+                                                                    racial, 2);
+        caracteristica2 = new Caracteristica(testeRacial+"2", testeRacial+"2", 
+                                                                     racial, 2);
         DAO_Caracteristica.gravarCaracteristica(caracteristica1);
         DAO_Caracteristica.gravarCaracteristica(caracteristica2);
         arquivo = new File(diretorio+racial);                

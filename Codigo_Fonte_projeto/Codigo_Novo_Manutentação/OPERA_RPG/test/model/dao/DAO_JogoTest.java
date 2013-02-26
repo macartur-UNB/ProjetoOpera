@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 
@@ -13,10 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Macartur
- */
+
 public class DAO_JogoTest {
     
     public DAO_JogoTest() {

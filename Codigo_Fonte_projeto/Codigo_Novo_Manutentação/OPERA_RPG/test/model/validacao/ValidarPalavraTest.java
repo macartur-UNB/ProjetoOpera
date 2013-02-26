@@ -1,22 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.validacao;
 
 import static org.junit.Assert.fail;
 import model.exception.PalavraInvalidaException;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 
-/**
- *
- * @author Luciano
- */
+
 public class ValidarPalavraTest {
 
 
@@ -49,10 +39,9 @@ public class ValidarPalavraTest {
         	Validar.validarPalavra("Invalido ##", true);
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
-		}
+	}
         
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -101,8 +90,7 @@ public class ValidarPalavraTest {
         	fail("O Tipo esta invalido, a excecao deveria ter pegado");
         } catch (PalavraInvalidaException e) {
 		}
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        
     }
     
     

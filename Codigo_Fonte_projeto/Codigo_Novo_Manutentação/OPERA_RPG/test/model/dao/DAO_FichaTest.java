@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import model.classes.Ficha;
@@ -13,10 +9,7 @@ import org.junit.Test;
 import control.*;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Macartur
- */
+
 public class DAO_FichaTest {
     
     public DAO_FichaTest() {

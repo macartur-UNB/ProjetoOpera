@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model.dao;
 
-import control.Controle_Jogo;
 import java.io.File;
 import model.classes.Habilidade;
 import org.junit.After;
@@ -14,10 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Administrador
- */
+
 public class DAO_HabilidadeTest {
     
     private String diretorio = "C:\\Opera\\Jogos\\JUnitTest\\Habilidades\\";
