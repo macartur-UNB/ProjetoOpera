@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeCadastro;
 
 import control.Controle_Ficha;
@@ -21,10 +17,7 @@ import model.exception.FichaInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlCadastrarFicha extends javax.swing.JPanel {
     
     private boolean podeCadastrar;
@@ -702,33 +695,52 @@ public class PnlCadastrarFicha extends javax.swing.JPanel {
                 rdbMonstro.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
                 pnlTipoFicha.setToolTipText("Algum dos Tipos de Ficha deve ser Selecionado");
                 
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Ficha nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"ERROR: " + 
+                                        "Tipo de Ficha nao Selecionado.","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
             }else{
                 switch (tipo) {
                     case "NPC":
-                        Controle_Ficha.cadNPC(txtPersonagem.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
-                                , atributo, Integer.parseInt(txtDinheiro.getText()));
+                        Controle_Ficha.cadNPC(txtPersonagem.getText(), 
+                                              txtCampanha.getText(), 
+                                      Integer.parseInt(txtExperiencia.getText())
+                                       ,atributo, 
+                                       Integer.parseInt(txtDinheiro.getText()));
                         break;
                     case "Monstro":
-                        Controle_Ficha.cadMonstro(txtPersonagem.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
-                                , atributo, Integer.parseInt(txtDinheiro.getText()));
+                        Controle_Ficha.cadMonstro(txtPersonagem.getText(), 
+                                                  txtCampanha.getText(), 
+                                      Integer.parseInt(txtExperiencia.getText())
+                                       ,atributo, 
+                                       Integer.parseInt(txtDinheiro.getText()));
                         break;
                     case "Jogador":
-                        Controle_Ficha.cadJogador(txtPersonagem.getText(), txtJogador.getText(), txtCampanha.getText(), Integer.parseInt(txtExperiencia.getText())
-                                , atributo, Integer.parseInt(txtDinheiro.getText()));
+                        Controle_Ficha.cadJogador(txtPersonagem.getText(), 
+                                 txtJogador.getText(), txtCampanha.getText(), 
+                                 Integer.parseInt(txtExperiencia.getText())
+                                ,atributo,Integer.parseInt(txtDinheiro.getText()));
                         break;
                     default:
                         break;
                 }
-                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " + txtPersonagem.getText() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Cadastro Ficha: " 
+                                              + txtPersonagem.getText() 
+                                              +"\nRealizado com Sucesso!",
+                                              "Concluido",
+                                              JOptionPane.INFORMATION_MESSAGE);
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoFicha.clearSelection();
             }
-        } catch( FichaInvalidaException | ArquivoInvalidoException | IOException | HeadlessException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch( FichaInvalidaException | ArquivoInvalidoException | 
+                 IOException | HeadlessException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                          "Erro",JOptionPane.ERROR_MESSAGE);
         } catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor ou Vazio","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                                   + "Local de Entrada do Tipo Numerico Inteiro "
+                                   + "\nRecebendo outro Tipo de Valor ou Vazio",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
     

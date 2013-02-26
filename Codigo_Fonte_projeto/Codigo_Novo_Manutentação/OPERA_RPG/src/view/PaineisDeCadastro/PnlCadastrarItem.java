@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
@@ -1448,13 +1444,17 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                 rdbArma.setToolTipText("Algum dos Tipos de Equipamento deve ser Selecionado");
                 rdbArmadura.setToolTipText("Algum dos Tipos de Equipamento deve ser Selecionado");
                 
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Equipamento nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"ERROR: " + 
+                                  "Tipo de Equipamento nao Selecionado.","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
             }else{
                 if(tipoDeEquipamento == "Generico"){
                     if(possui_modificador){
-                        item = new Item(nome, descricao, false, modificador, preco, habilidade_Necessaria);
+                        item = new Item(nome, descricao, false, 
+                                     modificador, preco, habilidade_Necessaria);
                     }else{
-                        item = new Item(nome, descricao, false, null, preco, habilidade_Necessaria);
+                        item = new Item(nome, descricao, false, null,
+                                        preco, habilidade_Necessaria);
                     }
                 }
                 if(tipoDeEquipamento == "Arma"){
@@ -1479,7 +1479,9 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                         rdbArmaADistancia.setToolTipText("Algum dos Tipos de Arma deve ser Selecionado");
                         rdbArmaCorpoACorpo.setToolTipText("Algum dos Tipos de Arma deve ser Selecionado");
                         
-                        JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Arma nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,"ERROR: " 
+                                       + "Tipo de Arma nao Selecionado.","Erro",
+                                         JOptionPane.ERROR_MESSAGE);
                     }else{
                         if(tipoDeArma == "Arma_A_Distancia"){
                             
@@ -1488,9 +1490,18 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                             int cadencia = ValidarCampos.validarCampoInteiro(txtCadencia);
                             
                             if(possui_modificador){
-                                item = new Arma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, modificador, preco, habilidade_Necessaria);
+                                item = new Arma_A_Distancia(nome, descricao, dado,
+                                                            danoAdicional, tiroRapido,
+                                                            tiroMirado, cadencia,
+                                                            false,
+                                                            modificador, preco, 
+                                                            habilidade_Necessaria);
                             }else{
-                                item = new Arma_A_Distancia(nome, descricao, dado, danoAdicional, tiroRapido, tiroMirado, cadencia, false, null, preco, habilidade_Necessaria);
+                                item = new Arma_A_Distancia(nome, descricao,dado,
+                                                            danoAdicional, tiroRapido,
+                                                            tiroMirado, cadencia,
+                                                            false, null, preco, 
+                                                         habilidade_Necessaria);
                             }
                             
                         }
@@ -1501,9 +1512,17 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                             int esquiva = ValidarCampos.validarCampoInteiro(txtEsquiva);
                             
                             if(possui_modificador){
-                                item = new Arma_Corpo_A_Corpo(nome, descricao, dado, danoAdicional, golpe, aparo, esquiva, false, modificador, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, dado, 
+                                                              danoAdicional, golpe,
+                                                              aparo, esquiva, false,
+                                                              modificador, preco,
+                                                            habilidade_Necessaria);
                             }else{
-                                item = new Arma_Corpo_A_Corpo(nome, descricao, dado, danoAdicional, golpe, aparo, esquiva, false, null, preco, habilidade_Necessaria);
+                                item = new Arma_Corpo_A_Corpo(nome, descricao, 
+                                                              dado, danoAdicional,
+                                                              golpe, aparo, esquiva,
+                                                              false, null, preco, 
+                                                            habilidade_Necessaria);
                             }
                             
                         }
@@ -1517,19 +1536,29 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
                     char regiaoDoCorpo = cmbRegiaoDoCorpo.getSelectedItem().toString().charAt(0);
                     
                     if(possui_modificador){
-                        item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, modificador, preco, habilidade_Necessaria);
+                        item = new Armadura(nome, descricao, absorcaoArmaBranca, 
+                                            absorcaoArmaDeFogo, penalidade, 
+                                            regiaoDoCorpo, false, modificador, 
+                                                  preco, habilidade_Necessaria);
                     }else{
-                        item = new Armadura(nome, descricao, absorcaoArmaBranca, absorcaoArmaDeFogo, penalidade, regiaoDoCorpo, false, null, preco, habilidade_Necessaria);
+                        item = new Armadura(nome, descricao, absorcaoArmaBranca, 
+                                            absorcaoArmaDeFogo, penalidade, 
+                                            regiaoDoCorpo, false, null, preco, 
+                                                         habilidade_Necessaria);
                     }
                     
                 }
                 
                 return item;
             }
-        } catch(JTextFieldInvalidoException | HeadlessException | ItemInvalidoException | DadoInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(JTextFieldInvalidoException | HeadlessException |
+                               ItemInvalidoException | DadoInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         } catch(StringIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Selecione a Regiao do Corpo para a Armadura","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                         + "Selecione a Regiao do Corpo para a Armadura","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
         }
         return null;
     }
@@ -1539,38 +1568,77 @@ public class PnlCadastrarItem extends javax.swing.JPanel {
             Item item = pegarDadosDoPainel();
             
             if(rdbItem.isSelected()){
-                Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(), item.isUsando(), item.getBonus_atributo(), item.getPreco(), item.getHabilidade_Necessaria());
-                JOptionPane.showMessageDialog(null,"Cadastro Item: " + item.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(),
+                                              item.isUsando(), item.getBonus_atributo(), 
+                                              item.getPreco(),
+                                               item.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,"Cadastro Item: "
+                                   + item.getNome() +"\nRealizado com Sucesso!",
+                                   "Concluido",JOptionPane.INFORMATION_MESSAGE);
                 limparCampos();
             }
             
             if(rdbArma.isSelected()){
                 if(rdbArmaADistancia.isSelected()){
                     Arma_A_Distancia arma = (Arma_A_Distancia)item;
-                    Controle_Item.cadArma_A_Distancia(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getTiro_Rapido(), arma.getTiro_Mirado(), arma.getCadencia(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
-                    JOptionPane.showMessageDialog(null,"Cadastro Arma a Distancia: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    Controle_Item.cadArma_A_Distancia(arma.getNome(),
+                                    arma.getDescricao(), arma.getDano(),
+                                    arma.getDanoAdicional(), 
+                                    arma.getTiro_Rapido(), 
+                                    arma.getTiro_Mirado(), arma.getCadencia(),
+                                    arma.isUsando(), arma.getBonus_atributo(),
+                                    arma.getPreco(), arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,"Cadastro Arma a Distancia: " 
+                                   + arma.getNome() +"\nRealizado com Sucesso!",
+                                   "Concluido",JOptionPane.INFORMATION_MESSAGE);
                     limparCampos();
                 }
                 if(rdbArmaCorpoACorpo.isSelected()){
                     Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
-                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
-                    JOptionPane.showMessageDialog(null,"Cadastro Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), 
+                                            arma.getDescricao(), arma.getDano(), 
+                                            arma.getDanoAdicional(), arma.getGolpe(),
+                                            arma.getAparo(), arma.getEsquiva(), 
+                                            arma.isUsando(), arma.getBonus_atributo(),
+                                            arma.getPreco(), 
+                                               arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,
+                                                "Cadastro Arma Corpo a Corpo: " 
+                                    + arma.getNome() +"\nRealizado com Sucesso!",
+                                                "Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
                     limparCampos();
                 }
             }
             
             if(rdbArmadura.isSelected()){
                 Armadura armadura = (Armadura)item;
-                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Distancia(), armadura.getAbsorcao_CorpoACorpo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
-                JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                Controle_Item.cadArmadura(armadura.getNome(),
+                                          armadura.getDescricao(),
+                                          armadura.getAbsorcao_Distancia(), 
+                                          armadura.getAbsorcao_CorpoACorpo(), 
+                                          armadura.getPenalidade(),
+                                          armadura.getRegiao_Do_Corpo(), 
+                                          armadura.isUsando(), 
+                                          armadura.getBonus_atributo(),
+                                          armadura.getPreco(), 
+                                          armadura.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,"Cadastro Armadura: " + 
+                                                    armadura.getNome() 
+                                                    +"\nRealizado com Sucesso!",
+                                                      "Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
                 limparCampos();
             }
             
             
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
-        } catch(ArquivoInvalidoException | HeadlessException | IOException | ItemInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | HeadlessException | 
+                IOException | ItemInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                            + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
     

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeCadastro;
 
 import control.Controle_Habilidade;
@@ -18,10 +14,7 @@ import model.exception.HabilidadeInvalidaException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlCadastrarHabilidade extends javax.swing.JPanel {
 
     private boolean podeCadastrar;
@@ -331,7 +324,9 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 tipo = "Psiquica";
             }
             if (tipo == null) {
-                JOptionPane.showMessageDialog(null, "ERROR: " + "Um TIPO de Habilidade deve ser selecionado", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "ERROR: " 
+                                 + "Um TIPO de Habilidade deve ser selecionado", 
+                                             "Erro", JOptionPane.ERROR_MESSAGE);
                 rdbFisica.setForeground(Color.RED);
                 rdbPsiquica.setForeground(Color.RED);
                 rdbBelica.setForeground(Color.RED);
@@ -341,13 +336,17 @@ public class PnlCadastrarHabilidade extends javax.swing.JPanel {
                 rdbBelica.setToolTipText("Um TIPO de Habilidade deve ser selecionado");
             } else {
                 Controle_Habilidade.cadHabilidade(teste, 0, custo, nome, tipo);
-                JOptionPane.showMessageDialog(null, "Cadastro Habildiade: " + nome + "\nRealizado com Sucesso!", "Concluido", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cadastro Habildiade: " 
+                               + nome + "\nRealizado com Sucesso!", "Concluido", 
+                                               JOptionPane.INFORMATION_MESSAGE);
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 grpTipoHabilidade.clearSelection();
             }
-        } catch (ArquivoInvalidoException | IOException | JTextFieldInvalidoException | HabilidadeInvalidaException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (ArquivoInvalidoException | IOException | 
+                 JTextFieldInvalidoException | HabilidadeInvalidaException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(),
+                                          "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
     

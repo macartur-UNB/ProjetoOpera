@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeCadastro;
 
 import java.awt.Color;
@@ -19,10 +15,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-/**
- *
- * @author Luciano
- */
 public class PainelFuncoes {
     
     
@@ -90,7 +82,7 @@ public class PainelFuncoes {
     }
     
     
-    public static void definirCorDaBordaJTextField(JComponent componente, Color cor){
+    public static void definirCorDaBordaJTextField(JComponent componente,Color cor){
         Object objeto[] = componente.getComponents();
         for(int i = 0; i < objeto.length; i++){
             if(objeto[i] instanceof JComponent){
@@ -159,7 +151,8 @@ public class PainelFuncoes {
         }
     }
     
-    public static void habilitarEdicaoDeCampos(JComponent componente, boolean habilitar){
+    public static void habilitarEdicaoDeCampos(JComponent componente, 
+                                                            boolean habilitar){
         Object objeto[] = componente.getComponents();
         
                 for(int i = 0; i < objeto.length; i++){

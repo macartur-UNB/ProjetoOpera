@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeCadastro;
 
 import control.Controle_Caracteristica;
@@ -24,10 +20,7 @@ import model.exception.JTextAreaInvalidoException;
 import model.exception.JTextFieldInvalidoException;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
 
     private boolean podeCadastrar;
@@ -718,8 +711,15 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             if(caracteristica == null){
                 return;
             }
-            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), caracteristica.getDescricao(), caracteristica.getTipo(), caracteristica.getCusto(), caracteristica.getModificador());
-            JOptionPane.showMessageDialog(null,"Cadastro Caracteristica: " + caracteristica.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), 
+                                                  caracteristica.getDescricao(), 
+                                                  caracteristica.getTipo(), 
+                                                  caracteristica.getCusto(), 
+                                               caracteristica.getModificador());
+            JOptionPane.showMessageDialog(null,
+                          "Cadastro Caracteristica: " + caracteristica.getNome() 
+                         +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
 
             PainelFuncoes.limparTodosOsCampos(this);
             PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
@@ -734,10 +734,15 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
             txtPercepcao.setEnabled(false);
             txtSorte.setEnabled(false);
             txtVontade.setEnabled(false);
-        } catch(CaracteristicaInvalidaException | ArquivoInvalidoException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(CaracteristicaInvalidaException | ArquivoInvalidoException |
+                                                                 IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }  catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + "Local de Entrada do Tipo Numerico Inteiro \nRecebendo outro Tipo de Valor ou Vazio","Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " 
+                    + "Local de Entrada do Tipo Numerico Inteiro "
+                    + "\nRecebendo outro Tipo de Valor ou Vazio","Erro",
+                                                     JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -813,19 +818,24 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
                 rdbFisica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 rdbPsiquica.setToolTipText("Algum dos Tipos de Caracteristica deve ser Selecionado");
                 
-                JOptionPane.showMessageDialog(null,"ERROR: " + "Tipo de Caracteristica nao Selecionado.","Erro",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"ERROR: " 
+                                    + "Tipo de Caracteristica nao Selecionado.",
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
             }else{
                 
                 if(possui_modificador){
-                    caracteristica = new Caracteristica(nome, descricao, tipo, modificador, custo);
+                    caracteristica = new Caracteristica(nome, descricao, tipo,
+                                                            modificador, custo);
                 }else{
-                    caracteristica = new Caracteristica(nome, descricao, tipo, custo);
+                    caracteristica = new Caracteristica(nome,descricao,tipo,custo);
                 }
                 
                 return caracteristica;
             }
-        } catch(JTextAreaInvalidoException | JTextFieldInvalidoException | CaracteristicaInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(JTextAreaInvalidoException | JTextFieldInvalidoException |
+                                             CaracteristicaInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                              "Erro",JOptionPane.ERROR_MESSAGE);
         }
         return null;
     }
@@ -1045,7 +1055,5 @@ public class PnlCadastrarCaracteristica extends javax.swing.JPanel {
     public void setPnlTipo(JPanel pnlTipo) {
         this.pnlTipo = pnlTipo;
     }
-    
-    
     
 }
