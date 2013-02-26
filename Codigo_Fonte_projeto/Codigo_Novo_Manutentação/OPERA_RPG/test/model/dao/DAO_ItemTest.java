@@ -342,14 +342,6 @@ public class DAO_ItemTest {
 
     /**
      * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
-    *
-    @Test
-    public void testArmaCorpo_A_CorpoExiste_String() throws Exception{
-        System.out.println("ArmaCorpo_A_CorpoExiste");
-    }
-
-    /**
-     * Test of ArmaCorpo_A_CorpoExiste method, of class DAO_Item.
     */ 
     @Test
     public void testArmaCorpo_A_CorpoExiste_String_String() throws Exception {        
@@ -364,21 +356,7 @@ public class DAO_ItemTest {
         File arquivo = new File(diretorio+armas+"\\"+armasCorpo, "NomeArmaCorpo.opera");
         arquivo.delete();
     }
-
-    /**
-     * Test of tipoArmaCorpo_A_Corpo method, of class DAO_Item.
-     
-    @Test
-    public void testTipoArmaCorpo_A_Corpo() {
-        System.out.println("tipoArmaCorpo_A_Corpo");
-        String arma = "";
-        String expResult = "";
-        String result = DAO_Item.tipoArmaCorpo_A_Corpo(arma);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+   
     /**
      * Test of Arma_A_DistanciaExiste method, of class DAO_Item.
     */ 
@@ -402,10 +380,7 @@ public class DAO_ItemTest {
     @Test
     public void testListarItem() throws Exception {
         System.out.println("listarItem");
-        Dado dado = new Dado(6, 1);
-        /**
-         * Aqui tem que alterar o teste de listar itens , retirar o teste de arma corpo a corpo com os tipos
-         */
+        Dado dado = new Dado(6, 1);        
         Item item1 = new Item("NomeItemGenerico1", "Descricao1", true, testeAtributos,preco, "TesteFisica");
         Item item2 = new Item("NomeItemGenerico2", "Descricao2", true, testeAtributos,preco, "TesteFisica");
         String list[] = DAO_Item.listarItem("Generico");
