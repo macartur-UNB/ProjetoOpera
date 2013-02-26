@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.event.ActionEvent;
@@ -11,10 +7,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-/**
- *
- * @author Luciano
- */
 public class BarraDeMenus extends JMenuBar implements ActionListener{
     
     private static PanelTab tabbedPane;

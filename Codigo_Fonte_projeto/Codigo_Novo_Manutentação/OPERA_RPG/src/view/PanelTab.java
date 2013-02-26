@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.Color;
@@ -21,10 +17,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
-/**
- *
- * @author Luciano
- */
 public class PanelTab extends JTabbedPane implements MouseListener{
     
     private static boolean existe = false;

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.event.ActionEvent;
@@ -10,10 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
-/**
- *
- * @author Luciano
- */
 public class BarraDeFerramentas extends JToolBar implements ActionListener{
     
     private PanelTab tabbedPane;

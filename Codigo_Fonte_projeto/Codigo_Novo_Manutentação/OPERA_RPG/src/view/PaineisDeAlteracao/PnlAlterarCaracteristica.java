@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeAlteracao;
 
 import control.Controle_Caracteristica;
@@ -17,10 +13,6 @@ import model.exception.CaracteristicaInvalidaException;
 import model.exception.DeletarInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
-/**
- *
- * @author Luciano
- */
 public class PnlAlterarCaracteristica extends javax.swing.JPanel {
 
     /**
@@ -222,7 +214,9 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
                     pnlCadastrarCaracteristica.getRdbPsiquica().setSelected(true);
                 }
                 
-                Caracteristica caracteristica = Controle_Caracteristica.encontrarCaracteristica(cmbCaracteristica.getSelectedItem().toString(), tipo);
+                Caracteristica caracteristica = 
+                                Controle_Caracteristica.encontrarCaracteristica(
+                          cmbCaracteristica.getSelectedItem().toString(), tipo);
                 
                 pnlCadastrarCaracteristica.getTxtNome().setText(caracteristica.getNome());
                 pnlCadastrarCaracteristica.getTxtCusto().setText(""+caracteristica.getCusto());
@@ -240,35 +234,43 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
                 if(caracteristica.getModificador() != null){
                     if(caracteristica.getModificador()[FISICO] > 0){
                         pnlCadastrarCaracteristica.getChkFisico().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtFisico().setText(""+caracteristica.getModificador()[FISICO]);
+                        pnlCadastrarCaracteristica.getTxtFisico().setText(
+                                    ""+caracteristica.getModificador()[FISICO]);
                     }
                     if(caracteristica.getModificador()[DESTREZA] > 0){
                         pnlCadastrarCaracteristica.getChkDestreza().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtDestreza().setText(""+caracteristica.getModificador()[DESTREZA]);
+                        pnlCadastrarCaracteristica.getTxtDestreza().setText(
+                                  ""+caracteristica.getModificador()[DESTREZA]);
                     }
                     if(caracteristica.getModificador()[INTELIGENCIA] > 0){
                         pnlCadastrarCaracteristica.getChkInteligencia().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtInteligencia().setText(""+caracteristica.getModificador()[INTELIGENCIA]);
+                        pnlCadastrarCaracteristica.getTxtInteligencia().setText(
+                              ""+caracteristica.getModificador()[INTELIGENCIA]);
                     }
                     if(caracteristica.getModificador()[VONTADE] > 0){
                         pnlCadastrarCaracteristica.getChkVontade().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtVontade().setText(""+caracteristica.getModificador()[VONTADE]);
+                        pnlCadastrarCaracteristica.getTxtVontade().setText(
+                                   ""+caracteristica.getModificador()[VONTADE]);
                     }
                     if(caracteristica.getModificador()[PERCEPCAO] > 0){
                         pnlCadastrarCaracteristica.getChkPercepcao().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtPercepcao().setText(""+caracteristica.getModificador()[PERCEPCAO]);
+                        pnlCadastrarCaracteristica.getTxtPercepcao().setText(
+                                 ""+caracteristica.getModificador()[PERCEPCAO]);
                     }
                     if(caracteristica.getModificador()[MENTE] > 0){
                         pnlCadastrarCaracteristica.getChkMente().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtMente().setText(""+caracteristica.getModificador()[MENTE]);
+                        pnlCadastrarCaracteristica.getTxtMente().setText(
+                                     ""+caracteristica.getModificador()[MENTE]);
                     }
                     if(caracteristica.getModificador()[MANA] > 0){
                         pnlCadastrarCaracteristica.getChkMana().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtMana().setText(""+caracteristica.getModificador()[MANA]);
+                        pnlCadastrarCaracteristica.getTxtMana().setText(
+                                      ""+caracteristica.getModificador()[MANA]);
                     }
                     if(caracteristica.getModificador()[SORTE] > 0){
                         pnlCadastrarCaracteristica.getChkSorte().setSelected(true);
-                        pnlCadastrarCaracteristica.getTxtSorte().setText(""+caracteristica.getModificador()[SORTE]);
+                        pnlCadastrarCaracteristica.getTxtSorte().setText(
+                                     ""+caracteristica.getModificador()[SORTE]);
                     }
                 }
             }
@@ -372,15 +374,21 @@ public class PnlAlterarCaracteristica extends javax.swing.JPanel {
                     break;
             }
             
-            JOptionPane.showMessageDialog(null,"Alterar Caracteristica: " + caracteristica.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Alterar Caracteristica: " 
+                         + caracteristica.getNome() +"\nRealizado com Sucesso!",
+                                   "Concluido",JOptionPane.INFORMATION_MESSAGE);
             
-            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(), caracteristica.getDescricao(), caracteristica.getTipo(), caracteristica.getCusto(), caracteristica.getModificador());
+            Controle_Caracteristica.cadCaracteristica(caracteristica.getNome(),
+                       caracteristica.getDescricao(), caracteristica.getTipo(),
+                       caracteristica.getCusto(), caracteristica.getModificador());
             
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarCaracteristica);
             btnLimparActionPerformed();
             
-        } catch(ArquivoInvalidoException | DeletarInvalidoException | IOException | CaracteristicaInvalidaException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(ArquivoInvalidoException | DeletarInvalidoException | 
+                IOException | CaracteristicaInvalidaException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                          "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

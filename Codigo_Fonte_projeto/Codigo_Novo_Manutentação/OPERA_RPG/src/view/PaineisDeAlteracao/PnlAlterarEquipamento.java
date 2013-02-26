@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeAlteracao;
 
 import control.Controle_Habilidade;
@@ -23,10 +19,6 @@ import model.exception.HabilidadeInvalidaException;
 import model.exception.ItemInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 
-/**
- *
- * @author Luciano
- */
 public class PnlAlterarEquipamento extends javax.swing.JPanel {
 
     /**
@@ -348,10 +340,13 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                 pnlCadastrarItem.getTxtPreco().setText(""+item.getPreco());
                 
                 if(item.getHabilidade_Necessaria().equals("Nenhuma")){
-                    pnlCadastrarItem.getCmbHabilidade().setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+                    pnlCadastrarItem.getCmbHabilidade().setModel(
+                                           new javax.swing.DefaultComboBoxModel(
+                                                    new String[] { "Nenhuma"}));
                     pnlCadastrarItem.getCmbHabilidade().setEnabled(false);
                 }else{                    
-                    String tipoDeHabilidade = Controle_Habilidade.getTipoHabildiade(item.getHabilidade_Necessaria());
+                    String tipoDeHabilidade = Controle_Habilidade.getTipoHabildiade(
+                                                item.getHabilidade_Necessaria());
                     switch(tipoDeHabilidade){
                         case "Fisica":
                             pnlCadastrarItem.getRdbFisica().setSelected(true);
@@ -367,7 +362,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                             break;
                     }
                     for(int i = 0; i < pnlCadastrarItem.getCmbHabilidade().getItemCount(); i++){
-                        if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i).toString().equals(item.getHabilidade_Necessaria())){
+                        if(pnlCadastrarItem.getCmbHabilidade().getItemAt(i)
+                           .toString().equals(item.getHabilidade_Necessaria())){
                             pnlCadastrarItem.getCmbHabilidade().setSelectedIndex(i);
                         }
                     }
@@ -385,35 +381,43 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
                 if(item.getBonus_atributo() != null){
                     if(item.getBonus_atributo()[FISICO] > 0){
                         pnlCadastrarItem.getChkFisico().setSelected(true);
-                        pnlCadastrarItem.getTxtFisico().setText(""+item.getBonus_atributo()[FISICO]);
+                        pnlCadastrarItem.getTxtFisico().setText(
+                                           ""+item.getBonus_atributo()[FISICO]);
                     }
                     if(item.getBonus_atributo()[DESTREZA] > 0){
                         pnlCadastrarItem.getChkDestreza().setSelected(true);
-                        pnlCadastrarItem.getTxtDestreza().setText(""+item.getBonus_atributo()[DESTREZA]);
+                        pnlCadastrarItem.getTxtDestreza().setText(
+                                         ""+item.getBonus_atributo()[DESTREZA]);
                     }
                     if(item.getBonus_atributo()[INTELIGENCIA] > 0){
                         pnlCadastrarItem.getChkInteligencia().setSelected(true);
-                        pnlCadastrarItem.getTxtInteligencia().setText(""+item.getBonus_atributo()[INTELIGENCIA]);
+                        pnlCadastrarItem.getTxtInteligencia().setText(
+                                     ""+item.getBonus_atributo()[INTELIGENCIA]);
                     }
                     if(item.getBonus_atributo()[VONTADE] > 0){
                         pnlCadastrarItem.getChkVontade().setSelected(true);
-                        pnlCadastrarItem.getTxtVontade().setText(""+item.getBonus_atributo()[VONTADE]);
+                        pnlCadastrarItem.getTxtVontade().setText(
+                                          ""+item.getBonus_atributo()[VONTADE]);
                     }
                     if(item.getBonus_atributo()[PERCEPCAO] > 0){
                         pnlCadastrarItem.getChkPercepcao().setSelected(true);
-                        pnlCadastrarItem.getTxtPercepcao().setText(""+item.getBonus_atributo()[PERCEPCAO]);
+                        pnlCadastrarItem.getTxtPercepcao().setText(
+                                        ""+item.getBonus_atributo()[PERCEPCAO]);
                     }
                     if(item.getBonus_atributo()[MENTE] > 0){
                         pnlCadastrarItem.getChkMente().setSelected(true);
-                        pnlCadastrarItem.getTxtMente().setText(""+item.getBonus_atributo()[MENTE]);
+                        pnlCadastrarItem.getTxtMente().setText(
+                                            ""+item.getBonus_atributo()[MENTE]);
                     }
                     if(item.getBonus_atributo()[MANA] > 0){
                         pnlCadastrarItem.getChkMana().setSelected(true);
-                        pnlCadastrarItem.getTxtMana().setText(""+item.getBonus_atributo()[MANA]);
+                        pnlCadastrarItem.getTxtMana().setText(
+                                             ""+item.getBonus_atributo()[MANA]);
                     }
                     if(item.getBonus_atributo()[SORTE] > 0){
                         pnlCadastrarItem.getChkSorte().setSelected(true);
-                        pnlCadastrarItem.getTxtSorte().setText(""+item.getBonus_atributo()[SORTE]);
+                        pnlCadastrarItem.getTxtSorte().setText(
+                                            ""+item.getBonus_atributo()[SORTE]);
                     }
                 }
                 
@@ -518,42 +522,80 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
             
             if(rdbItem.isSelected()){
                 Controle_Item.removerItemGenerico(nomeSelecionado);
-                Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(), item.isUsando(), item.getBonus_atributo(), item.getPreco(), item.getHabilidade_Necessaria());
-                JOptionPane.showMessageDialog(null,"Alterar Item: " + item.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                Controle_Item.cadItemGenerico(item.getNome(), item.getDescricao(), 
+                                              item.isUsando(), item.getBonus_atributo(),
+                                              item.getPreco(), item.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,"Alterar Item: " 
+                                   + item.getNome() +"\nRealizado com Sucesso!",
+                                    "Concluido",JOptionPane.INFORMATION_MESSAGE);
             }
             
             if(rdbArma.isSelected()){
                 if(rdbArmaADistancia.isSelected()){
                     Arma_A_Distancia arma = (Arma_A_Distancia)item;
                     Controle_Item.removerArmaADistancia(nomeSelecionado);
-                    Controle_Item.cadArma_A_Distancia(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getTiro_Rapido(), arma.getTiro_Mirado(), arma.getCadencia(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
-                    JOptionPane.showMessageDialog(null,"Alterar Arma a Distancia: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    Controle_Item.cadArma_A_Distancia(arma.getNome(), 
+                                            arma.getDescricao(), arma.getDano(), 
+                                            arma.getDanoAdicional(), 
+                                            arma.getTiro_Rapido(), 
+                                            arma.getTiro_Mirado(), arma.getCadencia(),
+                                            arma.isUsando(), arma.getBonus_atributo(),
+                                     arma.getPreco(), arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,
+                                "Alterar Arma a Distancia: " + arma.getNome() 
+                               +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
                 }
                 if(rdbArmaCorpoACorpo.isSelected()){
                     Arma_Corpo_A_Corpo arma = (Arma_Corpo_A_Corpo)item;
                     Controle_Item.removerArmaCorpoACorpo(nomeSelecionado);
-                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), arma.getDescricao(), arma.getDano(), arma.getDanoAdicional(), arma.getGolpe(), arma.getAparo(), arma.getEsquiva(), arma.isUsando(), arma.getBonus_atributo(), arma.getPreco(), arma.getHabilidade_Necessaria());
-                    JOptionPane.showMessageDialog(null,"Alterar Arma Corpo a Corpo: " + arma.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                    Controle_Item.cadArma_Corpo_A_Corpo(arma.getNome(), 
+                                            arma.getDescricao(), arma.getDano(), 
+                                            arma.getDanoAdicional(), arma.getGolpe(),
+                                            arma.getAparo(), arma.getEsquiva(), 
+                                            arma.isUsando(), arma.getBonus_atributo(),
+                                            arma.getPreco(), 
+                                                arma.getHabilidade_Necessaria());
+                    JOptionPane.showMessageDialog(null,
+                                 "Alterar Arma Corpo a Corpo: " + arma.getNome()
+                                +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
                 }
             }
             
             if(rdbArmadura.isSelected()){
                 Armadura armadura = (Armadura)item;
                 Controle_Item.removerArmadura(nomeSelecionado);
-                Controle_Item.cadArmadura(armadura.getNome(), armadura.getDescricao(), armadura.getAbsorcao_Distancia(), armadura.getAbsorcao_CorpoACorpo(), armadura.getPenalidade(), armadura.getRegiao_Do_Corpo(), armadura.isUsando(), armadura.getBonus_atributo(), armadura.getPreco(), armadura.getHabilidade_Necessaria());
-                JOptionPane.showMessageDialog(null,"Alterar Armadura: " + armadura.getNome() +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                Controle_Item.cadArmadura(armadura.getNome(), 
+                                          armadura.getDescricao(), 
+                                          armadura.getAbsorcao_Distancia(), 
+                                          armadura.getAbsorcao_CorpoACorpo(), 
+                                          armadura.getPenalidade(), 
+                                          armadura.getRegiao_Do_Corpo(), 
+                                          armadura.isUsando(), 
+                                          armadura.getBonus_atributo(), 
+                                          armadura.getPreco(), 
+                                          armadura.getHabilidade_Necessaria());
+                JOptionPane.showMessageDialog(null,
+                                    "Alterar Armadura: " + armadura.getNome() 
+                                  +"\nRealizado com Sucesso!","Concluido",
+                                               JOptionPane.INFORMATION_MESSAGE);
             }
             
             limparCampos();
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null,"ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
-        } catch(DeletarInvalidoException | ArquivoInvalidoException | HeadlessException | IOException | ItemInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                          "ERROR: Campo Nulo","Erro",JOptionPane.ERROR_MESSAGE);
+        } catch(DeletarInvalidoException | ArquivoInvalidoException | 
+                HeadlessException | IOException | ItemInvalidoException e){
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                          "Erro",JOptionPane.ERROR_MESSAGE);
         } 
     }
     
     private void limparCampos(){
-        cmbEquipamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ""}));
+        cmbEquipamento.setModel(new javax.swing.DefaultComboBoxModel(
+                                                           new String[] { ""}));
         cmbEquipamento.setEnabled(false);
         PainelFuncoes.habilitarCampos(pnlCadastrarItem, false);
         pnlCadastrarItem.getBtnCadastrar().setEnabled(false);
@@ -565,7 +607,8 @@ public class PnlAlterarEquipamento extends javax.swing.JPanel {
     }
     
     private void carregarJComboBox(String tipo){
-        cmbEquipamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+        cmbEquipamento.setModel(new javax.swing.DefaultComboBoxModel(
+                                                    new String[] { "Nenhuma"}));
         
         String diretorios[] = null;
         

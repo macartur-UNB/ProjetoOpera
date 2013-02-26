@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view.PaineisDeAlteracao;
 
 import control.Controle_Ficha;
@@ -20,10 +17,7 @@ import view.PaineisDeCadastro.PainelFuncoes;
 import view.PaineisDeCadastro.PnlCadastrarFicha;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
+
 public class PnlAlterarFicha extends javax.swing.JPanel {
 
     private boolean podeHabilitarCampos;
@@ -422,25 +416,34 @@ public class PnlAlterarFicha extends javax.swing.JPanel {
             }else{
                 switch (tipo) {
                     case "NPC":
-                        Controle_Ficha.alterarNPC(cmbFicha.getSelectedItem().toString(), personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarNPC(
+                              cmbFicha.getSelectedItem().toString(), personagem,
+                                     campanha, experiencia, atributo, dinheiro);
                         break;
                     case "Monstro":
-                        Controle_Ficha.alterarMonstro(cmbFicha.getSelectedItem().toString(), personagem, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarMonstro(
+                              cmbFicha.getSelectedItem().toString(),personagem, 
+                                      campanha, experiencia,atributo, dinheiro);
                         break;
                     case "Jogador":
-                        Controle_Ficha.alterarJogador(cmbFicha.getSelectedItem().toString(), personagem, jogador, campanha, experiencia, atributo, dinheiro);
+                        Controle_Ficha.alterarJogador(
+                              cmbFicha.getSelectedItem().toString(), personagem,
+                              jogador, campanha, experiencia, atributo, dinheiro);
                         break;
                     default:
                         break;
                 }
-                JOptionPane.showMessageDialog(null,"Alterar Ficha: " + personagem +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,
+                      "Alterar Ficha: " + personagem +"\nRealizado com Sucesso!",
+                                    "Concluido",JOptionPane.INFORMATION_MESSAGE);
                 PainelFuncoes.limparTodosOsCampos(this);
                 PainelFuncoes.definirCorDaBordaJTextField(this, Color.GRAY);
                 pnlCadastrarFicha.getGrpTipoFicha().clearSelection();
                 pnlCadastrarFicha.getBtnCadastrar().setEnabled(false);
             }
         } catch(FichaInvalidaException | HeadlessException | JTextFieldInvalidoException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                    "ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.validacao;
 
 import java.util.ArrayList;
@@ -9,13 +5,10 @@ import java.util.Iterator;
 import model.classes.Armadura;
 import model.exception.PalavraInvalidaException;
 
-/**
- *
- * @author Luciano
- */
 public class Validar {
     
-    public static void validarPalavra(String palavra, boolean numeros) throws PalavraInvalidaException{
+    public static void validarPalavra(String palavra, boolean numeros) 
+                                                throws PalavraInvalidaException{
         
         String caracteresValidos = "qwertyuioplkjhgfdsazxcvbnm ";
         String caracteresInvalidos = "";
@@ -48,25 +41,31 @@ public class Validar {
         }
         
         if(caracteresInvalidos.length() > 0){
-            throw new PalavraInvalidaException("{" + palavra + "} possui "
-                    + "os seguintes caracteres Invalidos: {" + caracteresInvalidos
-                    + "}.");
+            throw new PalavraInvalidaException(
+                      "{" + palavra + "} possui "
+                    + "os seguintes caracteres Invalidos: {" 
+                    + caracteresInvalidos+ "}.");
         }
     }
     
-    public static void validarPalavra(String palavra, String palavrasValidas[], boolean caseSensitive) throws PalavraInvalidaException{
+    public static void validarPalavra(String palavra, String palavrasValidas[],
+                                      boolean caseSensitive) 
+                                                throws PalavraInvalidaException{
         
     	if(palavra != null) {
 	        if(palavra.length() == 0){
-	            throw new PalavraInvalidaException("A Palvra nao pode ser Vazio(a).");
+	            throw new PalavraInvalidaException(
+                                             "A Palvra nao pode ser Vazio(a).");
 	        }
         }else{
-        	throw new PalavraInvalidaException("A Palvra nao pode ser Nulo(a).");
+        	throw new PalavraInvalidaException(
+                                              "A Palvra nao pode ser Nulo(a).");
         }
     	
     	
     	if(palavrasValidas == null){
-    		throw new PalavraInvalidaException("O Conjunto de palavras nao pode ser Vazio(a).");
+    		throw new PalavraInvalidaException(
+                               "O Conjunto de palavras nao pode ser Vazio(a).");
         }
         
         boolean palavraValida = false;
@@ -83,14 +82,15 @@ public class Validar {
         }
         
         if(!palavraValida){
-            throw new PalavraInvalidaException("A Palavra {" + palavra
-                    + "} eh Invalida");
+            throw new PalavraInvalidaException(
+                    "A Palavra {" + palavra + "} eh Invalida");
         }
     }
     
-    public static void validarCaractere(char caractere, char[] caracteresValidos) throws PalavraInvalidaException{
+    public static void validarCaractere(char caractere, char[] caracteresValidos)
+                                                throws PalavraInvalidaException{
         boolean caractereValido = false;
-        for(int i = 0; (i < caracteresValidos.length) && (!caractereValido); i++){
+        for(int i = 0; (i < caracteresValidos.length) && (!caractereValido);i++){
             if(caractere == caracteresValidos[i]){
                 caractereValido = true;
             }

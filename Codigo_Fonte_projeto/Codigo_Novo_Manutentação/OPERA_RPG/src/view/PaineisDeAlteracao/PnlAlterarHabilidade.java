@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.PaineisDeAlteracao;
 
 import control.Controle_Habilidade;
@@ -18,10 +14,6 @@ import model.exception.JTextFieldInvalidoException;
 import view.PaineisDeCadastro.PainelFuncoes;
 import view.validacao.ValidarCampos;
 
-/**
- *
- * @author Luciano
- */
 public class PnlAlterarHabilidade extends javax.swing.JPanel {
 
     /**
@@ -210,15 +202,18 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
                 Habilidade habilidade = null;
                 
                 if(rdbBelica.isSelected()){
-                    habilidade = Controle_Habilidade.encontrarHabilidade(cmbHabilidade.getSelectedItem().toString(), "Belica");
+                    habilidade = Controle_Habilidade.encontrarHabilidade(
+                          cmbHabilidade.getSelectedItem().toString(), "Belica");
                     pnlCadastrarHabilidade.getRdbBelica().setSelected(true);
                 }
                 if(rdbFisica.isSelected()){
-                    habilidade = Controle_Habilidade.encontrarHabilidade(cmbHabilidade.getSelectedItem().toString(), "Fisica");
+                    habilidade = Controle_Habilidade.encontrarHabilidade(
+                           cmbHabilidade.getSelectedItem().toString(), "Fisica");
                     pnlCadastrarHabilidade.getRdbFisica().setSelected(true);
                 }
                 if(rdbPsiquica.isSelected()){
-                    habilidade = Controle_Habilidade.encontrarHabilidade(cmbHabilidade.getSelectedItem().toString(), "Psiquica");
+                    habilidade = Controle_Habilidade.encontrarHabilidade(
+                         cmbHabilidade.getSelectedItem().toString(), "Psiquica");
                     pnlCadastrarHabilidade.getRdbPsiquica().setSelected(true);
                 }
                 
@@ -228,7 +223,8 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
                 
             }
         } catch(ArquivoInvalidoException | ClassNotFoundException | IOException e){
-            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"ERROR: " + e.getMessage(),
+                                          "Erro",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cmbHabilidadeActionPerformed
 
@@ -283,7 +279,8 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
     }
     
      private void carregarJComboBox(String tipoDeHabilidade){
-        cmbHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
+        cmbHabilidade.setModel(
+               new javax.swing.DefaultComboBoxModel(new String[] { "Nenhuma"}));
         
         String diretorios[] = null;
         
@@ -335,26 +332,34 @@ public class PnlAlterarHabilidade extends javax.swing.JPanel {
             
             switch(tipo){
                 case "Fisica":
-                    Controle_Habilidade.removeHabilidadeFisica(cmbHabilidade.getSelectedItem().toString());
+                    Controle_Habilidade.removeHabilidadeFisica(
+                                    cmbHabilidade.getSelectedItem().toString());
                     break;
                 case "Psiquica":
-                    Controle_Habilidade.removeHabilidadePsiquica(cmbHabilidade.getSelectedItem().toString());
+                    Controle_Habilidade.removeHabilidadePsiquica(
+                                    cmbHabilidade.getSelectedItem().toString());
                     break;
                 case "Belica":
-                    Controle_Habilidade.removeHabilidadeBelica(cmbHabilidade.getSelectedItem().toString());
+                    Controle_Habilidade.removeHabilidadeBelica(
+                                    cmbHabilidade.getSelectedItem().toString());
                     break;
             }
             
             Controle_Habilidade.cadHabilidade(teste, nivel, custo, nome, tipo);
-            JOptionPane.showMessageDialog(null,"Alterar Habilidade: " + nome +"\nRealizado com Sucesso!","Concluido",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                      "Alterar Habilidade: " + nome +"\nRealizado com Sucesso!",
+                                   "Concluido",JOptionPane.INFORMATION_MESSAGE);
 
             btnLimparActionPerfomed();
 
             PainelFuncoes.limparTodosOsCampos(pnlCadastrarHabilidade);
             pnlCadastrarHabilidade.getGrpTipoHabilidade().clearSelection();
 
-         } catch(HabilidadeInvalidaException | ArquivoInvalidoException | ClassNotFoundException | DeletarInvalidoException | IOException | JTextFieldInvalidoException e){
-             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+         } catch(HabilidadeInvalidaException | ArquivoInvalidoException | 
+                 ClassNotFoundException | DeletarInvalidoException | 
+                                   IOException | JTextFieldInvalidoException e){
+             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), 
+                                           "Erro", JOptionPane.ERROR_MESSAGE);
          }
      }
 }

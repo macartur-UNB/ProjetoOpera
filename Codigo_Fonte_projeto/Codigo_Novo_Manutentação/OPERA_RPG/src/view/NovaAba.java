@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import javax.swing.ImageIcon;
@@ -12,10 +8,7 @@ import view.PaineisDeIntegracao.PnlIntegracaoFicha;
 import view.PaineisDeVisualizacao.PnlVisualizarFicha;
 import view.PaineisNovoAbrirDeletarJogo.*;
 
-/**
- *
- * @author Luciano
- */
+
 public class NovaAba {
     
     public static void abaNovoJogo(PanelTab tabbedPane, ImageIcon icone){

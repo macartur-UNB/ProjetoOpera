@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.BorderLayout;
@@ -11,10 +7,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author Luciano
- */
+
 public class TelaPrincipal extends JFrame{
     
     private static PanelTab tabbedPane;
