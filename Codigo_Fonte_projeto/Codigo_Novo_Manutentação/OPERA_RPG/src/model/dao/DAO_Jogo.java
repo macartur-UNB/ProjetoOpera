@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import java.io.FileNotFoundException;
@@ -13,10 +9,6 @@ import model.exception.DeletarInvalidoException;
 import model.exception.DiretorioInvalidoException;
 import model.exception.JogoInvalidoException;
 
-/**
- *
- * @author Macartur
- */
 public class DAO_Jogo {
     
     private static final String DIRETORIO_RAIZ = "C:\\Opera";
@@ -47,69 +39,101 @@ public class DAO_Jogo {
     
     private static final String ENDERECO_DADO = Constante_Endereco.DADO;
     
-    public static void criarDiretorioJogo(Jogo jogo) throws DiretorioInvalidoException{
+    public static void criarDiretorioJogo(Jogo jogo) 
+                                              throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco());
     }    
     
-    public static void removerArquivosJogo(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosJogo(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco());
     }
-    public static void removerDiretorioJogo(Jogo jogo) throws DeletarInvalidoException, DiretorioInvalidoException, ArquivoInvalidoException, IOException{
+    public static void removerDiretorioJogo(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       ArquivoInvalidoException, 
+                                                                    IOException{
         DAO_Funcao.removerDiretorio(jogo.getEndereco());
     }
     
-    public static void criarDiretorioFichas(Jogo jogo) throws DiretorioInvalidoException{
+    public static void criarDiretorioFichas(Jogo jogo) 
+                                              throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_FICHA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_FICHA_JOGADOR);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_FICHA_NPC);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_FICHA_MONSTRO);
     }
 
-    public static void removerArquivosFichas(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosFichas(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_FICHA_JOGADOR);
        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_FICHA_NPC);
        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_FICHA_MONSTRO);
        DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_FICHA);
     }
 
-    public static void removerDiretorioFichas(Jogo jogo) throws DiretorioInvalidoException, DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretorioFichas(Jogo jogo) 
+                                              throws DiretorioInvalidoException, 
+                                                     DeletarInvalidoException, 
+                                                     IOException, 
+                                                       ArquivoInvalidoException{
        DAO_Funcao.removerDiretorio(jogo.getEndereco() + ENDERECO_FICHA);
     }
 
 
-    public static void criarDiretorioHabilidades(Jogo jogo) throws DiretorioInvalidoException{
+    public static void criarDiretorioHabilidades(Jogo jogo) 
+                                              throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_HABILIDADE);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_HABILIDADE_FISICA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_HABILIDADE_PSIQUICA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_HABILIDADE_BELICA);
     }
-    public static void removerArquivosHabilidades(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosHabilidades(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_HABILIDADE_FISICA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_HABILIDADE_PSIQUICA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_HABILIDADE_BELICA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_HABILIDADE);
     }
 
-    public static void removerDiretorioHabilidades(Jogo jogo) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretorioHabilidades(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.removerDiretorio(jogo.getEndereco() + ENDERECO_HABILIDADE);
     }
     
     
-    public static void criarDiretorioCaracteristicas(Jogo jogo) throws DiretorioInvalidoException{
+    public static void criarDiretorioCaracteristicas(Jogo jogo) 
+                                              throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_CARACTERISTICA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_CARACTERISTICA_FISICA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_CARACTERISTICA_PSIQUICA);
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_CARACTERISTICA_RACIAL);
     }
     
-    public static void removerArquivosCaracteristicas(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosCaracteristicas(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_CARACTERISTICA_FISICA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_CARACTERISTICA_PSIQUICA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_CARACTERISTICA_RACIAL);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_CARACTERISTICA);
     }
     
-    public static void removerDiretorioCaracteristicas(Jogo jogo) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretorioCaracteristicas(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.removerDiretorio(jogo.getEndereco() + ENDERECO_CARACTERISTICA);
     }
     
@@ -122,25 +146,40 @@ public class DAO_Jogo {
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_ITEM_ARMADURA);
     }
     
-    public static void removerArquivosItens(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosItens(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_GENERICO);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMA_A_DISTANCIA);
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_ITEM_ARMADURA);
     }
-    public static void removerDiretoriosItens(Jogo jogo) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretoriosItens(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.removerDiretorio(jogo.getEndereco() + ENDERECO_ITEM);
     }
     
     
-    public static void criarDiretorioDados(Jogo jogo) throws DiretorioInvalidoException{
+    public static void criarDiretorioDados(Jogo jogo) 
+                                              throws DiretorioInvalidoException{
         DAO_Funcao.criarDiretorio(jogo.getEndereco() + ENDERECO_DADO);
     }
    
-    public static void removerArquivosDados(Jogo jogo) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArquivosDados(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.deletarArquivos(jogo.getEndereco() + ENDERECO_DADO);
     }
-    public static void removerDiretorioDados(Jogo jogo) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretorioDados(Jogo jogo) 
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.removerDiretorio(jogo.getEndereco() + ENDERECO_DADO);
     }
     
@@ -153,11 +192,15 @@ public class DAO_Jogo {
            criarDiretorioHabilidades(jogo);          
            criarDiretorioItens(jogo);
         }else{
-            throw new DiretorioInvalidoException("Não foi possivel criar diretorio,jogo já existente");
+            throw new DiretorioInvalidoException(
+                          "Não foi possivel criar diretorio,jogo já existente");
         }        
     }
    
-    public static void deletarJogo(String nome) throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+    public static void deletarJogo(String nome) throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA + "\\" + nome);
         DAO_Funcao.removerDiretorio(jogo.getEndereco());
     }
@@ -182,11 +225,17 @@ public class DAO_Jogo {
     }
         
     
-    public static void carregarJogo(String nome) throws FileNotFoundException, IOException, ClassNotFoundException, JogoInvalidoException, ArquivoInvalidoException{
+    public static void carregarJogo(String nome) throws FileNotFoundException, 
+                                                        ClassNotFoundException, 
+                                                        JogoInvalidoException, 
+                                                        IOException, 
+                                                        ArquivoInvalidoException{
         if(jogoExiste(nome)){
-            JOGO_RODANDO = (Jogo) DAO_Funcao.carregarArquivoOpera(DIRETORIO_OPERA+"\\"+nome+"\\", nome);
+            JOGO_RODANDO = (Jogo) DAO_Funcao.carregarArquivoOpera(
+                                  DIRETORIO_OPERA+"\\"+nome+"\\", nome);
         }else{
-            throw new JogoInvalidoException("O Jogo - " + nome + " - Nao Existe!");
+            throw new JogoInvalidoException(
+                                         "O Jogo - " + nome + " - Nao Existe!");
         }
     } 
     
@@ -203,11 +252,19 @@ public class DAO_Jogo {
         return DAO_Funcao.diretorioExiste(jogo.getEndereco());
     }     
     
-    public static void gravarJogo(Jogo jogo) throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
+    public static void gravarJogo(Jogo jogo) 
+                                       throws FileNotFoundException,IOException, 
+                                              ClassNotFoundException, 
+                                                       ArquivoInvalidoException{
         DAO_Funcao.criarArquivoOpera(jogo.getEndereco(), jogo.getNome(), jogo);
     }
     
-    public static void criarJogo(String nome) throws DiretorioInvalidoException, FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException, JogoInvalidoException{
+    public static void criarJogo(String nome) throws DiretorioInvalidoException, 
+                                                     FileNotFoundException, 
+                                                     IOException, 
+                                                     ClassNotFoundException, 
+                                                     ArquivoInvalidoException, 
+                                                          JogoInvalidoException{
         Jogo jogo = new Jogo(nome, DIRETORIO_OPERA + "\\" + nome);
         verificarDiretorioRaiz();
         criarDiretoriosJogo(jogo);

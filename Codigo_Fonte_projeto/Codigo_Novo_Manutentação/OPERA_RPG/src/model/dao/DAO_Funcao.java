@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import java.io.File;
@@ -27,10 +23,12 @@ public class DAO_Funcao {
      * @param endereco Endereco do Diretorio a ser Criado
      * @throws DiretorioInvalidoException
      */
-    public static void criarDiretorio(String endereco) throws DiretorioInvalidoException{
+    public static void criarDiretorio(String endereco) 
+                                              throws DiretorioInvalidoException{
         File diretorio = new File(endereco);
         if(!diretorio.mkdir()){
-            throw new DiretorioInvalidoException("O Diretorio - " + diretorio.getName() + " - ja existe ou"
+            throw new DiretorioInvalidoException(
+                      "O Diretorio - " + diretorio.getName() + " - ja existe ou"
                     + " nao pode ser criado.");
         }
     }
@@ -40,7 +38,11 @@ public class DAO_Funcao {
      * @param endereco Endereco do Diretorio a ser Deletado
      * @throws DiretorioInvalidoException
      */
-    public static void removerDiretorio(String endereco) throws DiretorioInvalidoException, DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerDiretorio(String endereco) 
+                                              throws DiretorioInvalidoException, 
+                                                     DeletarInvalidoException, 
+                                                     IOException, 
+                                                       ArquivoInvalidoException{
         
         File diretorio = new File(endereco);
         
@@ -118,7 +120,8 @@ public class DAO_Funcao {
         for(int i = 0; i < arquivos.length; i++){            
             if(arquivos[i].endsWith(".opera")){
                 arquivosOpera[indice] = arquivos[i];
-                arquivosOpera[indice] = arquivosOpera[indice].substring(0, (arquivosOpera[indice].length() - 6));
+                arquivosOpera[indice] = arquivosOpera[indice].substring
+                                      (0, (arquivosOpera[indice].length() - 6));
                 indice++;
             }
         }
@@ -143,8 +146,8 @@ public class DAO_Funcao {
         if(arquivo.isFile()){
             if(arquivoOperaExiste(endereco, nome_arquivo)){
                 if(!arquivo.delete()){
-                    throw new ArquivoInvalidoException("O Arquivo - " + nome_arquivo
-                    + " nao pode ser deletado. "
+                    throw new ArquivoInvalidoException(
+                      "O Arquivo - " + nome_arquivo+" nao pode ser deletado. "
                     + "Verifique se esta sendo usado em outro processo");
                 }
             }
@@ -162,7 +165,10 @@ public class DAO_Funcao {
      * @throws IOException 
      */
     public static void criarArquivoOpera(String endereco, String nomeObjeto, 
-            Object objeto) throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                         Object objeto)
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         
         if(!(nomeObjeto.endsWith(".opera"))){
             nomeObjeto += ".opera";
@@ -172,12 +178,14 @@ public class DAO_Funcao {
         File arquivo = new File(diretorio, nomeObjeto);
         
         if(arquivo.exists()){
-            throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - ja existe");
+            throw new ArquivoInvalidoException(
+                                  "O arquivo - " + nomeObjeto + " - ja existe");
         }
         
         if(!arquivo.createNewFile()){
             if(!arquivoOperaExiste(endereco, arquivo.getName())){
-                throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao pode ser criado");
+                throw new ArquivoInvalidoException(
+                        "O arquivo - " + nomeObjeto + " - nao pode ser criado");
             }
         }
         
@@ -192,7 +200,10 @@ public class DAO_Funcao {
     
     
     public static void sobrescreverArquivoOpera(String endereco, String nomeObjeto, 
-            Object objeto) throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                                Object objeto) 
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         
         if(!(nomeObjeto.endsWith(".opera"))){
             nomeObjeto += ".opera";
@@ -202,12 +213,14 @@ public class DAO_Funcao {
         File arquivo = new File(diretorio, nomeObjeto);
         
         if(!arquivo.exists()){
-            throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao existe");
+            throw new ArquivoInvalidoException(
+                                 "O arquivo - " + nomeObjeto + " - nao existe");
         }
         
         if(!arquivo.createNewFile()){
             if(!arquivoOperaExiste(endereco, arquivo.getName())){
-                throw new ArquivoInvalidoException("O arquivo - " + nomeObjeto + " - nao pode ser criado");
+                throw new ArquivoInvalidoException(
+                         "O arquivo - " + nomeObjeto + " - nao pode ser criado");
             }
         }
         
@@ -234,7 +247,9 @@ public class DAO_Funcao {
      * @throws ArquivoInvalidoException
      */
     public static Object carregarArquivoOpera(String endereco, String nome_arquivo) 
-            throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
+                                       throws FileNotFoundException, IOException, 
+                                              ClassNotFoundException, 
+                                                       ArquivoInvalidoException{
         
         if(!(nome_arquivo.endsWith(".opera"))){
             nome_arquivo += ".opera";
@@ -254,7 +269,8 @@ public class DAO_Funcao {
             
             return objeto;
         }else{
-            throw new ArquivoInvalidoException("O arquivo - " + nome_arquivo + " - nao existe");
+            throw new ArquivoInvalidoException(
+                               "O arquivo - " + nome_arquivo + " - nao existe");
         }
         
         
@@ -265,7 +281,10 @@ public class DAO_Funcao {
      * @param endereco Endereco que contem os Arquivos a serem Deletados
      * @throws DeletarInvalidoException 
      */
-    public static void deletarArquivos(String endereco) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{    
+    public static void deletarArquivos(String endereco)
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{    
         String[] arquivos = listarArquivosOpera(endereco);
         
         if(arquivos != null){
@@ -286,7 +305,8 @@ public class DAO_Funcao {
         
         File diretorio= new File(endereco);
         if(!diretorio.delete()){
-            throw new DiretorioInvalidoException("O Diretorio -" + diretorio.getName() + "- nao existe ou"
+            throw new DiretorioInvalidoException(
+                      "O Diretorio -" + diretorio.getName() + "- nao existe ou"
                     + " nao pode ser deletado. Verifique se algum programa"
                     + " esta utilizando esse diretorio, ou utilizando algo"
                     + " contido nesse diretorio.");
@@ -302,7 +322,10 @@ public class DAO_Funcao {
      * @throws DiretorioInvalidoException 
      */
     private static void deletarDiretorios_E_Arquivos(File diretorio) 
-            throws DeletarInvalidoException, DiretorioInvalidoException, IOException, ArquivoInvalidoException{
+                                                throws DeletarInvalidoException, 
+                                                       DiretorioInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
         
         File arquivos[] = diretorio.listFiles();
         
@@ -313,7 +336,8 @@ public class DAO_Funcao {
         String diretorios[] = diretorio.list();
         diretorio.getAbsolutePath();
         for(int i = 0; i < diretorios.length; i++){
-            deletarDiretorios_E_Arquivos(new File(diretorio.getAbsolutePath() + "\\" + diretorios[i]));
+            deletarDiretorios_E_Arquivos(new File(diretorio.getAbsolutePath() 
+                                                  + "\\" + diretorios[i]));
         }
         
         deletarDiretorio(diretorio.getAbsolutePath());

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import java.io.FileNotFoundException;
@@ -14,10 +10,6 @@ import model.classes.Item;
 import model.exception.ArquivoInvalidoException;
 import model.exception.DeletarInvalidoException;
 
-/**
- *
- * @author Macartur
- */
 public class DAO_Item {   
     
     private static final String ENDERECO_ITEM_GENERICO = Constante_Endereco.ITEM_GENERICO;
@@ -26,15 +18,19 @@ public class DAO_Item {
     private static final String ENDERECO_ITEM_ARMADURA = Constante_Endereco.ITEM_ARMADURA;
     
     public static void gravarItem(Item item) throws FileNotFoundException,
-                                              FileNotFoundException,IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_GENERICO;
+                                                    IOException, 
+                                                       ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_GENERICO;
         if(DAO_Funcao.diretorioExiste(diretorio)){
             DAO_Funcao.criarArquivoOpera(diretorio, item.getNome(), item);
         }
     }
     
     public static void gravarArma_Corpo_A_Corpo(Arma_Corpo_A_Corpo arma)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                    ENDERECO_ITEM_ARMA_CORPO_A_CORPO;        
         if(DAO_Funcao.diretorioExiste(diretorio)){
@@ -42,7 +38,9 @@ public class DAO_Item {
         }
     }
    public static void gravarArma_A_Distancia(Arma_A_Distancia arma)
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                   ENDERECO_ITEM_ARMA_A_DISTANCIA;
         if(DAO_Funcao.diretorioExiste(diretorio)){
@@ -51,20 +49,30 @@ public class DAO_Item {
         
     }
     public static void gravarArmadura(Armadura armadura) 
-                                      throws FileNotFoundException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constante_Endereco.ITEM_ARMADURA;
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +Constante_Endereco.ITEM_ARMADURA;
         if(DAO_Funcao.diretorioExiste(diretorio)){
-            DAO_Funcao.criarArquivoOpera(diretorio, armadura.getNome(), armadura);
+            DAO_Funcao.criarArquivoOpera(diretorio,armadura.getNome(),armadura);
         }
     }
     
-    public static void removerItemGenerico(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_GENERICO;
+    public static void removerItemGenerico(String nome) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_GENERICO;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
             DAO_Funcao.removerArquivo(diretorio, nome);
         }
     }
-    public static void removerArma_A_Distancia(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArma_A_Distancia(String nome) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
          String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                   ENDERECO_ITEM_ARMA_A_DISTANCIA;
          if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
@@ -72,25 +80,36 @@ public class DAO_Item {
          }
     }
     
-    public static void removerArma_Corpo_A_Corpo(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
+    public static void removerArma_Corpo_A_Corpo(String nome) 
+                                                throws DeletarInvalidoException, 
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
          String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                    ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
          if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                DAO_Funcao.removerArquivo(diretorio, nome);
          }
     }
-    
-    public static void removerArmadura(String nome) throws DeletarInvalidoException, IOException, ArquivoInvalidoException{
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+Constante_Endereco.ITEM_ARMADURA;
+        
+    public static void removerArmadura(String nome)
+                                                throws DeletarInvalidoException,
+                                                       IOException, 
+                                                       ArquivoInvalidoException{
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +Constante_Endereco.ITEM_ARMADURA;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
                DAO_Funcao.removerArquivo(diretorio, nome);
          }
     }
     
     public static Item encontrarItemGenerico(String nome) 
-              throws FileNotFoundException, ClassNotFoundException, IOException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          ClassNotFoundException, 
+                                                          IOException, 
+                                                       ArquivoInvalidoException{
         Item item = null;   
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_GENERICO;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_GENERICO;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
             item =(Item) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
         }
@@ -98,29 +117,38 @@ public class DAO_Item {
     }
     
     public static Arma_Corpo_A_Corpo encontrarArma_Corpo_A_Corpo(String nome)
-               throws FileNotFoundException,IOException, ClassNotFoundException, ArquivoInvalidoException{
+                                                throws FileNotFoundException,
+                                                       IOException, 
+                                                       ClassNotFoundException, 
+                                                       ArquivoInvalidoException{
             Arma_Corpo_A_Corpo acc = null;
             String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                    ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
             if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
-                acc =(Arma_Corpo_A_Corpo) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
+                acc =(Arma_Corpo_A_Corpo) 
+                               DAO_Funcao.carregarArquivoOpera(diretorio, nome);
             }
             return acc;
     }
     
     public static Arma_A_Distancia encontrarArma_A_Distancia(String nome) 
-              throws FileNotFoundException, IOException, ClassNotFoundException, ArquivoInvalidoException{
+                                                   throws FileNotFoundException, 
+                                                          IOException, 
+                                                          ClassNotFoundException, 
+                                                       ArquivoInvalidoException{
         Arma_A_Distancia aad = null;
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                   ENDERECO_ITEM_ARMA_A_DISTANCIA;
         if(DAO_Funcao.arquivoOperaExiste(diretorio, nome)){
-                aad =(Arma_A_Distancia) DAO_Funcao.carregarArquivoOpera(diretorio, nome);
+                aad =(Arma_A_Distancia) 
+                               DAO_Funcao.carregarArquivoOpera(diretorio, nome);
         }
         return aad;
     }
-    public static Armadura encontrarArmadura(String nome) throws FileNotFoundException,
+    public static Armadura encontrarArmadura(String nome) 
+                                     throws FileNotFoundException,
                                             ClassNotFoundException, IOException,
-                                            ArquivoInvalidoException{
+                                                       ArquivoInvalidoException{
         Armadura a = null;
         String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+
                   ENDERECO_ITEM_ARMADURA;
@@ -130,31 +158,23 @@ public class DAO_Item {
         return a;
     }
     public static boolean ItemGenericoExiste(String item){
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_GENERICO;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_GENERICO;
         return DAO_Funcao.arquivoOperaExiste(diretorio, item);
     }
     public static boolean ArmaduraExiste(String armadura){
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMADURA;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_ARMADURA;
         return DAO_Funcao.arquivoOperaExiste(diretorio, armadura);
     }
-    /*public static boolean ArmaCorpo_A_CorpoExiste(String arma){
-        return ArmaCorpo_A_CorpoExiste(arma, "De_Fogo") || ArmaCorpo_A_CorpoExiste(arma, "Branca");
-    }*/
     public static boolean ArmaCorpo_A_CorpoExiste(String arma){
-        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
+        String diretorio = DAO_Jogo.getJogoRodando().getEndereco()
+                           +ENDERECO_ITEM_ARMA_CORPO_A_CORPO;
         return DAO_Funcao.arquivoOperaExiste(diretorio, arma);
     }
-    /*public static String tipoArmaCorpo_A_Corpo(String arma){
-        if(ArmaCorpo_A_CorpoExiste(arma, "Branca")){
-            return "Branca";
-        }
-        if(ArmaCorpo_A_CorpoExiste(arma,"De_Fogo")){
-            return "De_Fogo";
-        }
-        return "";
-    }*/
     public static boolean Arma_A_DistanciaExiste(String arma){
-        String diretorio= DAO_Jogo.getJogoRodando().getEndereco()+ENDERECO_ITEM_ARMA_A_DISTANCIA;
+        String diretorio= DAO_Jogo.getJogoRodando().getEndereco()
+                          +ENDERECO_ITEM_ARMA_A_DISTANCIA;
         return DAO_Funcao.arquivoOperaExiste(diretorio, arma);
     }
     
