@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import model.exception.ItemInvalidoException;
@@ -36,7 +32,7 @@ public class Armadura extends Item{
      * @throws ItemInvalidoException 
      */
     public Armadura(String nome, String descricao, int absorcao_Distancia,
-                    int absorcao_CorpoACorpo,int penalidade , char regiao_Do_Corpo,
+                    int absorcao_CorpoACorpo,int penalidade,char regiao_Do_Corpo,
                     boolean usando, int preco) throws ItemInvalidoException {
         super(nome, descricao, usando, preco);
         setAbsorcao_Distancia(absorcao_Distancia);

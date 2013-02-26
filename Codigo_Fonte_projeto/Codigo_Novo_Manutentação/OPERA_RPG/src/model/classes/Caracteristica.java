@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
 import java.io.Serializable;
@@ -30,7 +26,8 @@ public class Caracteristica  implements Serializable{
      * um numero inteiro e maior ou igual a zero(0)
      * @throws CaracteristicaInvalidaException 
      */
-    public Caracteristica(String nome, String descricao, String tipo, int custo) throws CaracteristicaInvalidaException {
+    public Caracteristica(String nome, String descricao, String tipo, int custo)
+                                        throws CaracteristicaInvalidaException {
         setNome(nome);
         setDescricao(descricao);
         setTipo(tipo);
@@ -67,8 +64,10 @@ public class Caracteristica  implements Serializable{
             Validar.validarPalavra(nome, true);
             this.nome = nome;
         } catch(PalavraInvalidaException e){
-            throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new CaracteristicaInvalidaException(
+                      "Nome de Caracteristica Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -88,13 +87,16 @@ public class Caracteristica  implements Serializable{
      * Alfa-Numericos (A-Z, a-z e 0-9)".
      * @throws CaracteristicaInvalidaException
      */
-    public void setDescricao(String descricao) throws CaracteristicaInvalidaException {
+    public void setDescricao(String descricao) 
+                                        throws CaracteristicaInvalidaException {
     	try{
             Validar.validarPalavra(descricao, true);
             this.descricao = descricao;
         } catch(PalavraInvalidaException e){
-            throw new CaracteristicaInvalidaException("Nome de Caracteristica Invalido."
-                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos (A-Z, a-z e 0-9)"
+            throw new CaracteristicaInvalidaException(
+                      "Nome de Caracteristica Invalido."
+                    + "\nO Nome deve receber apenas caracteres Alfa-Numericos "
+                    + "(A-Z, a-z e 0-9)"
                     + "\n" + e.getMessage());
         }
     }
@@ -134,23 +136,26 @@ public class Caracteristica  implements Serializable{
 
     /**
      * Altera os Modificadores da Caracteristica.
-     * @param modificador Vetor com os Valores dos Modificadores da Caracteristica. Todos
-     * os valores devem ser maiores ou iguais a zero(0).
+     * @param modificador Vetor com os Valores dos Modificadores da Caracteristica.
+     * Todos os valores devem ser maiores ou iguais a zero(0).
      * @throws CaracteristicaInvalidaException
      */
-    public void setModificador(int[] modificador) throws CaracteristicaInvalidaException {
+    public void setModificador(int[] modificador) 
+                                        throws CaracteristicaInvalidaException {
     	if(modificador == null){
             this.modificador = modificador;
         }else if(modificador.length == 8){
             for(int i = 0; i < modificador.length; i++){
                 if(modificador[i] < 0){
-                    throw new CaracteristicaInvalidaException("Modificador " + Constante_Atributo.ATRIBUTO[i]
+                    throw new CaracteristicaInvalidaException(
+                            "Modificador " + Constante_Atributo.ATRIBUTO[i]
                             + " Invalido, valor Abaixo de Zero(0)");
                 }
             }
             this.modificador = modificador;
         }else{
-            throw new CaracteristicaInvalidaException("O campo Modificadores deve receber apenas 8 modificadores."
+            throw new CaracteristicaInvalidaException(
+                    "O campo Modificadores deve receber apenas 8 modificadores."
                     + "\nForam recebidos: " + modificador.length);
         }
     }
@@ -173,7 +178,8 @@ public class Caracteristica  implements Serializable{
         if(custo >=0){
             this.custo = custo;
         }else{
-            throw new CaracteristicaInvalidaException("Custo de caracteristica deve ser maior que ou igual a 0");
+            throw new CaracteristicaInvalidaException(
+                     "Custo de caracteristica deve ser maior que ou igual a 0");
         }	       
         
     }

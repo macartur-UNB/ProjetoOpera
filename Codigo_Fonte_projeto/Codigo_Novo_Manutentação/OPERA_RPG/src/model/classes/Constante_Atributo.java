@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.classes;
 
-/**
- *
- * @author Luciano
- */
 public class Constante_Atributo {
     
     public static final String ATRIBUTO[] = {"Fisico", "Destreza", "Inteligencia"

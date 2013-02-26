@@ -1,13 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model.classes;
 
-/**
- *
- * @author Luciano
- */
 public class Constante_Endereco {
     
     public static final String FICHA = "\\Fichas";
@@ -30,8 +23,6 @@ public class Constante_Endereco {
     public static final String ITEM_ARMA = ITEM + "\\Armas";
     public static final String ITEM_ARMA_A_DISTANCIA = ITEM_ARMA + "\\Arma_A_Distancia";
     public static final String ITEM_ARMA_CORPO_A_CORPO = ITEM_ARMA + "\\Arma_Corpo_A_Corpo";
-    public static final String ITEM_ARMA_CORPO_A_CORPO_BRANCA = ITEM_ARMA_CORPO_A_CORPO + "\\Branca";
-    public static final String ITEM_ARMA_CORPO_A_CORPO_DE_FOGO = ITEM_ARMA_CORPO_A_CORPO + "\\De_Fogo";
     public static final String ITEM_ARMADURA = ITEM + "\\Armaduras";
     
     public static final String DADO = "\\Dados";
